@@ -1,0 +1,84 @@
+ARC AGENT TRUST — VALIDATOR DEEP FORENSICS v59
+
+Network: Arc Testnet
+Target Agent: 845265
+
+Validator:
+0xe18f822b5071553d62cf119ce57da6c1636f2524
+
+Registry:
+0x8004Cb1BF31DAf7788923b405b754f57acEB4272
+
+Latest block:
+59252933
+
+VALIDATOR ACCOUNT
+
+Contract:
+true
+
+Code bytes:
+209
+
+Native balance:
+20000000000000000000
+
+Transaction count:
+1
+
+TARGET VALIDATION
+
+Target request count:
+2
+
+Records read:
+2
+
+Validator target records:
+2
+
+Target ratio:
+100.00%
+
+RESPONSE BEHAVIOR
+
+Responses:
+1, 100
+
+1/100 observed:
+true
+
+100/100 observed:
+true
+
+Low -> High:
+true
+
+ACTIVITY CLASSIFICATION
+
+TARGET_VALIDATION_ACTIVITY_CONFIRMED
+
+SAFETY
+
+Trust established:
+false
+
+Fraud established:
+false
+
+Maliciousness established:
+false
+
+Manipulation established:
+false
+
+Automatic ALLOW:
+false
+
+Automatic BLOCK:
+false
+
+CONCLUSION
+
+Validator activity is supported by direct registry/account evidence.
+Activity alone is not proof of trust or maliciousness.

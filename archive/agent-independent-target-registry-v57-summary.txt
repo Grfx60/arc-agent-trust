@@ -1,0 +1,38 @@
+ARC AGENT TRUST — INDEPENDENT TARGET REGISTRY v57
+
+Network: Arc Testnet
+Target Agent: 845265
+
+Registry: 0x8004Cb1BF31DAf7788923b405b754f57acEB4272
+
+Latest block: 59252619
+
+Target validation records:
+2
+
+Unique target validators:
+1
+
+Target event matches:
+0
+
+Independent direct validators:
+0
+
+Independent event validators:
+0
+
+Independent target validators:
+0
+
+STATUS:
+NO_INDEPENDENT_TARGET_VALIDATION_ESTABLISHED
+
+CONCLUSION:
+No independent target validator evidence ESTABLISHED.
+
+IMPORTANT:
+Absence of independent validation is NOT proof of fraud or maliciousness.
+
+Automatic ALLOW: false
+Automatic BLOCK: false

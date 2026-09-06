@@ -1,0 +1,60 @@
+{
+  "version": "57",
+  "network": "Arc Testnet",
+  "targetAgent": "845265",
+  "registry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+  "rpc": "https://rpc.testnet.arc.network",
+  "latestBlock": "59252619",
+  "targetRecords": [
+    {
+      "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+      "validator": "0xE18F822B5071553D62Cf119CE57Da6C1636F2524",
+      "validatorNormalized": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "agentId": "845265",
+      "response": 1,
+      "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+      "tag": "identity",
+      "lastUpdate": "1783329698"
+    },
+    {
+      "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+      "validator": "0xE18F822B5071553D62Cf119CE57Da6C1636F2524",
+      "validatorNormalized": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "agentId": "845265",
+      "response": 100,
+      "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+      "tag": "identity",
+      "lastUpdate": "1787067640"
+    }
+  ],
+  "targetValidators": [
+    "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+  ],
+  "eventMatches": [],
+  "eventValidators": [],
+  "independentDirectValidators": [],
+  "independentEventValidators": [],
+  "independentTargetValidators": [],
+  "independentEvidence": [],
+  "independentFound": false,
+  "status": "NO_INDEPENDENT_TARGET_VALIDATION_ESTABLISHED",
+  "methodology": {
+    "existingKnownRequestsExcluded": true,
+    "knownProviderExcluded": true,
+    "targetOwnerExcluded": true,
+    "registryAddressExcluded": true,
+    "directGetterUsed": true,
+    "eventSearchUsed": true,
+    "eventSearchWindow": "58752619-59252619",
+    "eventSearchLimited": true,
+    "directGetterAuthoritative": true
+  },
+  "safety": {
+    "noIndependentEvidenceIsFraud": false,
+    "noIndependentEvidenceIsMaliciousness": false,
+    "validatorActivityIsTrustProof": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  },
+  "conclusion": "No independent validator associated with Agent 845265 was established from the direct target getter and the searched registry events."
+}

@@ -1,0 +1,81 @@
+ARC AGENT TRUST — DIRECT VALIDATION TIMELINE v58
+
+Network: Arc Testnet
+Target Agent: 845265
+
+Registry:
+0x8004Cb1BF31DAf7788923b405b754f57acEB4272
+
+Latest block:
+59252742
+
+Indexed request count:
+2
+
+Records successfully read:
+2
+
+Unique requests:
+2
+
+Unique validators:
+1
+
+Unique agents:
+1
+
+Unique tags:
+1
+
+Response transition:
+1 -> 100
+
+Timeline:
+CHRONOLOGICAL_ORDER_ESTABLISHED
+
+Time delta seconds:
+3737942
+
+Time delta hours:
+1038.3172222222222
+
+KEY CHECKS
+
+All Agent IDs match target:
+true
+
+Same validator:
+true
+
+Expected validator confirmed:
+true
+
+Requests distinct:
+true
+
+Identity tag only:
+true
+
+Chronological order:
+true
+
+INTERPRETATION
+
+Two distinct target validation records by the same validator are confirmed, with an observed chronological response transition.
+
+SAFETY
+
+Manipulation established:
+false
+
+Fraud established:
+false
+
+Maliciousness established:
+false
+
+Automatic ALLOW:
+false
+
+Automatic BLOCK:
+false

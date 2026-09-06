@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "4.6.0",
+  "engine": "DIRECT_VALIDATOR_REGISTRY_FORENSICS",
+  "generatedAt": "2026-08-27T09:41:12.334Z",
+  "network": "Arc Testnet",
+  "targetAgent": 845265,
+  "validationRegistry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+  "rpc": {
+    "chainId": "0x4cef52",
+    "latestBlock": "59088765",
+    "registryDeployed": true
+  },
+  "currentValidator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+  "providers": [
+    "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+  ],
+  "candidates": [
+    "0x6f17f1a69ce4cb1828ee95d6b4b426050d49e05e",
+    "0xb152c3b6436318ad340153f1d30c9bbb8634681a",
+    "0x415fb8814084bdbc7b6964620ba5be5939ad2333",
+    "0x9c6d75628bd6c18258ac1125f32dfbced59e8a1d",
+    "0xb3cf6b5a6aa8ed4e1309fd0631deb6cb06b7afca",
+    "0xbefef9cdcbebf78d1ede55ea37e33690938daea8",
+    "0x19762748a5e03dfe3dd9c4ddca6818d44f3c866c"
+  ],
+  "targetValidationRecords": [
+    {
+      "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+      "validatorAddress": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "agentId": "845265",
+      "response": 1,
+      "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+      "tag": "identity",
+      "lastUpdate": "1783329698",
+      "status": "RESPONDED"
+    },
+    {
+      "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+      "validatorAddress": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "agentId": "845265",
+      "response": 100,
+      "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+      "tag": "identity",
+      "lastUpdate": "1787067640",
+      "status": "RESPONDED"
+    }
+  ],
+  "actualTargetValidators": [
+    "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+  ],
+  "alternativeTargetValidators": [],
+  "targetLogs": [],
+  "validators": [
+    {
+      "validator": "0x6f17f1a69ce4cb1828ee95d6b4b426050d49e05e",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0xb152c3b6436318ad340153f1d30c9bbb8634681a",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0x415fb8814084bdbc7b6964620ba5be5939ad2333",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0x9c6d75628bd6c18258ac1125f32dfbced59e8a1d",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0xb3cf6b5a6aa8ed4e1309fd0631deb6cb06b7afca",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0xbefef9cdcbebf78d1ede55ea37e33690938daea8",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0x19762748a5e03dfe3dd9c4ddca6818d44f3c866c",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    }
+  ],
+  "independentCandidates": [
+    {
+      "validator": "0x6f17f1a69ce4cb1828ee95d6b4b426050d49e05e",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0xb152c3b6436318ad340153f1d30c9bbb8634681a",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0x415fb8814084bdbc7b6964620ba5be5939ad2333",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0x9c6d75628bd6c18258ac1125f32dfbced59e8a1d",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0xb3cf6b5a6aa8ed4e1309fd0631deb6cb06b7afca",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0xbefef9cdcbebf78d1ede55ea37e33690938daea8",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    },
+    {
+      "validator": "0x19762748a5e03dfe3dd9c4ddca6818d44f3c866c",
+      "registryEvents": 0,
+      "targetAgentEvidence": false,
+      "providerOverlap": false,
+      "independentFromKnownProvider": true
+    }
+  ],
+  "independentTargetValidators": [],
+  "v35_001": {
+    "task": "VALIDATOR_DIVERSITY",
+    "status": "CANDIDATES_CONFIRMED",
+    "nextAction": "SEEK_TARGET_VALIDATION"
+  },
+  "safety": {
+    "registryObservationIsNotFraud": true,
+    "candidateIsNotProof": true,
+    "validatorIsNotTrustProof": true,
+    "providerOverlapIsNotFraud": true,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

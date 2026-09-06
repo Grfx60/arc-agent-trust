@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ARC Agent Trust</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at top,
+                    #07182b 0%,
+                    #020b16 45%,
+                    #01060d 100%
+                );
+
+            color: #ffffff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            min-height: 100vh;
+        }
+
+        .container {
+            width: min(
+                1400px,
+                calc(100% - 48px)
+            );
+
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           HEADER
+        ========================================== */
+
+        header {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            padding:
+                28px
+                0
+                30px;
+        }
+
+        .brand {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 0 18px
+                    rgba(
+                        0,
+                        140,
+                        255,
+                        0.55
+                    )
+                );
+        }
+
+        .brand-title {
+            font-size: 38px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+        }
+
+        .brand-subtitle {
+            margin-top: 7px;
+
+            color: #7da8d3;
+
+            font-size: 16px;
+        }
+
+        .network {
+            padding:
+                12px
+                18px;
+
+            border:
+                1px solid
+                #21466c;
+
+            border-radius: 30px;
+
+            background:
+                rgba(
+                    4,
+                    18,
+                    34,
+                    0.8
+                );
+
+            color: #8bb8df;
+
+            font-size: 13px;
+
+            white-space: nowrap;
+        }
+
+        .network-dot {
+            display: inline-block;
+
+            width: 10px;
+            height: 10px;
+
+            margin-right: 8px;
+
+            border-radius: 50%;
+
+            background: #31e77c;
+
+            box-shadow:
+                0 0 12px
+                rgba(
+                    49,
+                    231,
+                    124,
+                    0.8
+                );
+        }
+
+        .network strong {
+            color: #35ed7f;
+        }
+
+        /* ==========================================
+           SEARCH
+        ========================================== */
+
+        .search-panel {
+            border:
+                1px solid
+                #1b456d;
+
+            border-radius: 18px;
+
+            background:
+                rgba(
+                    5,
+                    20,
+                    36,
+                    0.72
+                );
+
+            padding: 26px;
+
+            margin-bottom: 22px;
+        }
+
+        .search-title {
+            color: #dcecff;
+
+            font-size: 18px;
+
+            margin-bottom: 12px;
+        }
+
+        .search-row {
+            display: flex;
+
+            gap: 14px;
+        }
+
+        #agentInput {
+            flex: 1;
+
+            min-width: 0;
+
+            height: 62px;
+
+            padding:
+                0
+                20px;
+
+            border:
+                1px solid
+                #25557f;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            background:
+                #020b15;
+
+            color: #ffffff;
+
+            font-size: 19px;
+
+            font-weight: 700;
+        }
+
+        #agentInput:focus {
+            border-color: #13a8ff;
+
+            box-shadow:
+                0 0 0 2px
+                rgba(
+                    19,
+                    168,
+                    255,
+                    0.12
+                );
+        }
+
+        #analyzeButton {
+            height: 62px;
+
+            min-width: 155px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffd63b,
+                    #ffb900
+                );
+
+            color: #06101c;
+
+            font-size: 17px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.15s,
+                box-shadow 0.15s;
+        }
+
+        #analyzeButton:hover {
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    255,
+                    190,
+                    20,
+                    0.22
+                );
+        }
+
+        #analyzeButton:disabled {
+            opacity: 0.6;
+
+            cursor: wait;
+
+            transform: none;
+
+            box-shadow: none;
+        }
+
+        .browse-row {
+            display: flex;
+
+            justify-content: center;
+
+            margin-top: 16px;
+        }
+
+        #browseButton {
+            padding:
+                12px
+                25px;
+
+            border:
+                1px solid
+                #12649b;
+
+            border-radius: 11px;
+
+            background:
+                #061727;
+
+            color: #16b7ff;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        #browseButton:hover {
+            background: #09233a;
+        }
+
+        /* ==========================================
+           MESSAGE
+        ========================================== */
+
+        #message {
+            margin-bottom: 22px;
+        }
+
+        .loading {
+            padding: 45px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                #1a456c;
+
+            border-radius: 18px;
+
+            background:
+                rgba(
+                    5,
+                    20,
+                    36,
+                    0.75
+                );
+        }
+
+        .spinner {
+            width: 35px;
+            height: 35px;
+
+            margin:
+                0
+                auto
+                18px;
+
+            border:
+                3px solid
+                #17334f;
+
+            border-top-color:
+                #18adff;
+
+            border-radius: 50%;
+
+            animation:
+                spin
+                0.8s
+                linear
+                infinite;
+        }
+
+        @keyframes spin {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
+
+        .loading strong {
+            font-size: 19px;
+        }
+
+        .loading span {
+            display: block;
+
+            margin-top: 8px;
+
+            color: #759bc1;
+        }
+
+        .error {
+            padding: 25px;
+
+            border:
+                1px solid
+                #725313;
+
+            border-radius: 16px;
+
+            background:
+                rgba(
+                    36,
+                    24,
+                    5,
+                    0.85
+                );
+
+            color: #ffc52e;
+
+            text-align: center;
+        }
+
+        .error strong {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 19px;
+        }
+
+        /* ==========================================
+           LIVE RESULT
+        ========================================== */
+
+        .dashboard {
+            border:
+                1px solid
+                #173f65;
+
+            border-radius: 18px;
+
+            background:
+                rgba(
+                    3,
+                    14,
+                    26,
+                    0.82
+                );
+
+            padding: 26px;
+        }
+
+        .result-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding-bottom: 24px;
+
+            border-bottom:
+                1px solid
+                #163653;
+        }
+
+        .live-label {
+            color: #19b5ff;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 8px;
+        }
+
+        .agent-title {
+            margin: 0;
+
+            font-size: 30px;
+        }
+
+        .agent-network {
+            margin-top: 7px;
+
+            color: #759bc1;
+
+            font-size: 14px;
+        }
+
+        .decision {
+            padding:
+                13px
+                22px;
+
+            border-radius: 12px;
+
+            font-size: 21px;
+
+            font-weight: 900;
+        }
+
+        .decision-trust {
+            color: #36ed7f;
+
+            background:
+                rgba(
+                    20,
+                    100,
+                    55,
+                    0.16
+                );
+
+            border:
+                1px solid
+                #217c4c;
+        }
+
+        .decision-review {
+            color: #ffc52e;
+
+            background:
+                rgba(
+                    120,
+                    90,
+                    10,
+                    0.16
+                );
+
+            border:
+                1px solid
+                #806314;
+        }
+
+        .decision-risk {
+            color: #ff5555;
+
+            background:
+                rgba(
+                    130,
+                    20,
+                    20,
+                    0.16
+                );
+
+            border:
+                1px solid
+                #7d2828;
+        }
+
+        /* ==========================================
+           SCORE CARDS
+        ========================================== */
+
+        .score-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap: 14px;
+
+            margin-top: 22px;
+        }
+
+        .score-card {
+            padding: 22px;
+
+            border:
+                1px solid
+                #1a456b;
+
+            border-radius: 13px;
+
+            background:
+                #04111e;
+        }
+
+        .score-label {
+            color: #759cc3;
+
+            font-size: 11px;
+
+            letter-spacing: 1.3px;
+
+            margin-bottom: 10px;
+        }
+
+        .score-value {
+            font-size: 31px;
+
+            font-weight: 900;
+        }
+
+        .trust-value {
+            color: #42e77e;
+        }
+
+        .risk-value {
+            color: #ffb71b;
+        }
+
+        .confidence-value {
+            color: #219fff;
+        }
+
+        .coverage-value {
+            color: #42e77e;
+        }
+
+        /* ==========================================
+           EVIDENCE
+        ========================================== */
+
+        .section-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    1fr
+                );
+
+            gap: 15px;
+
+            margin-top: 18px;
+        }
+
+        .panel {
+            padding: 22px;
+
+            border:
+                1px solid
+                #173f64;
+
+            border-radius: 14px;
+
+            background:
+                #04111e;
+        }
+
+        .panel-title {
+            margin-bottom: 18px;
+
+            font-size: 16px;
+
+            font-weight: 800;
+        }
+
+        .evidence-row {
+            margin-bottom: 15px;
+        }
+
+        .evidence-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+
+            color: #8db4d8;
+
+            font-size: 12px;
+        }
+
+        .bar {
+            height: 6px;
+
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            background:
+                #13283d;
+        }
+
+        .bar-fill {
+            height: 100%;
+
+            border-radius: 10px;
+
+            background:
+                #31df76;
+        }
+
+        .bar-yellow {
+            background:
+                #ffbd25;
+        }
+
+        .bar-orange {
+            background:
+                #ff7c2b;
+        }
+
+        .bar-red {
+            background:
+                #ff4c4c;
+        }
+
+        /* ==========================================
+           STATUS
+        ========================================== */
+
+        .status-list {
+            display: grid;
+
+            gap: 9px;
+        }
+
+        .status-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding:
+                12px
+                14px;
+
+            border:
+                1px solid
+                #173a5b;
+
+            border-radius: 8px;
+
+            background:
+                #061321;
+        }
+
+        .status-name {
+            color: #8eb6db;
+
+            font-size: 13px;
+        }
+
+        .status-value {
+            color: #39e97e;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+        .status-unknown {
+            color: #ffc52e;
+        }
+
+        .status-negative {
+            color: #ff5757;
+        }
+
+        /* ==========================================
+           SAFETY
+        ========================================== */
+
+        .safety {
+            margin-top: 18px;
+        }
+
+        /* ==========================================
+           INFO
+        ========================================== */
+
+        .info {
+            margin-top: 18px;
+
+            padding: 20px;
+
+            border-left:
+                3px solid
+                #18adff;
+
+            border-radius:
+                0
+                10px
+                10px
+                0;
+
+            background:
+                rgba(
+                    8,
+                    35,
+                    57,
+                    0.55
+                );
+        }
+
+        .info strong {
+            color: #ffffff;
+        }
+
+        .info p {
+            margin:
+                8px
+                0
+                0;
+
+            color: #82a8ce;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* ==========================================
+           BROWSE
+        ========================================== */
+
+        .browse-panel {
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 24px;
+
+            border:
+                1px solid
+                #17436a;
+
+            border-radius: 16px;
+
+            background:
+                #04111e;
+        }
+
+        .browse-panel.visible {
+            display: block;
+        }
+
+        .browse-title {
+            margin: 0 0 18px;
+
+            font-size: 20px;
+        }
+
+        .agent-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    1fr
+                );
+
+            gap: 10px;
+
+            max-height: 500px;
+
+            overflow-y: auto;
+        }
+
+        .agent-item {
+            padding: 15px;
+
+            border:
+                1px solid
+                #173e61;
+
+            border-radius: 10px;
+
+            background:
+                #061321;
+
+            cursor: pointer;
+        }
+
+        .agent-item:hover {
+            border-color:
+                #1baaff;
+
+            background:
+                #092039;
+        }
+
+        .agent-id {
+            color: #19b5ff;
+
+            font-weight: 800;
+        }
+
+        .agent-name {
+            margin-top: 5px;
+
+            color: #ffffff;
+
+            font-size: 13px;
+        }
+
+        .agent-owner {
+            margin-top: 5px;
+
+            color: #6489ae;
+
+            font-size: 11px;
+        }
+
+        /* ==========================================
+           FOOTER
+        ========================================== */
+
+        footer {
+            padding:
+                28px
+                0
+                35px;
+
+            text-align: center;
+
+            color: #456b91;
+
+            font-size: 12px;
+        }
+
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
+
+        @media (
+            max-width: 900px
+        ) {
+
+            .score-grid {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+            }
+
+            .section-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .agent-list {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+        @media (
+            max-width: 650px
+        ) {
+
+            .container {
+                width:
+                    calc(
+                        100% - 24px
+                    );
+            }
+
+            header {
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+            }
+
+            .network {
+                align-self:
+                    flex-start;
+            }
+
+            .brand-title {
+                font-size: 28px;
+            }
+
+            .logo {
+                width: 70px;
+                height: 70px;
+            }
+
+            .search-row {
+                flex-direction:
+                    column;
+            }
+
+            #analyzeButton {
+                width: 100%;
+            }
+
+            .score-grid {
+                grid-template-columns:
+                    1fr;
+            }
+
+            .result-header {
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
+
+    <header>
+
+        <div class="brand">
+
+            <img
+                src="/logo.png"
+                class="logo"
+                alt="ARC Agent Trust"
+            >
+
+            <div>
+
+                <div class="brand-title">
+                    ARC Agent Trust
+                </div>
+
+                <div class="brand-subtitle">
+                    Evidence-based agent trust analysis
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="network">
+
+            <span class="network-dot"></span>
+
+            <strong>
+                ARC TESTNET
+            </strong>
+
+            &nbsp;•&nbsp;
+
+            LOCAL ENGINE
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         SEARCH
+    ========================================== -->
+
+    <section class="search-panel">
+
+        <div class="search-title">
+            Analyze an Agent
+        </div>
+
+
+        <div class="search-row">
+
+            <input
+                id="agentInput"
+                value="887060"
+                placeholder="Enter Agent ID"
+                autocomplete="off"
+            >
+
+
+            <button
+                id="analyzeButton"
+                onclick="analyzeAgent()"
+            >
+                🛡 Analyze
+            </button>
+
+        </div>
+
+
+        <div class="browse-row">
+
+            <button
+                id="browseButton"
+                onclick="browseAgents()"
+            >
+                🔎 Browse Agents
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         BROWSE AGENTS
+    ========================================== -->
+
+    <section
+        id="browsePanel"
+        class="browse-panel"
+    >
+
+        <h3 class="browse-title">
+            Browse Arc Testnet Agents
+        </h3>
+
+        <div
+            id="agentList"
+            class="agent-list"
+        ></div>
+
+    </section>
+
+
+    <!-- ==========================================
+         RESULT
+    ========================================== -->
+
+    <div id="message"></div>
+
+
+</div>
+
+
+<footer>
+
+    ARC Agent Trust
+    •
+    Evidence-based analysis
+    •
+    Arc Testnet
+
+</footer>
+
+
+<script>
+
+/*
+==================================================
+CONFIGURATION
+==================================================
+*/
+
+/*
+==================================================
+ENTER KEY
+==================================================
+*/
+
+document
+    .getElementById("agentInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                analyzeAgent();
+
+            }
+
+        }
+    );
+
+
+/*
+==================================================
+ANALYZE AGENT
+==================================================
+*/
+
+async function analyzeAgent() {
+
+    const input =
+        document.getElementById(
+            "agentInput"
+        );
+
+    const button =
+        document.getElementById(
+            "analyzeButton"
+        );
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+    const agentId =
+        input.value.trim();
+
+
+    if (!agentId) {
+
+        showError(
+            "Please enter an Agent ID."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !/^\d+$/.test(agentId)
+    ) {
+
+        showError(
+            "Agent ID must contain numbers only."
+        );
+
+        return;
+
+    }
+
+
+    button.disabled = true;
+
+
+    message.innerHTML = `
+
+        <div class="loading">
+
+            <div class="spinner"></div>
+
+            <strong>
+                Analyzing Agent #${agentId}
+            </strong>
+
+            <span>
+                Reading live evidence from Arc Testnet...
+            </span>
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                 `/api/live-agent?id=${encodeURIComponent(agentId)}`,
+                 {
+                     method: "GET",
+                     cache: "no-store"
+            }
+       );
+
+
+        let data = {};
+
+        try {
+
+            data =
+                await response.json();
+
+        } catch {
+
+            data = {};
+
+        }
+
+
+        if (!response.ok) {
+
+            showError(
+                data.details ||
+                data.error ||
+                "Live analysis failed."
+            );
+
+            return;
+
+        }
+
+
+        renderResult(
+            data
+        );
+
+    } catch (error) {
+
+        showError(
+            "Could not connect to the Live Engine on port 3100. Make sure the V67 Live API is running."
+        );
+
+    } finally {
+
+        button.disabled = false;
+
+    }
+
+}
+
+
+/*
+==================================================
+ERROR
+==================================================
+*/
+
+function showError(text) {
+
+    document
+        .getElementById("message")
+        .innerHTML = `
+
+            <div class="error">
+
+                <strong>
+                    Live Analysis Failed
+                </strong>
+
+                ${escapeHtml(text)}
+
+            </div>
+
+        `;
+
+}
+
+
+/*
+==================================================
+RESULT
+==================================================
+*/
+
+function renderResult(data) {
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    const agentId =
+        data.agentId ||
+        data.agent ||
+        "Unknown";
+
+
+    const decision =
+        data.decision ||
+        "REVIEW";
+
+
+    const trust =
+        getNumber(
+            data.trustScore,
+            data.trust?.score,
+            data.trust,
+            0
+        );
+
+
+    const risk =
+        getNumber(
+            data.riskScore,
+            data.risk?.score,
+            data.risk,
+            100
+        );
+
+
+    const confidence =
+        getNumber(
+            data.confidence,
+            0
+        );
+
+
+    const coverage =
+        getNumber(
+            data.evidenceCoverage,
+            data.coverage,
+            0
+        );
+
+
+    const activity =
+        data.activityRecords ??
+        data.activity ??
+        data.activityCount ??
+        "—";
+
+
+    const logs =
+        data.logRecords ??
+        data.logs ??
+        data.logCount ??
+        "—";
+
+
+    let decisionClass =
+        "decision-review";
+
+
+    if (
+        decision === "TRUST"
+    ) {
+
+        decisionClass =
+            "decision-trust";
+
+    }
+
+
+    if (
+        decision === "HIGH_RISK"
+    ) {
+
+        decisionClass =
+            "decision-risk";
+
+    }
+
+
+    const identity =
+        normalizeStatus(
+            data.identity
+        );
+
+
+    const metadata =
+        normalizeStatus(
+            data.metadata
+        );
+
+
+    const arcscan =
+        normalizeStatus(
+            data.arcscan
+        );
+
+
+    message.innerHTML = `
+
+        <section class="dashboard">
+
+
+            <!-- HEADER -->
+
+            <div class="result-header">
+
+                <div>
+
+                    <div class="live-label">
+                        LIVE ANALYSIS
+                    </div>
+
+                    <h2 class="agent-title">
+                        Agent #${escapeHtml(agentId)}
+                    </h2>
+
+                    <div class="agent-network">
+                        Arc Testnet
+                        •
+                        Live Evidence Engine
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="decision ${decisionClass}"
+                >
+                    ${escapeHtml(decision)}
+                </div>
+
+            </div>
+
+
+            <!-- SCORES -->
+
+            <div class="score-grid">
+
+
+                <div class="score-card">
+
+                    <div class="score-label">
+                        TRUST SCORE
+                    </div>
+
+                    <div class="score-value trust-value">
+                        ${trust}/100
+                    </div>
+
+                </div>
+
+
+                <div class="score-card">
+
+                    <div class="score-label">
+                        RISK SCORE
+                    </div>
+
+                    <div class="score-value risk-value">
+                        ${risk}/100
+                    </div>
+
+                </div>
+
+
+                <div class="score-card">
+
+                    <div class="score-label">
+                        CONFIDENCE
+                    </div>
+
+                    <div class="score-value confidence-value">
+                        ${confidence}/100
+                    </div>
+
+                </div>
+
+
+                <div class="score-card">
+
+                    <div class="score-label">
+                        EVIDENCE COVERAGE
+                    </div>
+
+                    <div class="score-value coverage-value">
+                        ${coverage}%
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EVIDENCE -->
+
+            <div class="section-grid">
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        Evidence Status
+                    </div>
+
+
+                    ${statusRow(
+                        "Identity",
+                        identity
+                    )}
+
+                    ${statusRow(
+                        "Metadata",
+                        metadata
+                    )}
+
+                    ${statusRow(
+                        "Arcscan",
+                        arcscan
+                    )}
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        On-chain Activity
+                    </div>
+
+
+                    ${statusRow(
+                        "Activity records",
+                        activity
+                    )}
+
+                    ${statusRow(
+                        "Log records",
+                        logs
+                    )}
+
+                    ${statusRow(
+                        "Evidence coverage",
+                        coverage + "%"
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <!-- EVIDENCE BARS -->
+
+            <div class="section-grid">
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        Trust Overview
+                    </div>
+
+
+                    ${bar(
+                        "Trust",
+                        trust,
+                        "bar-fill"
+                    )}
+
+                    ${bar(
+                        "Confidence",
+                        confidence,
+                        "bar-fill"
+                    )}
+
+                    ${bar(
+                        "Evidence Coverage",
+                        coverage,
+                        "bar-fill"
+                    )}
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        Risk Overview
+                    </div>
+
+
+                    ${bar(
+                        "Risk",
+                        risk,
+                        "bar-fill bar-red"
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <!-- SAFETY -->
+
+            <div class="panel safety">
+
+                <div class="panel-title">
+                    Safety
+                </div>
+
+
+                ${statusRow(
+                    "Fraud",
+                    getSafety(
+                        data,
+                        "fraud"
+                    )
+                )}
+
+                ${statusRow(
+                    "Maliciousness",
+                    getSafety(
+                        data,
+                        "maliciousness"
+                    )
+                )}
+
+                ${statusRow(
+                    "Manipulation",
+                    getSafety(
+                        data,
+                        "manipulation"
+                    )
+                )}
+
+                ${statusRow(
+                    "Automatic ALLOW",
+                    getSafety(
+                        data,
+                        "automaticAllow"
+                    )
+                )}
+
+                ${statusRow(
+                    "Automatic BLOCK",
+                    getSafety(
+                        data,
+                        "automaticBlock"
+                    )
+                )}
+
+            </div>
+
+
+            <!-- INFO -->
+
+            <div class="info">
+
+                <strong>
+                    Live evidence analysis completed.
+                </strong>
+
+                <p>
+                    This assessment was generated
+                    from the current Arc Testnet
+                    evidence available to the
+                    ARC Agent Trust engine.
+                    A TRUST result does not mean
+                    that an agent is guaranteed
+                    to be safe.
+                </p>
+
+            </div>
+
+
+        </section>
+
+    `;
+
+}
+
+
+/*
+==================================================
+STATUS ROW
+==================================================
+*/
+
+function statusRow(
+    name,
+    value
+) {
+
+    return `
+
+        <div class="status-row">
+
+            <span class="status-name">
+                ${escapeHtml(name)}
+            </span>
+
+            <span class="status-value">
+                ${escapeHtml(
+                    String(value)
+                )}
+            </span>
+
+        </div>
+
+    `;
+
+}
+
+
+/*
+==================================================
+BAR
+==================================================
+*/
+
+function bar(
+    name,
+    value,
+    className
+) {
+
+    const safeValue =
+        Math.max(
+            0,
+            Math.min(
+                100,
+                Number(value) || 0
+            )
+        );
+
+
+    return `
+
+        <div class="evidence-row">
+
+            <div class="evidence-top">
+
+                <span>
+                    ${escapeHtml(name)}
+                </span>
+
+                <strong>
+                    ${safeValue}/100
+                </strong>
+
+            </div>
+
+            <div class="bar">
+
+                <div
+                    class="${className}"
+                    style="
+                        width:${safeValue}%;
+                    "
+                ></div>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/*
+==================================================
+STATUS NORMALIZER
+==================================================
+*/
+
+function normalizeStatus(
+    value
+) {
+
+    if (
+        value === "CONFIRMED" ||
+        value === "RESOLVED" ||
+        value === true
+    ) {
+
+        return "✓ CONFIRMED";
+
+    }
+
+
+    if (
+        value === "UNKNOWN" ||
+        value === "UNAVAILABLE" ||
+        value === null ||
+        value === undefined
+    ) {
+
+        return "? UNKNOWN";
+
+    }
+
+
+    return String(
+        value
+    );
+
+}
+
+
+/*
+==================================================
+SAFETY
+==================================================
+*/
+
+function getSafety(
+    data,
+    key
+) {
+
+    const safety =
+        data.safety ||
+        {};
+
+
+    const value =
+        safety[key] ??
+        data[key];
+
+
+    if (
+        value === undefined ||
+        value === null
+    ) {
+
+        return "NOT ESTABLISHED";
+
+    }
+
+
+    if (
+        value === false
+    ) {
+
+        return "NOT ESTABLISHED";
+
+    }
+
+
+    if (
+        value === true
+    ) {
+
+        return "ESTABLISHED";
+
+    }
+
+
+    return String(
+        value
+    ).toUpperCase();
+
+}
+
+
+/*
+==================================================
+NUMBER HELPER
+==================================================
+*/
+
+function getNumber(
+    ...values
+) {
+
+    for (
+        const value of values
+    ) {
+
+        if (
+            value !== undefined &&
+            value !== null &&
+            value !== "" &&
+            !Number.isNaN(
+                Number(value)
+            )
+        ) {
+
+            return Number(value);
+
+        }
+
+    }
+
+    return 0;
+
+}
+
+
+/*
+==================================================
+BROWSE AGENTS
+==================================================
+*/
+
+async function browseAgents() {
+
+    const panel =
+        document.getElementById(
+            "browsePanel"
+        );
+
+    const list =
+        document.getElementById(
+            "agentList"
+        );
+
+
+    if (
+        panel.classList.contains(
+            "visible"
+        )
+    ) {
+
+        panel.classList.remove(
+            "visible"
+        );
+
+        return;
+
+    }
+
+
+    panel.classList.add(
+        "visible"
+    );
+
+
+    list.innerHTML = `
+
+        <div class="loading">
+
+            <div class="spinner"></div>
+
+            Loading Arc Testnet agents...
+
+        </div>
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/agents",
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                "Could not load agents."
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        const agents =
+            Array.isArray(data)
+                ? data
+                : data.agents || [];
+
+
+        if (
+            agents.length === 0
+        ) {
+
+            list.innerHTML = `
+
+                <div class="error">
+
+                    No agents available.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        list.innerHTML =
+            agents
+                .map(
+                    agent => `
+
+                        <div
+                            class="agent-item"
+                            onclick="
+                                selectAgent(
+                                    '${escapeHtml(
+                                        String(
+                                            agent.agentId ||
+                                            ""
+                                        )
+                                    )}'
+                                )
+                            "
+                        >
+
+                            <div class="agent-id">
+
+                                #${escapeHtml(
+                                    String(
+                                        agent.agentId ||
+                                        ""
+                                    )
+                                )}
+
+                            </div>
+
+
+                            <div class="agent-name">
+
+                                ${escapeHtml(
+                                    agent.name ||
+                                    "Unnamed Agent"
+                                )}
+
+                            </div>
+
+
+                            <div class="agent-owner">
+
+                                ${
+                                    agent.owner
+                                    ? escapeHtml(
+                                        agent.owner
+                                    )
+                                    : "Owner unavailable"
+                                }
+
+                            </div>
+
+                        </div>
+
+                    `
+                )
+                .join("");
+
+
+    } catch (error) {
+
+        list.innerHTML = `
+
+            <div class="error">
+
+                <strong>
+                    Browse Agents unavailable
+                </strong>
+
+                <br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/*
+==================================================
+SELECT AGENT
+==================================================
+*/
+
+function selectAgent(
+    agentId
+) {
+
+    document
+        .getElementById(
+            "agentInput"
+        )
+        .value =
+        agentId;
+
+
+    document
+        .getElementById(
+            "browsePanel"
+        )
+        .classList.remove(
+            "visible"
+        );
+
+
+    analyzeAgent();
+
+}
+
+
+/*
+==================================================
+HTML ESCAPE
+==================================================
+*/
+
+function escapeHtml(
+    value
+) {
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+</body>
+
+</html>

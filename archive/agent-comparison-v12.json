@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.2",
+  "generatedAt": "2026-08-24T19:26:10.633Z",
+  "requestedAgents": [
+    "845265"
+  ],
+  "validAgents": 1,
+  "unavailableAgents": [],
+  "ranking": [
+    {
+      "rank": 1,
+      "agentId": "845265",
+      "comparisonRank": 43,
+      "evidenceCoverage": 90,
+      "independence": "LOW",
+      "quality": "MEDIUM",
+      "graphRisk": "HIGH",
+      "graphConsistency": "CONSISTENT",
+      "temporalAssessment": "CHANGED",
+      "temporalCoverage": "BASIC",
+      "decision": "REVIEW"
+    }
+  ],
+  "decisionDistribution": {
+    "allow": 0,
+    "review": 1,
+    "block": 0
+  }
+}

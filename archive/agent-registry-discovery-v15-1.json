@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.5.1",
+  "network": "Arc Testnet",
+  "identityRegistry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+  "generatedAt": "2026-08-25T19:22:18.286Z",
+  "currentBlock": "58819232",
+  "testAgent": 845265,
+  "knownAgentVerified": true,
+  "discoveryCapability": "DIRECT_IDENTITY_READ",
+  "tests": {
+    "ownerOf": {
+      "status": "OK",
+      "value": "0xBB30e40F0887b060e9339f6541E29AfA5A3A9dBb"
+    },
+    "tokenURI": {
+      "status": "OK",
+      "value": "ipfs://bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei"
+    },
+    "getAgentURI": {
+      "status": "ERROR",
+      "error": "The contract function \"getAgentURI\" reverted."
+    },
+    "agentWallet": {
+      "status": "OK",
+      "value": "0xbb30e40f0887b060e9339f6541e29afa5a3a9dbb"
+    },
+    "balanceOf": {
+      "status": "OK",
+      "value": "1"
+    }
+  }
+}

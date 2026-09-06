@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "timestamp": "2026-08-29T18:24:58.314Z",
+  "agentId": "845265",
+  "assessment": {
+    "decision": "REVIEW",
+    "decisionReasons": [
+      "Insufficient evidence for immediate allow decision."
+    ],
+    "confidence": {
+      "evidence": 71,
+      "independence": 55
+    },
+    "risk": {
+      "observed": 17.123287671232877,
+      "uncertainty": 18
+    }
+  },
+  "evidence": {
+    "identity": {
+      "present": true,
+      "owner": true,
+      "metadata": true
+    },
+    "reputation": {
+      "totalFeedbacks": 3,
+      "activeFeedbacks": 3,
+      "revokedFeedbacks": 0,
+      "quality": 33.3
+    },
+    "validation": {
+      "totalRecords": 2,
+      "uniqueValidators": 1,
+      "quality": 50
+    },
+    "independence": {
+      "reputationActors": 2,
+      "validators": 1,
+      "overlappingActors": 1,
+      "score": 55,
+      "level": "MEDIUM"
+    }
+  },
+  "signals": {
+    "positive": 4,
+    "risk": 1,
+    "uncertainty": 3,
+    "details": {
+      "positive": [
+        {
+          "code": "IDENTITY_PRESENT",
+          "message": "On-chain identity is present."
+        },
+        {
+          "code": "REPUTATION_PRESENT",
+          "message": "Active reputation evidence exists."
+        },
+        {
+          "code": "SEMANTICS_UNDERSTOOD",
+          "message": "Reputation semantics are understood."
+        },
+        {
+          "code": "VALIDATION_PRESENT",
+          "message": "Validation evidence exists."
+        }
+      ],
+      "risk": [
+        {
+          "code": "ACTOR_OVERLAP",
+          "weight": 25,
+          "message": "The same actor appears as reputation provider and validator."
+        }
+      ],
+      "uncertainty": [
+        {
+          "code": "VALIDATION_SINGLE_PROVIDER",
+          "weight": 8,
+          "message": "Only one unique validator is present."
+        },
+        {
+          "code": "VALIDATION_CHANGED",
+          "weight": 5,
+          "message": "Validation responses changed over time."
+        },
+        {
+          "code": "REVIEWER_COVERAGE_UNKNOWN",
+          "weight": 5,
+          "message": "Historical reviewer coverage is unknown."
+        }
+      ]
+    }
+  }
+}

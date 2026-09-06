@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "4.2",
+  "engine": "METADATA_INDEPENDENCE_RECOVERY",
+  "generatedAt": "2026-08-27T09:13:26.693Z",
+  "agent": "845265",
+  "targetURI": "ipfs://bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei",
+  "cid": "bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei",
+  "sourceAnalysis": {
+    "v19": true,
+    "v20": true,
+    "v25": true,
+    "matchingAgents": 94,
+    "sharedOwners": 14
+  },
+  "retrieval": {
+    "gateways": [
+      {
+        "gateway": "ipfs.io",
+        "url": "https://ipfs.io/ipfs/bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei",
+        "success": false,
+        "status": 0,
+        "error": "TIMEOUT",
+        "contentLength": 0,
+        "validJSON": false,
+        "metadata": null,
+        "contentHash": null
+      },
+      {
+        "gateway": "dweb.link",
+        "url": "https://dweb.link/ipfs/bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei",
+        "success": true,
+        "status": 200,
+        "error": null,
+        "contentLength": 44319,
+        "validJSON": false,
+        "metadata": null,
+        "contentHash": "91af54f5"
+      },
+      {
+        "gateway": "cloudflare-ipfs",
+        "url": "https://cloudflare-ipfs.com/ipfs/bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei",
+        "success": false,
+        "status": 0,
+        "error": "fetch failed",
+        "contentLength": 0,
+        "validJSON": false,
+        "metadata": null,
+        "contentHash": null
+      },
+      {
+        "gateway": "w3s.link",
+        "url": "https://bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei.ipfs.w3s.link",
+        "success": true,
+        "status": 200,
+        "error": null,
+        "contentLength": 44319,
+        "validJSON": false,
+        "metadata": null,
+        "contentHash": "91af54f5"
+      }
+    ],
+    "successful": 2,
+    "validJSON": 0,
+    "uniqueContentHashes": 0,
+    "status": "ACCESSIBLE_INVALID_JSON",
+    "contentConsistency": "NO_ACCESSIBLE_JSON"
+  },
+  "agentSpecificity": {
+    "containsAgentId": false,
+    "containsTargetAgentId": false,
+    "containsOwner": false,
+    "containsTargetOwner": false,
+    "containsName": false,
+    "containsDescription": false,
+    "fields": []
+  },
+  "sharedURI": {
+    "agents": 94,
+    "owners": 14,
+    "classification": "LARGE_CROSS_OWNER_SHARED_URI"
+  },
+  "assessment": {
+    "metadataQuality": 20,
+    "metadataIndependence": 0,
+    "retrievalStatus": "ACCESSIBLE_INVALID_JSON",
+    "v35_003_METADATA_RETRIEVAL": "OPEN",
+    "v35_004_METADATA_INDEPENDENCE": "OPEN"
+  },
+  "interpretation": {
+    "inaccessibleMetadataIsNotFraud": true,
+    "sharedURIIsNotFraud": true,
+    "sharedURIDoesNotProveCollusion": true,
+    "templateMetadataMayBeLegitimate": true,
+    "agentSpecificMetadataWouldIncreaseIndependence": true,
+    "noMaliciousnessEstablished": true
+  },
+  "safety": {
+    "automaticAllow": false,
+    "automaticBlock": false,
+    "fraudEstablished": false,
+    "maliciousnessEstablished": false
+  }
+}

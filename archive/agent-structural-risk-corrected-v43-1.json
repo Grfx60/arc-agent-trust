@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "4.3.1",
+  "engine": "STRUCTURAL_RISK_CORRECTOR",
+  "generatedAt": "2026-08-27T09:16:49.871Z",
+  "agent": "845265",
+  "sourceFiles": {
+    "V24": {
+      "file": "agent-graph-component-v24.json",
+      "loaded": true
+    },
+    "V25": {
+      "file": "agent-component-forensics-v25.json",
+      "loaded": true
+    },
+    "V26": {
+      "file": "agent-behavioral-profile-v26.json",
+      "loaded": true
+    },
+    "V27": {
+      "file": "agent-anomaly-detection-v27.json",
+      "loaded": true
+    },
+    "V29": {
+      "file": "agent-risk-correlation-v29.json",
+      "loaded": true
+    },
+    "V32": {
+      "file": "agent-evidence-calibration-v32.json",
+      "loaded": true
+    },
+    "V42": {
+      "file": "agent-metadata-independence-v42.json",
+      "loaded": true
+    }
+  },
+  "recoveredData": {
+    "componentId": 29,
+    "componentNodes": 5025,
+    "componentEdges": 12780,
+    "componentAgents": 0,
+    "componentOwners": 0,
+    "componentURIs": 3,
+    "degree": 98,
+    "density": 0.9442577030812325,
+    "ownerAgents": 845265,
+    "uriAgents": 94,
+    "uriOwners": 14,
+    "crossOwnerURI": [
+      {
+        "uri": "ipfs://bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei",
+        "agentCount": 94,
+        "ownerCount": 14,
+        "owners": [
+          "0x31a20be14d9f7479cac5763ca9c25c971b17bb93",
+          "0x14e1db64642bdda4ba2180cf918f6bd67ae0407b",
+          "0x4c06621fe96acc5ca9f8ecd5ce134b392e3d1ad6",
+          "0x8b3657e0a27bccd0d93c73de19ee1471923ea03d",
+          "0xb9ba5f085148ed18c8155cc8f00a4fbd4f67ab2b",
+          "0xb6d6dc7d325f2479fbb7ee0a42fc6230ac25b11f",
+          "0x10149142ba352e37d2225b12f47fe306a8cd5250",
+          "0xbb30e40f0887b060e9339f6541e29afa5a3a9dbb",
+          "0x3a730f41d0fae91f95fd1905beb9ddfb48e53a99",
+          "0x933c3a66550d7291b69e31dfe72ef2d3906e6de5",
+          "0x88b67e2a29511477659b30dfc881546518bcff30",
+          "0x16ad3a6f473ba57cd944d461e48a327802b63bfa",
+          "0xd91435e77cb404c5b11753a30f132fa1b6adf8ce",
+          "0x22bf979b0cd0d2ab41b742d42f89d86fbf174948"
+        ]
+      },
+      {
+        "uri": "ipfs://bafkreibarcagentmetadata",
+        "agentCount": 4,
+        "ownerCount": 2,
+        "owners": [
+          "0xdd369e4aff8a3b20921203bc1397c07ee52190ac",
+          "0x8b3657e0a27bccd0d93c73de19ee1471923ea03d"
+        ]
+      }
+    ],
+    "anomalyScore": 0,
+    "anomalyClassification": "HIGH_ANOMALY",
+    "correlatedRisk": 0,
+    "riskClassification": null,
+    "structuralRiskV32": 0,
+    "metadataSharedAgents": 94,
+    "metadataSharedOwners": 14,
+    "metadataClassification": "LARGE_CROSS_OWNER_SHARED_URI"
+  },
+  "validation": {
+    "expected": {
+      "componentAgents": 102,
+      "componentOwners": 15,
+      "componentURIs": 3,
+      "componentEdges": 6742,
+      "degree": 95,
+      "density": 0.9442577030812325,
+      "anomaly": 65,
+      "correlatedRisk": 70
+    },
+    "checks": {
+      "componentAgents": false,
+      "componentOwners": false,
+      "componentURIs": true,
+      "componentEdges": false,
+      "degree": false,
+      "density": true,
+      "anomaly": false,
+      "correlatedRisk": false
+    },
+    "recoveredCount": 2,
+    "passed": false
+  },
+  "signals": [
+    {
+      "id": "S02",
+      "type": "HIGH_COMPONENT_DENSITY",
+      "scope": "CLUSTER_WIDE",
+      "value": 0.9442577030812325
+    },
+    {
+      "id": "S03",
+      "type": "HIGH_AGENT_DEGREE",
+      "scope": "AGENT_SPECIFIC_CANDIDATE",
+      "value": 98
+    },
+    {
+      "id": "S04",
+      "type": "LARGE_SHARED_URI",
+      "scope": "CLUSTER_WIDE",
+      "value": 94
+    }
+  ],
+  "correlationGroups": [],
+  "reassessment": {
+    "risk": 55,
+    "classification": "MEDIUM",
+    "previousAnomaly": 0,
+    "previousCorrelatedRisk": 0
+  },
+  "v35_005": {
+    "task": "STRUCTURAL_REVIEW",
+    "status": "OPEN",
+    "target": "< 60"
+  },
+  "safety": {
+    "largeComponentIsNotFraud": true,
+    "highDegreeIsNotFraud": true,
+    "sharedURIIsNotFraud": true,
+    "crossOwnerURIIsNotFraud": true,
+    "maliciousnessEstablished": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

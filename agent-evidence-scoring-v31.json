@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "3.1",
+  "engine": "AGENT_EVIDENCE_SCORING",
+  "generatedAt": "2026-08-26T20:20:12.917Z",
+  "agent": 845265,
+  "scores": {
+    "evidenceQuality": 55,
+    "evidenceIndependence": 34,
+    "structuralRisk": 68,
+    "dynamicsRisk": 40,
+    "evidenceStrength": 44,
+    "riskAdjustedEvidence": 16
+  },
+  "classifications": {
+    "evidenceQuality": "MEDIUM",
+    "evidenceIndependence": "LOW",
+    "structuralRisk": "HIGH",
+    "evidenceStrength": "LOW"
+  },
+  "components": {
+    "identity": 100,
+    "reputation": 90,
+    "validation": 60,
+    "metadata": 0,
+    "graph": 10,
+    "dynamics": 70
+  },
+  "decision": {
+    "v30Decision": "REVIEW",
+    "finalDecision": "REVIEW",
+    "confidence": "HIGH",
+    "reasons": [
+      "On-chain identity evidence is present.",
+      "Reputation evidence has multiple providers.",
+      "Metadata quality is limited.",
+      "Evidence independence is LOW.",
+      "Structural risk is HIGH.",
+      "Historical dynamics contain observed changes.",
+      "Current evidence is insufficient for automatic ALLOW."
+    ]
+  },
+  "safeguards": {
+    "trustScore": false,
+    "probabilityOfTruth": false,
+    "maliciousnessProbability": false,
+    "automaticBlockFromRisk": false
+  }
+}

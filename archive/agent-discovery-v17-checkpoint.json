@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.7",
+  "startAgentId": 844000,
+  "endAgentId": 846000,
+  "lastProcessedAgentId": 846000,
+  "status": "COMPLETE",
+  "updatedAt": "2026-08-25T20:08:05.231Z",
+  "found": 1139,
+  "notFound": 4,
+  "rpcErrors": 858,
+  "completedAt": "2026-08-25T20:08:05.231Z",
+  "total": 2001,
+  "tokenURIMissing": 67
+}

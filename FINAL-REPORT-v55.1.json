@@ -1,0 +1,32 @@
+{
+  "engine": "ARC_AGENT_TRUST_FINAL_EVIDENCE_RESOLUTION",
+  "version": "55.1",
+  "generatedAt": "2026-08-27T21:29:37.809Z",
+  "network": "Arc Testnet",
+  "targetAgent": "845265",
+  "decision": "REVIEW",
+  "trust": null,
+  "confidence": null,
+  "evidenceQuality": 61,
+  "evidenceIndependence": 34,
+  "structuralRisk": 50,
+  "structuralClassification": "MEDIUM",
+  "independentCandidates": null,
+  "independentTargetValidators": 0,
+  "targetValidationRecords": 2,
+  "v35_001": "EVIDENCE_NOT_FOUND",
+  "conclusion": "No independent validator evidence for Agent 845265 was established. This is an evidence gap, not proof of fraud or maliciousness.",
+  "safety": {
+    "fraudEstablished": false,
+    "maliciousnessEstablished": false,
+    "manipulationEstablished": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  },
+  "correction": {
+    "previousV55StructuralRisk": 0,
+    "correctedStructuralRisk": 50,
+    "correctedFrom": "V43.5/V44 verified structural assessment",
+    "reason": "V55 reported structural risk as 0 because the source JSON field was not resolved correctly. V43.5/V44 established the structural risk as 50/100 MEDIUM."
+  }
+}

@@ -1,0 +1,16 @@
+﻿
+agent-independent-validator-v39.js:10:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+agent-independent-validator-v39.json:7:  "validationRegistry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+agent-provider-validator-correlation-v41.js:10:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+agent-provider-validator-correlation-v41.json:9:    "validation": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+agent-validation-evidence-v37.json:7:  "validationRegistry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+agent-validation-registry-v47.js:9:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+agent-validation-registry-v47.json:7:  "registry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+agent-validator-identity-v38.js:10:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+agent-validator-registry-v46.js:9:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+agent-validator-registry-v46.json:7:  "validationRegistry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+evidence-collector.js:44:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+read-validation.js:19:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+validator-analyzer.js:39:  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+
+

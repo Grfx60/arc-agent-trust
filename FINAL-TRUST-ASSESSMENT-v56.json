@@ -1,0 +1,73 @@
+{
+  "engine": "ARC_AGENT_TRUST_FINAL_TRUST_ASSESSMENT",
+  "version": "56",
+  "generatedAt": "2026-08-28T09:09:38.848Z",
+  "network": "Arc Testnet",
+  "targetAgent": "845265",
+  "finalDecision": "REVIEW",
+  "trustLevel": "INSUFFICIENT_EVIDENCE",
+  "confidence": "LOW",
+  "scores": {
+    "evidenceQuality": 61,
+    "evidenceIndependence": 34,
+    "structuralRisk": 50,
+    "anomaly": 65,
+    "correlatedRisk": 70
+  },
+  "validation": {
+    "targetValidationRecords": 2,
+    "independentTargetValidators": 0,
+    "independentEvidenceEstablished": false
+  },
+  "validator": {
+    "address": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+    "activity": "VALIDATOR_ACTIVITY_ESTABLISHED",
+    "behavior": "TARGET_LOW_TO_HIGH_OBSERVED",
+    "targetRatio": 1,
+    "equalsTargetOwner": false,
+    "equalsTargetWallet": false
+  },
+  "metadata": {
+    "classification": "LARGE_CROSS_OWNER_SHARED_URI",
+    "sharedUriAgents": 0,
+    "sharedUriOwners": 0
+  },
+  "structural": {
+    "risk": 50,
+    "classification": "MEDIUM",
+    "conclusion": {
+      "classification": "STRUCTURAL_ANOMALY_PRIMARILY_CLUSTER_CORRELATED",
+      "structuralRisk": 50,
+      "riskClassification": "MEDIUM",
+      "reason": "The previously elevated structural signal is substantially explained by cluster-wide graph and shared-URI relationships. The available data does not establish an independent malicious agent-specific structural signal."
+    }
+  },
+  "positiveEvidence": [
+    "Target validation records exist.",
+    "Validator does not directly equal target owner or wallet.",
+    "Validator activity for the target is established."
+  ],
+  "unresolvedEvidence": [
+    "No independent target validator evidence was established.",
+    "Validator dual-role independence is not fully established.",
+    "Evidence independence score remains below a strong-independence threshold."
+  ],
+  "contextualRiskEvidence": [
+    "Structural risk remains 50/100 (MEDIUM).",
+    "Historical anomaly signal is 65/100.",
+    "Historical correlated risk is 70/100.",
+    "Shared metadata context: LARGE_CROSS_OWNER_SHARED_URI."
+  ],
+  "safety": {
+    "fraudEstablished": false,
+    "maliciousnessEstablished": false,
+    "manipulationEstablished": false,
+    "identityFailureEstablished": false,
+    "independentValidatorMissingIsFraud": false,
+    "sharedMetadataIsFraud": false,
+    "structuralRiskIsFraud": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  },
+  "finalConclusion": "Agent 845265 remains under REVIEW. Target validation activity exists, but no independent target validator evidence was established. This evidence gap prevents a strong independent trust conclusion. No fraud, maliciousness, manipulation, or identity failure has been established."
+}

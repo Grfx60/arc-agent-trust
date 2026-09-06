@@ -1,0 +1,1970 @@
+﻿
+node_modules\.package-lock.json:201:        "utf-8-validate": ">=5.0.2"
+node_modules\.package-lock.json:207:        "utf-8-validate": {
+node_modules\@adraffy\ens-normalize\package.json:49:		"labels": "node validate/download-labels.js",
+node_modules\@adraffy\ens-normalize\package.json:52:		"validate": "node validate/make.js",
+node_modules\@adraffy\ens-normalize\package.json:56:		"rebuild": "npm run derive && npm run make && npm run valida
+te && npm run test && npm run build",
+node_modules\@adraffy\ens-normalize\package.json:57:		"order": "node validate/dump-group-order.js save && npm run 
+rebuild"
+node_modules\@adraffy\ens-normalize\README.md:20:* ✅️ Passes **100%** [ENSIP-15 Validation Tests](https://adraffy.
+github.io/ens-normalize.js/test/validate.html)
+node_modules\@adraffy\ens-normalize\README.md:193:* Follow instructions in [/validate/](./validate/) to generate v
+alidation tests
+node_modules\@adraffy\ens-normalize\README.md:194:	* `npm run validate`
+node_modules\@adraffy\ens-normalize\README.md:195:		* [tests.json](./validate/tests.json)
+node_modules\@noble\ciphers\aes.js:297:function validateBlockDecrypt(data) {
+node_modules\@noble\ciphers\aes.js:303:function validateBlockEncrypt(plaintext, pcks5, dst) {
+node_modules\@noble\ciphers\aes.js:323:function validatePCKS(data, pcks5) {
+node_modules\@noble\ciphers\aes.js:355:            const { b, o, out: _out } = validateBlockEncrypt(plaintext, pck
+s5, dst);
+node_modules\@noble\ciphers\aes.js:371:            validateBlockDecrypt(ciphertext);
+node_modules\@noble\ciphers\aes.js:385:            return validatePCKS(dst, pcks5);
+node_modules\@noble\ciphers\aes.js:398:            const { b, o, out: _out } = validateBlockEncrypt(plaintext, pck
+s5, dst);
+node_modules\@noble\ciphers\aes.js:422:            validateBlockDecrypt(ciphertext);
+node_modules\@noble\ciphers\aes.js:445:            return validatePCKS(dst, pcks5);
+node_modules\@noble\ciphers\utils.d.ts:138: * Wraps a cipher: validates args, ensures encrypt() can only be called
+ once.
+node_modules\@noble\ciphers\utils.js:274: * Wraps a cipher: validates args, ensures encrypt() can only be called o
+nce.
+node_modules\@noble\ciphers\utils.js:279:        // Validate key
+node_modules\@noble\ciphers\utils.js:284:        // Validate nonce if nonceLength is present
+node_modules\@noble\ciphers\utils.js:294:        // Validate AAD if tagLength present
+node_modules\@noble\ciphers\esm\aes.js:294:function validateBlockDecrypt(data) {
+node_modules\@noble\ciphers\esm\aes.js:300:function validateBlockEncrypt(plaintext, pcks5, dst) {
+node_modules\@noble\ciphers\esm\aes.js:320:function validatePCKS(data, pcks5) {
+node_modules\@noble\ciphers\esm\aes.js:352:            const { b, o, out: _out } = validateBlockEncrypt(plaintext,
+ pcks5, dst);
+node_modules\@noble\ciphers\esm\aes.js:368:            validateBlockDecrypt(ciphertext);
+node_modules\@noble\ciphers\esm\aes.js:382:            return validatePCKS(dst, pcks5);
+node_modules\@noble\ciphers\esm\aes.js:395:            const { b, o, out: _out } = validateBlockEncrypt(plaintext,
+ pcks5, dst);
+node_modules\@noble\ciphers\esm\aes.js:419:            validateBlockDecrypt(ciphertext);
+node_modules\@noble\ciphers\esm\aes.js:442:            return validatePCKS(dst, pcks5);
+node_modules\@noble\ciphers\esm\utils.d.ts:138: * Wraps a cipher: validates args, ensures encrypt() can only be ca
+lled once.
+node_modules\@noble\ciphers\esm\utils.js:240: * Wraps a cipher: validates args, ensures encrypt() can only be call
+ed once.
+node_modules\@noble\ciphers\esm\utils.js:245:        // Validate key
+node_modules\@noble\ciphers\esm\utils.js:250:        // Validate nonce if nonceLength is present
+node_modules\@noble\ciphers\esm\utils.js:260:        // Validate AAD if tagLength present
+node_modules\@noble\ciphers\src\aes.ts:359:function validateBlockDecrypt(data: Uint8Array) {
+node_modules\@noble\ciphers\src\aes.ts:368:function validateBlockEncrypt(plaintext: Uint8Array, pcks5: boolean, ds
+t?: Uint8Array) {
+node_modules\@noble\ciphers\src\aes.ts:387:function validatePCKS(data: Uint8Array, pcks5: boolean) {
+node_modules\@noble\ciphers\src\aes.ts:423:        const { b, o, out: _out } = validateBlockEncrypt(plaintext, pck
+s5, dst);
+node_modules\@noble\ciphers\src\aes.ts:439:        validateBlockDecrypt(ciphertext);
+node_modules\@noble\ciphers\src\aes.ts:452:        return validatePCKS(dst, pcks5);
+node_modules\@noble\ciphers\src\aes.ts:472:        const { b, o, out: _out } = validateBlockEncrypt(plaintext, pck
+s5, dst);
+node_modules\@noble\ciphers\src\aes.ts:495:        validateBlockDecrypt(ciphertext);
+node_modules\@noble\ciphers\src\aes.ts:516:        return validatePCKS(dst, pcks5);
+node_modules\@noble\ciphers\src\utils.ts:332: * Wraps a cipher: validates args, ensures encrypt() can only be call
+ed once.
+node_modules\@noble\ciphers\src\utils.ts:340:    // Validate key
+node_modules\@noble\ciphers\src\utils.ts:346:    // Validate nonce if nonceLength is present
+node_modules\@noble\ciphers\src\utils.ts:354:    // Validate AAD if tagLength present
+node_modules\@noble\curves\abstract\curve.d.ts:103:export declare function validateBasic<FP, T>(curve: BasicCurve<
+FP> & T): Readonly<{
+node_modules\@noble\curves\abstract\curve.js:6:exports.validateBasic = validateBasic;
+node_modules\@noble\curves\abstract\curve.js:21:function validateW(W, bits) {
+node_modules\@noble\curves\abstract\curve.js:26:    validateW(W, scalarBits);
+node_modules\@noble\curves\abstract\curve.js:56:function validateMSMPoints(points, c) {
+node_modules\@noble\curves\abstract\curve.js:64:function validateMSMScalars(scalars, field) {
+node_modules\@noble\curves\abstract\curve.js:232:            validateW(W, bits);
+node_modules\@noble\curves\abstract\curve.js:255:    validateMSMPoints(points, c);
+node_modules\@noble\curves\abstract\curve.js:256:    validateMSMScalars(scalars, fieldN);
+node_modules\@noble\curves\abstract\curve.js:338:    validateW(windowSize, fieldN.BITS);
+node_modules\@noble\curves\abstract\curve.js:339:    validateMSMPoints(points, c);
+node_modules\@noble\curves\abstract\curve.js:353:        validateMSMScalars(scalars, fieldN);
+node_modules\@noble\curves\abstract\curve.js:374:function validateBasic(curve) {
+node_modules\@noble\curves\abstract\curve.js:375:    (0, modular_ts_1.validateField)(curve.Fp);
+node_modules\@noble\curves\abstract\curve.js:376:    (0, utils_ts_1.validateObject)(curve, {
+node_modules\@noble\curves\abstract\edwards.d.ts:28:declare function validateOpts(curve: CurveType): CurveTypeWith
+Length;
+node_modules\@noble\curves\abstract\edwards.d.ts:61:    CURVE: ReturnType<typeof validateOpts>;
+node_modules\@noble\curves\abstract\edwards.js:20:function validateOpts(curve) {
+node_modules\@noble\curves\abstract\edwards.js:21:    const opts = (0, curve_ts_1.validateBasic)(curve);
+node_modules\@noble\curves\abstract\edwards.js:22:    (0, utils_ts_1.validateObject)(curve, {
+node_modules\@noble\curves\abstract\edwards.js:44:    const CURVE = validateOpts(curveDef);
+node_modules\@noble\curves\abstract\edwards.js:60:    // Validate whether the passed curve params are valid.
+node_modules\@noble\curves\abstract\hash-to-curve.js:100:    (0, utils_ts_1.validateObject)(options, {
+node_modules\@noble\curves\abstract\modular.d.ts:69:export declare function validateField<T>(field: IField<T>): IF
+ield<T>;
+node_modules\@noble\curves\abstract\modular.js:10:exports.validateField = validateField;
+node_modules\@noble\curves\abstract\modular.js:235:function validateField(field) {
+node_modules\@noble\curves\abstract\modular.js:246:    return (0, utils_ts_1.validateObject)(field, opts);
+node_modules\@noble\curves\abstract\montgomery.js:16:function validateOpts(curve) {
+node_modules\@noble\curves\abstract\montgomery.js:17:    (0, utils_ts_1.validateObject)(curve, {
+node_modules\@noble\curves\abstract\montgomery.js:24:    const CURVE = validateOpts(curveDef);
+node_modules\@noble\curves\abstract\montgomery.js:68:        // it needs to be validated, but we do it nonetheless
+.
+node_modules\@noble\curves\abstract\montgomery.js:69:        // https://cr.yp.to/ecdh.html#validate
+node_modules\@noble\curves\abstract\poseidon.d.ts:30:export declare function validateOpts(opts: PoseidonOpts): Rea
+donly<{
+node_modules\@noble\curves\abstract\poseidon.js:5:exports.validateOpts = validateOpts;
+node_modules\@noble\curves\abstract\poseidon.js:45:function validateBasicOpts(opts) {
+node_modules\@noble\curves\abstract\poseidon.js:47:    (0, modular_ts_1.validateField)(Fp);
+node_modules\@noble\curves\abstract\poseidon.js:58:    validateBasicOpts(opts);
+node_modules\@noble\curves\abstract\poseidon.js:122:function validateOpts(opts) {
+node_modules\@noble\curves\abstract\poseidon.js:123:    validateBasicOpts(opts);
+node_modules\@noble\curves\abstract\poseidon.js:183:    const _opts = validateOpts(opts);
+node_modules\@noble\curves\abstract\utils.d.ts:39: * Validates output length.
+node_modules\@noble\curves\abstract\utils.d.ts:108:export declare function validateObject<T extends Record<string,
+ any>>(object: T, validators: ValMap<T>, optValidators?: ValMap<T>): T;
+node_modules\@noble\curves\abstract\utils.js:31:exports.validateObject = validateObject;
+node_modules\@noble\curves\abstract\utils.js:139: * Validates output length.
+node_modules\@noble\curves\abstract\utils.js:329:function validateObject(object, validators, optValidators = {}) {
+node_modules\@noble\curves\abstract\utils.js:347:// validate type tests
+node_modules\@noble\curves\abstract\utils.js:349:// const z0 = validateObject(o, { a: 'isSafeInteger' }, { c: 'big
+int' }); // Ok!
+node_modules\@noble\curves\abstract\utils.js:351:// const z1 = validateObject(o, { a: 'tmp' }, { c: 'zz' });
+node_modules\@noble\curves\abstract\utils.js:352:// const z2 = validateObject(o, { a: 'isSafeInteger' }, { c: 'zz'
+ });
+node_modules\@noble\curves\abstract\utils.js:353:// const z3 = validateObject(o, { test: 'boolean', z: 'bug' });
+node_modules\@noble\curves\abstract\utils.js:354:// const z4 = validateObject(o, { a: 'boolean', z: 'bug' });
+node_modules\@noble\curves\abstract\weierstrass.d.ts:131:declare function validatePointOpts<T>(curve: CurvePointsT
+ype<T>): CurvePointsTypeWithLength<T>;
+node_modules\@noble\curves\abstract\weierstrass.d.ts:133:    CURVE: ReturnType<typeof validatePointOpts<T>>;
+node_modules\@noble\curves\abstract\weierstrass.d.ts:208:declare function validateOpts(curve: CurveType): Readonly
+<CurveType & {
+node_modules\@noble\curves\abstract\weierstrass.d.ts:213:    CURVE: ReturnType<typeof validateOpts>;
+node_modules\@noble\curves\abstract\weierstrass.js:54:function validateSigVerOpts(opts) {
+node_modules\@noble\curves\abstract\weierstrass.js:60:function validatePointOpts(curve) {
+node_modules\@noble\curves\abstract\weierstrass.js:61:    const opts = (0, curve_ts_1.validateBasic)(curve);
+node_modules\@noble\curves\abstract\weierstrass.js:62:    (0, utils_ts_1.validateObject)(opts, {
+node_modules\@noble\curves\abstract\weierstrass.js:211:    const CURVE = validatePointOpts(opts);
+node_modules\@noble\curves\abstract\weierstrass.js:243:    // Validate whether the passed curve params are valid.
+node_modules\@noble\curves\abstract\weierstrass.js:257:    // Validates if priv key is valid and converts it to bi
+gint.
+node_modules\@noble\curves\abstract\weierstrass.js:351:        // Does not validate if the point is on-curve.
+node_modules\@noble\curves\abstract\weierstrass.js:662:function validateOpts(curve) {
+node_modules\@noble\curves\abstract\weierstrass.js:663:    const opts = (0, curve_ts_1.validateBasic)(curve);
+node_modules\@noble\curves\abstract\weierstrass.js:664:    (0, utils_ts_1.validateObject)(opts, {
+node_modules\@noble\curves\abstract\weierstrass.js:683:    const CURVE = validateOpts(curveDef);
+node_modules\@noble\curves\abstract\weierstrass.js:871:     * Quick and dirty check for item being public key. Doe
+s not validate hex, or being on-curve.
+node_modules\@noble\curves\abstract\weierstrass.js:950:        validateSigVerOpts(opts);
+node_modules\@noble\curves\abstract\weierstrass.js:957:        const d = normPrivateKeyToScalar(privateKey); // va
+lidate private key, convert to bigint
+node_modules\@noble\curves\abstract\weierstrass.js:1037:        validateSigVerOpts(opts);
+node_modules\@noble\curves\abstract\weierstrass.js:1186:    (0, modular_ts_1.validateField)(Fp);
+node_modules\@noble\curves\esm\abstract\curve.d.ts:103:export declare function validateBasic<FP, T>(curve: BasicCu
+rve<FP> & T): Readonly<{
+node_modules\@noble\curves\esm\abstract\curve.js:7:import { nLength, validateField } from "./modular.js";
+node_modules\@noble\curves\esm\abstract\curve.js:8:import { bitLen, bitMask, validateObject } from "./utils.js";
+node_modules\@noble\curves\esm\abstract\curve.js:15:function validateW(W, bits) {
+node_modules\@noble\curves\esm\abstract\curve.js:20:    validateW(W, scalarBits);
+node_modules\@noble\curves\esm\abstract\curve.js:50:function validateMSMPoints(points, c) {
+node_modules\@noble\curves\esm\abstract\curve.js:58:function validateMSMScalars(scalars, field) {
+node_modules\@noble\curves\esm\abstract\curve.js:226:            validateW(W, bits);
+node_modules\@noble\curves\esm\abstract\curve.js:249:    validateMSMPoints(points, c);
+node_modules\@noble\curves\esm\abstract\curve.js:250:    validateMSMScalars(scalars, fieldN);
+node_modules\@noble\curves\esm\abstract\curve.js:332:    validateW(windowSize, fieldN.BITS);
+node_modules\@noble\curves\esm\abstract\curve.js:333:    validateMSMPoints(points, c);
+node_modules\@noble\curves\esm\abstract\curve.js:347:        validateMSMScalars(scalars, fieldN);
+node_modules\@noble\curves\esm\abstract\curve.js:368:export function validateBasic(curve) {
+node_modules\@noble\curves\esm\abstract\curve.js:369:    validateField(curve.Fp);
+node_modules\@noble\curves\esm\abstract\curve.js:370:    validateObject(curve, {
+node_modules\@noble\curves\esm\abstract\edwards.d.ts:28:declare function validateOpts(curve: CurveType): CurveType
+WithLength;
+node_modules\@noble\curves\esm\abstract\edwards.d.ts:61:    CURVE: ReturnType<typeof validateOpts>;
+node_modules\@noble\curves\esm\abstract\edwards.js:8:import { pippenger, validateBasic, wNAF } from "./curve.js";
+node_modules\@noble\curves\esm\abstract\edwards.js:11:import { abool, aInRange, bytesToHex, bytesToNumberLE, conca
+tBytes, ensureBytes, memoized, numberToBytesLE, validateObject } from "./utils.js";
+node_modules\@noble\curves\esm\abstract\edwards.js:17:function validateOpts(curve) {
+node_modules\@noble\curves\esm\abstract\edwards.js:18:    const opts = validateBasic(curve);
+node_modules\@noble\curves\esm\abstract\edwards.js:19:    validateObject(curve, {
+node_modules\@noble\curves\esm\abstract\edwards.js:41:    const CURVE = validateOpts(curveDef);
+node_modules\@noble\curves\esm\abstract\edwards.js:57:    // Validate whether the passed curve params are valid.
+node_modules\@noble\curves\esm\abstract\hash-to-curve.js:2:import { abytes, bytesToNumberBE, concatBytes, utf8ToBy
+tes, validateObject } from "./utils.js";
+node_modules\@noble\curves\esm\abstract\hash-to-curve.js:93:    validateObject(options, {
+node_modules\@noble\curves\esm\abstract\modular.d.ts:69:export declare function validateField<T>(field: IField<T>)
+: IField<T>;
+node_modules\@noble\curves\esm\abstract\modular.js:9:import { bitMask, bytesToNumberBE, bytesToNumberLE, ensureByt
+es, numberToBytesBE, numberToBytesLE, validateObject, } from "./utils.js";
+node_modules\@noble\curves\esm\abstract\modular.js:211:export function validateField(field) {
+node_modules\@noble\curves\esm\abstract\modular.js:222:    return validateObject(field, opts);
+node_modules\@noble\curves\esm\abstract\montgomery.js:9:import { aInRange, bytesToNumberLE, ensureBytes, numberToB
+ytesLE, validateObject, } from "./utils.js";
+node_modules\@noble\curves\esm\abstract\montgomery.js:13:function validateOpts(curve) {
+node_modules\@noble\curves\esm\abstract\montgomery.js:14:    validateObject(curve, {
+node_modules\@noble\curves\esm\abstract\montgomery.js:21:    const CURVE = validateOpts(curveDef);
+node_modules\@noble\curves\esm\abstract\montgomery.js:65:        // it needs to be validated, but we do it nonethe
+less.
+node_modules\@noble\curves\esm\abstract\montgomery.js:66:        // https://cr.yp.to/ecdh.html#validate
+node_modules\@noble\curves\esm\abstract\poseidon.d.ts:30:export declare function validateOpts(opts: PoseidonOpts):
+ Readonly<{
+node_modules\@noble\curves\esm\abstract\poseidon.js:10:import { FpInvertBatch, FpPow, validateField } from "./modu
+lar.js";
+node_modules\@noble\curves\esm\abstract\poseidon.js:37:function validateBasicOpts(opts) {
+node_modules\@noble\curves\esm\abstract\poseidon.js:39:    validateField(Fp);
+node_modules\@noble\curves\esm\abstract\poseidon.js:50:    validateBasicOpts(opts);
+node_modules\@noble\curves\esm\abstract\poseidon.js:114:export function validateOpts(opts) {
+node_modules\@noble\curves\esm\abstract\poseidon.js:115:    validateBasicOpts(opts);
+node_modules\@noble\curves\esm\abstract\poseidon.js:175:    const _opts = validateOpts(opts);
+node_modules\@noble\curves\esm\abstract\utils.d.ts:39: * Validates output length.
+node_modules\@noble\curves\esm\abstract\utils.d.ts:108:export declare function validateObject<T extends Record<str
+ing, any>>(object: T, validators: ValMap<T>, optValidators?: ValMap<T>): T;
+node_modules\@noble\curves\esm\abstract\utils.js:112: * Validates output length.
+node_modules\@noble\curves\esm\abstract\utils.js:301:export function validateObject(object, validators, optValidat
+ors = {}) {
+node_modules\@noble\curves\esm\abstract\utils.js:319:// validate type tests
+node_modules\@noble\curves\esm\abstract\utils.js:321:// const z0 = validateObject(o, { a: 'isSafeInteger' }, { c: 
+'bigint' }); // Ok!
+node_modules\@noble\curves\esm\abstract\utils.js:323:// const z1 = validateObject(o, { a: 'tmp' }, { c: 'zz' });
+node_modules\@noble\curves\esm\abstract\utils.js:324:// const z2 = validateObject(o, { a: 'isSafeInteger' }, { c: 
+'zz' });
+node_modules\@noble\curves\esm\abstract\utils.js:325:// const z3 = validateObject(o, { test: 'boolean', z: 'bug' }
+);
+node_modules\@noble\curves\esm\abstract\utils.js:326:// const z4 = validateObject(o, { a: 'boolean', z: 'bug' });
+node_modules\@noble\curves\esm\abstract\weierstrass.d.ts:131:declare function validatePointOpts<T>(curve: CurvePoi
+ntsType<T>): CurvePointsTypeWithLength<T>;
+node_modules\@noble\curves\esm\abstract\weierstrass.d.ts:133:    CURVE: ReturnType<typeof validatePointOpts<T>>;
+node_modules\@noble\curves\esm\abstract\weierstrass.d.ts:208:declare function validateOpts(curve: CurveType): Read
+only<CurveType & {
+node_modules\@noble\curves\esm\abstract\weierstrass.d.ts:213:    CURVE: ReturnType<typeof validateOpts>;
+node_modules\@noble\curves\esm\abstract\weierstrass.js:42:import { pippenger, validateBasic, wNAF } from "./curve.
+js";
+node_modules\@noble\curves\esm\abstract\weierstrass.js:44:import { Field, FpInvertBatch, getMinHashLength, invert,
+ mapHashToField, mod, validateField } from "./modular.js";
+node_modules\@noble\curves\esm\abstract\weierstrass.js:46:import { aInRange, abool, bitMask, bytesToHex, bytesToNu
+mberBE, concatBytes, createHmacDrbg, ensureBytes, hexToBytes, inRange, isBytes, memoized, numberToBytesBE, numberT
+oHexUnpadded, validateObject } from "./utils.js";
+node_modules\@noble\curves\esm\abstract\weierstrass.js:47:function validateSigVerOpts(opts) {
+node_modules\@noble\curves\esm\abstract\weierstrass.js:53:function validatePointOpts(curve) {
+node_modules\@noble\curves\esm\abstract\weierstrass.js:54:    const opts = validateBasic(curve);
+node_modules\@noble\curves\esm\abstract\weierstrass.js:55:    validateObject(opts, {
+node_modules\@noble\curves\esm\abstract\weierstrass.js:203:    const CURVE = validatePointOpts(opts);
+node_modules\@noble\curves\esm\abstract\weierstrass.js:235:    // Validate whether the passed curve params are val
+id.
+node_modules\@noble\curves\esm\abstract\weierstrass.js:249:    // Validates if priv key is valid and converts it t
+o bigint.
+node_modules\@noble\curves\esm\abstract\weierstrass.js:343:        // Does not validate if the point is on-curve.
+node_modules\@noble\curves\esm\abstract\weierstrass.js:654:function validateOpts(curve) {
+node_modules\@noble\curves\esm\abstract\weierstrass.js:655:    const opts = validateBasic(curve);
+node_modules\@noble\curves\esm\abstract\weierstrass.js:656:    validateObject(opts, {
+node_modules\@noble\curves\esm\abstract\weierstrass.js:675:    const CURVE = validateOpts(curveDef);
+node_modules\@noble\curves\esm\abstract\weierstrass.js:863:     * Quick and dirty check for item being public key.
+ Does not validate hex, or being on-curve.
+node_modules\@noble\curves\esm\abstract\weierstrass.js:942:        validateSigVerOpts(opts);
+node_modules\@noble\curves\esm\abstract\weierstrass.js:949:        const d = normPrivateKeyToScalar(privateKey); /
+/ validate private key, convert to bigint
+node_modules\@noble\curves\esm\abstract\weierstrass.js:1029:        validateSigVerOpts(opts);
+node_modules\@noble\curves\esm\abstract\weierstrass.js:1178:    validateField(Fp);
+node_modules\@noble\curves\src\abstract\curve.ts:7:import { type IField, nLength, validateField } from './modular.
+ts';
+node_modules\@noble\curves\src\abstract\curve.ts:8:import { bitLen, bitMask, validateObject } from './utils.ts';
+node_modules\@noble\curves\src\abstract\curve.ts:38:function validateW(W: number, bits: number) {
+node_modules\@noble\curves\src\abstract\curve.ts:53:  validateW(W, scalarBits);
+node_modules\@noble\curves\src\abstract\curve.ts:87:function validateMSMPoints(points: any[], c: any) {
+node_modules\@noble\curves\src\abstract\curve.ts:93:function validateMSMScalars(scalars: any[], field: any) {
+node_modules\@noble\curves\src\abstract\curve.ts:279:      validateW(W, bits);
+node_modules\@noble\curves\src\abstract\curve.ts:308:  validateMSMPoints(points, c);
+node_modules\@noble\curves\src\abstract\curve.ts:309:  validateMSMScalars(scalars, fieldN);
+node_modules\@noble\curves\src\abstract\curve.ts:390:  validateW(windowSize, fieldN.BITS);
+node_modules\@noble\curves\src\abstract\curve.ts:391:  validateMSMPoints(points, c);
+node_modules\@noble\curves\src\abstract\curve.ts:405:    validateMSMScalars(scalars, fieldN);
+node_modules\@noble\curves\src\abstract\curve.ts:440:export function validateBasic<FP, T>(
+node_modules\@noble\curves\src\abstract\curve.ts:451:  validateField(curve.Fp);
+node_modules\@noble\curves\src\abstract\curve.ts:452:  validateObject(
+node_modules\@noble\curves\src\abstract\edwards.ts:9:  pippenger, validateBasic, wNAF,
+node_modules\@noble\curves\src\abstract\edwards.ts:16:  ensureBytes, memoized, numberToBytesLE, validateObject,
+node_modules\@noble\curves\src\abstract\edwards.ts:42:function validateOpts(curve: CurveType): CurveTypeWithLength
+ {
+node_modules\@noble\curves\src\abstract\edwards.ts:43:  const opts = validateBasic(curve);
+node_modules\@noble\curves\src\abstract\edwards.ts:44:  validateObject(
+node_modules\@noble\curves\src\abstract\edwards.ts:96:  CURVE: ReturnType<typeof validateOpts>;
+node_modules\@noble\curves\src\abstract\edwards.ts:127:  const CURVE = validateOpts(curveDef) as ReturnType<typeof
+ validateOpts>;
+node_modules\@noble\curves\src\abstract\edwards.ts:153:  // Validate whether the passed curve params are valid.
+node_modules\@noble\curves\src\abstract\hash-to-curve.ts:11:import { abytes, bytesToNumberBE, concatBytes, utf8ToB
+ytes, validateObject } from './utils.ts';
+node_modules\@noble\curves\src\abstract\hash-to-curve.ts:137:  validateObject(options, {
+node_modules\@noble\curves\src\abstract\modular.ts:16:  validateObject,
+node_modules\@noble\curves\src\abstract\modular.ts:266:export function validateField<T>(field: IField<T>): IField<
+T> {
+node_modules\@noble\curves\src\abstract\modular.ts:277:  return validateObject(field, opts);
+node_modules\@noble\curves\src\abstract\montgomery.ts:14:  validateObject,
+node_modules\@noble\curves\src\abstract\montgomery.ts:39:function validateOpts(curve: CurveType) {
+node_modules\@noble\curves\src\abstract\montgomery.ts:40:  validateObject(curve, {
+node_modules\@noble\curves\src\abstract\montgomery.ts:48:  const CURVE = validateOpts(curveDef);
+node_modules\@noble\curves\src\abstract\montgomery.ts:91:    // it needs to be validated, but we do it nonetheless
+.
+node_modules\@noble\curves\src\abstract\montgomery.ts:92:    // https://cr.yp.to/ecdh.html#validate
+node_modules\@noble\curves\src\abstract\poseidon.ts:10:import { FpInvertBatch, FpPow, type IField, validateField }
+ from './modular.ts';
+node_modules\@noble\curves\src\abstract\poseidon.ts:44:function validateBasicOpts(opts: PoseidonBasicOpts) {
+node_modules\@noble\curves\src\abstract\poseidon.ts:46:  validateField(Fp);
+node_modules\@noble\curves\src\abstract\poseidon.ts:57:  validateBasicOpts(opts);
+node_modules\@noble\curves\src\abstract\poseidon.ts:131:export function validateOpts(opts: PoseidonOpts): Readonly
+<{
+node_modules\@noble\curves\src\abstract\poseidon.ts:143:  validateBasicOpts(opts);
+node_modules\@noble\curves\src\abstract\poseidon.ts:205:  const _opts = validateOpts(opts);
+node_modules\@noble\curves\src\abstract\utils.ts:127: * Validates output length.
+node_modules\@noble\curves\src\abstract\utils.ts:330:export function validateObject<T extends Record<string, any>>
+(
+node_modules\@noble\curves\src\abstract\utils.ts:351:// validate type tests
+node_modules\@noble\curves\src\abstract\utils.ts:353:// const z0 = validateObject(o, { a: 'isSafeInteger' }, { c: 
+'bigint' }); // Ok!
+node_modules\@noble\curves\src\abstract\utils.ts:355:// const z1 = validateObject(o, { a: 'tmp' }, { c: 'zz' });
+node_modules\@noble\curves\src\abstract\utils.ts:356:// const z2 = validateObject(o, { a: 'isSafeInteger' }, { c: 
+'zz' });
+node_modules\@noble\curves\src\abstract\utils.ts:357:// const z3 = validateObject(o, { test: 'boolean', z: 'bug' }
+);
+node_modules\@noble\curves\src\abstract\utils.ts:358:// const z4 = validateObject(o, { a: 'boolean', z: 'bug' });
+node_modules\@noble\curves\src\abstract\weierstrass.ts:43:  pippenger, validateBasic, wNAF,
+node_modules\@noble\curves\src\abstract\weierstrass.ts:50:  getMinHashLength, invert, mapHashToField, mod, validat
+eField,
+node_modules\@noble\curves\src\abstract\weierstrass.ts:58:  inRange, isBytes, memoized, numberToBytesBE, numberToH
+exUnpadded, validateObject,
+node_modules\@noble\curves\src\abstract\weierstrass.ts:111:function validateSigVerOpts(opts: SignOpts | VerOpts) {
+node_modules\@noble\curves\src\abstract\weierstrass.ts:155:function validatePointOpts<T>(curve: CurvePointsType<T>
+): CurvePointsTypeWithLength<T> {
+node_modules\@noble\curves\src\abstract\weierstrass.ts:156:  const opts = validateBasic(curve);
+node_modules\@noble\curves\src\abstract\weierstrass.ts:157:  validateObject(
+node_modules\@noble\curves\src\abstract\weierstrass.ts:190:  CURVE: ReturnType<typeof validatePointOpts<T>>;
+node_modules\@noble\curves\src\abstract\weierstrass.ts:324:  const CURVE = validatePointOpts(opts);
+node_modules\@noble\curves\src\abstract\weierstrass.ts:362:  // Validate whether the passed curve params are valid
+.
+node_modules\@noble\curves\src\abstract\weierstrass.ts:376:  // Validates if priv key is valid and converts it to 
+bigint.
+node_modules\@noble\curves\src\abstract\weierstrass.ts:470:    // Does not validate if the point is on-curve.
+node_modules\@noble\curves\src\abstract\weierstrass.ts:828:function validateOpts(
+node_modules\@noble\curves\src\abstract\weierstrass.ts:831:  const opts = validateBasic(curve);
+node_modules\@noble\curves\src\abstract\weierstrass.ts:832:  validateObject(
+node_modules\@noble\curves\src\abstract\weierstrass.ts:849:  CURVE: ReturnType<typeof validateOpts>;
+node_modules\@noble\curves\src\abstract\weierstrass.ts:872:  const CURVE = validateOpts(curveDef) as ReturnType<ty
+peof validateOpts>;
+node_modules\@noble\curves\src\abstract\weierstrass.ts:1079:   * Quick and dirty check for item being public key. 
+Does not validate hex, or being on-curve.
+node_modules\@noble\curves\src\abstract\weierstrass.ts:1156:    validateSigVerOpts(opts);
+node_modules\@noble\curves\src\abstract\weierstrass.ts:1163:    const d = normPrivateKeyToScalar(privateKey); // v
+alidate private key, convert to bigint
+node_modules\@noble\curves\src\abstract\weierstrass.ts:1249:    validateSigVerOpts(opts);
+node_modules\@noble\curves\src\abstract\weierstrass.ts:1399:  validateField(Fp);
+node_modules\@noble\hashes\eskdf.js:148:        const { salt, info } = getSaltInfo(protocol, accountId); // valida
+te protocol & accountId
+node_modules\@noble\hashes\eskdf.js:149:        const keyLength = getKeyLength(options); // validate options
+node_modules\@noble\hashes\eskdf.js:151:        // Modulus has already been validated
+node_modules\@noble\hashes\esm\eskdf.js:142:        const { salt, info } = getSaltInfo(protocol, accountId); // va
+lidate protocol & accountId
+node_modules\@noble\hashes\esm\eskdf.js:143:        const keyLength = getKeyLength(options); // validate options
+node_modules\@noble\hashes\esm\eskdf.js:145:        // Modulus has already been validated
+node_modules\@noble\hashes\src\eskdf.ts:171:    const { salt, info } = getSaltInfo(protocol, accountId); // valida
+te protocol & accountId
+node_modules\@noble\hashes\src\eskdf.ts:172:    const keyLength = getKeyLength(options); // validate options
+node_modules\@noble\hashes\src\eskdf.ts:174:    // Modulus has already been validated
+node_modules\@scure\bip39\index.d.ts:13:bip39.validateMnemonic(mn, wordlist);
+node_modules\@scure\bip39\index.d.ts:68: * Validates mnemonic for being 12-24 words contained in `wordlist`.
+node_modules\@scure\bip39\index.d.ts:70:export declare function validateMnemonic(mnemonic: string, wordlist: strin
+g[]): boolean;
+node_modules\@scure\bip39\index.js:14:bip39.validateMnemonic(mn, wordlist);
+node_modules\@scure\bip39\index.js:35:exports.validateMnemonic = validateMnemonic;
+node_modules\@scure\bip39\index.js:132: * Validates mnemonic for being 12-24 words contained in `wordlist`.
+node_modules\@scure\bip39\index.js:134:function validateMnemonic(mnemonic, wordlist) {
+node_modules\@scure\bip39\README.md:54:// Validates mnemonic for being 12-24 words contained in `wordlist`.
+node_modules\@scure\bip39\README.md:55:bip39.validateMnemonic(mn, wordlist);
+node_modules\@scure\bip39\README.md:68:function validateMnemonic(mnemonic: string, wordlist: string[]): boolean;
+node_modules\@scure\bip39\esm\index.d.ts:13:bip39.validateMnemonic(mn, wordlist);
+node_modules\@scure\bip39\esm\index.d.ts:68: * Validates mnemonic for being 12-24 words contained in `wordlist`.
+node_modules\@scure\bip39\esm\index.d.ts:70:export declare function validateMnemonic(mnemonic: string, wordlist: s
+tring[]): boolean;
+node_modules\@scure\bip39\esm\index.js:13:bip39.validateMnemonic(mn, wordlist);
+node_modules\@scure\bip39\esm\index.js:124: * Validates mnemonic for being 12-24 words contained in `wordlist`.
+node_modules\@scure\bip39\esm\index.js:126:export function validateMnemonic(mnemonic, wordlist) {
+node_modules\@scure\bip39\src\index.ts:13:bip39.validateMnemonic(mn, wordlist);
+node_modules\@scure\bip39\src\index.ts:135: * Validates mnemonic for being 12-24 words contained in `wordlist`.
+node_modules\@scure\bip39\src\index.ts:137:export function validateMnemonic(mnemonic: string, wordlist: string[]):
+ boolean {
+node_modules\abitype\README.md:75:- You need to validate ABIs at [runtime](https://abitype.dev/api/zod) (e.g. afte
+r fetching from external resource).
+node_modules\abitype\dist\cjs\zod.js:210:    .transform((val, ctx) => validateTypedDataKeys(val, ctx));
+node_modules\abitype\dist\cjs\zod.js:211:function validateTypedDataKeys(typedData, zodContext) {
+node_modules\abitype\dist\cjs\zod.js:221:        validateTypedDataParameters(keys[i], typedData, zodContext);
+node_modules\abitype\dist\cjs\zod.js:226:function validateTypedDataParameters(key, typedData, zodContext, ancestor
+s = new Set()) {
+node_modules\abitype\dist\cjs\zod.js:253:            validateTypedDataParameters(match.type, typedData, zodContext
+, new Set([...ancestors, match.type]));
+node_modules\abitype\dist\cjs\abis\human-readable.js:106:    'struct OrderStatus { bool isValidated; bool isCancel
+led; uint120 numerator; uint120 denominator; }',
+node_modules\abitype\dist\cjs\abis\human-readable.js:118:    'function getOrderStatus(bytes32 orderHash) external 
+view returns (bool isValidated, bool isCancelled, uint256 totalFilled, uint256 totalSize)',
+node_modules\abitype\dist\cjs\abis\human-readable.js:125:    'function validate(Order[] orders) external returns (
+bool validated)',
+node_modules\abitype\dist\cjs\abis\human-readable.js:130:    'event OrderValidated(bytes32 orderHash, address offe
+rer, address zone)',
+node_modules\abitype\dist\cjs\abis\json.js:1716:            { name: 'isValidated', type: 'bool' },
+node_modules\abitype\dist\cjs\abis\json.js:2133:        name: 'validate',
+node_modules\abitype\dist\cjs\abis\json.js:2134:        outputs: [{ name: 'validated', type: 'bool' }],
+node_modules\abitype\dist\cjs\abis\json.js:2462:        name: 'OrderValidated',
+node_modules\abitype\dist\esm\zod.js:260:    .transform((val, ctx) => validateTypedDataKeys(val, ctx));
+node_modules\abitype\dist\esm\zod.js:262:function validateTypedDataKeys(typedData, zodContext) {
+node_modules\abitype\dist\esm\zod.js:272:        validateTypedDataParameters(keys[i], typedData, zodContext);
+node_modules\abitype\dist\esm\zod.js:277:function validateTypedDataParameters(key, typedData, zodContext, ancestor
+s = new Set()) {
+node_modules\abitype\dist\esm\zod.js:304:            validateTypedDataParameters(match.type, typedData, zodContext
+, new Set([...ancestors, match.type]));
+node_modules\abitype\dist\esm\abis\human-readable.js:123:    'struct OrderStatus { bool isValidated; bool isCancel
+led; uint120 numerator; uint120 denominator; }',
+node_modules\abitype\dist\esm\abis\human-readable.js:136:    'function getOrderStatus(bytes32 orderHash) external 
+view returns (bool isValidated, bool isCancelled, uint256 totalFilled, uint256 totalSize)',
+node_modules\abitype\dist\esm\abis\human-readable.js:143:    'function validate(Order[] orders) external returns (
+bool validated)',
+node_modules\abitype\dist\esm\abis\human-readable.js:149:    'event OrderValidated(bytes32 orderHash, address offe
+rer, address zone)',
+node_modules\abitype\dist\esm\abis\json.js:1732:            { name: 'isValidated', type: 'bool' },
+node_modules\abitype\dist\esm\abis\json.js:2149:        name: 'validate',
+node_modules\abitype\dist\esm\abis\json.js:2150:        outputs: [{ name: 'validated', type: 'bool' }],
+node_modules\abitype\dist\esm\abis\json.js:2478:        name: 'OrderValidated',
+node_modules\abitype\dist\types\register.d.ts:86:     * When set, validates {@link AbiParameter}'s `type` against 
+{@link AbiType}
+node_modules\abitype\dist\types\register.d.ts:137:    /** When set, validates {@link AbiParameter}'s `type` agains
+t {@link AbiType} */
+node_modules\abitype\dist\types\abis\human-readable.d.ts:26:export declare const seaportHumanReadableAbi: readonly
+ ["constructor(address conduitController)", "struct AdditionalRecipient { uint256 amount; address recipient; }", "
+struct AdvancedOrder { OrderParameters parameters; uint120 numerator; uint120 denominator; bytes signature; bytes 
+extraData; }", "struct BasicOrderParameters { address considerationToken; uint256 considerationIdentifier; uint256
+ considerationAmount; address offerer; address zone; address offerToken; uint256 offerIdentifier; uint256 offerAmo
+unt; uint8 basicOrderType; uint256 startTime; uint256 endTime; bytes32 zoneHash; uint256 salt; bytes32 offererCond
+uitKey; bytes32 fulfillerConduitKey; uint256 totalOriginalAdditionalRecipients; AdditionalRecipient[] additionalRe
+cipients; bytes signature; }", "struct ConsiderationItem { uint8 itemType; address token; uint256 identifierOrCrit
+eria; uint256 startAmount; uint256 endAmount; address recipient; }", "struct CriteriaResolver { uint256 orderIndex
+; uint8 side; uint256 index; uint256 identifier; bytes32[] criteriaProof; }", "struct Execution { ReceivedItem ite
+m; address offerer; bytes32 conduitKey; }", "struct Fulfillment { FulfillmentComponent[] offerComponents; Fulfillm
+entComponent[] considerationComponents; }", "struct FulfillmentComponent { uint256 orderIndex; uint256 itemIndex; 
+}", "struct OfferItem { uint8 itemType; address token; uint256 identifierOrCriteria; uint256 startAmount; uint256 
+endAmount; }", "struct Order { OrderParameters parameters; bytes signature; }", "struct OrderComponents { address 
+offerer; address zone; OfferItem[] offer; ConsiderationItem[] consideration; uint8 orderType; uint256 startTime; u
+int256 endTime; bytes32 zoneHash; uint256 salt; bytes32 conduitKey; uint256 counter; }", "struct OrderParameters {
+ address offerer; address zone; OfferItem[] offer; ConsiderationItem[] consideration; uint8 orderType; uint256 sta
+rtTime; uint256 endTime; bytes32 zoneHash; uint256 salt; bytes32 conduitKey; uint256 totalOriginalConsiderationIte
+ms; }", "struct OrderStatus { bool isValidated; bool isCancelled; uint120 numerator; uint120 denominator; }", "str
+uct ReceivedItem { uint8 itemType; address token; uint256 identifier; uint256 amount; address recipient; }", "stru
+ct SpentItem { uint8 itemType; address token; uint256 identifier; uint256 amount; }", "function cancel(OrderCompon
+ents[] orders) external returns (bool cancelled)", "function fulfillBasicOrder(BasicOrderParameters parameters) ex
+ternal payable returns (bool fulfilled)", "function fulfillBasicOrder_efficient_6GL6yc(BasicOrderParameters parame
+ters) external payable returns (bool fulfilled)", "function fulfillOrder(Order order, bytes32 fulfillerConduitKey)
+ external payable returns (bool fulfilled)", "function fulfillAdvancedOrder(AdvancedOrder advancedOrder, CriteriaR
+esolver[] criteriaResolvers, bytes32 fulfillerConduitKey, address recipient) external payable returns (bool fulfil
+led)", "function fulfillAvailableOrders(Order[] orders, FulfillmentComponent[][] offerFulfillments, FulfillmentCom
+ponent[][] considerationFulfillments, bytes32 fulfillerConduitKey, uint256 maximumFulfilled) external payable retu
+rns (bool[] availableOrders, Execution[] executions)", "function fulfillAvailableAdvancedOrders(AdvancedOrder[] ad
+vancedOrders, CriteriaResolver[] criteriaResolvers, FulfillmentComponent[][] offerFulfillments, FulfillmentCompone
+nt[][] considerationFulfillments, bytes32 fulfillerConduitKey, address recipient, uint256 maximumFulfilled) extern
+al payable returns (bool[] availableOrders, Execution[] executions)", "function getContractOffererNonce(address co
+ntractOfferer) external view returns (uint256 nonce)", "function getOrderHash(OrderComponents order) external view
+ returns (bytes32 orderHash)", "function getOrderStatus(bytes32 orderHash) external view returns (bool isValidated
+, bool isCancelled, uint256 totalFilled, uint256 totalSize)", "function getCounter(address offerer) external view 
+returns (uint256 counter)", "function incrementCounter() external returns (uint256 newCounter)", "function informa
+tion() external view returns (string version, bytes32 domainSeparator, address conduitController)", "function name
+() external view returns (string contractName)", "function matchAdvancedOrders(AdvancedOrder[] orders, CriteriaRes
+olver[] criteriaResolvers, Fulfillment[] fulfillments) external payable returns (Execution[] executions)", "functi
+on matchOrders(Order[] orders, Fulfillment[] fulfillments) external payable returns (Execution[] executions)", "fu
+nction validate(Order[] orders) external returns (bool validated)", "event CounterIncremented(uint256 newCounter, 
+address offerer)", "event OrderCancelled(bytes32 orderHash, address offerer, address zone)", "event OrderFulfilled
+(bytes32 orderHash, address offerer, address zone, address recipient, SpentItem[] offer, ReceivedItem[] considerat
+ion)", "event OrdersMatched(bytes32[] orderHashes)", "event OrderValidated(bytes32 orderHash, address offerer, add
+ress zone)", "error BadContractSignature()", "error BadFraction()", "error BadReturnValueFromERC20OnTransfer(addre
+ss token, address from, address to, uint amount)", "error BadSignatureV(uint8 v)", "error CannotCancelOrder()", "e
+rror ConsiderationCriteriaResolverOutOfRange()", "error ConsiderationLengthNotEqualToTotalOriginal()", "error Cons
+iderationNotMet(uint orderIndex, uint considerationAmount, uint shortfallAmount)", "error CriteriaNotEnabledForIte
+m()", "error ERC1155BatchTransferGenericFailure(address token, address from, address to, uint[] identifiers, uint[
+] amounts)", "error InexactFraction()", "error InsufficientNativeTokensSupplied()", "error Invalid1155BatchTransfe
+rEncoding()", "error InvalidBasicOrderParameterEncoding()", "error InvalidCallToConduit(address conduit)", "error 
+InvalidConduit(bytes32 conduitKey, address conduit)", "error InvalidContractOrder(bytes32 orderHash)", "error Inva
+lidERC721TransferAmount(uint256 amount)", "error InvalidFulfillmentComponentData()", "error InvalidMsgValue(uint25
+6 value)", "error InvalidNativeOfferItem()", "error InvalidProof()", "error InvalidRestrictedOrder(bytes32 orderHa
+sh)", "error InvalidSignature()", "error InvalidSigner()", "error InvalidTime(uint256 startTime, uint256 endTime)"
+, "error MismatchedFulfillmentOfferAndConsiderationComponents(uint256 fulfillmentIndex)", "error MissingFulfillmen
+tComponentOnAggregation(uint8 side)", "error MissingItemAmount()", "error MissingOriginalConsiderationItems()", "e
+rror NativeTokenTransferGenericFailure(address account, uint256 amount)", "error NoContract(address account)", "er
+ror NoReentrantCalls()", "error NoSpecifiedOrdersAvailable()", "error OfferAndConsiderationRequiredOnFulfillment()
+", "error OfferCriteriaResolverOutOfRange()", "error OrderAlreadyFilled(bytes32 orderHash)", "error OrderCriteriaR
+esolverOutOfRange(uint8 side)", "error OrderIsCancelled(bytes32 orderHash)", "error OrderPartiallyFilled(bytes32 o
+rderHash)", "error PartialFillsNotEnabledForOrder()", "error TokenTransferGenericFailure(address token, address fr
+om, address to, uint identifier, uint amount)", "error UnresolvedConsiderationCriteria(uint orderIndex, uint consi
+derationIndex)", "error UnresolvedOfferCriteria(uint256 orderIndex, uint256 offerIndex)", "error UnusedItemParamet
+ers()"];
+node_modules\abitype\dist\types\abis\json.d.ts:1895:        readonly name: "isValidated";
+node_modules\abitype\dist\types\abis\json.d.ts:2354:    readonly name: "validate";
+node_modules\abitype\dist\types\abis\json.d.ts:2356:        readonly name: "validated";
+node_modules\abitype\dist\types\abis\json.d.ts:2830:    readonly name: "OrderValidated";
+node_modules\abitype\dist\types\human-readable\types\signatures.d.ts:28:export type IsName<name extends string> = 
+name extends '' ? false : ValidateName<name> extends name ? true : false;
+node_modules\abitype\dist\types\human-readable\types\signatures.d.ts:29:export type AssertName<name extends string
+> = ValidateName<name> extends infer invalidName extends string[] ? `[${invalidName[number]}]` : name;
+node_modules\abitype\dist\types\human-readable\types\signatures.d.ts:30:export type ValidateName<name extends stri
+ng, checkCharacters extends boolean = false> = name extends `${string}${' '}${string}` ? Error<`Identifier "${name
+}" cannot contain whitespace.`> : IsSolidityKeyword<name> extends true ? Error<`"${name}" is a protected Solidity 
+keyword.`> : name extends `${number}` ? Error<`Identifier "${name}" cannot be a number string.`> : name extends `$
+{number}${string}` ? Error<`Identifier "${name}" cannot start with a number.`> : checkCharacters extends true ? Is
+ValidCharacter<name> extends true ? name : Error<`"${name}" contains invalid character.`> : name;
+node_modules\abitype\dist\types\human-readable\types\utils.d.ts:4:import type { ErrorSignature, EventModifier, Eve
+ntSignature, FallbackSignature, FunctionModifier, FunctionSignature, IsConstructorSignature, IsErrorSignature, IsE
+ventSignature, IsFunctionSignature, Modifier, ReceiveSignature, Scope, ValidateName } from './signatures.js';
+node_modules\abitype\dist\types\human-readable\types\utils.d.ts:79:} ? Pretty<_ValidateAbiParameter<Parameter>> : 
+never : never;
+node_modules\abitype\dist\types\human-readable\types\utils.d.ts:82:export type _ValidateAbiParameter<abiParameter 
+extends AbiParameter> = (abiParameter extends {
+node_modules\abitype\dist\types\human-readable\types\utils.d.ts:84:} ? ValidateName<abiParameter['name']> extends 
+infer name ? name extends abiParameter['name'] ? abiParameter : Merge<abiParameter, {
+node_modules\abitype\src\register.ts:103:   * When set, validates {@link AbiParameter}'s `type` against {@link Abi
+Type}
+node_modules\abitype\src\register.ts:159:  /** When set, validates {@link AbiParameter}'s `type` against {@link Ab
+iType} */
+node_modules\abitype\src\utils.ts:118:  : // Compare the original set of names to a "validated"
+node_modules\abitype\src\zod.ts:325:  .transform((val, ctx) => validateTypedDataKeys(val, ctx))
+node_modules\abitype\src\zod.ts:328:function validateTypedDataKeys(
+node_modules\abitype\src\zod.ts:344:    validateTypedDataParameters(keys[i]!, typedData, zodContext)
+node_modules\abitype\src\zod.ts:353:function validateTypedDataParameters(
+node_modules\abitype\src\zod.ts:395:      validateTypedDataParameters(
+node_modules\abitype\src\abis\human-readable.ts:129:  'struct OrderStatus { bool isValidated; bool isCancelled; ui
+nt120 numerator; uint120 denominator; }',
+node_modules\abitype\src\abis\human-readable.ts:142:  'function getOrderStatus(bytes32 orderHash) external view re
+turns (bool isValidated, bool isCancelled, uint256 totalFilled, uint256 totalSize)',
+node_modules\abitype\src\abis\human-readable.ts:149:  'function validate(Order[] orders) external returns (bool va
+lidated)',
+node_modules\abitype\src\abis\human-readable.ts:155:  'event OrderValidated(bytes32 orderHash, address offerer, ad
+dress zone)',
+node_modules\abitype\src\abis\json.ts:1753:      { name: 'isValidated', type: 'bool' },
+node_modules\abitype\src\abis\json.ts:2176:    name: 'validate',
+node_modules\abitype\src\abis\json.ts:2177:    outputs: [{ name: 'validated', type: 'bool' }],
+node_modules\abitype\src\abis\json.ts:2515:    name: 'OrderValidated',
+node_modules\abitype\src\human-readable\parseAbi.ts:29:      ? signatures extends Signatures<signatures> // Valida
+te signatures
+node_modules\abitype\src\human-readable\parseAbiItem.ts:34:        : signature extends Signature<signature> // Val
+idate signature
+node_modules\abitype\src\human-readable\parseAbiItem.ts:41:        : signature extends Signatures<signature> // Va
+lidate signature
+node_modules\abitype\src\human-readable\parseAbiParameter.ts:93:              : unknown // TODO: Validate param st
+ring
+node_modules\abitype\src\human-readable\parseAbiParameters.ts:117:              : unknown // TODO: Validate param 
+string
+node_modules\abitype\src\human-readable\types\signatures.ts:125:  : ValidateName<name> extends name
+node_modules\abitype\src\human-readable\types\signatures.ts:130:  ValidateName<name> extends infer invalidName ext
+ends string[]
+node_modules\abitype\src\human-readable\types\signatures.ts:134:export type ValidateName<
+node_modules\abitype\src\human-readable\types\signatures.ts:240:// So we need to validate against `returns` keywor
+d with all combinations of whitespace
+node_modules\abitype\src\human-readable\types\utils.ts:23:  ValidateName,
+node_modules\abitype\src\human-readable\types\utils.ts:172:    ? Pretty<_ValidateAbiParameter<Parameter>>
+node_modules\abitype\src\human-readable\types\utils.ts:204:export type _ValidateAbiParameter<abiParameter extends 
+AbiParameter> =
+node_modules\abitype\src\human-readable\types\utils.ts:205:  // Validate `name`
+node_modules\abitype\src\human-readable\types\utils.ts:208:      ? ValidateName<abiParameter['name']> extends infe
+r name
+node_modules\abitype\src\human-readable\types\utils.ts:216:    ? // Validate `type` against `AbiType`
+node_modules\ox\index.ts:693: * The {@link ox#Address.(validate:function)} function will return `true` if the addr
+ess is valid, and `false` otherwise:
+node_modules\ox\index.ts:698: * const valid = Address.validate('0xA0Cf798816D4b9b9866b5330EEa46a18382f251e')
+node_modules\ox\index.ts:2479: * SIWE messages can be validated using {@link ox#Siwe.(validateMessage:function)}:
+node_modules\ox\index.ts:2484: * Siwe.validateMessage({
+node_modules\ox\core\AbiError.ts:633:  if (Hex.validate(name, { strict: false })) {
+node_modules\ox\core\AbiItem.ts:342:  const isSelector = Hex.validate(name, { strict: false })
+node_modules\ox\core\AccessList.ts:60:        Hash.validate(key) ? key : Hex.trimLeft(key),
+node_modules\ox\core\Address.ts:260: * Address.validate('0xA0Cf798816D4b9b9866b5330EEa46a18382f251e')
+node_modules\ox\core\Address.ts:268: * Address.validate('0xdeadbeef')
+node_modules\ox\core\Address.ts:276:export function validate(
+node_modules\ox\core\Address.ts:278:  options: validate.Options = {},
+node_modules\ox\core\Address.ts:289:export declare namespace validate {
+node_modules\ox\core\Bloom.ts:54: * Bloom.validate('0x')
+node_modules\ox\core\Bloom.ts:57: * Bloom.validate('0x000000000000000000000080000000000000000000000000000000000000
+000000000000000800000000000000000000000000000000000000000000000440002000000000000000000020000000000000000000000400
+000000000000000000000000000200000000000000000008000000000008000000000008000000000000000000000000000000000000000000
+000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+00808002000000000400000000000000000000000060000000000000000000000000000000000000000000000100000000000002000000')
+node_modules\ox\core\Bloom.ts:64:export function validate(value: string): value is Hex.Hex {
+node_modules\ox\core\Bloom.ts:65:  return Hex.validate(value) && Hex.size(value) === 256
+node_modules\ox\core\Bloom.ts:68:export declare namespace validate {
+node_modules\ox\core\Bloom.ts:70:    | Hex.validate.ErrorType
+node_modules\ox\core\Bytes.ts:737: * Bytes.validate('0x')
+node_modules\ox\core\Bytes.ts:740: * Bytes.validate(Bytes.from([1, 2, 3]))
+node_modules\ox\core\Bytes.ts:747:export function validate(value: unknown): value is Bytes {
+node_modules\ox\core\Bytes.ts:756:export declare namespace validate {
+node_modules\ox\core\ContractAddress.ts:124:    Bytes.validate(options.salt) ? options.salt : Bytes.fromHex(option
+s.salt),
+node_modules\ox\core\ContractAddress.ts:130:      if (Bytes.validate(options.bytecodeHash)) return options.bytecod
+eHash
+node_modules\ox\core\ContractAddress.ts:163:    | Bytes.validate.ErrorType
+node_modules\ox\core\Filter.ts:71:      fromBlock: Hex.validate(fromBlock, { strict: false })
+node_modules\ox\core\Filter.ts:76:      toBlock: Hex.validate(toBlock, { strict: false })
+node_modules\ox\core\Hash.ts:240: * Hash.validate('0x')
+node_modules\ox\core\Hash.ts:243: * Hash.validate('0x3ea2f1d0abf3fc66cf29eebb70cbd4e7fe762ef8a09bcc06c8edf641230af
+ec0')
+node_modules\ox\core\Hash.ts:250:export function validate(value: string): value is Hex.Hex {
+node_modules\ox\core\Hash.ts:251:  return Hex.validate(value) && Hex.size(value) === 32
+node_modules\ox\core\Hash.ts:254:export declare namespace validate {
+node_modules\ox\core\Hash.ts:256:    | Hex.validate.ErrorType
+node_modules\ox\core\Hex.ts:729: * Hex.validate('0xdeadbeef')
+node_modules\ox\core\Hex.ts:732: * Hex.validate(Bytes.from([1, 2, 3]))
+node_modules\ox\core\Hex.ts:740:export function validate(
+node_modules\ox\core\Hex.ts:742:  options: validate.Options = {},
+node_modules\ox\core\Hex.ts:753:export declare namespace validate {
+node_modules\ox\core\Mnemonic.ts:4:  validateMnemonic,
+node_modules\ox\core\Mnemonic.ts:212: * const mnemonic = Mnemonic.validate(
+node_modules\ox\core\Mnemonic.ts:219: * @param mnemonic - The mnemonic to validate.
+node_modules\ox\core\Mnemonic.ts:223:export function validate(mnemonic: string, wordlist: string[]): boolean {
+node_modules\ox\core\Mnemonic.ts:224:  return validateMnemonic(mnemonic, wordlist)
+node_modules\ox\core\Mnemonic.ts:227:export declare namespace validate {
+node_modules\ox\core\PublicKey.ts:170:    if (Hex.validate(value)) return fromHex(value)
+node_modules\ox\core\PublicKey.ts:171:    if (Bytes.validate(value)) return fromBytes(value)
+node_modules\ox\core\PublicKey.ts:412: * Validates a {@link ox#PublicKey.PublicKey}. Returns `true` if valid, `fal
+se` otherwise.
+node_modules\ox\core\PublicKey.ts:418: * const valid = PublicKey.validate({
+node_modules\ox\core\PublicKey.ts:427:export function validate(
+node_modules\ox\core\PublicKey.ts:429:  options: validate.Options = {},
+node_modules\ox\core\PublicKey.ts:439:export declare namespace validate {
+node_modules\ox\core\Signature.ts:692: * Validates a Signature. Returns `true` if the signature is valid, `false` 
+otherwise.
+node_modules\ox\core\Signature.ts:698: * const valid = Signature.validate({
+node_modules\ox\core\Signature.ts:708:export function validate(
+node_modules\ox\core\Signature.ts:710:  options: validate.Options = {},
+node_modules\ox\core\Signature.ts:720:export declare namespace validate {
+node_modules\ox\core\Siwe.ts:126:  // Validate fields
+node_modules\ox\core\Siwe.ts:402: * Validates [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361) message.
+node_modules\ox\core\Siwe.ts:408: * Siwe.validateMessage({
+node_modules\ox\core\Siwe.ts:427:export function validateMessage(value: validateMessage.Value): boolean {
+node_modules\ox\core\Siwe.ts:447:export declare namespace validateMessage {
+node_modules\ox\core\TxEnvelopeEip1559.ts:165:  if (Hex.validate(to) && to !== '0x') transaction.to = to
+node_modules\ox\core\TxEnvelopeEip1559.ts:166:  if (Hex.validate(gas) && gas !== '0x') transaction.gas = BigInt(ga
+s)
+node_modules\ox\core\TxEnvelopeEip1559.ts:167:  if (Hex.validate(data) && data !== '0x') transaction.data = data
+node_modules\ox\core\TxEnvelopeEip1559.ts:168:  if (Hex.validate(nonce))
+node_modules\ox\core\TxEnvelopeEip1559.ts:170:  if (Hex.validate(value) && value !== '0x') transaction.value = Big
+Int(value)
+node_modules\ox\core\TxEnvelopeEip1559.ts:171:  if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\core\TxEnvelopeEip1559.ts:173:  if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerGas !==
+ '0x')
+node_modules\ox\core\TxEnvelopeEip1559.ts:590: * Validates a {@link ox#TxEnvelopeEip1559.TxEnvelopeEip1559}. Retur
+ns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\core\TxEnvelopeEip1559.ts:605: * @param envelope - The transaction envelope to validate.
+node_modules\ox\core\TxEnvelopeEip1559.ts:607:export function validate(envelope: PartialBy<TxEnvelopeEip1559, 'typ
+e'>) {
+node_modules\ox\core\TxEnvelopeEip1559.ts:616:export declare namespace validate {
+node_modules\ox\core\TxEnvelopeEip2930.ts:149:  if (Hex.validate(to) && to !== '0x') transaction.to = to
+node_modules\ox\core\TxEnvelopeEip2930.ts:150:  if (Hex.validate(gas) && gas !== '0x') transaction.gas = BigInt(ga
+s)
+node_modules\ox\core\TxEnvelopeEip2930.ts:151:  if (Hex.validate(data) && data !== '0x') transaction.data = data
+node_modules\ox\core\TxEnvelopeEip2930.ts:152:  if (Hex.validate(nonce))
+node_modules\ox\core\TxEnvelopeEip2930.ts:154:  if (Hex.validate(value) && value !== '0x') transaction.value = Big
+Int(value)
+node_modules\ox\core\TxEnvelopeEip2930.ts:155:  if (Hex.validate(gasPrice) && gasPrice !== '0x')
+node_modules\ox\core\TxEnvelopeEip2930.ts:555: * Validates a {@link ox#TxEnvelopeEip2930.TxEnvelopeEip2930}. Retur
+ns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\core\TxEnvelopeEip2930.ts:570: * @param envelope - The transaction envelope to validate.
+node_modules\ox\core\TxEnvelopeEip2930.ts:572:export function validate(envelope: PartialBy<TxEnvelopeEip2930, 'typ
+e'>) {
+node_modules\ox\core\TxEnvelopeEip2930.ts:581:export declare namespace validate {
+node_modules\ox\core\TxEnvelopeEip4844.ts:192:  if (Hex.validate(to) && to !== '0x') transaction.to = to
+node_modules\ox\core\TxEnvelopeEip4844.ts:193:  if (Hex.validate(gas) && gas !== '0x') transaction.gas = BigInt(ga
+s)
+node_modules\ox\core\TxEnvelopeEip4844.ts:194:  if (Hex.validate(data) && data !== '0x') transaction.data = data
+node_modules\ox\core\TxEnvelopeEip4844.ts:195:  if (Hex.validate(nonce))
+node_modules\ox\core\TxEnvelopeEip4844.ts:197:  if (Hex.validate(value) && value !== '0x') transaction.value = Big
+Int(value)
+node_modules\ox\core\TxEnvelopeEip4844.ts:198:  if (Hex.validate(maxFeePerBlobGas) && maxFeePerBlobGas !== '0x')
+node_modules\ox\core\TxEnvelopeEip4844.ts:200:  if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\core\TxEnvelopeEip4844.ts:202:  if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerGas !==
+ '0x')
+node_modules\ox\core\TxEnvelopeEip4844.ts:696: * Validates a {@link ox#TxEnvelopeEip4844.TxEnvelopeEip4844}. Retur
+ns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\core\TxEnvelopeEip4844.ts:711: * @param envelope - The transaction envelope to validate.
+node_modules\ox\core\TxEnvelopeEip4844.ts:713:export function validate(envelope: PartialBy<TxEnvelopeEip4844, 'typ
+e'>) {
+node_modules\ox\core\TxEnvelopeEip4844.ts:722:export declare namespace validate {
+node_modules\ox\core\TxEnvelopeEip7702.ts:168:  if (Hex.validate(to) && to !== '0x') transaction.to = to
+node_modules\ox\core\TxEnvelopeEip7702.ts:169:  if (Hex.validate(gas) && gas !== '0x') transaction.gas = BigInt(ga
+s)
+node_modules\ox\core\TxEnvelopeEip7702.ts:170:  if (Hex.validate(data) && data !== '0x') transaction.data = data
+node_modules\ox\core\TxEnvelopeEip7702.ts:171:  if (Hex.validate(nonce))
+node_modules\ox\core\TxEnvelopeEip7702.ts:173:  if (Hex.validate(value) && value !== '0x') transaction.value = Big
+Int(value)
+node_modules\ox\core\TxEnvelopeEip7702.ts:174:  if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\core\TxEnvelopeEip7702.ts:176:  if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerGas !==
+ '0x')
+node_modules\ox\core\TxEnvelopeEip7702.ts:575: * Validates a {@link ox#TxEnvelopeEip7702.TxEnvelopeEip7702}. Retur
+ns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\core\TxEnvelopeEip7702.ts:581: * const valid = TxEnvelopeEip7702.validate({
+node_modules\ox\core\TxEnvelopeEip7702.ts:591: * @param envelope - The transaction envelope to validate.
+node_modules\ox\core\TxEnvelopeEip7702.ts:593:export function validate(envelope: PartialBy<TxEnvelopeEip7702, 'typ
+e'>) {
+node_modules\ox\core\TxEnvelopeEip7702.ts:602:export declare namespace validate {
+node_modules\ox\core\TxEnvelopeLegacy.ts:133:  if (Hex.validate(to) && to !== '0x') transaction.to = to
+node_modules\ox\core\TxEnvelopeLegacy.ts:134:  if (Hex.validate(gas) && gas !== '0x') transaction.gas = BigInt(gas
+)
+node_modules\ox\core\TxEnvelopeLegacy.ts:135:  if (Hex.validate(data) && data !== '0x') transaction.data = data
+node_modules\ox\core\TxEnvelopeLegacy.ts:136:  if (Hex.validate(nonce))
+node_modules\ox\core\TxEnvelopeLegacy.ts:138:  if (Hex.validate(value) && value !== '0x') transaction.value = BigI
+nt(value)
+node_modules\ox\core\TxEnvelopeLegacy.ts:139:  if (Hex.validate(gasPrice) && gasPrice !== '0x')
+node_modules\ox\core\TxEnvelopeLegacy.ts:145:    Hex.validate(chainIdOrV_) && chainIdOrV_ !== '0x'
+node_modules\ox\core\TxEnvelopeLegacy.ts:606: * Validates a {@link ox#TxEnvelopeLegacy.TxEnvelopeLegacy}. Returns 
+`true` if the envelope is valid, `false` otherwise.
+node_modules\ox\core\TxEnvelopeLegacy.ts:621: * @param envelope - The transaction envelope to validate.
+node_modules\ox\core\TxEnvelopeLegacy.ts:623:export function validate(envelope: PartialBy<TxEnvelopeLegacy, 'type'
+>) {
+node_modules\ox\core\TxEnvelopeLegacy.ts:632:export declare namespace validate {
+node_modules\ox\core\TypedData.ts:100: * @param value - The Typed Data to validate.
+node_modules\ox\core\TypedData.ts:109:  const validateData = (
+node_modules\ox\core\TypedData.ts:134:        !Address.validate(value)
+node_modules\ox\core\TypedData.ts:153:        validateReference(type)
+node_modules\ox\core\TypedData.ts:154:        validateData(struct, value as Record<string, unknown>)
+node_modules\ox\core\TypedData.ts:159:  // Validate domain types.
+node_modules\ox\core\TypedData.ts:162:    validateData(types.EIP712Domain, domain)
+node_modules\ox\core\TypedData.ts:165:  // Validate message types.
+node_modules\ox\core\TypedData.ts:167:    if (types[primaryType]) validateData(types[primaryType], message)
+node_modules\ox\core\TypedData.ts:667: * const valid = TypedData.validate({
+node_modules\ox\core\TypedData.ts:691: * @param value - The Typed Data to validate.
+node_modules\ox\core\TypedData.ts:693:export function validate<
+node_modules\ox\core\TypedData.ts:705:export declare namespace validate {
+node_modules\ox\core\TypedData.ts:900:function validateReference(type: string) {
+node_modules\ox\core\internal\abiItem.ts:215:  : ValidateName<name> extends name
+node_modules\ox\core\internal\abiItem.ts:220:export type ValidateName<
+node_modules\ox\core\internal\abiItem.ts:330:// So we need to validate against `returns` keyword with all combinat
+ions of whitespace
+node_modules\ox\core\internal\abiItem.ts:500:      return Address.validate(arg as Address.Address, { strict: false
+ })
+node_modules\ox\core\internal\abiItem.ts:579:        return Address.validate(args[parameterIndex] as Address.Addre
+ss, {
+node_modules\ox\core\internal\abiItem.ts:583:        return Address.validate(args[parameterIndex] as Address.Addre
+ss, {
+node_modules\ox\core\internal\ens.ts:58:  if (!Hex.validate(hash, { strict: true })) return null
+node_modules\ox\core\internal\ens.ts:63:  type ErrorType = Hex.validate.ErrorType | Errors.GlobalErrorType
+node_modules\ox\erc4337\EntryPoint.ts:398:    name: '_validateSenderAndPaymaster',
+node_modules\ox\erc6492\SignatureErc6492.ts:230: * Validates a wrapped signature. Returns `true` if the wrapped si
+gnature is valid, `false` otherwise.
+node_modules\ox\erc6492\SignatureErc6492.ts:236: * const valid = SignatureErc6492.validate('0xdeadbeef')
+node_modules\ox\erc6492\SignatureErc6492.ts:240: * @param wrapped - The wrapped signature to validate.
+node_modules\ox\erc6492\SignatureErc6492.ts:243:export function validate(wrapped: Wrapped): boolean {
+node_modules\ox\erc6492\SignatureErc6492.ts:252:export declare namespace validate {
+node_modules\ox\erc8010\SignatureErc8010.ts:195: * Validates a wrapped signature. Returns `true` if the wrapped si
+gnature is valid, `false` otherwise.
+node_modules\ox\erc8010\SignatureErc8010.ts:201: * const valid = SignatureErc8010.validate('0xdeadbeef')
+node_modules\ox\erc8010\SignatureErc8010.ts:205: * @param value - The value to validate.
+node_modules\ox\erc8010\SignatureErc8010.ts:208:export function validate(value: Unwrapped | Wrapped): boolean {
+node_modules\ox\erc8010\SignatureErc8010.ts:217:export declare namespace validate {
+node_modules\ox\erc8021\Attribution.ts:379:  // Validate we have enough bytes to cover address + chainId + chainId
+Len
+node_modules\ox\tempo\KeyAuthorization.ts:20: * key itself), and the protocol validates the authorization before s
+toring the key in the
+node_modules\ox\tempo\KeyAuthorization.ts:63:   * can be burned onchain to invalidate the authorization before sub
+mission.
+node_modules\ox\tempo\MultisigConfig.test.ts:163:describe('assert / validate', () => {
+node_modules\ox\tempo\MultisigConfig.test.ts:165:    expect(MultisigConfig.validate(singleOwnerConfig)).toBe(true)
+node_modules\ox\tempo\MultisigConfig.test.ts:169:    expect(MultisigConfig.validate({ threshold: 1, owners: [] }))
+.toBe(false)
+node_modules\ox\tempo\MultisigConfig.test.ts:178:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:190:    expect(MultisigConfig.validate({ threshold: 1, owners })).toB
+e(false)
+node_modules\ox\tempo\MultisigConfig.test.ts:195:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:204:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:213:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:222:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:231:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:243:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:252:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:261:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:275:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:287:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.test.ts:299:      MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.ts:72: * Mirrors the Tempo `InitMultisig::validate` rules: owners non-empty a
+nd
+node_modules\ox\tempo\MultisigConfig.ts:110:    if (!Address.validate(owner.owner) || Hex.toBigInt(owner.owner) ==
+= 0n)
+node_modules\ox\tempo\MultisigConfig.ts:419: * Validates a native multisig {@link ox#MultisigConfig.Config}. Retur
+ns `true`
+node_modules\ox\tempo\MultisigConfig.ts:426: * const valid = MultisigConfig.validate({
+node_modules\ox\tempo\MultisigConfig.ts:438:export function validate(config: Config): boolean {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:72:    test('behavior: validates valid signature', () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:81:    test('behavior: validates signature without explicit type',
+ () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:104:    test('behavior: validates valid P256 signature', () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:108:    test('behavior: validates P256 signature without explicit 
+type', () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:231:    test('behavior: validates valid WebAuthn signature', () =>
+ {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:235:    test('behavior: validates WebAuthn signature without expli
+cit type', () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:417:    test('behavior: validates valid keychain with secp256k1 in
+ner', () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:423:    test('behavior: validates valid keychain with p256 inner',
+ () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:429:    test('behavior: validates valid keychain with webAuthn inn
+er', () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:435:    test('behavior: validates keychain without explicit type',
+ () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1857:describe('validate', () => {
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1861:        SignatureEnvelope.validate({
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1870:        SignatureEnvelope.validate({ signature: signature_sec
+p256k1 }),
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1876:        SignatureEnvelope.validate({
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1890:      expect(SignatureEnvelope.validate(signature_p256)).toBe
+(true)
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1895:        SignatureEnvelope.validate({
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1905:      expect(SignatureEnvelope.validate(signature_webauthn)).
+toBe(true)
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1910:      expect(SignatureEnvelope.validate(withoutMetadata as an
+y)).toBe(false)
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1916:      expect(SignatureEnvelope.validate(signature_keychain_se
+cp256k1)).toBe(
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1922:      expect(SignatureEnvelope.validate(signature_keychain_p2
+56)).toBe(true)
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1926:      expect(SignatureEnvelope.validate(signature_keychain_we
+bauthn)).toBe(true)
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1931:        SignatureEnvelope.validate({
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1948:    expect(SignatureEnvelope.validate({} as any)).toBe(false)
+node_modules\ox\tempo\SignatureEnvelope.test.ts:1953:      SignatureEnvelope.validate({
+node_modules\ox\tempo\SignatureEnvelope.test.ts:3183:    test('deserialize: validates bootstrap init semantics', (
+) => {
+node_modules\ox\tempo\SignatureEnvelope.ts:106: *   The protocol validates the access key authorization via the Ac
+countKeychain precompile.
+node_modules\ox\tempo\SignatureEnvelope.ts:384:  if (!Address.validate(envelope.account))
+node_modules\ox\tempo\SignatureEnvelope.ts:754:    if (!Array.isArray(address) && !Address.validate(address))
+node_modules\ox\tempo\SignatureEnvelope.ts:1659: * Validates a signature envelope. Returns `true` if the envelope 
+is valid, `false` otherwise.
+node_modules\ox\tempo\SignatureEnvelope.ts:1665: * const valid = SignatureEnvelope.validate({
+node_modules\ox\tempo\SignatureEnvelope.ts:1672: * @param envelope - The signature envelope to validate.
+node_modules\ox\tempo\SignatureEnvelope.ts:1675:export function validate(
+node_modules\ox\tempo\SignatureEnvelope.ts:1686:export declare namespace validate {
+node_modules\ox\tempo\TempoAddress.test.ts:76:describe('validate', () => {
+node_modules\ox\tempo\TempoAddress.test.ts:79:    expect(TempoAddress.validate(encoded)).toBe(true)
+node_modules\ox\tempo\TempoAddress.test.ts:83:    expect(TempoAddress.validate('invalid')).toBe(false)
+node_modules\ox\tempo\TempoAddress.test.ts:87:    expect(TempoAddress.validate('tempox0xinvalid')).toBe(false)
+node_modules\ox\tempo\TempoAddress.ts:111: * Validates a Tempo address string.
+node_modules\ox\tempo\TempoAddress.ts:117: * const valid = TempoAddress.validate(
+node_modules\ox\tempo\TempoAddress.ts:123: * @param tempoAddress - The Tempo address string to validate.
+node_modules\ox\tempo\TempoAddress.ts:126:export function validate(tempoAddress: string): boolean {
+node_modules\ox\tempo\Tick.test.ts:86:  test('validates string format', () => {
+node_modules\ox\tempo\Tick.test.ts:260:  test('validates 2% range', () => {
+node_modules\ox\tempo\TxEnvelopeTempo.test.ts:1617:describe('validate', () => {
+node_modules\ox\tempo\TxEnvelopeTempo.test.ts:1620:      TxEnvelopeTempo.validate({
+node_modules\ox\tempo\TxEnvelopeTempo.test.ts:1629:      TxEnvelopeTempo.validate({
+node_modules\ox\tempo\TxEnvelopeTempo.test.ts:1638:      TxEnvelopeTempo.validate({
+node_modules\ox\tempo\TxEnvelopeTempo.ts:202:  // Validate each call
+node_modules\ox\tempo\TxEnvelopeTempo.ts:207:  // Validate chain ID
+node_modules\ox\tempo\TxEnvelopeTempo.ts:211:  // Validate max fee per gas
+node_modules\ox\tempo\TxEnvelopeTempo.ts:322:  if (Hex.validate(gas) && gas !== '0x') transaction.gas = BigInt(gas
+)
+node_modules\ox\tempo\TxEnvelopeTempo.ts:323:  if (Hex.validate(nonce))
+node_modules\ox\tempo\TxEnvelopeTempo.ts:325:  if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\tempo\TxEnvelopeTempo.ts:327:  if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerGas !== 
+'0x')
+node_modules\ox\tempo\TxEnvelopeTempo.ts:329:  if (Hex.validate(nonceKey))
+node_modules\ox\tempo\TxEnvelopeTempo.ts:331:  if (Hex.validate(validBefore) && validBefore !== '0x')
+node_modules\ox\tempo\TxEnvelopeTempo.ts:333:  if (Hex.validate(validAfter) && validAfter !== '0x')
+node_modules\ox\tempo\TxEnvelopeTempo.ts:335:  if (Hex.validate(feeToken) && feeToken !== '0x')
+node_modules\ox\tempo\TxEnvelopeTempo.ts:365:      Address.validate(feePayerSignatureOrSender)
+node_modules\ox\tempo\TxEnvelopeTempo.ts:368:      if (Address.validate(feePayerSignatureOrSender))
+node_modules\ox\tempo\TxEnvelopeTempo.ts:1016: * Validates a {@link ox#TxEnvelopeTempo.TxEnvelopeTempo}. Returns `
+true` if the envelope is valid, `false` otherwise.
+node_modules\ox\tempo\TxEnvelopeTempo.ts:1023: * const valid = TxEnvelopeTempo.validate({
+node_modules\ox\tempo\TxEnvelopeTempo.ts:1034: * @param envelope - The transaction envelope to validate.
+node_modules\ox\tempo\TxEnvelopeTempo.ts:1036:export function validate(envelope: PartialBy<TxEnvelopeTempo, 'type'
+>) {
+node_modules\ox\tempo\TxEnvelopeTempo.ts:1045:export declare namespace validate {
+node_modules\ox\tempo\VirtualAddress.test.ts:67:describe('validate', () => {
+node_modules\ox\tempo\VirtualAddress.test.ts:69:    expect(VirtualAddress.validate(tempoAddress)).toBe(true)
+node_modules\ox\tempo\VirtualAddress.test.ts:73:    expect(VirtualAddress.validate('invalid')).toBe(false)
+node_modules\ox\tempo\VirtualAddress.test.ts:84:      "validate",
+node_modules\ox\tempo\VirtualAddress.ts:145: * Validates that an address matches the TIP-1022 virtual address form
+at.
+node_modules\ox\tempo\VirtualAddress.ts:149: * This only validates the reserved byte layout, not whether the `mast
+erId`
+node_modules\ox\tempo\VirtualAddress.ts:156: * const valid = VirtualAddress.validate(
+node_modules\ox\tempo\VirtualAddress.ts:164: * @param address - Address to validate.
+node_modules\ox\tempo\VirtualAddress.ts:167:export function validate(address: string): boolean {
+node_modules\ox\tempo\VirtualMaster.test.ts:45:describe('validateSalt', () => {
+node_modules\ox\tempo\VirtualMaster.test.ts:47:    expect(VirtualMaster.validateSalt({ address, salt })).toBe(true
+)
+node_modules\ox\tempo\VirtualMaster.test.ts:51:    expect(VirtualMaster.validateSalt({ address, salt: 0n })).toBe(
+false)
+node_modules\ox\tempo\VirtualMaster.test.ts:199:      "validateSalt",
+node_modules\ox\tempo\VirtualMaster.ts:110: * Validates that a salt satisfies the TIP-1022 32-bit proof-of-work re
+quirement.
+node_modules\ox\tempo\VirtualMaster.ts:122: * const valid = VirtualMaster.validateSalt({
+node_modules\ox\tempo\VirtualMaster.ts:134:export function validateSalt(value: validateSalt.Value): boolean {
+node_modules\ox\tempo\VirtualMaster.ts:147:export declare namespace validateSalt {
+node_modules\ox\tempo\VirtualMaster.ts:654: * Resolves a Tempo or hex address, validates it as a valid master.
+node_modules\ox\webauthn\Authentication.ts:605:  // If rpId is provided, validate the rpIdHash in authenticatorDat
+a.
+node_modules\ox\webauthn\Authentication.ts:632:  // Validate the challenge in the clientDataJSON.
+node_modules\ox\webauthn\Authentication.ts:639:  // If origin is provided, validate origin.
+node_modules\ox\webauthn\Authentication.ts:668:    /** Expected origin(s). If provided, the `clientDataJSON` origi
+n will be validated. */
+node_modules\ox\webauthn\Authentication.ts:670:    /** Expected relying party ID. If provided, the `rpIdHash` in `
+authenticatorData` will be validated. */
+node_modules\ox\webauthn\Registration.ts:519: * Verifies a WebAuthn registration (credential creation) response. V
+alidates the
+node_modules\ox\webauthn\Registration.ts:557:  // 1. Decode and validate clientDataJSON
+node_modules\ox\webauthn\Registration.ts:567:  // Validate challenge
+node_modules\ox\webauthn\Registration.ts:580:  // Validate origin
+node_modules\ox\webauthn\Registration.ts:650:  // 4. Parse and validate COSE public key
+node_modules\ox\webauthn\Registration.ts:655:  // Validate key type is EC2 (2), algorithm is ES256 (-7), and curve
+ is P-256 (1)
+node_modules\ox\_cjs\core\AbiError.js:60:    if (Hex.validate(name, { strict: false })) {
+node_modules\ox\_cjs\core\AbiItem.js:35:    const isSelector = Hex.validate(name, { strict: false });
+node_modules\ox\_cjs\core\AccessList.js:18:            storageKeys: storageKeys.map((key) => Hash.validate(key) ? 
+key : Hex.trimLeft(key)),
+node_modules\ox\_cjs\core\Address.js:9:exports.validate = validate;
+node_modules\ox\_cjs\core\Address.js:68:function validate(address, options = {}) {
+node_modules\ox\_cjs\core\Bloom.js:4:exports.validate = validate;
+node_modules\ox\_cjs\core\Bloom.js:18:function validate(value) {
+node_modules\ox\_cjs\core\Bloom.js:19:    return Hex.validate(value) && Hex.size(value) === 256;
+node_modules\ox\_cjs\core\Bytes.js:25:exports.validate = validate;
+node_modules\ox\_cjs\core\Bytes.js:180:function validate(value) {
+node_modules\ox\_cjs\core\ContractAddress.js:25:    const salt = Bytes.padLeft(Bytes.validate(options.salt) ? opti
+ons.salt : Bytes.fromHex(options.salt), 32);
+node_modules\ox\_cjs\core\ContractAddress.js:28:            if (Bytes.validate(options.bytecodeHash))
+node_modules\ox\_cjs\core\Filter.js:11:            fromBlock: Hex.validate(fromBlock, { strict: false })
+node_modules\ox\_cjs\core\Filter.js:16:            toBlock: Hex.validate(toBlock, { strict: false })
+node_modules\ox\_cjs\core\Hash.js:7:exports.validate = validate;
+node_modules\ox\_cjs\core\Hash.js:42:function validate(value) {
+node_modules\ox\_cjs\core\Hash.js:43:    return Hex.validate(value) && Hex.size(value) === 32;
+node_modules\ox\_cjs\core\Hex.js:24:exports.validate = validate;
+node_modules\ox\_cjs\core\Hex.js:181:function validate(value, options = {}) {
+node_modules\ox\_cjs\core\Mnemonic.js:8:exports.validate = validate;
+node_modules\ox\_cjs\core\Mnemonic.js:48:function validate(mnemonic, wordlist) {
+node_modules\ox\_cjs\core\Mnemonic.js:49:    return (0, bip39_1.validateMnemonic)(mnemonic, wordlist);
+node_modules\ox\_cjs\core\PublicKey.js:11:exports.validate = validate;
+node_modules\ox\_cjs\core\PublicKey.js:48:        if (Hex.validate(value))
+node_modules\ox\_cjs\core\PublicKey.js:50:        if (Bytes.validate(value))
+node_modules\ox\_cjs\core\PublicKey.js:104:function validate(publicKey, options = {}) {
+node_modules\ox\_cjs\core\Signature.js:21:exports.validate = validate;
+node_modules\ox\_cjs\core\Signature.js:186:function validate(signature, options = {}) {
+node_modules\ox\_cjs\core\Siwe.js:8:exports.validateMessage = validateMessage;
+node_modules\ox\_cjs\core\Siwe.js:192:function validateMessage(value) {
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:11:exports.validate = validate;
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:67:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:69:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:71:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:73:    if (Hex.validate(nonce))
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:75:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:77:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:79:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerG
+as !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip1559.js:165:function validate(envelope) {
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:11:exports.validate = validate;
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:59:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:61:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:63:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:65:    if (Hex.validate(nonce))
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:67:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:69:    if (Hex.validate(gasPrice) && gasPrice !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip2930.js:149:function validate(envelope) {
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:11:exports.validate = validate;
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:81:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:83:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:85:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:87:    if (Hex.validate(nonce))
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:89:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:91:    if (Hex.validate(maxFeePerBlobGas) && maxFeePerBlobGas !== '
+0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:93:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:95:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerG
+as !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip4844.js:207:function validate(envelope) {
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:10:exports.validate = validate;
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:66:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:68:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:70:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:72:    if (Hex.validate(nonce))
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:74:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:76:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:78:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerG
+as !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeEip7702.js:140:function validate(envelope) {
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:11:exports.validate = validate;
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:54:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:56:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:58:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:60:    if (Hex.validate(nonce))
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:62:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:64:    if (Hex.validate(gasPrice) && gasPrice !== '0x')
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:68:    const chainIdOrV = Hex.validate(chainIdOrV_) && chainIdOrV_ !
+== '0x'
+node_modules\ox\_cjs\core\TxEnvelopeLegacy.js:204:function validate(envelope) {
+node_modules\ox\_cjs\core\TypedData.js:13:exports.validate = validate;
+node_modules\ox\_cjs\core\TypedData.js:28:    const validateData = (struct, data) => {
+node_modules\ox\_cjs\core\TypedData.js:43:                !Address.validate(value))
+node_modules\ox\_cjs\core\TypedData.js:59:                validateReference(type);
+node_modules\ox\_cjs\core\TypedData.js:60:                validateData(struct, value);
+node_modules\ox\_cjs\core\TypedData.js:67:        validateData(types.EIP712Domain, domain);
+node_modules\ox\_cjs\core\TypedData.js:71:            validateData(types[primaryType], message);
+node_modules\ox\_cjs\core\TypedData.js:189:function validate(value) {
+node_modules\ox\_cjs\core\TypedData.js:316:function validateReference(type) {
+node_modules\ox\_cjs\core\internal\abiItem.js:55:            return Address.validate(arg, { strict: false });
+node_modules\ox\_cjs\core\internal\abiItem.js:96:                return Address.validate(args[parameterIndex], {
+node_modules\ox\_cjs\core\internal\abiItem.js:100:                return Address.validate(args[parameterIndex], {
+node_modules\ox\_cjs\core\internal\ens.js:39:    if (!Hex.validate(hash, { strict: true }))
+node_modules\ox\_cjs\erc4337\EntryPoint.js:355:        name: '_validateSenderAndPaymaster',
+node_modules\ox\_cjs\erc6492\SignatureErc6492.js:8:exports.validate = validate;
+node_modules\ox\_cjs\erc6492\SignatureErc6492.js:80:function validate(wrapped) {
+node_modules\ox\_cjs\erc8010\SignatureErc8010.js:8:exports.validate = validate;
+node_modules\ox\_cjs\erc8010\SignatureErc8010.js:69:function validate(value) {
+node_modules\ox\_cjs\tempo\MultisigConfig.js:10:exports.validate = validate;
+node_modules\ox\_cjs\tempo\MultisigConfig.js:41:        if (!Address.validate(owner.owner) || Hex.toBigInt(owner.o
+wner) === 0n)
+node_modules\ox\_cjs\tempo\MultisigConfig.js:114:function validate(config) {
+node_modules\ox\_cjs\tempo\SignatureEnvelope.js:14:exports.validate = validate;
+node_modules\ox\_cjs\tempo\SignatureEnvelope.js:115:    if (!Address.validate(envelope.account))
+node_modules\ox\_cjs\tempo\SignatureEnvelope.js:318:        if (!Array.isArray(address) && !Address.validate(addre
+ss))
+node_modules\ox\_cjs\tempo\SignatureEnvelope.js:669:function validate(envelope) {
+node_modules\ox\_cjs\tempo\TempoAddress.js:7:exports.validate = validate;
+node_modules\ox\_cjs\tempo\TempoAddress.js:28:function validate(tempoAddress) {
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:12:exports.validate = validate;
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:101:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:103:    if (Hex.validate(nonce))
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:105:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:107:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerG
+as !== '0x')
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:109:    if (Hex.validate(nonceKey))
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:111:    if (Hex.validate(validBefore) && validBefore !== '0x')
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:113:    if (Hex.validate(validAfter) && validAfter !== '0x')
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:115:    if (Hex.validate(feeToken) && feeToken !== '0x')
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:138:            Address.validate(feePayerSignatureOrSender)) {
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:140:            if (Address.validate(feePayerSignatureOrSender))
+node_modules\ox\_cjs\tempo\TxEnvelopeTempo.js:282:function validate(envelope) {
+node_modules\ox\_cjs\tempo\VirtualAddress.js:7:exports.validate = validate;
+node_modules\ox\_cjs\tempo\VirtualAddress.js:35:function validate(address) {
+node_modules\ox\_cjs\tempo\VirtualMaster.js:5:exports.validateSalt = validateSalt;
+node_modules\ox\_cjs\tempo\VirtualMaster.js:25:function validateSalt(value) {
+node_modules\ox\_esm\index.js:680: * The {@link ox#Address.(validate:function)} function will return `true` if the
+ address is valid, and `false` otherwise:
+node_modules\ox\_esm\index.js:685: * const valid = Address.validate('0xA0Cf798816D4b9b9866b5330EEa46a18382f251e')
+node_modules\ox\_esm\index.js:2443: * SIWE messages can be validated using {@link ox#Siwe.(validateMessage:functio
+n)}:
+node_modules\ox\_esm\index.js:2448: * Siwe.validateMessage({
+node_modules\ox\_esm\core\AbiError.js:240:    if (Hex.validate(name, { strict: false })) {
+node_modules\ox\_esm\core\AbiItem.js:229:    const isSelector = Hex.validate(name, { strict: false });
+node_modules\ox\_esm\core\AccessList.js:43:            storageKeys: storageKeys.map((key) => Hash.validate(key) ? 
+key : Hex.trimLeft(key)),
+node_modules\ox\_esm\core\Address.js:181: * Address.validate('0xA0Cf798816D4b9b9866b5330EEa46a18382f251e')
+node_modules\ox\_esm\core\Address.js:189: * Address.validate('0xdeadbeef')
+node_modules\ox\_esm\core\Address.js:197:export function validate(address, options = {}) {
+node_modules\ox\_esm\core\Bloom.js:39: * Bloom.validate('0x')
+node_modules\ox\_esm\core\Bloom.js:42: * Bloom.validate('0x0000000000000000000000800000000000000000000000000000000
+000000000000000000008000000000000000000000000000000000000000000000004400020000000000000000000200000000000000000000
+004000000000000000000000000000002000000000000000000080000000000080000000000080000000000000000000000000000000000000
+000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000080800200000000040000000000000000000000006000000000000000000000000000000000000000000000010000000000000200000
+0')
+node_modules\ox\_esm\core\Bloom.js:49:export function validate(value) {
+node_modules\ox\_esm\core\Bloom.js:50:    return Hex.validate(value) && Hex.size(value) === 256;
+node_modules\ox\_esm\core\Bytes.js:527: * Bytes.validate('0x')
+node_modules\ox\_esm\core\Bytes.js:530: * Bytes.validate(Bytes.from([1, 2, 3]))
+node_modules\ox\_esm\core\Bytes.js:537:export function validate(value) {
+node_modules\ox\_esm\core\ContractAddress.js:90:    const salt = Bytes.padLeft(Bytes.validate(options.salt) ? opti
+ons.salt : Bytes.fromHex(options.salt), 32);
+node_modules\ox\_esm\core\ContractAddress.js:93:            if (Bytes.validate(options.bytecodeHash))
+node_modules\ox\_esm\core\Filter.js:39:            fromBlock: Hex.validate(fromBlock, { strict: false })
+node_modules\ox\_esm\core\Filter.js:44:            toBlock: Hex.validate(toBlock, { strict: false })
+node_modules\ox\_esm\core\Hash.js:141: * Hash.validate('0x')
+node_modules\ox\_esm\core\Hash.js:144: * Hash.validate('0x3ea2f1d0abf3fc66cf29eebb70cbd4e7fe762ef8a09bcc06c8edf641
+230afec0')
+node_modules\ox\_esm\core\Hash.js:151:export function validate(value) {
+node_modules\ox\_esm\core\Hash.js:152:    return Hex.validate(value) && Hex.size(value) === 32;
+node_modules\ox\_esm\core\Hex.js:503: * Hex.validate('0xdeadbeef')
+node_modules\ox\_esm\core\Hex.js:506: * Hex.validate(Bytes.from([1, 2, 3]))
+node_modules\ox\_esm\core\Hex.js:514:export function validate(value, options = {}) {
+node_modules\ox\_esm\core\Mnemonic.js:1:import { generateMnemonic, mnemonicToSeedSync, validateMnemonic, } from '@
+scure/bip39';
+node_modules\ox\_esm\core\Mnemonic.js:125: * const mnemonic = Mnemonic.validate(
+node_modules\ox\_esm\core\Mnemonic.js:132: * @param mnemonic - The mnemonic to validate.
+node_modules\ox\_esm\core\Mnemonic.js:136:export function validate(mnemonic, wordlist) {
+node_modules\ox\_esm\core\Mnemonic.js:137:    return validateMnemonic(mnemonic, wordlist);
+node_modules\ox\_esm\core\PublicKey.js:118:        if (Hex.validate(value))
+node_modules\ox\_esm\core\PublicKey.js:120:        if (Bytes.validate(value))
+node_modules\ox\_esm\core\PublicKey.js:267: * Validates a {@link ox#PublicKey.PublicKey}. Returns `true` if valid,
+ `false` otherwise.
+node_modules\ox\_esm\core\PublicKey.js:273: * const valid = PublicKey.validate({
+node_modules\ox\_esm\core\PublicKey.js:282:export function validate(publicKey, options = {}) {
+node_modules\ox\_esm\core\Signature.js:501: * Validates a Signature. Returns `true` if the signature is valid, `fa
+lse` otherwise.
+node_modules\ox\_esm\core\Signature.js:507: * const valid = Signature.validate({
+node_modules\ox\_esm\core\Signature.js:517:export function validate(signature, options = {}) {
+node_modules\ox\_esm\core\Siwe.js:44:    // Validate fields
+node_modules\ox\_esm\core\Siwe.js:288: * Validates [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361) message.
+node_modules\ox\_esm\core\Siwe.js:294: * Siwe.validateMessage({
+node_modules\ox\_esm\core\Siwe.js:313:export function validateMessage(value) {
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:97:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:99:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:101:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:103:    if (Hex.validate(nonce))
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:105:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:107:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:109:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePer
+Gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:407: * Validates a {@link ox#TxEnvelopeEip1559.TxEnvelopeEip1559}. 
+Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:422: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_esm\core\TxEnvelopeEip1559.js:424:export function validate(envelope) {
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:89:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:91:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:93:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:95:    if (Hex.validate(nonce))
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:97:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:99:    if (Hex.validate(gasPrice) && gasPrice !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:390: * Validates a {@link ox#TxEnvelopeEip2930.TxEnvelopeEip2930}. 
+Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:405: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_esm\core\TxEnvelopeEip2930.js:407:export function validate(envelope) {
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:110:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:112:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:114:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:116:    if (Hex.validate(nonce))
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:118:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:120:    if (Hex.validate(maxFeePerBlobGas) && maxFeePerBlobGas !== 
+'0x')
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:122:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:124:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePer
+Gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:492: * Validates a {@link ox#TxEnvelopeEip4844.TxEnvelopeEip4844}. 
+Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:507: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_esm\core\TxEnvelopeEip4844.js:509:export function validate(envelope) {
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:99:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:101:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:103:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:105:    if (Hex.validate(nonce))
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:107:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:109:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:111:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePer
+Gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:394: * Validates a {@link ox#TxEnvelopeEip7702.TxEnvelopeEip7702}. 
+Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:400: * const valid = TxEnvelopeEip7702.validate({
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:410: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_esm\core\TxEnvelopeEip7702.js:412:export function validate(envelope) {
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:84:    if (Hex.validate(to) && to !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:86:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:88:    if (Hex.validate(data) && data !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:90:    if (Hex.validate(nonce))
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:92:    if (Hex.validate(value) && value !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:94:    if (Hex.validate(gasPrice) && gasPrice !== '0x')
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:98:    const chainIdOrV = Hex.validate(chainIdOrV_) && chainIdOrV_ !
+== '0x'
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:445: * Validates a {@link ox#TxEnvelopeLegacy.TxEnvelopeLegacy}. Ret
+urns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:460: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_esm\core\TxEnvelopeLegacy.js:462:export function validate(envelope) {
+node_modules\ox\_esm\core\TypedData.js:39: * @param value - The Typed Data to validate.
+node_modules\ox\_esm\core\TypedData.js:43:    const validateData = (struct, data) => {
+node_modules\ox\_esm\core\TypedData.js:60:                !Address.validate(value))
+node_modules\ox\_esm\core\TypedData.js:76:                validateReference(type);
+node_modules\ox\_esm\core\TypedData.js:77:                validateData(struct, value);
+node_modules\ox\_esm\core\TypedData.js:81:    // Validate domain types.
+node_modules\ox\_esm\core\TypedData.js:85:        validateData(types.EIP712Domain, domain);
+node_modules\ox\_esm\core\TypedData.js:87:    // Validate message types.
+node_modules\ox\_esm\core\TypedData.js:90:            validateData(types[primaryType], message);
+node_modules\ox\_esm\core\TypedData.js:459: * const valid = TypedData.validate({
+node_modules\ox\_esm\core\TypedData.js:483: * @param value - The Typed Data to validate.
+node_modules\ox\_esm\core\TypedData.js:485:export function validate(value) {
+node_modules\ox\_esm\core\TypedData.js:617:function validateReference(type) {
+node_modules\ox\_esm\core\internal\abiItem.js:59:            return Address.validate(arg, { strict: false });
+node_modules\ox\_esm\core\internal\abiItem.js:108:                return Address.validate(args[parameterIndex], {
+node_modules\ox\_esm\core\internal\abiItem.js:112:                return Address.validate(args[parameterIndex], {
+node_modules\ox\_esm\core\internal\ens.js:43:    if (!Hex.validate(hash, { strict: true }))
+node_modules\ox\_esm\erc4337\EntryPoint.js:353:        name: '_validateSenderAndPaymaster',
+node_modules\ox\_esm\erc6492\SignatureErc6492.js:163: * Validates a wrapped signature. Returns `true` if the wrapp
+ed signature is valid, `false` otherwise.
+node_modules\ox\_esm\erc6492\SignatureErc6492.js:169: * const valid = SignatureErc6492.validate('0xdeadbeef')
+node_modules\ox\_esm\erc6492\SignatureErc6492.js:173: * @param wrapped - The wrapped signature to validate.
+node_modules\ox\_esm\erc6492\SignatureErc6492.js:176:export function validate(wrapped) {
+node_modules\ox\_esm\erc8010\SignatureErc8010.js:146: * Validates a wrapped signature. Returns `true` if the wrapp
+ed signature is valid, `false` otherwise.
+node_modules\ox\_esm\erc8010\SignatureErc8010.js:152: * const valid = SignatureErc8010.validate('0xdeadbeef')
+node_modules\ox\_esm\erc8010\SignatureErc8010.js:156: * @param value - The value to validate.
+node_modules\ox\_esm\erc8010\SignatureErc8010.js:159:export function validate(value) {
+node_modules\ox\_esm\erc8021\Attribution.js:232:    // Validate we have enough bytes to cover address + chainId + 
+chainIdLen
+node_modules\ox\_esm\tempo\MultisigConfig.js:29: * Mirrors the Tempo `InitMultisig::validate` rules: owners non-em
+pty and
+node_modules\ox\_esm\tempo\MultisigConfig.js:65:        if (!Address.validate(owner.owner) || Hex.toBigInt(owner.o
+wner) === 0n)
+node_modules\ox\_esm\tempo\MultisigConfig.js:296: * Validates a native multisig {@link ox#MultisigConfig.Config}. 
+Returns `true`
+node_modules\ox\_esm\tempo\MultisigConfig.js:303: * const valid = MultisigConfig.validate({
+node_modules\ox\_esm\tempo\MultisigConfig.js:315:export function validate(config) {
+node_modules\ox\_esm\tempo\SignatureEnvelope.js:123:    if (!Address.validate(envelope.account))
+node_modules\ox\_esm\tempo\SignatureEnvelope.js:414:        if (!Array.isArray(address) && !Address.validate(addre
+ss))
+node_modules\ox\_esm\tempo\SignatureEnvelope.js:1069: * Validates a signature envelope. Returns `true` if the enve
+lope is valid, `false` otherwise.
+node_modules\ox\_esm\tempo\SignatureEnvelope.js:1075: * const valid = SignatureEnvelope.validate({
+node_modules\ox\_esm\tempo\SignatureEnvelope.js:1082: * @param envelope - The signature envelope to validate.
+node_modules\ox\_esm\tempo\SignatureEnvelope.js:1085:export function validate(envelope) {
+node_modules\ox\_esm\tempo\TempoAddress.js:76: * Validates a Tempo address string.
+node_modules\ox\_esm\tempo\TempoAddress.js:82: * const valid = TempoAddress.validate(
+node_modules\ox\_esm\tempo\TempoAddress.js:88: * @param tempoAddress - The Tempo address string to validate.
+node_modules\ox\_esm\tempo\TempoAddress.js:91:export function validate(tempoAddress) {
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:49:    // Validate each call
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:54:    // Validate chain ID
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:57:    // Validate max fee per gas
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:131:    if (Hex.validate(gas) && gas !== '0x')
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:133:    if (Hex.validate(nonce))
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:135:    if (Hex.validate(maxFeePerGas) && maxFeePerGas !== '0x')
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:137:    if (Hex.validate(maxPriorityFeePerGas) && maxPriorityFeePerG
+as !== '0x')
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:139:    if (Hex.validate(nonceKey))
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:141:    if (Hex.validate(validBefore) && validBefore !== '0x')
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:143:    if (Hex.validate(validAfter) && validAfter !== '0x')
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:145:    if (Hex.validate(feeToken) && feeToken !== '0x')
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:169:            Address.validate(feePayerSignatureOrSender)) {
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:171:            if (Address.validate(feePayerSignatureOrSender))
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:611: * Validates a {@link ox#TxEnvelopeTempo.TxEnvelopeTempo}. Retur
+ns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:618: * const valid = TxEnvelopeTempo.validate({
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:629: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_esm\tempo\TxEnvelopeTempo.js:631:export function validate(envelope) {
+node_modules\ox\_esm\tempo\VirtualAddress.js:97: * Validates that an address matches the TIP-1022 virtual address 
+format.
+node_modules\ox\_esm\tempo\VirtualAddress.js:101: * This only validates the reserved byte layout, not whether the 
+`masterId`
+node_modules\ox\_esm\tempo\VirtualAddress.js:108: * const valid = VirtualAddress.validate(
+node_modules\ox\_esm\tempo\VirtualAddress.js:116: * @param address - Address to validate.
+node_modules\ox\_esm\tempo\VirtualAddress.js:119:export function validate(address) {
+node_modules\ox\_esm\tempo\VirtualMaster.js:75: * Validates that a salt satisfies the TIP-1022 32-bit proof-of-wor
+k requirement.
+node_modules\ox\_esm\tempo\VirtualMaster.js:87: * const valid = VirtualMaster.validateSalt({
+node_modules\ox\_esm\tempo\VirtualMaster.js:99:export function validateSalt(value) {
+node_modules\ox\_esm\tempo\VirtualMaster.js:437: * Resolves a Tempo or hex address, validates it as a valid master
+.
+node_modules\ox\_esm\webauthn\Authentication.js:421:    // If rpId is provided, validate the rpIdHash in authentic
+atorData.
+node_modules\ox\_esm\webauthn\Authentication.js:446:    // Validate the challenge in the clientDataJSON.
+node_modules\ox\_esm\webauthn\Authentication.js:450:    // If origin is provided, validate origin.
+node_modules\ox\_esm\webauthn\Registration.js:313: * Verifies a WebAuthn registration (credential creation) respon
+se. Validates the
+node_modules\ox\_esm\webauthn\Registration.js:344:    // 1. Decode and validate clientDataJSON
+node_modules\ox\_esm\webauthn\Registration.js:350:    // Validate challenge
+node_modules\ox\_esm\webauthn\Registration.js:362:    // Validate origin
+node_modules\ox\_esm\webauthn\Registration.js:411:    // 4. Parse and validate COSE public key
+node_modules\ox\_esm\webauthn\Registration.js:416:    // Validate key type is EC2 (2), algorithm is ES256 (-7), an
+d curve is P-256 (1)
+node_modules\ox\_types\index.d.ts:682: * The {@link ox#Address.(validate:function)} function will return `true` if
+ the address is valid, and `false` otherwise:
+node_modules\ox\_types\index.d.ts:687: * const valid = Address.validate('0xA0Cf798816D4b9b9866b5330EEa46a18382f251
+e')
+node_modules\ox\_types\index.d.ts:2446: * SIWE messages can be validated using {@link ox#Siwe.(validateMessage:fun
+ction)}:
+node_modules\ox\_types\index.d.ts:2451: * Siwe.validateMessage({
+node_modules\ox\_types\core\Address.d.ts:174: * Address.validate('0xA0Cf798816D4b9b9866b5330EEa46a18382f251e')
+node_modules\ox\_types\core\Address.d.ts:182: * Address.validate('0xdeadbeef')
+node_modules\ox\_types\core\Address.d.ts:190:export declare function validate(address: string, options?: validate.
+Options): address is Address;
+node_modules\ox\_types\core\Address.d.ts:191:export declare namespace validate {
+node_modules\ox\_types\core\Bloom.d.ts:34: * Bloom.validate('0x')
+node_modules\ox\_types\core\Bloom.d.ts:37: * Bloom.validate('0x000000000000000000000080000000000000000000000000000
+000000000000000000000000800000000000000000000000000000000000000000000000440002000000000000000000020000000000000000
+000000400000000000000000000000000000200000000000000000008000000000008000000000008000000000000000000000000000000000
+000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+000000000008080020000000004000000000000000000000000600000000000000000000000000000000000000000000001000000000000020
+00000')
+node_modules\ox\_types\core\Bloom.d.ts:44:export declare function validate(value: string): value is Hex.Hex;
+node_modules\ox\_types\core\Bloom.d.ts:45:export declare namespace validate {
+node_modules\ox\_types\core\Bloom.d.ts:46:    type ErrorType = Hex.validate.ErrorType | Hex.size.ErrorType | Error
+s.GlobalErrorType;
+node_modules\ox\_types\core\Bytes.d.ts:506: * Bytes.validate('0x')
+node_modules\ox\_types\core\Bytes.d.ts:509: * Bytes.validate(Bytes.from([1, 2, 3]))
+node_modules\ox\_types\core\Bytes.d.ts:516:export declare function validate(value: unknown): value is Bytes;
+node_modules\ox\_types\core\Bytes.d.ts:517:export declare namespace validate {
+node_modules\ox\_types\core\ContractAddress.d.ts:104:    type ErrorType = Address.from.ErrorType | Bytes.concat.Er
+rorType | Bytes.validate.ErrorType | Bytes.padLeft.ErrorType | Hash.keccak256.ErrorType | Hex.slice.ErrorType | By
+tes.fromHex.ErrorType | Errors.GlobalErrorType;
+node_modules\ox\_types\core\Hash.d.ts:146: * Hash.validate('0x')
+node_modules\ox\_types\core\Hash.d.ts:149: * Hash.validate('0x3ea2f1d0abf3fc66cf29eebb70cbd4e7fe762ef8a09bcc06c8ed
+f641230afec0')
+node_modules\ox\_types\core\Hash.d.ts:156:export declare function validate(value: string): value is Hex.Hex;
+node_modules\ox\_types\core\Hash.d.ts:157:export declare namespace validate {
+node_modules\ox\_types\core\Hash.d.ts:158:    type ErrorType = Hex.validate.ErrorType | Hex.size.ErrorType | Error
+s.GlobalErrorType;
+node_modules\ox\_types\core\Hex.d.ts:490: * Hex.validate('0xdeadbeef')
+node_modules\ox\_types\core\Hex.d.ts:493: * Hex.validate(Bytes.from([1, 2, 3]))
+node_modules\ox\_types\core\Hex.d.ts:501:export declare function validate(value: unknown, options?: validate.Optio
+ns): value is Hex;
+node_modules\ox\_types\core\Hex.d.ts:502:export declare namespace validate {
+node_modules\ox\_types\core\Mnemonic.d.ts:146: * const mnemonic = Mnemonic.validate(
+node_modules\ox\_types\core\Mnemonic.d.ts:153: * @param mnemonic - The mnemonic to validate.
+node_modules\ox\_types\core\Mnemonic.d.ts:157:export declare function validate(mnemonic: string, wordlist: string[
+]): boolean;
+node_modules\ox\_types\core\Mnemonic.d.ts:158:export declare namespace validate {
+node_modules\ox\_types\core\PublicKey.d.ts:240: * Validates a {@link ox#PublicKey.PublicKey}. Returns `true` if va
+lid, `false` otherwise.
+node_modules\ox\_types\core\PublicKey.d.ts:246: * const valid = PublicKey.validate({
+node_modules\ox\_types\core\PublicKey.d.ts:255:export declare function validate(publicKey: ExactPartial<PublicKey>
+, options?: validate.Options): boolean;
+node_modules\ox\_types\core\PublicKey.d.ts:256:export declare namespace validate {
+node_modules\ox\_types\core\Signature.d.ts:448: * Validates a Signature. Returns `true` if the signature is valid,
+ `false` otherwise.
+node_modules\ox\_types\core\Signature.d.ts:454: * const valid = Signature.validate({
+node_modules\ox\_types\core\Signature.d.ts:464:export declare function validate(signature: ExactPartial<Signature>
+, options?: validate.Options): boolean;
+node_modules\ox\_types\core\Signature.d.ts:465:export declare namespace validate {
+node_modules\ox\_types\core\Siwe.d.ts:162: * Validates [EIP-4361](https://eips.ethereum.org/EIPS/eip-4361) message
+.
+node_modules\ox\_types\core\Siwe.d.ts:168: * Siwe.validateMessage({
+node_modules\ox\_types\core\Siwe.d.ts:187:export declare function validateMessage(value: validateMessage.Value): b
+oolean;
+node_modules\ox\_types\core\Siwe.d.ts:188:export declare namespace validateMessage {
+node_modules\ox\_types\core\TxEnvelopeEip1559.d.ts:322: * Validates a {@link ox#TxEnvelopeEip1559.TxEnvelopeEip155
+9}. Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_types\core\TxEnvelopeEip1559.d.ts:337: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_types\core\TxEnvelopeEip1559.d.ts:339:export declare function validate(envelope: PartialBy<TxEnve
+lopeEip1559, 'type'>): boolean;
+node_modules\ox\_types\core\TxEnvelopeEip1559.d.ts:340:export declare namespace validate {
+node_modules\ox\_types\core\TxEnvelopeEip2930.d.ts:319: * Validates a {@link ox#TxEnvelopeEip2930.TxEnvelopeEip293
+0}. Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_types\core\TxEnvelopeEip2930.d.ts:334: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_types\core\TxEnvelopeEip2930.d.ts:336:export declare function validate(envelope: PartialBy<TxEnve
+lopeEip2930, 'type'>): boolean;
+node_modules\ox\_types\core\TxEnvelopeEip2930.d.ts:337:export declare namespace validate {
+node_modules\ox\_types\core\TxEnvelopeEip4844.d.ts:374: * Validates a {@link ox#TxEnvelopeEip4844.TxEnvelopeEip484
+4}. Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_types\core\TxEnvelopeEip4844.d.ts:389: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_types\core\TxEnvelopeEip4844.d.ts:391:export declare function validate(envelope: PartialBy<TxEnve
+lopeEip4844, 'type'>): boolean;
+node_modules\ox\_types\core\TxEnvelopeEip4844.d.ts:392:export declare namespace validate {
+node_modules\ox\_types\core\TxEnvelopeEip7702.d.ts:332: * Validates a {@link ox#TxEnvelopeEip7702.TxEnvelopeEip770
+2}. Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_types\core\TxEnvelopeEip7702.d.ts:338: * const valid = TxEnvelopeEip7702.validate({
+node_modules\ox\_types\core\TxEnvelopeEip7702.d.ts:348: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_types\core\TxEnvelopeEip7702.d.ts:350:export declare function validate(envelope: PartialBy<TxEnve
+lopeEip7702, 'type'>): boolean;
+node_modules\ox\_types\core\TxEnvelopeEip7702.d.ts:351:export declare namespace validate {
+node_modules\ox\_types\core\TxEnvelopeLegacy.d.ts:313: * Validates a {@link ox#TxEnvelopeLegacy.TxEnvelopeLegacy}.
+ Returns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_types\core\TxEnvelopeLegacy.d.ts:328: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_types\core\TxEnvelopeLegacy.d.ts:330:export declare function validate(envelope: PartialBy<TxEnvel
+opeLegacy, 'type'>): boolean;
+node_modules\ox\_types\core\TxEnvelopeLegacy.d.ts:331:export declare namespace validate {
+node_modules\ox\_types\core\TypedData.d.ts:64: * @param value - The Typed Data to validate.
+node_modules\ox\_types\core\TypedData.d.ts:374: * const valid = TypedData.validate({
+node_modules\ox\_types\core\TypedData.d.ts:398: * @param value - The Typed Data to validate.
+node_modules\ox\_types\core\TypedData.d.ts:400:export declare function validate<const typedData extends TypedData 
+| Record<string, unknown>, primaryType extends keyof typedData | 'EIP712Domain'>(value: assert.Value<typedData, pr
+imaryType>): boolean;
+node_modules\ox\_types\core\TypedData.d.ts:401:export declare namespace validate {
+node_modules\ox\_types\core\internal\abiItem.d.ts:67:export type IsName<name extends string> = name extends '' ? f
+alse : ValidateName<name> extends name ? true : false;
+node_modules\ox\_types\core\internal\abiItem.d.ts:69:export type ValidateName<name extends string, checkCharacters
+ extends boolean = false> = name extends `${string}${' '}${string}` ? TypeErrorMessage<`Identifier "${name}" canno
+t contain whitespace.`> : IsSolidityKeyword<name> extends true ? TypeErrorMessage<`"${name}" is a protected Solidi
+ty keyword.`> : name extends `${number}` ? TypeErrorMessage<`Identifier "${name}" cannot be a number string.`> : n
+ame extends `${number}${string}` ? TypeErrorMessage<`Identifier "${name}" cannot start with a number.`> : checkCha
+racters extends true ? IsValidCharacter<name> extends true ? name : TypeErrorMessage<`"${name}" contains invalid c
+haracter.`> : name;
+node_modules\ox\_types\core\internal\ens.d.ts:21:    type ErrorType = Hex.validate.ErrorType | Errors.GlobalErrorT
+ype;
+node_modules\ox\_types\erc4337\EntryPoint.d.ts:369:    readonly name: "_validateSenderAndPaymaster";
+node_modules\ox\_types\erc6492\SignatureErc6492.d.ts:158: * Validates a wrapped signature. Returns `true` if the w
+rapped signature is valid, `false` otherwise.
+node_modules\ox\_types\erc6492\SignatureErc6492.d.ts:164: * const valid = SignatureErc6492.validate('0xdeadbeef')
+node_modules\ox\_types\erc6492\SignatureErc6492.d.ts:168: * @param wrapped - The wrapped signature to validate.
+node_modules\ox\_types\erc6492\SignatureErc6492.d.ts:171:export declare function validate(wrapped: Wrapped): boole
+an;
+node_modules\ox\_types\erc6492\SignatureErc6492.d.ts:172:export declare namespace validate {
+node_modules\ox\_types\erc8010\SignatureErc8010.d.ts:148: * Validates a wrapped signature. Returns `true` if the w
+rapped signature is valid, `false` otherwise.
+node_modules\ox\_types\erc8010\SignatureErc8010.d.ts:154: * const valid = SignatureErc8010.validate('0xdeadbeef')
+node_modules\ox\_types\erc8010\SignatureErc8010.d.ts:158: * @param value - The value to validate.
+node_modules\ox\_types\erc8010\SignatureErc8010.d.ts:161:export declare function validate(value: Unwrapped | Wrapp
+ed): boolean;
+node_modules\ox\_types\erc8010\SignatureErc8010.d.ts:162:export declare namespace validate {
+node_modules\ox\_types\tempo\KeyAuthorization.d.ts:18: * key itself), and the protocol validates the authorization
+ before storing the key in the
+node_modules\ox\_types\tempo\KeyAuthorization.d.ts:54:     * can be burned onchain to invalidate the authorization
+ before submission.
+node_modules\ox\_types\tempo\MultisigConfig.d.ts:55: * Mirrors the Tempo `InitMultisig::validate` rules: owners no
+n-empty and
+node_modules\ox\_types\tempo\MultisigConfig.d.ts:262: * Validates a native multisig {@link ox#MultisigConfig.Confi
+g}. Returns `true`
+node_modules\ox\_types\tempo\MultisigConfig.d.ts:269: * const valid = MultisigConfig.validate({
+node_modules\ox\_types\tempo\MultisigConfig.d.ts:281:export declare function validate(config: Config): boolean;
+node_modules\ox\_types\tempo\SignatureEnvelope.d.ts:79: *   The protocol validates the access key authorization vi
+a the AccountKeychain precompile.
+node_modules\ox\_types\tempo\SignatureEnvelope.d.ts:681: * Validates a signature envelope. Returns `true` if the e
+nvelope is valid, `false` otherwise.
+node_modules\ox\_types\tempo\SignatureEnvelope.d.ts:687: * const valid = SignatureEnvelope.validate({
+node_modules\ox\_types\tempo\SignatureEnvelope.d.ts:694: * @param envelope - The signature envelope to validate.
+node_modules\ox\_types\tempo\SignatureEnvelope.d.ts:697:export declare function validate(envelope: PartialBy<Signa
+tureEnvelope, 'type'>): boolean;
+node_modules\ox\_types\tempo\SignatureEnvelope.d.ts:698:export declare namespace validate {
+node_modules\ox\_types\tempo\TempoAddress.d.ts:80: * Validates a Tempo address string.
+node_modules\ox\_types\tempo\TempoAddress.d.ts:86: * const valid = TempoAddress.validate(
+node_modules\ox\_types\tempo\TempoAddress.d.ts:92: * @param tempoAddress - The Tempo address string to validate.
+node_modules\ox\_types\tempo\TempoAddress.d.ts:95:export declare function validate(tempoAddress: string): boolean;
+node_modules\ox\_types\tempo\TxEnvelopeTempo.d.ts:527: * Validates a {@link ox#TxEnvelopeTempo.TxEnvelopeTempo}. R
+eturns `true` if the envelope is valid, `false` otherwise.
+node_modules\ox\_types\tempo\TxEnvelopeTempo.d.ts:534: * const valid = TxEnvelopeTempo.validate({
+node_modules\ox\_types\tempo\TxEnvelopeTempo.d.ts:545: * @param envelope - The transaction envelope to validate.
+node_modules\ox\_types\tempo\TxEnvelopeTempo.d.ts:547:export declare function validate(envelope: PartialBy<TxEnvel
+opeTempo, 'type'>): boolean;
+node_modules\ox\_types\tempo\TxEnvelopeTempo.d.ts:548:export declare namespace validate {
+node_modules\ox\_types\tempo\VirtualAddress.d.ts:99: * Validates that an address matches the TIP-1022 virtual addr
+ess format.
+node_modules\ox\_types\tempo\VirtualAddress.d.ts:103: * This only validates the reserved byte layout, not whether 
+the `masterId`
+node_modules\ox\_types\tempo\VirtualAddress.d.ts:110: * const valid = VirtualAddress.validate(
+node_modules\ox\_types\tempo\VirtualAddress.d.ts:118: * @param address - Address to validate.
+node_modules\ox\_types\tempo\VirtualAddress.d.ts:121:export declare function validate(address: string): boolean;
+node_modules\ox\_types\tempo\VirtualMaster.d.ts:81: * Validates that a salt satisfies the TIP-1022 32-bit proof-of
+-work requirement.
+node_modules\ox\_types\tempo\VirtualMaster.d.ts:93: * const valid = VirtualMaster.validateSalt({
+node_modules\ox\_types\tempo\VirtualMaster.d.ts:105:export declare function validateSalt(value: validateSalt.Value
+): boolean;
+node_modules\ox\_types\tempo\VirtualMaster.d.ts:106:export declare namespace validateSalt {
+node_modules\ox\_types\webauthn\Authentication.d.ts:317:        /** Expected origin(s). If provided, the `clientDa
+taJSON` origin will be validated. */
+node_modules\ox\_types\webauthn\Authentication.d.ts:319:        /** Expected relying party ID. If provided, the `r
+pIdHash` in `authenticatorData` will be validated. */
+node_modules\ox\_types\webauthn\Registration.d.ts:234: * Verifies a WebAuthn registration (credential creation) re
+sponse. Validates the
+node_modules\viem\CHANGELOG.md:87:- [#4961](https://github.com/wevm/viem/pull/4961) [`fca3ff599e16172a86a9d1f6ce70
+57ea91246056`](https://github.com/wevm/viem/commit/fca3ff599e16172a86a9d1f6ce7057ea91246056) Thanks [@RezaRahemtol
+a](https://github.com/RezaRahemtola)! - Rejected nonstandard `uint` and `int` aliases in `validateTypedData` to pr
+event noncanonical EIP-712 hashes.
+node_modules\viem\CHANGELOG.md:1835:- [#3637](https://github.com/wevm/viem/pull/3637) [`636c7bde0bea5877202107affe
+539a7a4577fc0c`](https://github.com/wevm/viem/commit/636c7bde0bea5877202107affe539a7a4577fc0c) Thanks [@deodad](ht
+tps://github.com/deodad)! - Hardened address validation in `validateSiweMessage`.
+node_modules\viem\index.ts:1950:  type ValidateTypedDataErrorType,
+node_modules\viem\index.ts:1951:  validateTypedData,
+node_modules\viem\account-abstraction\accounts\implementations\toCoinbaseSmartAccount.ts:825:    name: 'validateUs
+erOp',
+node_modules\viem\account-abstraction\accounts\implementations\toSimple7702SmartAccount.ts:355:    name: 'validate
+UserOp',
+node_modules\viem\account-abstraction\accounts\implementations\toSoladySmartAccount.ts:555:    name: 'validateUser
+Op',
+node_modules\viem\account-abstraction\constants\abis.ts:390:    name: '_validateSenderAndPaymaster',
+node_modules\viem\account-abstraction\errors\bundler.ts:402:    super('The `validatePaymasterUserOp` function on t
+he Paymaster reverted.', {
+node_modules\viem\account-abstraction\errors\bundler.ts:539:    super('The `validateUserOp` function on the Smart 
+Account reverted.', {
+node_modules\viem\account-abstraction\errors\bundler.ts:579:        '- the `validAfter` or `validUntil` values ret
+urned from `validateUserOp` on the Smart Account are not satisfied',
+node_modules\viem\account-abstraction\errors\bundler.ts:601:        '- the `validAfter` or `validUntil` values ret
+urned from `validatePaymasterUserOp` on the Paymaster are not satisfied',
+node_modules\viem\account-abstraction\errors\bundler.ts:679:    super("User Operation rejected by Paymaster's `val
+idatePaymasterUserOp`.", {
+node_modules\viem\actions\getContract.ts:232:                 * Simulates/validates a contract interaction. This i
+s useful for retrieving return data and revert reasons of contract write functions.
+node_modules\viem\actions\getContract.ts:405:               * __Warning: The `write` internally sends a transactio
+n – it does not validate if the contract write will succeed (the contract may throw an error). It is highly recomm
+ended to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage)
+ before you execute it.__
+node_modules\viem\actions\public\simulateContract.ts:194: * Simulates/validates a contract interaction. This is us
+eful for retrieving **return data** and **revert reasons** of contract write functions.
+node_modules\viem\actions\public\verifyHash.ts:166:    if (SignatureErc8010.validate(signature))
+node_modules\viem\actions\public\verifyHash.ts:334:    if (SignatureErc6492.validate(signature)) return signature
+node_modules\viem\actions\siwe\verifySiweMessage.ts:11:  type ValidateSiweMessageParameters,
+node_modules\viem\actions\siwe\verifySiweMessage.ts:12:  validateSiweMessage,
+node_modules\viem\actions\siwe\verifySiweMessage.ts:13:} from '../../utils/siwe/validateSiweMessage.js'
+node_modules\viem\actions\siwe\verifySiweMessage.ts:22:    ValidateSiweMessageParameters,
+node_modules\viem\actions\siwe\verifySiweMessage.ts:73:  const isValid = validateSiweMessage({
+node_modules\viem\actions\wallet\signTypedData.ts:28:  type ValidateTypedDataErrorType,
+node_modules\viem\actions\wallet\signTypedData.ts:29:  validateTypedData,
+node_modules\viem\actions\wallet\signTypedData.ts:47:  | ValidateTypedDataErrorType
+node_modules\viem\actions\wallet\signTypedData.ts:182:  validateTypedData({ domain, message, primaryType, types })
+node_modules\viem\actions\wallet\writeContract.ts:113: * __Warning: The `write` internally sends a transaction – i
+t does not validate if the contract write will succeed (the contract may throw an error). It is highly recommended
+ to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage) befo
+re you execute it.__
+node_modules\viem\actions\wallet\writeContractSync.ts:61: * __Warning: The `write` internally sends a transaction 
+– it does not validate if the contract write will succeed (the contract may throw an error). It is highly recommen
+ded to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage) b
+efore you execute it.__
+node_modules\viem\clients\decorators\public.ts:1799:   * Simulates/validates a contract interaction. This is usefu
+l for retrieving **return data** and **revert reasons** of contract write functions.
+node_modules\viem\clients\decorators\wallet.ts:1081:   * __Warning: The `write` internally sends a transaction – i
+t does not validate if the contract write will succeed (the contract may throw an error). It is highly recommended
+ to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage) befo
+re you execute it.__
+node_modules\viem\clients\decorators\wallet.ts:1147:   * __Warning: The `write` internally sends a transaction – i
+t does not validate if the contract write will succeed (the contract may throw an error). It is highly recommended
+ to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage) befo
+re you execute it.__
+node_modules\viem\op-stack\abis.ts:1794:    name: 'ProposalNotValidated',
+node_modules\viem\siwe\index.ts:23:  type ValidateSiweMessageParameters,
+node_modules\viem\siwe\index.ts:24:  type ValidateSiweMessageReturnType,
+node_modules\viem\siwe\index.ts:25:  validateSiweMessage,
+node_modules\viem\siwe\index.ts:26:} from '../utils/siwe/validateSiweMessage.js'
+node_modules\viem\tempo\Abis.ts:2114:    name: 'validateReceivePolicy',
+node_modules\viem\tempo\Abis.ts:4791:    name: 'validateFeeConfig',
+node_modules\viem\tempo\Abis.ts:5312:      { name: 'validatedRate', type: 'uint256', indexed: false },
+node_modules\viem\tempo\Decorator.ts:2237:     * await client.earn.validateExitSafePolicy({
+node_modules\viem\tempo\Decorator.ts:2248:    validateExitSafePolicy: (
+node_modules\viem\tempo\Decorator.ts:2249:      parameters: earnActions.validateExitSafePolicy.Parameters,
+node_modules\viem\tempo\Decorator.ts:2250:    ) => Promise<earnActions.validateExitSafePolicy.ReturnValue>
+node_modules\viem\tempo\Decorator.ts:2462:     * Validates that a token can be used as a Tempo fee token.
+node_modules\viem\tempo\Decorator.ts:2475:     * const { address } = await client.fee.validateToken({
+node_modules\viem\tempo\Decorator.ts:2483:    validateToken: (
+node_modules\viem\tempo\Decorator.ts:2484:      parameters: feeActions.validateToken.Parameters,
+node_modules\viem\tempo\Decorator.ts:2485:    ) => Promise<feeActions.validateToken.ReturnValue>
+node_modules\viem\tempo\Decorator.ts:3217:     * const { authorized, blockedReason } = await client.receivePolicy.
+validate({
+node_modules\viem\tempo\Decorator.ts:3227:    validate: (
+node_modules\viem\tempo\Decorator.ts:3228:      parameters: receivePolicyActions.validate.Parameters,
+node_modules\viem\tempo\Decorator.ts:3229:    ) => Promise<receivePolicyActions.validate.ReturnValue>
+node_modules\viem\tempo\Decorator.ts:5994:        'validateExitSafePolicy',
+node_modules\viem\tempo\Decorator.ts:6010:        'validateToken',
+node_modules\viem\tempo\Decorator.ts:6045:        'validate',
+node_modules\viem\tempo\errors.ts:82:        'Use `client.fee.validateToken({ token })` before sending transaction
+s or setting fee preferences.',
+node_modules\viem\tempo\Selectors.ts:213:  validateReceivePolicy: '0xb72b0c59',
+node_modules\viem\tempo\actions\accessKey.ts:138:     * can be burned onchain (see {@link burnWitness}) to invalid
+ate the
+node_modules\viem\tempo\actions\accessKey.ts:1119:     * can be burned onchain (see {@link burnWitness}) to invali
+date the
+node_modules\viem\tempo\actions\earn.ts:106: * Use {@link validateExitSafePolicy} to verify the final state.
+node_modules\viem\tempo\actions\earn.ts:245: * await Actions.earn.validateExitSafePolicy(client, {
+node_modules\viem\tempo\actions\earn.ts:262:export async function validateExitSafePolicy<chain extends Chain | und
+efined>(
+node_modules\viem\tempo\actions\earn.ts:264:  parameters: validateExitSafePolicy.Parameters,
+node_modules\viem\tempo\actions\earn.ts:265:): Promise<validateExitSafePolicy.ReturnValue> {
+node_modules\viem\tempo\actions\earn.ts:338:export namespace validateExitSafePolicy {
+node_modules\viem\tempo\actions\fee.ts:40: * Validates that a token can be used as a Tempo fee token.
+node_modules\viem\tempo\actions\fee.ts:53: * const { address, metadata } = await Actions.fee.validateToken(client,
+ {
+node_modules\viem\tempo\actions\fee.ts:62:export async function validateToken<chain extends Chain | undefined>(
+node_modules\viem\tempo\actions\fee.ts:64:  parameters: validateToken.Parameters,
+node_modules\viem\tempo\actions\fee.ts:65:): Promise<validateToken.ReturnValue> {
+node_modules\viem\tempo\actions\fee.ts:126:export declare namespace validateToken {
+node_modules\viem\tempo\actions\receivePolicy.ts:864: * const { authorized, blockedReason } = await Actions.receiv
+ePolicy.validate(
+node_modules\viem\tempo\actions\receivePolicy.ts:878:export async function validate<chain extends Chain | undefine
+d>(
+node_modules\viem\tempo\actions\receivePolicy.ts:880:  parameters: validate.Parameters,
+node_modules\viem\tempo\actions\receivePolicy.ts:881:): Promise<validate.ReturnValue> {
+node_modules\viem\tempo\actions\receivePolicy.ts:885:    ...validate.call({ token, sender, receiver }),
+node_modules\viem\tempo\actions\receivePolicy.ts:893:export namespace validate {
+node_modules\viem\tempo\actions\receivePolicy.ts:913:   * Defines a call to the `validateReceivePolicy` function.
+node_modules\viem\tempo\actions\receivePolicy.ts:923:      functionName: 'validateReceivePolicy',
+node_modules\viem\tempo\actions\earn\deployment.ts:241:    validateDeploymentId(args.deploymentId)
+node_modules\viem\tempo\actions\earn\deployment.ts:267:    validateDeploymentId(args.deploymentId)
+node_modules\viem\tempo\actions\earn\deployment.ts:509:    validateDeploymentId(args.deploymentId)
+node_modules\viem\tempo\actions\earn\deployment.ts:529:    validateDeploymentId(args.deploymentId)
+node_modules\viem\tempo\actions\earn\deployment.ts:904:  validateDeploymentId(parameters.deploymentId)
+node_modules\viem\tempo\actions\earn\deployment.ts:911:  await validateContracts(client, {
+node_modules\viem\tempo\actions\earn\deployment.ts:1197:function validateDeploymentId(deploymentId: Hex.Hex) {
+node_modules\viem\tempo\actions\earn\deployment.ts:1209:    validateFeeRate(fee.rateBps, '`fixedFees[].rateBps`', 
+false)
+node_modules\viem\tempo\actions\earn\deployment.ts:1223:    validateFeeRate(excess.annualTargetRateBps, '`annualTa
+rgetRateBps`', true)
+node_modules\viem\tempo\actions\earn\deployment.ts:1224:    validateFeeRate(excess.rateBps, '`excess.rateBps`', fa
+lse)
+node_modules\viem\tempo\actions\earn\deployment.ts:1288:function validateFeeRate(rate: number, name: string, allow
+Zero: boolean) {
+node_modules\viem\tempo\actions\earn\deployment.ts:1303:async function validateContracts(
+node_modules\viem\utils\index.ts:567:  type ValidateTypedDataErrorType,
+node_modules\viem\utils\index.ts:568:  validateTypedData,
+node_modules\viem\utils\typedData.ts:68:export type ValidateTypedDataErrorType =
+node_modules\viem\utils\typedData.ts:75:export function validateTypedData<
+node_modules\viem\utils\typedData.ts:82:  const validateData = (
+node_modules\viem\utils\typedData.ts:123:        validateReference(type)
+node_modules\viem\utils\typedData.ts:124:        validateData(struct, value as Record<string, unknown>)
+node_modules\viem\utils\typedData.ts:129:  // Validate domain types.
+node_modules\viem\utils\typedData.ts:132:    validateData(types.EIP712Domain, domain)
+node_modules\viem\utils\typedData.ts:135:  // Validate message types.
+node_modules\viem\utils\typedData.ts:137:    if (types[primaryType]) validateData(types[primaryType], message)
+node_modules\viem\utils\typedData.ts:180:function validateReference(type: string) {
+node_modules\viem\utils\address\getAddress.ts:24:   * wider Ethereum ecosystem, meaning it will break when validat
+ed against an application/tool
+node_modules\viem\utils\address\getAddress.ts:68:   * wider Ethereum ecosystem, meaning it will break when validat
+ed against an application/tool
+node_modules\viem\utils\ens\avatar\utils.ts:55:    // in case of cors, use image api to validate if given url is a
+n actual image
+node_modules\viem\utils\signature\hashTypedData.ts:23:  type ValidateTypedDataErrorType,
+node_modules\viem\utils\signature\hashTypedData.ts:24:  validateTypedData,
+node_modules\viem\utils\signature\hashTypedData.ts:43:  | ValidateTypedDataErrorType
+node_modules\viem\utils\signature\hashTypedData.ts:64:  validateTypedData({
+node_modules\viem\utils\signature\isErc8010Signature.ts:13:  return SignatureErc8010.validate(signature)
+node_modules\viem\utils\siwe\createSiweMessage.ts:51:  // Validate fields
+node_modules\viem\utils\siwe\validateSiweMessage.ts:8:export type ValidateSiweMessageParameters = {
+node_modules\viem\utils\siwe\validateSiweMessage.ts:37:export type ValidateSiweMessageReturnType = boolean
+node_modules\viem\utils\siwe\validateSiweMessage.ts:40: * @description Validates EIP-4361 message.
+node_modules\viem\utils\siwe\validateSiweMessage.ts:44:export function validateSiweMessage(
+node_modules\viem\utils\siwe\validateSiweMessage.ts:45:  parameters: ValidateSiweMessageParameters,
+node_modules\viem\utils\siwe\validateSiweMessage.ts:46:): ValidateSiweMessageReturnType {
+node_modules\viem\zksync\decorators\eip712.ts:176:   * __Warning: The `write` internally sends a transaction – it 
+does not validate if the contract write will succeed (the contract may throw an error). It is highly recommended t
+o [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage) before
+ you execute it.__
+node_modules\viem\_cjs\index.js:11:exports.parseUnits = exports.parseGwei = exports.parseEther = exports.formatUni
+ts = exports.formatGwei = exports.formatEther = exports.validateTypedData = exports.serializeTypedData = exports.g
+etTypesForEIP712Domain = exports.domainSeparator = exports.serializeTransaction = exports.serializeAccessList = ex
+ports.parseTransaction = exports.getTransactionType = exports.getSerializedTransactionType = exports.assertTransac
+tionLegacy = exports.assertTransactionEIP2930 = exports.assertTransactionEIP1559 = exports.assertRequest = exports
+.stringify = exports.verifyTypedData = exports.verifyMessage = exports.verifyHash = exports.toPrefixedMessage = ex
+ports.signatureToCompactSignature = exports.serializeSignature = exports.signatureToHex = exports.serializeErc8010
+Signature = exports.serializeErc6492Signature = exports.serializeCompactSignature = exports.compactSignatureToHex 
+= exports.recoverTypedDataAddress = exports.recoverTransactionAddress = exports.recoverPublicKey = exports.recover
+MessageAddress = exports.recoverAddress = exports.parseSignature = exports.hexToSignature = exports.parseErc8010Si
+gnature = exports.parseErc6492Signature = void 0;
+node_modules\viem\_cjs\index.js:593:Object.defineProperty(exports, "validateTypedData", { enumerable: true, get: f
+unction () { return typedData_js_2.validateTypedData; } });
+node_modules\viem\_cjs\account-abstraction\accounts\implementations\toCoinbaseSmartAccount.js:676:        name: 'v
+alidateUserOp',
+node_modules\viem\_cjs\account-abstraction\accounts\implementations\toSimple7702SmartAccount.js:265:        name: 
+'validateUserOp',
+node_modules\viem\_cjs\account-abstraction\accounts\implementations\toSoladySmartAccount.js:463:        name: 'val
+idateUserOp',
+node_modules\viem\_cjs\account-abstraction\constants\abis.js:355:        name: '_validateSenderAndPaymaster',
+node_modules\viem\_cjs\account-abstraction\errors\bundler.js:318:        super('The `validatePaymasterUserOp` func
+tion on the Paymaster reverted.', {
+node_modules\viem\_cjs\account-abstraction\errors\bundler.js:429:        super('The `validateUserOp` function on t
+he Smart Account reverted.', {
+node_modules\viem\_cjs\account-abstraction\errors\bundler.js:463:                '- the `validAfter` or `validUnti
+l` values returned from `validateUserOp` on the Smart Account are not satisfied',
+node_modules\viem\_cjs\account-abstraction\errors\bundler.js:482:                '- the `validAfter` or `validUnti
+l` values returned from `validatePaymasterUserOp` on the Paymaster are not satisfied',
+node_modules\viem\_cjs\account-abstraction\errors\bundler.js:550:        super("User Operation rejected by Paymast
+er's `validatePaymasterUserOp`.", {
+node_modules\viem\_cjs\actions\public\verifyHash.js:49:        if (erc8010_1.SignatureErc8010.validate(signature))
+node_modules\viem\_cjs\actions\public\verifyHash.js:149:        if (erc6492_1.SignatureErc6492.validate(signature)
+)
+node_modules\viem\_cjs\actions\siwe\verifySiweMessage.js:6:const validateSiweMessage_js_1 = require("../../utils/s
+iwe/validateSiweMessage.js");
+node_modules\viem\_cjs\actions\siwe\verifySiweMessage.js:13:    const isValid = (0, validateSiweMessage_js_1.valid
+ateSiweMessage)({
+node_modules\viem\_cjs\actions\wallet\signTypedData.js:18:    (0, typedData_js_1.validateTypedData)({ domain, mess
+age, primaryType, types });
+node_modules\viem\_cjs\op-stack\abis.js:1783:        name: 'ProposalNotValidated',
+node_modules\viem\_cjs\siwe\index.js:3:exports.validateSiweMessage = exports.parseSiweMessage = exports.generateSi
+weNonce = exports.createSiweMessage = exports.SiweInvalidMessageFieldError = exports.verifySiweMessage = void 0;
+node_modules\viem\_cjs\siwe\index.js:14:var validateSiweMessage_js_1 = require("../utils/siwe/validateSiweMessage.
+js");
+node_modules\viem\_cjs\siwe\index.js:15:Object.defineProperty(exports, "validateSiweMessage", { enumerable: true, 
+get: function () { return validateSiweMessage_js_1.validateSiweMessage; } });
+node_modules\viem\_cjs\tempo\Abis.js:2105:        name: 'validateReceivePolicy',
+node_modules\viem\_cjs\tempo\Abis.js:4769:        name: 'validateFeeConfig',
+node_modules\viem\_cjs\tempo\Abis.js:5285:            { name: 'validatedRate', type: 'uint256', indexed: false },
+node_modules\viem\_cjs\tempo\Decorator.js:134:                'validateExitSafePolicy',
+node_modules\viem\_cjs\tempo\Decorator.js:150:                'validateToken',
+node_modules\viem\_cjs\tempo\Decorator.js:185:                'validate',
+node_modules\viem\_cjs\tempo\errors.js:43:                'Use `client.fee.validateToken({ token })` before sendin
+g transactions or setting fee preferences.',
+node_modules\viem\_cjs\tempo\Selectors.js:180:    validateReceivePolicy: '0xb72b0c59',
+node_modules\viem\_cjs\tempo\actions\earn.js:19:exports.validateExitSafePolicy = validateExitSafePolicy;
+node_modules\viem\_cjs\tempo\actions\earn.js:134:async function validateExitSafePolicy(client, parameters) {
+node_modules\viem\_cjs\tempo\actions\fee.js:3:exports.validateToken = validateToken;
+node_modules\viem\_cjs\tempo\actions\fee.js:26:async function validateToken(client, parameters) {
+node_modules\viem\_cjs\tempo\actions\receivePolicy.js:11:exports.validate = validate;
+node_modules\viem\_cjs\tempo\actions\receivePolicy.js:263:async function validate(client, parameters) {
+node_modules\viem\_cjs\tempo\actions\receivePolicy.js:267:        ...validate.call({ token, sender, receiver }),
+node_modules\viem\_cjs\tempo\actions\receivePolicy.js:274:(function (validate) {
+node_modules\viem\_cjs\tempo\actions\receivePolicy.js:280:            functionName: 'validateReceivePolicy',
+node_modules\viem\_cjs\tempo\actions\receivePolicy.js:284:    validate.call = call;
+node_modules\viem\_cjs\tempo\actions\receivePolicy.js:285:})(validate || (exports.validate = validate = {}));
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:57:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:73:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:138:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:148:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:281:    validateDeploymentId(parameters.deploymentId);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:286:    await validateContracts(client, {
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:467:function validateDeploymentId(deploymentId) {
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:478:        validateFeeRate(fee.rateBps, '`fixedFees[].rat
+eBps`', false);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:491:        validateFeeRate(excess.annualTargetRateBps, '`
+annualTargetRateBps`', true);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:492:        validateFeeRate(excess.rateBps, '`excess.rateB
+ps`', false);
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:551:function validateFeeRate(rate, name, allowZero) {
+node_modules\viem\_cjs\tempo\actions\earn\deployment.js:559:async function validateContracts(client, parameters) {
+node_modules\viem\_cjs\utils\index.js:6:exports.parseUnits = exports.parseGwei = exports.parseEther = exports.form
+atUnits = exports.formatGwei = exports.formatEther = exports.validateTypedData = exports.serializeTypedData = void
+ 0;
+node_modules\viem\_cjs\utils\index.js:259:Object.defineProperty(exports, "validateTypedData", { enumerable: true, 
+get: function () { return typedData_js_1.validateTypedData; } });
+node_modules\viem\_cjs\utils\typedData.js:4:exports.validateTypedData = validateTypedData;
+node_modules\viem\_cjs\utils\typedData.js:41:function validateTypedData(parameters) {
+node_modules\viem\_cjs\utils\typedData.js:43:    const validateData = (struct, data) => {
+node_modules\viem\_cjs\utils\typedData.js:72:                validateReference(type);
+node_modules\viem\_cjs\utils\typedData.js:73:                validateData(struct, value);
+node_modules\viem\_cjs\utils\typedData.js:80:        validateData(types.EIP712Domain, domain);
+node_modules\viem\_cjs\utils\typedData.js:84:            validateData(types[primaryType], message);
+node_modules\viem\_cjs\utils\typedData.js:113:function validateReference(type) {
+node_modules\viem\_cjs\utils\signature\hashTypedData.js:18:    (0, typedData_js_1.validateTypedData)({
+node_modules\viem\_cjs\utils\signature\isErc8010Signature.js:6:    return erc8010_1.SignatureErc8010.validate(sign
+ature);
+node_modules\viem\_cjs\utils\siwe\validateSiweMessage.js:3:exports.validateSiweMessage = validateSiweMessage;
+node_modules\viem\_cjs\utils\siwe\validateSiweMessage.js:6:function validateSiweMessage(parameters) {
+node_modules\viem\_cjs\utils\siwe\validateSiweMessage.js:41://# sourceMappingURL=validateSiweMessage.js.map
+node_modules\viem\_cjs\utils\siwe\validateSiweMessage.js.map:1:{"version":3,"file":"validateSiweMessage.js","sourc
+eRoot":"","sources":["../../../utils/siwe/validateSiweMessage.ts"],"names":[],"mappings":";;AA2CA,kDAuCC;AA/ED,0DA
+AmD;AACnD,oEAA6D;AAuC7D,SAAgB,mBAAmB,CACjC,UAAyC;IAEzC,MAAM,EACJ,OAAO,EACP,MAAM,EACN,OAAO,EACP,KAAK,EACL,MAAM,EACN
+,IAAI,GAAG,IAAI,IAAI,EAAE,GAClB,GAAG,UAAU,CAAA;IAEd,IAAI,MAAM,IAAI,OAAO,CAAC,MAAM,KAAK,MAAM;QAAE,OAAO,KAAK,CAAA;IA
+CrD,IAAI,KAAK,IAAI,OAAO,CAAC,KAAK,KAAK,KAAK;QAAE,OAAO,KAAK,CAAA;IAClD,IAAI,MAAM,IAAI,OAAO,CAAC,MAAM,KAAK,MAAM;QAAE
+,OAAO,KAAK,CAAA;IAGrD,IAAI,MAAM,CAAC,KAAK,CAAC,IAAI,CAAC,OAAO,EAAE,CAAC;QAAE,OAAO,KAAK,CAAA;IAI9C,IAAI,OAAO,CAAC,c
+AAc,EAAE,CAAC;QAC3B,IAAI,MAAM,CAAC,KAAK,CAAC,OAAO,CAAC,cAAc,CAAC,OAAO,EAAE,CAAC;YAAE,OAAO,KAAK,CAAA;QAChE,IAAI,IAA
+I,IAAI,OAAO,CAAC,cAAc;YAAE,OAAO,KAAK,CAAA;IAClD,CAAC;IACD,IAAI,OAAO,CAAC,SAAS,EAAE,CAAC;QACtB,IAAI,MAAM,CAAC,KAAK,
+CAAC,OAAO,CAAC,SAAS,CAAC,OAAO,EAAE,CAAC;YAAE,OAAO,KAAK,CAAA;QAC3D,IAAI,IAAI,GAAG,OAAO,CAAC,SAAS;YAAE,OAAO,KAAK,CAA
+A;IAC5C,CAAC;IAED,IAAI,CAAC;QACH,IAAI,CAAC,OAAO,CAAC,OAAO;YAAE,OAAO,KAAK,CAAA;QAClC,IAAI,CAAC,IAAA,wBAAS,EAAC,OAAO
+,CAAC,OAAO,EAAE,EAAE,MAAM,EAAE,KAAK,EAAE,CAAC;YAAE,OAAO,KAAK,CAAA;QAChE,IAAI,OAAO,IAAI,CAAC,IAAA,kCAAc,EAAC,OAAO,C
+AAC,OAAO,EAAE,OAAO,CAAC;YAAE,OAAO,KAAK,CAAA;IACxE,CAAC;IAAC,MAAM,CAAC;QACP,OAAO,KAAK,CAAA;IACd,CAAC;IAED,OAAO,IAAI
+,CAAA;AACb,CAAC"}
+node_modules\viem\_esm\index.js:171:export { domainSeparator, getTypesForEIP712Domain, serializeTypedData, validat
+eTypedData, } from './utils/typedData.js';
+node_modules\viem\_esm\account-abstraction\accounts\implementations\toCoinbaseSmartAccount.js:698:        name: 'v
+alidateUserOp',
+node_modules\viem\_esm\account-abstraction\accounts\implementations\toSimple7702SmartAccount.js:279:        name: 
+'validateUserOp',
+node_modules\viem\_esm\account-abstraction\accounts\implementations\toSoladySmartAccount.js:477:        name: 'val
+idateUserOp',
+node_modules\viem\_esm\account-abstraction\constants\abis.js:352:        name: '_validateSenderAndPaymaster',
+node_modules\viem\_esm\account-abstraction\errors\bundler.js:299:        super('The `validatePaymasterUserOp` func
+tion on the Paymaster reverted.', {
+node_modules\viem\_esm\account-abstraction\errors\bundler.js:403:        super('The `validateUserOp` function on t
+he Smart Account reverted.', {
+node_modules\viem\_esm\account-abstraction\errors\bundler.js:435:                '- the `validAfter` or `validUnti
+l` values returned from `validateUserOp` on the Smart Account are not satisfied',
+node_modules\viem\_esm\account-abstraction\errors\bundler.js:453:                '- the `validAfter` or `validUnti
+l` values returned from `validatePaymasterUserOp` on the Paymaster are not satisfied',
+node_modules\viem\_esm\account-abstraction\errors\bundler.js:517:        super("User Operation rejected by Paymast
+er's `validatePaymasterUserOp`.", {
+node_modules\viem\_esm\actions\public\simulateContract.js:8: * Simulates/validates a contract interaction. This is
+ useful for retrieving **return data** and **revert reasons** of contract write functions.
+node_modules\viem\_esm\actions\public\verifyHash.js:51:        if (SignatureErc8010.validate(signature))
+node_modules\viem\_esm\actions\public\verifyHash.js:164:        if (SignatureErc6492.validate(signature))
+node_modules\viem\_esm\actions\siwe\verifySiweMessage.js:3:import { validateSiweMessage, } from '../../utils/siwe/
+validateSiweMessage.js';
+node_modules\viem\_esm\actions\siwe\verifySiweMessage.js:21:    const isValid = validateSiweMessage({
+node_modules\viem\_esm\actions\wallet\signTypedData.js:3:import { getTypesForEIP712Domain, serializeTypedData, val
+idateTypedData, } from '../../utils/typedData.js';
+node_modules\viem\_esm\actions\wallet\signTypedData.js:115:    validateTypedData({ domain, message, primaryType, t
+ypes });
+node_modules\viem\_esm\actions\wallet\writeContract.js:17: * __Warning: The `write` internally sends a transaction
+ – it does not validate if the contract write will succeed (the contract may throw an error). It is highly recomme
+nded to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage) 
+before you execute it.__
+node_modules\viem\_esm\actions\wallet\writeContractSync.js:13: * __Warning: The `write` internally sends a transac
+tion – it does not validate if the contract write will succeed (the contract may throw an error). It is highly rec
+ommended to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usa
+ge) before you execute it.__
+node_modules\viem\_esm\op-stack\abis.js:1788:        name: 'ProposalNotValidated',
+node_modules\viem\_esm\siwe\index.js:7:export { validateSiweMessage, } from '../utils/siwe/validateSiweMessage.js'
+;
+node_modules\viem\_esm\tempo\Abis.js:2103:        name: 'validateReceivePolicy',
+node_modules\viem\_esm\tempo\Abis.js:4768:        name: 'validateFeeConfig',
+node_modules\viem\_esm\tempo\Abis.js:5284:            { name: 'validatedRate', type: 'uint256', indexed: false },
+node_modules\viem\_esm\tempo\Decorator.js:131:                'validateExitSafePolicy',
+node_modules\viem\_esm\tempo\Decorator.js:147:                'validateToken',
+node_modules\viem\_esm\tempo\Decorator.js:182:                'validate',
+node_modules\viem\_esm\tempo\errors.js:38:                'Use `client.fee.validateToken({ token })` before sendin
+g transactions or setting fee preferences.',
+node_modules\viem\_esm\tempo\Selectors.js:178:    validateReceivePolicy: '0xb72b0c59',
+node_modules\viem\_esm\tempo\actions\earn.js:42: * Use {@link validateExitSafePolicy} to verify the final state.
+node_modules\viem\_esm\tempo\actions\earn.js:147: * await Actions.earn.validateExitSafePolicy(client, {
+node_modules\viem\_esm\tempo\actions\earn.js:164:export async function validateExitSafePolicy(client, parameters) 
+{
+node_modules\viem\_esm\tempo\actions\fee.js:16: * Validates that a token can be used as a Tempo fee token.
+node_modules\viem\_esm\tempo\actions\fee.js:29: * const { address, metadata } = await Actions.fee.validateToken(cl
+ient, {
+node_modules\viem\_esm\tempo\actions\fee.js:38:export async function validateToken(client, parameters) {
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:531: * const { authorized, blockedReason } = await Actions.r
+eceivePolicy.validate(
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:545:export async function validate(client, parameters) {
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:549:        ...validate.call({ token, sender, receiver }),
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:556:(function (validate) {
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:558:     * Defines a call to the `validateReceivePolicy` fun
+ction.
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:568:            functionName: 'validateReceivePolicy',
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:572:    validate.call = call;
+node_modules\viem\_esm\tempo\actions\receivePolicy.js:573:})(validate || (validate = {}));
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:106:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:129:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:287:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:304:        validateDeploymentId(args.deploymentId);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:594:    validateDeploymentId(parameters.deploymentId);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:599:    await validateContracts(client, {
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:780:function validateDeploymentId(deploymentId) {
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:791:        validateFeeRate(fee.rateBps, '`fixedFees[].rat
+eBps`', false);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:804:        validateFeeRate(excess.annualTargetRateBps, '`
+annualTargetRateBps`', true);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:805:        validateFeeRate(excess.rateBps, '`excess.rateB
+ps`', false);
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:864:function validateFeeRate(rate, name, allowZero) {
+node_modules\viem\_esm\tempo\actions\earn\deployment.js:872:async function validateContracts(client, parameters) {
+node_modules\viem\_esm\utils\index.js:112:export { serializeTypedData, validateTypedData, } from './typedData.js';
+node_modules\viem\_esm\utils\typedData.js:35:export function validateTypedData(parameters) {
+node_modules\viem\_esm\utils\typedData.js:37:    const validateData = (struct, data) => {
+node_modules\viem\_esm\utils\typedData.js:68:                validateReference(type);
+node_modules\viem\_esm\utils\typedData.js:69:                validateData(struct, value);
+node_modules\viem\_esm\utils\typedData.js:73:    // Validate domain types.
+node_modules\viem\_esm\utils\typedData.js:77:        validateData(types.EIP712Domain, domain);
+node_modules\viem\_esm\utils\typedData.js:79:    // Validate message types.
+node_modules\viem\_esm\utils\typedData.js:82:            validateData(types[primaryType], message);
+node_modules\viem\_esm\utils\typedData.js:112:function validateReference(type) {
+node_modules\viem\_esm\utils\address\getAddress.js:10: * wider Ethereum ecosystem, meaning it will break when vali
+dated against an application/tool
+node_modules\viem\_esm\utils\address\getAddress.js:41: * wider Ethereum ecosystem, meaning it will break when vali
+dated against an application/tool
+node_modules\viem\_esm\utils\ens\avatar\utils.js:26:        // in case of cors, use image api to validate if given
+ url is an actual image
+node_modules\viem\_esm\utils\signature\hashTypedData.js:6:import { getTypesForEIP712Domain, validateTypedData, } f
+rom '../typedData.js';
+node_modules\viem\_esm\utils\signature\hashTypedData.js:15:    validateTypedData({
+node_modules\viem\_esm\utils\signature\isErc8010Signature.js:4:    return SignatureErc8010.validate(signature);
+node_modules\viem\_esm\utils\siwe\createSiweMessage.js:21:    // Validate fields
+node_modules\viem\_esm\utils\siwe\validateSiweMessage.js:4: * @description Validates EIP-4361 message.
+node_modules\viem\_esm\utils\siwe\validateSiweMessage.js:8:export function validateSiweMessage(parameters) {
+node_modules\viem\_esm\utils\siwe\validateSiweMessage.js:46://# sourceMappingURL=validateSiweMessage.js.map
+node_modules\viem\_esm\utils\siwe\validateSiweMessage.js.map:1:{"version":3,"file":"validateSiweMessage.js","sourc
+eRoot":"","sources":["../../../utils/siwe/validateSiweMessage.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,SAAS,EAAE
+,MAAM,yBAAyB,CAAA;AACnD,OAAO,EAAE,cAAc,EAAE,MAAM,8BAA8B,CAAA;AAkC7D;;;;GAIG;AACH,MAAM,UAAU,mBAAmB,CACjC,UAAyC;IAEz
+C,MAAM,EACJ,OAAO,EACP,MAAM,EACN,OAAO,EACP,KAAK,EACL,MAAM,EACN,IAAI,GAAG,IAAI,IAAI,EAAE,GAClB,GAAG,UAAU,CAAA;IAEd,I
+AAI,MAAM,IAAI,OAAO,CAAC,MAAM,KAAK,MAAM;QAAE,OAAO,KAAK,CAAA;IACrD,IAAI,KAAK,IAAI,OAAO,CAAC,KAAK,KAAK,KAAK;QAAE,OAAO
+,KAAK,CAAA;IAClD,IAAI,MAAM,IAAI,OAAO,CAAC,MAAM,KAAK,MAAM;QAAE,OAAO,KAAK,CAAA;IAErD,4EAA4E;IAC5E,IAAI,MAAM,CAAC,KAA
+K,CAAC,IAAI,CAAC,OAAO,EAAE,CAAC;QAAE,OAAO,KAAK,CAAA;IAE9C,8EAA8E;IAC9E,yEAAyE;IACzE,IAAI,OAAO,CAAC,cAAc,EAAE,CAAC;
+QAC3B,IAAI,MAAM,CAAC,KAAK,CAAC,OAAO,CAAC,cAAc,CAAC,OAAO,EAAE,CAAC;YAAE,OAAO,KAAK,CAAA;QAChE,IAAI,IAAI,IAAI,OAAO,CA
+AC,cAAc;YAAE,OAAO,KAAK,CAAA;IAClD,CAAC;IACD,IAAI,OAAO,CAAC,SAAS,EAAE,CAAC;QACtB,IAAI,MAAM,CAAC,KAAK,CAAC,OAAO,CAAC
+,SAAS,CAAC,OAAO,EAAE,CAAC;YAAE,OAAO,KAAK,CAAA;QAC3D,IAAI,IAAI,GAAG,OAAO,CAAC,SAAS;YAAE,OAAO,KAAK,CAAA;IAC5C,CAAC;I
+AED,IAAI,CAAC;QACH,IAAI,CAAC,OAAO,CAAC,OAAO;YAAE,OAAO,KAAK,CAAA;QAClC,IAAI,CAAC,SAAS,CAAC,OAAO,CAAC,OAAO,EAAE,EAAE
+,MAAM,EAAE,KAAK,EAAE,CAAC;YAAE,OAAO,KAAK,CAAA;QAChE,IAAI,OAAO,IAAI,CAAC,cAAc,CAAC,OAAO,CAAC,OAAO,EAAE,OAAO,CAAC;YA
+AE,OAAO,KAAK,CAAA;IACxE,CAAC;IAAC,MAAM,CAAC;QACP,OAAO,KAAK,CAAA;IACd,CAAC;IAED,OAAO,IAAI,CAAA;AACb,CAAC"}
+node_modules\viem\_types\index.d.ts:338:export { type DomainSeparatorErrorType, domainSeparator, type GetTypesForE
+IP712DomainErrorType, getTypesForEIP712Domain, type SerializeTypedDataErrorType, serializeTypedData, type Validate
+TypedDataErrorType, validateTypedData, } from './utils/typedData.js';
+node_modules\viem\_types\account-abstraction\accounts\implementations\toCoinbaseSmartAccount.d.ts:602:    readonly
+ name: "validateUserOp";
+node_modules\viem\_types\account-abstraction\accounts\implementations\toSoladySmartAccount.d.ts:279:    readonly n
+ame: "validateUserOp";
+node_modules\viem\_types\account-abstraction\constants\abis.d.ts:362:    readonly name: "_validateSenderAndPaymast
+er";
+node_modules\viem\_types\actions\getContract.d.ts:104:     * Simulates/validates a contract interaction. This is u
+seful for retrieving return data and revert reasons of contract write functions.
+node_modules\viem\_types\actions\getContract.d.ts:233:     * __Warning: The `write` internally sends a transaction
+ – it does not validate if the contract write will succeed (the contract may throw an error). It is highly recomme
+nded to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usage) 
+before you execute it.__
+node_modules\viem\_types\actions\public\simulateContract.d.ts:48: * Simulates/validates a contract interaction. Th
+is is useful for retrieving **return data** and **revert reasons** of contract write functions.
+node_modules\viem\_types\actions\siwe\verifySiweMessage.d.ts:8:import { type ValidateSiweMessageParameters } from 
+'../../utils/siwe/validateSiweMessage.js';
+node_modules\viem\_types\actions\siwe\verifySiweMessage.d.ts:10:export type VerifySiweMessageParameters = Prettify
+<Pick<ValidateSiweMessageParameters, 'address' | 'domain' | 'nonce' | 'scheme' | 'time'> & {
+node_modules\viem\_types\actions\wallet\signTypedData.d.ts:16:import { type GetTypesForEIP712DomainErrorType, type
+ SerializeTypedDataErrorType, type ValidateTypedDataErrorType } from '../../utils/typedData.js';
+node_modules\viem\_types\actions\wallet\signTypedData.d.ts:19:export type SignTypedDataErrorType = AccountNotFound
+ErrorType | ParseAccountErrorType | GetTypesForEIP712DomainErrorType | ValidateTypedDataErrorType | StringifyError
+Type | SignTypedDataErrorType_account | IsHexErrorType | RequestErrorType | SerializeTypedDataErrorType | ErrorTyp
+e;
+node_modules\viem\_types\actions\wallet\writeContract.d.ts:35: * __Warning: The `write` internally sends a transac
+tion – it does not validate if the contract write will succeed (the contract may throw an error). It is highly rec
+ommended to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#usa
+ge) before you execute it.__
+node_modules\viem\_types\actions\wallet\writeContractSync.d.ts:22: * __Warning: The `write` internally sends a tra
+nsaction – it does not validate if the contract write will succeed (the contract may throw an error). It is highly
+ recommended to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract
+#usage) before you execute it.__
+node_modules\viem\_types\clients\decorators\public.d.ts:1307:     * Simulates/validates a contract interaction. Th
+is is useful for retrieving **return data** and **revert reasons** of contract write functions.
+node_modules\viem\_types\clients\decorators\wallet.d.ts:868:     * __Warning: The `write` internally sends a trans
+action – it does not validate if the contract write will succeed (the contract may throw an error). It is highly r
+ecommended to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#u
+sage) before you execute it.__
+node_modules\viem\_types\clients\decorators\wallet.d.ts:916:     * __Warning: The `write` internally sends a trans
+action – it does not validate if the contract write will succeed (the contract may throw an error). It is highly r
+ecommended to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#u
+sage) before you execute it.__
+node_modules\viem\_types\op-stack\abis.d.ts:1637:    readonly name: "ProposalNotValidated";
+node_modules\viem\_types\siwe\index.d.ts:7:export { type ValidateSiweMessageParameters, type ValidateSiweMessageRe
+turnType, validateSiweMessage, } from '../utils/siwe/validateSiweMessage.js';
+node_modules\viem\_types\tempo\Abis.d.ts:3348:    readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\Abis.d.ts:8261:    readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\Abis.d.ts:12320:    readonly name: "validateFeeConfig";
+node_modules\viem\_types\tempo\Abis.d.ts:13169:        readonly name: "validatedRate";
+node_modules\viem\_types\tempo\Decorator.d.ts:2050:         * await client.earn.validateExitSafePolicy({
+node_modules\viem\_types\tempo\Decorator.d.ts:2061:        validateExitSafePolicy: (parameters: earnActions.valida
+teExitSafePolicy.Parameters) => Promise<earnActions.validateExitSafePolicy.ReturnValue>;
+node_modules\viem\_types\tempo\Decorator.d.ts:2253:         * Validates that a token can be used as a Tempo fee to
+ken.
+node_modules\viem\_types\tempo\Decorator.d.ts:2266:         * const { address } = await client.fee.validateToken({
+node_modules\viem\_types\tempo\Decorator.d.ts:2274:        validateToken: (parameters: feeActions.validateToken.Pa
+rameters) => Promise<feeActions.validateToken.ReturnValue>;
+node_modules\viem\_types\tempo\Decorator.d.ts:2952:         * const { authorized, blockedReason } = await client.r
+eceivePolicy.validate({
+node_modules\viem\_types\tempo\Decorator.d.ts:2962:        validate: (parameters: receivePolicyActions.validate.Pa
+rameters) => Promise<receivePolicyActions.validate.ReturnValue>;
+node_modules\viem\_types\tempo\Selectors.d.ts:177:    readonly validateReceivePolicy: "0xb72b0c59";
+node_modules\viem\_types\tempo\actions\accessKey.d.ts:86:         * can be burned onchain (see {@link burnWitness}
+) to invalidate the
+node_modules\viem\_types\tempo\actions\accessKey.d.ts:2438:         * can be burned onchain (see {@link burnWitnes
+s}) to invalidate the
+node_modules\viem\_types\tempo\actions\earn.d.ts:56: * Use {@link validateExitSafePolicy} to verify the final stat
+e.
+node_modules\viem\_types\tempo\actions\earn.d.ts:118: * await Actions.earn.validateExitSafePolicy(client, {
+node_modules\viem\_types\tempo\actions\earn.d.ts:135:export declare function validateExitSafePolicy<chain extends 
+Chain | undefined>(client: Client<Transport, chain>, parameters: validateExitSafePolicy.Parameters): Promise<valid
+ateExitSafePolicy.ReturnValue>;
+node_modules\viem\_types\tempo\actions\earn.d.ts:136:export declare namespace validateExitSafePolicy {
+node_modules\viem\_types\tempo\actions\fee.d.ts:21: * Validates that a token can be used as a Tempo fee token.
+node_modules\viem\_types\tempo\actions\fee.d.ts:34: * const { address, metadata } = await Actions.fee.validateToke
+n(client, {
+node_modules\viem\_types\tempo\actions\fee.d.ts:43:export declare function validateToken<chain extends Chain | und
+efined>(client: Client<Transport, chain>, parameters: validateToken.Parameters): Promise<validateToken.ReturnValue
+>;
+node_modules\viem\_types\tempo\actions\fee.d.ts:44:export declare namespace validateToken {
+node_modules\viem\_types\tempo\actions\policy.d.ts:284:        readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\actions\policy.d.ts:828:        readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\actions\policy.d.ts:1380:        readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\actions\policy.d.ts:1933:        readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\actions\receivePolicy.d.ts:957:        readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\actions\receivePolicy.d.ts:1283: * const { authorized, blockedReason } = await Acti
+ons.receivePolicy.validate(
+node_modules\viem\_types\tempo\actions\receivePolicy.d.ts:1297:export declare function validate<chain extends Chai
+n | undefined>(client: Client<Transport, chain>, parameters: validate.Parameters): Promise<validate.ReturnValue>;
+node_modules\viem\_types\tempo\actions\receivePolicy.d.ts:1298:export declare namespace validate {
+node_modules\viem\_types\tempo\actions\receivePolicy.d.ts:1315:     * Defines a call to the `validateReceivePolicy
+` function.
+node_modules\viem\_types\tempo\actions\receivePolicy.d.ts:1322:            readonly name: "validateReceivePolicy";
+node_modules\viem\_types\tempo\actions\receivePolicy.d.ts:1343:        functionName: "validateReceivePolicy";
+node_modules\viem\_types\utils\index.d.ts:119:export { type DomainSeparatorErrorType, type SerializeTypedDataError
+Type, serializeTypedData, type ValidateTypedDataErrorType, validateTypedData, } from './typedData.js';
+node_modules\viem\_types\utils\typedData.d.ts:11:export type ValidateTypedDataErrorType = HashDomainErrorType | Is
+AddressErrorType | NumberToHexErrorType | SizeErrorType | ErrorType;
+node_modules\viem\_types\utils\typedData.d.ts:12:export declare function validateTypedData<const typedData extends
+ TypedData | Record<string, unknown>, primaryType extends keyof typedData | 'EIP712Domain'>(parameters: TypedDataD
+efinition<typedData, primaryType>): void;
+node_modules\viem\_types\utils\address\getAddress.d.ts:10: * wider Ethereum ecosystem, meaning it will break when 
+validated against an application/tool
+node_modules\viem\_types\utils\address\getAddress.d.ts:23: * wider Ethereum ecosystem, meaning it will break when 
+validated against an application/tool
+node_modules\viem\_types\utils\signature\hashTypedData.d.ts:9:import { type GetTypesForEIP712DomainErrorType, type
+ ValidateTypedDataErrorType } from '../typedData.js';
+node_modules\viem\_types\utils\signature\hashTypedData.d.ts:16:export type HashTypedDataErrorType = GetTypesForEIP
+712DomainErrorType | HashDomainErrorType | HashStructErrorType | ValidateTypedDataErrorType | ErrorType;
+node_modules\viem\_types\utils\siwe\validateSiweMessage.d.ts:4:export type ValidateSiweMessageParameters = {
+node_modules\viem\_types\utils\siwe\validateSiweMessage.d.ts:32:export type ValidateSiweMessageReturnType = boolea
+n;
+node_modules\viem\_types\utils\siwe\validateSiweMessage.d.ts:34: * @description Validates EIP-4361 message.
+node_modules\viem\_types\utils\siwe\validateSiweMessage.d.ts:38:export declare function validateSiweMessage(parame
+ters: ValidateSiweMessageParameters): ValidateSiweMessageReturnType;
+node_modules\viem\_types\utils\siwe\validateSiweMessage.d.ts:39://# sourceMappingURL=validateSiweMessage.d.ts.map
+node_modules\viem\_types\utils\siwe\validateSiweMessage.d.ts.map:1:{"version":3,"file":"validateSiweMessage.d.ts",
+"sourceRoot":"","sources":["../../../utils/siwe/validateSiweMessage.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAA
+E,OAAO,EAAE,MAAM,SAAS,CAAA;AAEtC,OAAO,KAAK,EAAE,YAAY,EAAE,MAAM,sBAAsB,CAAA;AAGxD,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,YAA
+Y,CAAA;AAE7C,MAAM,MAAM,6BAA6B,GAAG;IAC1C;;OAEG;IACH,OAAO,CAAC,EAAE,OAAO,GAAG,SAAS,CAAA;IAC7B;;OAEG;IACH,MAAM,CAAC,
+EAAE,MAAM,GAAG,SAAS,CAAA;IAC3B;;OAEG;IACH,OAAO,EAAE,YAAY,CAAC,WAAW,CAAC,CAAA;IAClC;;OAEG;IACH,KAAK,CAAC,EAAE,MAAM,
+GAAG,SAAS,CAAA;IAC1B;;OAEG;IACH,MAAM,CAAC,EAAE,MAAM,GAAG,SAAS,CAAA;IAC3B;;;;OAIG;IACH,IAAI,CAAC,EAAE,IAAI,GAAG,SAA
+S,CAAA;CACxB,CAAA;AAED,MAAM,MAAM,6BAA6B,GAAG,OAAO,CAAA;AAEnD;;;;GAIG;AACH,wBAAgB,mBAAmB,CACjC,UAAU,EAAE,6BAA6B,GAC
+xC,6BAA6B,CAqC/B"}
+node_modules\viem\_types\zksync\decorators\eip712.d.ts:141:     * __Warning: The `write` internally sends a transa
+ction – it does not validate if the contract write will succeed (the contract may throw an error). It is highly re
+commended to [simulate the contract write with `contract.simulate`](https://viem.sh/docs/contract/writeContract#us
+age) before you execute it.__
+node_modules\ws\package.json:47:    "utf-8-validate": ">=5.0.2"
+node_modules\ws\package.json:53:    "utf-8-validate": {
+node_modules\ws\package.json:68:    "utf-8-validate": "^6.0.0"
+node_modules\ws\README.md:82:supports the [utf-8-validate][] module:
+node_modules\ws\README.md:85:npm install --save-optional utf-8-validate
+node_modules\ws\README.md:90:To force ws not to use utf-8-validate, use the
+node_modules\ws\README.md:91:[`WS_NO_UTF_8_VALIDATE`](./doc/ws.md#ws_no_utf_8_validate) environment variable.
+node_modules\ws\README.md:547:[utf-8-validate]: https://github.com/websockets/utf-8-validate
+node_modules\ws\lib\validation.js:144:    const isValidUTF8 = require('utf-8-validate');
+
+

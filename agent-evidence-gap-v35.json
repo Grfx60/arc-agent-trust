@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "3.5",
+  "engine": "EVIDENCE_GAP_RESOLVER",
+  "generatedAt": "2026-08-26T20:25:24.878Z",
+  "agent": 845265,
+  "currentState": {
+    "decision": "REVIEW",
+    "reviewStatus": "DEEP_REVIEW",
+    "trustAssessment": 53,
+    "trustConfidence": 48,
+    "evidenceIndependence": 34,
+    "structuralRisk": 68
+  },
+  "gapSummary": {
+    "totalOpen": 8,
+    "critical": 1,
+    "high": 5,
+    "medium": 2,
+    "stage": "CRITICAL_GAPS"
+  },
+  "nextAction": "V35-001",
+  "tasks": [
+    {
+      "id": "V35-001",
+      "status": "OPEN",
+      "type": "VALIDATOR_DIVERSITY",
+      "priority": "CRITICAL",
+      "finding": "Validation evidence is not sufficiently independent.",
+      "currentValue": 30,
+      "target": ">= 50",
+      "requiredEvidence": [
+        "Independent validator identity",
+        "Independent validation observation",
+        "Validator relationship to agent"
+      ],
+      "action": "Collect validation evidence from additional independent validators.",
+      "successCondition": "At least two independently attributable validator sources are available.",
+      "blocksAutomaticAllow": true
+    },
+    {
+      "id": "V35-002",
+      "status": "OPEN",
+      "type": "ROLE_SEPARATION",
+      "priority": "HIGH",
+      "finding": "Reputation provider and validator roles overlap.",
+      "currentValue": 1,
+      "target": 0,
+      "requiredEvidence": [
+        "Provider identity",
+        "Validator identity",
+        "Role attribution",
+        "Independence relationship"
+      ],
+      "action": "Determine whether the overlapping actor is independently qualified to perform both roles.",
+      "successCondition": "Role overlap is either independently justified or removed from the independent evidence set.",
+      "blocksAutomaticAllow": true
+    },
+    {
+      "id": "V35-003",
+      "status": "OPEN",
+      "type": "METADATA_RETRIEVAL",
+      "priority": "HIGH",
+      "finding": "Agent-specific metadata is currently insufficient.",
+      "currentValue": 4,
+      "target": ">= 50",
+      "requiredEvidence": [
+        "Original tokenURI",
+        "IPFS CID or metadata URL",
+        "Gateway retrieval result",
+        "Raw metadata response",
+        "JSON validity"
+      ],
+      "action": "Retry retrieval using the original URI and supported IPFS gateways.",
+      "successCondition": "Agent-specific metadata becomes accessible and parseable.",
+      "blocksAutomaticAllow": false
+    },
+    {
+      "id": "V35-004",
+      "status": "OPEN",
+      "type": "METADATA_INDEPENDENCE",
+      "priority": "HIGH",
+      "finding": "The agent shares metadata URI evidence with many other agents.",
+      "currentValue": 10,
+      "target": ">= 50",
+      "context": {
+        "sharedAgents": 94,
+        "sharedOwners": 14
+      },
+      "requiredEvidence": [
+        "Agent-specific metadata fields",
+        "Metadata ownership attribution",
+        "Relationship between shared URI and agent identity",
+        "Evidence that shared URI is intentional"
+      ],
+      "action": "Determine whether shared URI represents a legitimate template or insufficient agent-specific identity evidence.",
+      "successCondition": "Shared URI is either justified or independent metadata evidence is obtained.",
+      "blocksAutomaticAllow": true
+    },
+    {
+      "id": "V35-005",
+      "status": "OPEN",
+      "type": "STRUCTURAL_REVIEW",
+      "priority": "HIGH",
+      "finding": "Agent has a high structural anomaly score.",
+      "currentValue": 65,
+      "target": "< 60",
+      "requiredEvidence": [
+        "Owner relationship",
+        "URI relationship",
+        "Agent cluster membership",
+        "Cross-owner relationships",
+        "Legitimate operational explanation"
+      ],
+      "action": "Investigate the structural cluster and determine whether relationships have a legitimate explanation.",
+      "successCondition": "Structural anomaly is explained or independent evidence offsets the anomaly.",
+      "blocksAutomaticAllow": false
+    },
+    {
+      "id": "V35-006",
+      "status": "OPEN",
+      "type": "CORRELATED_RISK_REVIEW",
+      "priority": "HIGH",
+      "finding": "Multiple risk signals may originate from the same underlying correlation.",
+      "currentValue": 70,
+      "target": "< 60",
+      "requiredEvidence": [
+        "Independent origin of risk signals",
+        "Provider independence",
+        "Validator independence",
+        "Metadata independence",
+        "Structural relationship analysis"
+      ],
+      "action": "Separate correlated observations from genuinely independent risk evidence.",
+      "successCondition": "Risk signals are independently attributable or correlation is explained.",
+      "blocksAutomaticAllow": false
+    },
+    {
+      "id": "V35-007",
+      "status": "OPEN",
+      "type": "GRAPH_EVIDENCE",
+      "priority": "MEDIUM",
+      "finding": "Graph evidence has limited agent-specific value.",
+      "currentValue": 55.8,
+      "target": ">= 60",
+      "requiredEvidence": [
+        "Direct relationships",
+        "Indirect relationships",
+        "Relationship direction",
+        "Independent graph signals"
+      ],
+      "action": "Inspect direct and indirect graph relationships for independent evidence.",
+      "successCondition": "At least one meaningful independent graph signal is established.",
+      "blocksAutomaticAllow": false
+    },
+    {
+      "id": "V35-008",
+      "status": "OPEN",
+      "type": "CONFIDENCE_IMPROVEMENT",
+      "priority": "MEDIUM",
+      "finding": "Confidence in the current assessment is low.",
+      "currentValue": 48,
+      "target": ">= 60",
+      "requiredEvidence": [
+        "Additional independent evidence",
+        "Resolved metadata gap",
+        "Improved validator diversity",
+        "Resolved role overlap"
+      ],
+      "action": "Increase independent evidence coverage before changing the final decision.",
+      "successCondition": "Assessment confidence reaches at least 60.",
+      "blocksAutomaticAllow": false
+    }
+  ],
+  "safeguards": {
+    "automaticAllowBlocked": true,
+    "automaticBlockAllowed": false,
+    "reviewDoesNotMeanFraud": true,
+    "sharedURIIsNotFraud": true,
+    "structuralAnomalyIsNotMaliciousProof": true,
+    "missingMetadataIsNotFraud": true
+  }
+}

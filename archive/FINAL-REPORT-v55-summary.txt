@@ -1,0 +1,27 @@
+ARC AGENT TRUST — FINAL REPORT v55
+
+Agent: 845265
+Network: Arc Testnet
+
+FINAL DECISION: REVIEW
+
+Target validation records: 2
+Independent target validators: 0
+Independent candidates: 0
+
+Evidence Quality: 61/100
+Evidence Independence: 34/100
+
+Structural Risk: 0/100
+
+V35-001: EVIDENCE_NOT_FOUND
+
+CONCLUSION:
+No independent validator evidence for Agent 845265 was established.
+
+This is an evidence gap, NOT proof of fraud or maliciousness.
+
+Automatic ALLOW: false
+Automatic BLOCK: false
+
+FINAL STATUS: REVIEW

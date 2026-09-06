@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "3.6",
+  "engine": "VALIDATOR_EVIDENCE_DISCOVERY",
+  "generatedAt": "2026-08-26T20:26:33.217Z",
+  "agent": 845265,
+  "dataAvailability": {
+    "loadedFiles": [
+      "agent-evidence-independence-v28-1.json",
+      "agent-risk-correlation-v29.json",
+      "agent-evidence-decision-v30.json",
+      "agent-evidence-scoring-v31.json",
+      "agent-evidence-calibration-v32.json",
+      "agent-trust-assessment-v33.json",
+      "agent-evidence-review-v34.json",
+      "agent-evidence-gap-v35.json"
+    ],
+    "missingFiles": [
+      "agent-scanner-v10.json",
+      "agent-845265-scanner-v11.json",
+      "agent-evidence-collector-v10.json",
+      "agent-validator-intelligence-v10.json"
+    ]
+  },
+  "discovery": {
+    "rawValidatorReferences": 10,
+    "identifiableValidators": 0,
+    "knownValidatorCount": 30,
+    "validatorIndependence": 30,
+    "providerValidatorOverlap": 1
+  },
+  "candidates": [],
+  "assessment": {
+    "resolution": "OPEN",
+    "evidenceQuality": 20,
+    "independentValidatorStatus": "NOT_ESTABLISHED"
+  },
+  "v35": {
+    "task": {
+      "id": "V35-001",
+      "status": "OPEN",
+      "type": "VALIDATOR_DIVERSITY",
+      "priority": "CRITICAL",
+      "finding": "Validation evidence is not sufficiently independent.",
+      "currentValue": 30,
+      "target": ">= 50",
+      "requiredEvidence": [
+        "Independent validator identity",
+        "Independent validation observation",
+        "Validator relationship to agent"
+      ],
+      "action": "Collect validation evidence from additional independent validators.",
+      "successCondition": "At least two independently attributable validator sources are available.",
+      "blocksAutomaticAllow": true
+    },
+    "status": "OPEN"
+  },
+  "nextAction": "COLLECT_VALIDATOR_EVIDENCE",
+  "safeguards": {
+    "validatorReferenceIsNotProof": true,
+    "validatorIdentityIsNotProofOfIndependence": true,
+    "providerValidatorOverlapMustBeChecked": true,
+    "automaticAllowBlocked": true,
+    "automaticBlockAllowed": false
+  }
+}

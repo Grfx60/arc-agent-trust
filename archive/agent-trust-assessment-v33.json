@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "3.3",
+  "engine": "TRUST_ASSESSMENT",
+  "generatedAt": "2026-08-26T20:22:40.752Z",
+  "agent": 845265,
+  "dimensions": {
+    "identity": 100,
+    "reputation": 85,
+    "validation": 60,
+    "metadata": 4,
+    "graph": 55.8,
+    "dynamics": 70
+  },
+  "evidence": {
+    "availability": 62,
+    "quality": 61,
+    "independence": 34,
+    "confidence": 51,
+    "foundation": 52
+  },
+  "risk": {
+    "structural": 68,
+    "anomaly": 65,
+    "correlated": 70
+  },
+  "penalties": {
+    "independence": 8,
+    "structural": 10
+  },
+  "assessment": {
+    "score": 53,
+    "classification": "MEDIUM",
+    "confidence": 48,
+    "confidenceClassification": "LOW"
+  },
+  "decision": {
+    "current": "REVIEW",
+    "source": "V30"
+  },
+  "strengths": [
+    "STRONG_IDENTITY",
+    "MULTI_PROVIDER_REPUTATION",
+    "GRAPH_EVIDENCE_AVAILABLE"
+  ],
+  "weaknesses": [
+    "LIMITED_VALIDATION_INDEPENDENCE",
+    "INSUFFICIENT_METADATA_EVIDENCE",
+    "LOW_EVIDENCE_INDEPENDENCE",
+    "HIGH_STRUCTURAL_RISK"
+  ],
+  "reasons": [
+    "Identity evidence provides a strong foundation.",
+    "Reputation evidence is relatively strong.",
+    "Validation evidence remains limited.",
+    "Metadata evidence is currently insufficient.",
+    "Evidence independence materially limits trust assessment.",
+    "Structural risk materially reduces the assessment.",
+    "Correlated risk remains HIGH.",
+    "Current evidence does not justify automatic ALLOW."
+  ],
+  "safety": {
+    "directMaliciousEvidence": false,
+    "confirmedFraud": false,
+    "confirmedIdentityForgery": false,
+    "confirmedValidationManipulation": false,
+    "automaticBlock": false,
+    "assessmentIsNotProbability": true,
+    "assessmentIsNotProofOfMaliciousness": true,
+    "assessmentIsNotFinancialAdvice": true
+  }
+}

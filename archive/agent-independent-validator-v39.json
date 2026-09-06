@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "3.9",
+  "engine": "INDEPENDENT_VALIDATOR_DISCOVERY",
+  "generatedAt": "2026-08-26T20:48:01.601Z",
+  "network": "Arc Testnet",
+  "agent": 845265,
+  "validationRegistry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+  "scan": {
+    "candidateAgents": 1993,
+    "scannedAgents": 1993,
+    "validationRequests": 173,
+    "readErrors": 547
+  },
+  "validatorSummary": {
+    "uniqueValidators": 8,
+    "currentValidator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+    "alternativeValidators": 7,
+    "targetValidators": 1,
+    "alternativeTargetValidators": 0
+  },
+  "validators": [
+    "0xb152c3b6436318ad340153f1d30c9bbb8634681a",
+    "0x6f17f1a69ce4cb1828ee95d6b4b426050d49e05e",
+    "0xb3cf6b5a6aa8ed4e1309fd0631deb6cb06b7afca",
+    "0x415fb8814084bdbc7b6964620ba5be5939ad2333",
+    "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+    "0x9c6d75628bd6c18258ac1125f32dfbced59e8a1d",
+    "0xbefef9cdcbebf78d1ede55ea37e33690938daea8",
+    "0x19762748a5e03dfe3dd9c4ddca6818d44f3c866c"
+  ],
+  "candidates": [
+    {
+      "validator": "0x6f17f1a69ce4cb1828ee95d6b4b426050d49e05e",
+      "validationCount": 39,
+      "validatedAgentCount": 39,
+      "validatedAgents": [
+        "844413",
+        "844414",
+        "844418",
+        "844419",
+        "844422",
+        "844423",
+        "844425",
+        "844427",
+        "844428",
+        "844430",
+        "844811",
+        "844827",
+        "844847",
+        "844860",
+        "844915",
+        "844936",
+        "844951",
+        "844968",
+        "844989",
+        "844997",
+        "845278",
+        "845282",
+        "845289",
+        "845296",
+        "845302",
+        "845345",
+        "845348",
+        "845351",
+        "845355",
+        "845820",
+        "845824",
+        "845864",
+        "845867",
+        "845871",
+        "845880",
+        "845887",
+        "845891",
+        "845895",
+        "845898"
+      ],
+      "tags": [
+        "kyc_verified"
+      ],
+      "independentFromCurrentValidator": true,
+      "independenceVerified": false,
+      "status": "CANDIDATE"
+    },
+    {
+      "validator": "0xb152c3b6436318ad340153f1d30c9bbb8634681a",
+      "validationCount": 27,
+      "validatedAgentCount": 27,
+      "validatedAgents": [
+        "844412",
+        "844416",
+        "844420",
+        "844424",
+        "844426",
+        "844429",
+        "844799",
+        "844820",
+        "844845",
+        "844873",
+        "844937",
+        "844964",
+        "844986",
+        "845000",
+        "845277",
+        "845285",
+        "845298",
+        "845343",
+        "845350",
+        "845357",
+        "845819",
+        "845826",
+        "845865",
+        "845872",
+        "845886",
+        "845893",
+        "845897"
+      ],
+      "tags": [
+        "kyc_verified"
+      ],
+      "independentFromCurrentValidator": true,
+      "independenceVerified": false,
+      "status": "CANDIDATE"
+    },
+    {
+      "validator": "0x415fb8814084bdbc7b6964620ba5be5939ad2333",
+      "validationCount": 84,
+      "validatedAgentCount": 6,
+      "validatedAgents": [
+        "845049",
+        "845050",
+        "845051",
+        "845052",
+        "845053",
+        "845090"
+      ],
+      "tags": [
+        "citation-refused"
+      ],
+      "independentFromCurrentValidator": true,
+      "independenceVerified": false,
+      "status": "CANDIDATE"
+    },
+    {
+      "validator": "0x9c6d75628bd6c18258ac1125f32dfbced59e8a1d",
+      "validationCount": 6,
+      "validatedAgentCount": 6,
+      "validatedAgents": [
+        "845797",
+        "845800",
+        "845804",
+        "845807",
+        "845808",
+        "845809"
+      ],
+      "tags": [
+        "kyc_verified",
+        "verified",
+        "auto_validated"
+      ],
+      "independentFromCurrentValidator": true,
+      "independenceVerified": false,
+      "status": "CANDIDATE"
+    },
+    {
+      "validator": "0xb3cf6b5a6aa8ed4e1309fd0631deb6cb06b7afca",
+      "validationCount": 5,
+      "validatedAgentCount": 5,
+      "validatedAgents": [
+        "844716",
+        "845176",
+        "845263",
+        "845825",
+        "845899"
+      ],
+      "tags": [],
+      "independentFromCurrentValidator": true,
+      "independenceVerified": false,
+      "status": "CANDIDATE"
+    },
+    {
+      "validator": "0xbefef9cdcbebf78d1ede55ea37e33690938daea8",
+      "validationCount": 1,
+      "validatedAgentCount": 1,
+      "validatedAgents": [
+        "845825"
+      ],
+      "tags": [],
+      "independentFromCurrentValidator": true,
+      "independenceVerified": false,
+      "status": "CANDIDATE"
+    },
+    {
+      "validator": "0x19762748a5e03dfe3dd9c4ddca6818d44f3c866c",
+      "validationCount": 1,
+      "validatedAgentCount": 1,
+      "validatedAgents": [
+        "845868"
+      ],
+      "tags": [
+        "builder_verified"
+      ],
+      "independentFromCurrentValidator": true,
+      "independenceVerified": false,
+      "status": "CANDIDATE"
+    }
+  ],
+  "target": {
+    "validators": [
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ],
+    "alternativeValidators": []
+  },
+  "assessment": {
+    "status": "CANDIDATE_VALIDATORS_FOUND",
+    "v35Task": "V35-001",
+    "v35Status": "OPEN"
+  },
+  "safety": {
+    "candidateValidatorIsNotProof": true,
+    "alternativeValidatorIsNotAutomaticallyIndependent": true,
+    "validatorDiscoveryDoesNotProveTrust": true,
+    "sharedValidatorDoesNotProveFraud": true,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

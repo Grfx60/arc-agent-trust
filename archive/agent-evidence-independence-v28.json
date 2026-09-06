@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "2.8",
+  "engine": "EVIDENCE_INDEPENDENCE",
+  "generatedAt": "2026-08-26T20:02:42.859Z",
+  "agent": 845265,
+  "sourceFiles": {
+    "v27": true,
+    "v10": true,
+    "v20": true,
+    "v21": true,
+    "v22": true,
+    "v23": true
+  },
+  "evidenceStructure": {
+    "reputationProviders": 2,
+    "validators": 1,
+    "overlappingActors": 0,
+    "sharedURI": true,
+    "crossOwnerURI": true,
+    "uriAgents": 94,
+    "uriOwners": 0,
+    "graphNodes": 5025,
+    "graphEdges": 12780
+  },
+  "components": [
+    {
+      "name": "REPUTATION_INDEPENDENCE",
+      "score": 70,
+      "evidence": "2 reputation provider(s)."
+    },
+    {
+      "name": "VALIDATOR_INDEPENDENCE",
+      "score": 30,
+      "evidence": "1 unique validator(s)."
+    },
+    {
+      "name": "REVIEWER_SEPARATION",
+      "score": 100,
+      "evidence": "No known reviewer overlap."
+    },
+    {
+      "name": "METADATA_INDEPENDENCE",
+      "score": 35,
+      "evidence": "94 agent(s) and 0 owner(s) associated with shared URI evidence."
+    },
+    {
+      "name": "GRAPH_INDEPENDENCE",
+      "score": 60,
+      "evidence": "5025 graph nodes and 12780 graph edges."
+    }
+  ],
+  "independence": {
+    "score": 60,
+    "classification": "MEDIUM",
+    "weakestComponent": "VALIDATOR_INDEPENDENCE"
+  },
+  "signals": [
+    {
+      "code": "LOW_VALIDATOR_INDEPENDENCE",
+      "severity": "HIGH"
+    },
+    {
+      "code": "LOW_METADATA_INDEPENDENCE",
+      "severity": "HIGH"
+    }
+  ],
+  "interpretation": {
+    "independentEvidence": false,
+    "partiallyIndependent": true,
+    "lowIndependence": false,
+    "primaryWeakness": "VALIDATOR_INDEPENDENCE",
+    "reviewRecommended": false,
+    "notTrustScore": true,
+    "notProbability": true
+  }
+}

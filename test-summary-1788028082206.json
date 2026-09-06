@@ -1,0 +1,34 @@
+{
+  "testDate": "2026-08-29T18:28:02.205Z",
+  "engine": "risk-engine-v6-improved",
+  "results": [
+    {
+      "scenario": "Original Agent 845265",
+      "file": "agent-845265-evidence.json",
+      "metrics": {
+        "risk": 17.123287671232877,
+        "confidence": 61,
+        "uncertainty": 13,
+        "independence": 55,
+        "identity": true,
+        "feedbacks": 3,
+        "validators": 1,
+        "overlap": 1
+      }
+    },
+    {
+      "scenario": "Perfect Agent (test)",
+      "file": "agent-test-perfect-evidence.json",
+      "metrics": {
+        "risk": 13.698630136986301,
+        "confidence": 67,
+        "uncertainty": 5,
+        "independence": 0,
+        "identity": true,
+        "feedbacks": 8,
+        "validators": 6,
+        "overlap": 0
+      }
+    }
+  ]
+}

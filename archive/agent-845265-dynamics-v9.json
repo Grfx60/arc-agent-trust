@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "0.9",
+  "network": "Arc Testnet",
+  "agentId": "845265",
+  "generatedAt": "2026-08-24T19:16:48.220Z",
+  "counts": {
+    "reputationRecords": 3,
+    "activeReputation": 3,
+    "revokedReputation": 0,
+    "validationRecords": 2,
+    "validators": 1
+  },
+  "reputationDynamics": {
+    "consistency": "CHANGED",
+    "valueChanges": [
+      {
+        "provider": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "fromIndex": 1,
+        "toIndex": 2,
+        "fromValue": 30,
+        "toValue": 12,
+        "delta": -18
+      }
+    ],
+    "tagChanges": []
+  },
+  "validationDynamics": {
+    "consistency": "CHANGED",
+    "responseChanges": [
+      {
+        "validator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "fromResponse": 1,
+        "toResponse": 100,
+        "delta": 99,
+        "fromUpdate": "1783329698",
+        "toUpdate": "1787067640"
+      }
+    ],
+    "tagChanges": []
+  },
+  "assessment": {
+    "temporalCoverage": "BASIC",
+    "temporalAssessment": "CHANGED",
+    "reputationChangeCount": 1,
+    "validationChangeCount": 1,
+    "revokedFeedbackCount": 0
+  },
+  "signals": [
+    {
+      "type": "REPUTATION_VALUE_CHANGED",
+      "severity": "OBSERVATION",
+      "message": "Reputation values changed across records."
+    },
+    {
+      "type": "VALIDATION_RESPONSE_CHANGED",
+      "severity": "OBSERVATION",
+      "message": "Validation responses changed over time."
+    }
+  ]
+}

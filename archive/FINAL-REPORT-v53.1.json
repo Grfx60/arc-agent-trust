@@ -1,0 +1,93 @@
+{
+  "engine": "ARC_AGENT_TRUST_FINAL_FORENSIC_REPORT",
+  "version": "53.1",
+  "generatedAt": "2026-08-27T21:13:54.739Z",
+  "targetAgent": "845265",
+  "network": "Arc Testnet",
+  "finalDecision": "REVIEW",
+  "trustAssessment": null,
+  "trustConfidence": null,
+  "evidenceQuality": 61,
+  "evidenceIndependence": 34,
+  "validator": {
+    "address": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+    "targetRecords": 2,
+    "uniqueTargetValidators": 1,
+    "independentCandidates": 7,
+    "independentTargetValidators": 0,
+    "behavior": "TARGET_LOW_TO_HIGH_OBSERVED",
+    "targetRatio": 1
+  },
+  "roleSeparation": {
+    "provider": "N/A",
+    "directOverlap": 1,
+    "validatorEqualsOwner": false,
+    "validatorEqualsWallet": false,
+    "status": "OPEN"
+  },
+  "metadata": {
+    "sharedUriAgents": 94,
+    "sharedUriOwners": 14,
+    "independence": 0,
+    "classification": "LARGE_CROSS_OWNER_SHARED_URI"
+  },
+  "structural": {
+    "risk": 50,
+    "classification": "MEDIUM",
+    "conclusion": "STRUCTURAL_ANOMALY_PRIMARILY_CLUSTER_CORRELATED",
+    "status": "RESOLVED_WITH_CONTEXT"
+  },
+  "reputation": {
+    "v52": "AVAILABLE",
+    "retrieval": "FAILED_OR_UNAVAILABLE",
+    "feedback": "UNKNOWN"
+  },
+  "gaps": [
+    {
+      "id": "V35-001",
+      "status": "OPEN",
+      "reason": "No independent validator has validated Agent 845265."
+    },
+    {
+      "id": "V35-002",
+      "status": "OPEN",
+      "reason": "Provider/validator address overlap remains."
+    },
+    {
+      "id": "V35-003",
+      "status": "OPEN",
+      "reason": "Agent-specific metadata evidence remains insufficient."
+    },
+    {
+      "id": "V35-004",
+      "status": "OPEN",
+      "reason": "94 agents and 14 owners share metadata URI evidence."
+    },
+    {
+      "id": "V35-005",
+      "status": "RESOLVED_WITH_CONTEXT",
+      "reason": "Structural anomaly is primarily explained by cluster-wide/correlated relationships."
+    },
+    {
+      "id": "V35-006",
+      "status": "OPEN",
+      "reason": "Correlation between risk signals requires continued separation of independent evidence."
+    },
+    {
+      "id": "V35-007",
+      "status": "OPEN",
+      "reason": "Graph evidence has limited agent-specific strength."
+    },
+    {
+      "id": "V35-008",
+      "status": "OPEN",
+      "reason": "Confidence value unavailable."
+    }
+  ],
+  "safety": {
+    "automaticAllow": false,
+    "automaticBlock": false,
+    "maliciousnessEstablished": false,
+    "fraudEstablished": false
+  }
+}

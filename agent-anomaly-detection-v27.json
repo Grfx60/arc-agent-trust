@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "2.7",
+  "engine": "AGENT_ANOMALY_DETECTION",
+  "generatedAt": "2026-08-26T20:01:17.629Z",
+  "source": "agent-behavioral-profile-v26.json",
+  "agent": 845265,
+  "anomaly": {
+    "score": 65,
+    "classification": "HIGH_ANOMALY",
+    "structuralProfile": "UNIQUE_OWNER_HIGHLY_SHARED_URI",
+    "signals": [
+      {
+        "code": "SHARED_URI",
+        "severity": "LOW",
+        "weight": 10,
+        "description": "Agent URI is shared by multiple agents."
+      },
+      {
+        "code": "CROSS_OWNER_URI",
+        "severity": "MEDIUM",
+        "weight": 20,
+        "description": "The same URI is associated with multiple owners."
+      },
+      {
+        "code": "HIGH_CROSS_OWNER_URI",
+        "severity": "HIGH",
+        "weight": 25,
+        "description": "The URI is shared across a high number of owners."
+      },
+      {
+        "code": "HIGH_URI_DEVIATION",
+        "severity": "MEDIUM",
+        "weight": 10,
+        "description": "URI association is above component baseline."
+      }
+    ],
+    "independenceWarning": "URI_REUSE_MAY_REDUCE_METADATA_INDEPENDENCE",
+    "interpretation": {
+      "anomalyDetected": true,
+      "structuralAnomaly": true,
+      "highAnomaly": true,
+      "notMaliciousProof": true,
+      "requiresIndependenceAnalysis": true,
+      "requiresManualReview": true
+    }
+  },
+  "baseline": {
+    "ownerDeviation": 0.15,
+    "uriDeviation": 2.76,
+    "ownerAgents": 1,
+    "uriAgents": 94,
+    "uriOwners": 14
+  }
+}

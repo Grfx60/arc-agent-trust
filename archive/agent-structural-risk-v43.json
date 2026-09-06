@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "4.3",
+  "engine": "STRUCTURAL_RISK_REASSESSMENT",
+  "generatedAt": "2026-08-27T09:15:13.821Z",
+  "agent": "845265",
+  "sourceAvailability": {
+    "V24": true,
+    "V25": true,
+    "V26": true,
+    "V27": true,
+    "V29": true,
+    "V32": true,
+    "V35": true,
+    "V42": true
+  },
+  "previous": {
+    "component": 29,
+    "nodes": 0,
+    "edges": 0,
+    "agents": 0,
+    "owners": 0,
+    "uris": 0,
+    "degree": 95,
+    "density": 0.9442577030812325,
+    "classification": "MULTI_OWNER_AGENT_COMPONENT",
+    "v25Classification": null,
+    "anomalyScore": 0,
+    "anomalyClassification": null,
+    "correlatedRisk": 0,
+    "riskClassification": null,
+    "calibratedStructuralRisk": 0
+  },
+  "current": {
+    "ownerDeviation": 0.15,
+    "uriDeviation": 2.76,
+    "behavior": "HIGH_CROSS_OWNER_URI",
+    "sharedURI": {
+      "agents": 0,
+      "owners": 0,
+      "crossOwner": false
+    },
+    "metadataContext": {
+      "agents": 94,
+      "owners": 14,
+      "classification": "LARGE_CROSS_OWNER_SHARED_URI"
+    }
+  },
+  "signals": [
+    {
+      "id": "S02",
+      "type": "HIGH_COMPONENT_DENSITY",
+      "severity": "MEDIUM",
+      "observed": true,
+      "value": 0.9442577030812325,
+      "interpretation": "Component has high graph density."
+    },
+    {
+      "id": "S03",
+      "type": "HIGH_AGENT_DEGREE",
+      "severity": "MEDIUM",
+      "observed": true,
+      "value": 95,
+      "interpretation": "Agent has many direct graph relationships."
+    },
+    {
+      "id": "S07",
+      "type": "URI_DEVIATION",
+      "severity": "HIGH",
+      "observed": true,
+      "value": 2.76,
+      "interpretation": "URI relationship is substantially above local baseline."
+    }
+  ],
+  "correlatedGroups": [],
+  "scope": {
+    "clusterWideSignals": [
+      "S02",
+      "S03"
+    ],
+    "agentSpecificSignals": [
+      "S07"
+    ],
+    "structuralConfound": false
+  },
+  "reassessment": {
+    "risk": 28,
+    "classification": "LOW",
+    "previousAnomaly": 0,
+    "previousCorrelatedRisk": 0
+  },
+  "v35_005": {
+    "task": "STRUCTURAL_REVIEW",
+    "status": "CANDIDATE_FOR_RESOLUTION",
+    "previousTarget": "< 60",
+    "currentRisk": 28
+  },
+  "interpretation": {
+    "clusterPresenceIsNotFraud": true,
+    "highDegreeIsNotFraud": true,
+    "sharedURIIsNotFraud": true,
+    "crossOwnerURIIsNotFraud": true,
+    "correlatedSignalsNotDoubleCounted": true,
+    "clusterWideSignalsRequireContext": true,
+    "agentSpecificSignalsMoreInformative": true,
+    "maliciousnessEstablished": false
+  },
+  "safety": {
+    "automaticAllow": false,
+    "automaticBlock": false,
+    "fraudEstablished": false,
+    "maliciousnessEstablished": false
+  }
+}

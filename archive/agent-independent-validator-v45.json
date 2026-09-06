@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "4.5.0",
+  "engine": "INDEPENDENT_VALIDATOR_EVIDENCE",
+  "generatedAt": "2026-08-27T09:30:02.285Z",
+  "targetAgent": "845265",
+  "currentValidator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+  "targetValidation": {
+    "records": [
+      {
+        "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+        "validatorAddress": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "agentId": "845265",
+        "response": 1,
+        "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+        "tag": "identity",
+        "lastUpdate": "1783329698",
+        "status": "RESPONDED"
+      },
+      {
+        "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+        "validatorAddress": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "agentId": "845265",
+        "response": 100,
+        "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+        "tag": "identity",
+        "lastUpdate": "1787067640",
+        "status": "RESPONDED"
+      }
+    ],
+    "count": 2,
+    "validatorFound": true,
+    "alternativeValidators": []
+  },
+  "candidates": [
+    {
+      "validator": "0xbefef9cdcbebf78d1ede55ea37e33690938daea8",
+      "validationCount": 1,
+      "uniqueAgents": 845825,
+      "tags": [],
+      "classification": null,
+      "sources": [
+        "V39"
+      ],
+      "providerOverlap": false,
+      "targetValidation": false,
+      "independenceScore": 45,
+      "status": "WEAK_CANDIDATE",
+      "reasons": [
+        "BROAD_VALIDATOR",
+        "NO_KNOWN_PROVIDER_OVERLAP"
+      ]
+    },
+    {
+      "validator": "0x19762748a5e03dfe3dd9c4ddca6818d44f3c866c",
+      "validationCount": 1,
+      "uniqueAgents": 845868,
+      "tags": [
+        "builder_verified"
+      ],
+      "classification": null,
+      "sources": [
+        "V39"
+      ],
+      "providerOverlap": false,
+      "targetValidation": false,
+      "independenceScore": 45,
+      "status": "WEAK_CANDIDATE",
+      "reasons": [
+        "BROAD_VALIDATOR",
+        "NO_KNOWN_PROVIDER_OVERLAP"
+      ]
+    },
+    {
+      "validator": "0x6f17f1a69ce4cb1828ee95d6b4b426050d49e05e",
+      "validationCount": 39,
+      "uniqueAgents": 0,
+      "tags": [
+        "kyc_verified"
+      ],
+      "classification": null,
+      "sources": [
+        "V39"
+      ],
+      "providerOverlap": false,
+      "targetValidation": false,
+      "independenceScore": 40,
+      "status": "WEAK_CANDIDATE",
+      "reasons": [
+        "SUBSTANTIAL_VALIDATION_HISTORY",
+        "NO_KNOWN_PROVIDER_OVERLAP"
+      ]
+    },
+    {
+      "validator": "0xb152c3b6436318ad340153f1d30c9bbb8634681a",
+      "validationCount": 27,
+      "uniqueAgents": 0,
+      "tags": [
+        "kyc_verified"
+      ],
+      "classification": null,
+      "sources": [
+        "V39"
+      ],
+      "providerOverlap": false,
+      "targetValidation": false,
+      "independenceScore": 40,
+      "status": "WEAK_CANDIDATE",
+      "reasons": [
+        "SUBSTANTIAL_VALIDATION_HISTORY",
+        "NO_KNOWN_PROVIDER_OVERLAP"
+      ]
+    },
+    {
+      "validator": "0x415fb8814084bdbc7b6964620ba5be5939ad2333",
+      "validationCount": 84,
+      "uniqueAgents": 0,
+      "tags": [
+        "citation-refused"
+      ],
+      "classification": null,
+      "sources": [
+        "V39"
+      ],
+      "providerOverlap": false,
+      "targetValidation": false,
+      "independenceScore": 40,
+      "status": "WEAK_CANDIDATE",
+      "reasons": [
+        "SUBSTANTIAL_VALIDATION_HISTORY",
+        "NO_KNOWN_PROVIDER_OVERLAP"
+      ]
+    },
+    {
+      "validator": "0x9c6d75628bd6c18258ac1125f32dfbced59e8a1d",
+      "validationCount": 6,
+      "uniqueAgents": 0,
+      "tags": [
+        "kyc_verified",
+        "verified",
+        "auto_validated"
+      ],
+      "classification": null,
+      "sources": [
+        "V39"
+      ],
+      "providerOverlap": false,
+      "targetValidation": false,
+      "independenceScore": 33,
+      "status": "WEAK_CANDIDATE",
+      "reasons": [
+        "VALIDATION_HISTORY_PRESENT",
+        "NO_KNOWN_PROVIDER_OVERLAP"
+      ]
+    },
+    {
+      "validator": "0xb3cf6b5a6aa8ed4e1309fd0631deb6cb06b7afca",
+      "validationCount": 5,
+      "uniqueAgents": 0,
+      "tags": [],
+      "classification": null,
+      "sources": [
+        "V39"
+      ],
+      "providerOverlap": false,
+      "targetValidation": false,
+      "independenceScore": 33,
+      "status": "WEAK_CANDIDATE",
+      "reasons": [
+        "VALIDATION_HISTORY_PRESENT",
+        "NO_KNOWN_PROVIDER_OVERLAP"
+      ]
+    }
+  ],
+  "independentCandidates": [],
+  "independentTargetValidators": [],
+  "v35_001": {
+    "task": "VALIDATOR_DIVERSITY",
+    "status": "OPEN",
+    "resolution": "No sufficiently independent validator evidence for the target has been established.",
+    "nextAction": "COLLECT_VALIDATOR_EVIDENCE"
+  },
+  "safety": {
+    "candidateIsNotProof": true,
+    "validatorIdentityIsNotTrustProof": true,
+    "sharedValidatorIsNotFraud": true,
+    "providerOverlapIsNotFraud": true,
+    "noIndependentValidatorIsNotFraud": true,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

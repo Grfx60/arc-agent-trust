@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "3.8",
+  "engine": "VALIDATOR_IDENTITY_ANALYZER",
+  "generatedAt": "2026-08-26T20:31:04.564Z",
+  "agent": 845265,
+  "validator": {
+    "address": "0xE18F822B5071553D62Cf119CE57Da6C1636F2524",
+    "ownedAgentIds": [],
+    "ownedAgentDetails": []
+  },
+  "targetValidation": {
+    "records": [
+      {
+        "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+        "validator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "agentId": "845265",
+        "response": 1,
+        "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+        "tag": "identity",
+        "lastUpdate": "1783329698"
+      },
+      {
+        "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+        "validator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "agentId": "845265",
+        "response": 100,
+        "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+        "tag": "identity",
+        "lastUpdate": "1787067640"
+      }
+    ]
+  },
+  "usage": {
+    "knownValidationRecords": 2,
+    "validatedAgents": [
+      "845265"
+    ]
+  },
+  "relationships": {
+    "providerValidatorOverlap": 1,
+    "relationship": "PROVIDER_VALIDATOR_OVERLAP"
+  },
+  "independence": {
+    "classification": "ROLE_OVERLAP_REQUIRES_REVIEW",
+    "v35Task": "V35-001",
+    "v35Status": "OPEN"
+  },
+  "safety": {
+    "validatorIdentityIsNotTrustProof": true,
+    "validatorOwnershipIsNotFraudProof": true,
+    "roleOverlapIsNotFraudProof": true,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

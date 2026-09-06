@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "2.8.1",
+  "engine": "EVIDENCE_INDEPENDENCE_CORRECTOR",
+  "generatedAt": "2026-08-26T20:04:05.449Z",
+  "agent": 845265,
+  "verifiedEvidence": {
+    "reputationProviders": 2,
+    "validators": 1,
+    "reputationRecords": 0,
+    "validationRecords": 0,
+    "overlappingActors": 1,
+    "sharedURI": true,
+    "crossOwnerURI": true,
+    "uriAgents": 94,
+    "uriOwners": 14,
+    "graphNodes": 5025,
+    "graphEdges": 12780
+  },
+  "components": {
+    "reputationIndependence": 70,
+    "validatorIndependence": 30,
+    "reviewerSeparation": 20,
+    "metadataIndependence": 10,
+    "graphIndependence": 60
+  },
+  "independence": {
+    "score": 34,
+    "classification": "LOW"
+  },
+  "signals": [
+    {
+      "code": "LOW_VALIDATOR_INDEPENDENCE",
+      "severity": "HIGH",
+      "explanation": "Only one unique validator is present."
+    },
+    {
+      "code": "LOW_METADATA_INDEPENDENCE",
+      "severity": "HIGH",
+      "explanation": "94 agents share a URI across 14 owners."
+    },
+    {
+      "code": "PROVIDER_VALIDATOR_OVERLAP",
+      "severity": "HIGH",
+      "explanation": "1 actor(s) appear in both provider and validator roles."
+    }
+  ],
+  "correctionNotes": [
+    "URI owner count is sourced from V26 behavioral profile when available.",
+    "Provider/validator overlap is explicitly checked from prior evidence outputs.",
+    "This result is an evidence independence assessment, not a Trust Score.",
+    "Independence score is not a probability of truth."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "0.2",
+  "agentId": "test-perfect",
+  "network": "Arc Testnet",
+  "identity": {
+    "owner": "0xPerfectAgent1",
+    "metadataURI": "ipfs://perfect123456789"
+  },
+  "reputation": {
+    "totalClients": 8,
+    "clients": [
+      { "client": "0xClient1", "feedbacks": [{ "value": 98, "revoked": false }] },
+      { "client": "0xClient2", "feedbacks": [{ "value": 96, "revoked": false }] },
+      { "client": "0xClient3", "feedbacks": [{ "value": 94, "revoked": false }] },
+      { "client": "0xClient4", "feedbacks": [{ "value": 95, "revoked": false }] },
+      { "client": "0xClient5", "feedbacks": [{ "value": 97, "revoked": false }] },
+      { "client": "0xClient6", "feedbacks": [{ "value": 93, "revoked": false }] },
+      { "client": "0xClient7", "feedbacks": [{ "value": 99, "revoked": false }] },
+      { "client": "0xClient8", "feedbacks": [{ "value": 92, "revoked": false }] }
+    ]
+  },
+  "validation": {
+    "totalRequests": 6,
+    "records": [
+      { "validator": "0xValidator1", "response": 1 },
+      { "validator": "0xValidator2", "response": 1 },
+      { "validator": "0xValidator3", "response": 1 },
+      { "validator": "0xValidator4", "response": 1 },
+      { "validator": "0xValidator5", "response": 1 },
+      { "validator": "0xValidator6", "response": 1 }
+    ]
+  }
+}

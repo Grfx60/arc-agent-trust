@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "3.4",
+  "engine": "EVIDENCE_REVIEW",
+  "generatedAt": "2026-08-26T20:24:17.150Z",
+  "agent": 845265,
+  "currentDecision": "REVIEW",
+  "trustAssessment": 53,
+  "trustConfidence": 48,
+  "evidenceQuality": 61,
+  "evidenceIndependence": 34,
+  "risk": {
+    "structural": 68,
+    "anomaly": 65,
+    "correlated": 70
+  },
+  "review": {
+    "status": "DEEP_REVIEW",
+    "burden": 100,
+    "items": 7,
+    "gatesPassed": 0,
+    "gatesTotal": 6,
+    "nextAction": "VALIDATOR_DIVERSITY"
+  },
+  "gates": {
+    "validationGate": false,
+    "reviewerSeparationGate": false,
+    "metadataGate": false,
+    "structuralGate": false,
+    "independenceGate": false,
+    "confidenceGate": false
+  },
+  "reviewItems": [
+    {
+      "id": "R01",
+      "area": "VALIDATION",
+      "priority": "HIGH",
+      "finding": "Validation evidence has low independence.",
+      "evidence": "30/100 validator independence.",
+      "action": "Identify additional independent validators and compare their evidence.",
+      "resolution": "Increase validator diversity and verify that validators are independent."
+    },
+    {
+      "id": "R02",
+      "area": "REVIEWER_SEPARATION",
+      "priority": "HIGH",
+      "finding": "At least one actor appears in both provider and validator roles.",
+      "evidence": "1 overlapping actor(s).",
+      "action": "Determine whether the overlapping actor is independently qualified in both roles.",
+      "resolution": "Separate reputation and validation roles where possible."
+    },
+    {
+      "id": "R03",
+      "area": "METADATA",
+      "priority": "HIGH",
+      "finding": "Agent metadata evidence is insufficient.",
+      "evidence": "Metadata assessment: 4/100.",
+      "action": "Retry metadata retrieval through the recorded URI and alternative supported gateways.",
+      "resolution": "Obtain accessible, valid and independently attributable metadata."
+    },
+    {
+      "id": "R04",
+      "area": "METADATA_INDEPENDENCE",
+      "priority": "HIGH",
+      "finding": "Metadata evidence is strongly correlated through URI reuse.",
+      "evidence": "10/100 metadata independence; 94 agents and 14 owners associated with shared URI evidence.",
+      "action": "Inspect whether the shared URI represents a legitimate common metadata template or agent-specific evidence.",
+      "resolution": "Establish agent-specific metadata or independently verifiable metadata."
+    },
+    {
+      "id": "R05",
+      "area": "STRUCTURE",
+      "priority": "HIGH",
+      "finding": "Agent exhibits significant structural anomaly.",
+      "evidence": "Anomaly score: 65/100.",
+      "action": "Review owner, URI and relationship patterns against normal agent behavior.",
+      "resolution": "Determine whether structural correlation has a legitimate operational explanation."
+    },
+    {
+      "id": "R06",
+      "area": "CORRELATED_RISK",
+      "priority": "HIGH",
+      "finding": "Multiple risk signals are correlated.",
+      "evidence": "Correlated risk: 70/100.",
+      "action": "Review the underlying independent signals rather than treating correlated signals as separate evidence.",
+      "resolution": "Confirm whether the risk derives from one common source or multiple independent observations."
+    },
+    {
+      "id": "R07",
+      "area": "GRAPH",
+      "priority": "MEDIUM",
+      "finding": "Graph evidence has limited agent-specific strength.",
+      "evidence": "Graph dimension: 55.8/100.",
+      "action": "Inspect the agent's direct and indirect graph relationships.",
+      "resolution": "Identify relationships that provide genuinely independent evidence."
+    }
+  ],
+  "safety": {
+    "reviewIsNotFraud": true,
+    "sharedURIIsNotFraud": true,
+    "structuralRiskIsNotMaliciousProof": true,
+    "noAutomaticBlock": true,
+    "manualReviewRequired": true
+  }
+}

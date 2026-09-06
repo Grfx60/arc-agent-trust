@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "network": "Arc Testnet",
+  "agentId": "845265",
+  "generatedAt": "2026-08-24T19:19:34.414Z",
+  "sources": {
+    "evidence": "agent-845265-evidence.json",
+    "graph": "agent-845265-graph-v2.json",
+    "dynamics": "agent-845265-dynamics-v9.json"
+  },
+  "identity": {
+    "present": true,
+    "owner": "0xBB30e40F0887b060e9339f6541E29AfA5A3A9dBb",
+    "metadataURI": "ipfs://bafkreibdi6623n3xpf7ymk62ckb4bo75o3qemwkpfvp5i25j66itxvsoei"
+  },
+  "reputation": {
+    "present": true,
+    "providers": 2,
+    "records": 3,
+    "active": 3,
+    "revoked": 0,
+    "semantic": "CONFIDENCE_ACTIVITY"
+  },
+  "validation": {
+    "present": true,
+    "records": 2,
+    "validators": 1,
+    "changed": true
+  },
+  "graph": {
+    "nodes": 3,
+    "relationships": 4,
+    "reputationProviders": 2,
+    "validators": 1,
+    "overlappingActors": 1,
+    "risk": "HIGH",
+    "consistency": "CONSISTENT"
+  },
+  "dynamics": {
+    "temporalCoverage": "BASIC",
+    "temporalAssessment": "CHANGED",
+    "reputationConsistency": "CHANGED",
+    "validationConsistency": "CHANGED",
+    "reputationChanges": 1,
+    "validationChanges": 1
+  },
+  "assessment": {
+    "evidenceCoverage": 90,
+    "evidenceIndependence": "LOW",
+    "evidenceQuality": "MEDIUM",
+    "graphRisk": "HIGH",
+    "graphConsistency": "CONSISTENT",
+    "temporalAssessment": "CHANGED",
+    "temporalCoverage": "BASIC"
+  },
+  "decision": {
+    "result": "REVIEW",
+    "reasons": [
+      "Evidence independence is LOW.",
+      "Material uncertainty remains."
+    ]
+  },
+  "observations": {
+    "positive": [
+      "On-chain identity is present.",
+      "Active reputation evidence exists.",
+      "Validation evidence exists.",
+      "Reputation semantics are understood.",
+      "Evidence graph is consistent with collected evidence."
+    ],
+    "risks": [
+      "Reputation provider and validator overlap.",
+      "Evidence independence is LOW.",
+      "Evidence graph reports HIGH structural risk."
+    ],
+    "dynamics": [
+      "Reputation values changed over time.",
+      "Validation responses changed over time."
+    ],
+    "uncertainties": [
+      "Only one unique validator is present.",
+      "Validation responses changed over time.",
+      "Historical temporal coverage is limited.",
+      "Historical reviewer coverage is unknown."
+    ]
+  }
+}

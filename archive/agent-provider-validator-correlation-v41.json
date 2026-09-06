@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "4.1",
+  "engine": "PROVIDER_VALIDATOR_CORRELATION",
+  "generatedAt": "2026-08-27T09:10:20.587Z",
+  "network": "Arc Testnet",
+  "agent": 845265,
+  "registries": {
+    "identity": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+    "validation": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+    "reputation": "0x8004B663056A597Dffe9eCcC1965A193B7388713"
+  },
+  "reputation": {
+    "providers": [
+      "0x10149142ba352e37d2225b12f47fe306a8cd5250",
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ],
+    "count": 2
+  },
+  "validation": {
+    "records": [
+      {
+        "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+        "validator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "agentId": "845265",
+        "response": 1,
+        "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+        "tag": "identity",
+        "lastUpdate": "1783329698"
+      },
+      {
+        "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+        "validator": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+        "agentId": "845265",
+        "response": 100,
+        "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+        "tag": "identity",
+        "lastUpdate": "1787067640"
+      }
+    ],
+    "validators": [
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ],
+    "count": 1
+  },
+  "correlation": {
+    "directOverlap": [
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ],
+    "overlapCount": 1,
+    "classification": "DIRECT_PROVIDER_VALIDATOR_OVERLAP"
+  },
+  "targetValidator": {
+    "address": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+    "isValidator": true,
+    "isReputationProvider": true,
+    "reputationSummary": {
+      "count": 2,
+      "summaryValue": "21",
+      "summaryValueDecimals": 0
+    }
+  },
+  "comparison": {
+    "previousV28_1Overlap": 1,
+    "currentDirectOverlap": 1
+  },
+  "v35_002": {
+    "task": "ROLE_SEPARATION",
+    "status": "OPEN"
+  },
+  "safety": {
+    "providerValidatorOverlapIsNotFraud": true,
+    "sameActorDoesNotProveMaliciousness": true,
+    "absenceOfOverlapDoesNotProveIndependence": true,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

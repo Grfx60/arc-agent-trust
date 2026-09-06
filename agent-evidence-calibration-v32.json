@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "3.2",
+  "engine": "EVIDENCE_CALIBRATION",
+  "generatedAt": "2026-08-26T20:21:20.680Z",
+  "agent": 845265,
+  "availability": {
+    "score": 62,
+    "classification": "MEDIUM"
+  },
+  "quality": {
+    "score": 61,
+    "classification": "MEDIUM"
+  },
+  "independence": {
+    "score": 34,
+    "classification": "LOW"
+  },
+  "confidence": {
+    "score": 51,
+    "classification": "MEDIUM"
+  },
+  "risk": {
+    "structural": 68,
+    "classification": "LOW",
+    "anomaly": 65,
+    "correlated": 70
+  },
+  "components": {
+    "identity": {
+      "score": 100,
+      "status": "AVAILABLE"
+    },
+    "reputation": {
+      "score": 85,
+      "providers": 2
+    },
+    "validation": {
+      "score": 60,
+      "validatorIndependence": 30,
+      "providerValidatorOverlap": 1
+    },
+    "metadata": {
+      "quality": 0,
+      "availability": 0,
+      "validity": 0,
+      "independence": 10,
+      "status": "INACCESSIBLE",
+      "independenceStatus": "LOW"
+    },
+    "graph": {
+      "quality": 53,
+      "availability": 0,
+      "specificity": 100,
+      "independence": 60,
+      "directNeighbors": 0,
+      "componentAgents": 0
+    },
+    "dynamics": {
+      "evidence": 70,
+      "status": "AVAILABLE"
+    }
+  },
+  "riskAdjustedEvidence": {
+    "score": 22,
+    "classification": "LOW",
+    "riskPenalty": 24,
+    "independencePenalty": 15
+  },
+  "decision": {
+    "v30": "REVIEW",
+    "final": "REVIEW"
+  },
+  "calibrationNotes": [
+    "Metadata is inaccessible; this is not treated as proof of invalid metadata.",
+    "Metadata independence remains LOW because of URI reuse.",
+    "Validation evidence has limited independence.",
+    "Provider/validator role overlap reduces reviewer separation.",
+    "Structural risk remains HIGH."
+  ],
+  "safeguards": {
+    "inaccessibleMetadataIsNotFraud": true,
+    "sharedURIIsNotFraud": true,
+    "graphConnectivityIsNotFraud": true,
+    "highRiskDoesNotAutomaticallyMeanMalicious": true,
+    "notTrustScore": true,
+    "notProbabilityOfTruth": true
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "2.9",
+  "engine": "RISK_CORRELATION",
+  "generatedAt": "2026-08-26T20:07:59.283Z",
+  "agent": 845265,
+  "inputs": {
+    "anomalyScore": 65,
+    "anomalyClassification": "HIGH_ANOMALY",
+    "independenceScore": 34,
+    "independenceClassification": "LOW",
+    "validatorIndependence": 30,
+    "metadataIndependence": 10,
+    "reviewerSeparation": 20,
+    "reputationIndependence": 70,
+    "providerValidatorOverlap": 1,
+    "uriDeviation": 2.76,
+    "ownerDeviation": 0.15,
+    "behavioralProfile": "HIGH_CROSS_OWNER_URI",
+    "forensicClassification": "UNKNOWN",
+    "componentAgents": 0,
+    "componentOwners": 0,
+    "componentURIs": 0,
+    "componentDensity": 0.9442577030812325,
+    "bridgeStatus": "UNKNOWN",
+    "directNeighbors": 0,
+    "twoHopAgents": 0
+  },
+  "correlations": [
+    {
+      "code": "HIGH_ANOMALY_LOW_INDEPENDENCE",
+      "severity": "HIGH",
+      "weight": 25,
+      "explanation": "Structural anomaly and low evidence independence occur together."
+    },
+    {
+      "code": "REVIEWER_ROLE_OVERLAP",
+      "severity": "HIGH",
+      "weight": 20,
+      "explanation": "At least one actor appears in both reputation and validation roles."
+    },
+    {
+      "code": "LOW_VALIDATOR_DIVERSITY",
+      "severity": "HIGH",
+      "weight": 15,
+      "explanation": "Validation evidence relies on a single validator."
+    },
+    {
+      "code": "LARGE_URI_CLUSTER_CORRELATION",
+      "severity": "MEDIUM",
+      "weight": 10,
+      "explanation": "URI reuse is substantially above local baseline."
+    }
+  ],
+  "risk": {
+    "score": 70,
+    "classification": "HIGH"
+  },
+  "interpretation": {
+    "correlatedRiskDetected": true,
+    "highCorrelatedRisk": true,
+    "evidenceConfidence": "HIGH",
+    "independentEvidenceWeak": true,
+    "structuralAnomalyPresent": true,
+    "manualReviewRecommended": true,
+    "notTrustScore": true,
+    "notProbabilityOfTruth": true,
+    "notMaliciousProof": true
+  }
+}

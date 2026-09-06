@@ -1,0 +1,64 @@
+{
+  "engine": "ARC_AGENT_TRUST_FINAL_EVIDENCE_RESOLUTION",
+  "version": "55",
+  "generatedAt": "2026-08-27T21:28:26.150Z",
+  "network": "Arc Testnet",
+  "targetAgent": "845265",
+  "finalDecision": "REVIEW",
+  "evidence": {
+    "quality": 61,
+    "independence": 34
+  },
+  "validation": {
+    "targetRecords": 2,
+    "uniqueTargetValidators": [
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ],
+    "independentTargetValidators": [],
+    "independentTargetCount": 0,
+    "v49IndependentTarget": 0,
+    "v35_001": {
+      "status": "EVIDENCE_NOT_FOUND",
+      "conclusion": "No independent validator validation record for Agent 845265 was established in the available scanned evidence."
+    }
+  },
+  "validator": {
+    "address": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+    "behavior": "TARGET_LOW_TO_HIGH_OBSERVED",
+    "targetRatio": 1,
+    "equalsTargetOwner": false,
+    "equalsTargetWallet": false
+  },
+  "provider": {
+    "classification": "VALIDATOR_ACTIVITY_ESTABLISHED",
+    "directOverlap": 0,
+    "roleSeparation": "NO_DIRECT_OVERLAP"
+  },
+  "metadata": {
+    "sharedUriAgents": 0,
+    "sharedUriOwners": 0,
+    "classification": "LARGE_CROSS_OWNER_SHARED_URI"
+  },
+  "structural": {
+    "risk": 0,
+    "classification": "MEDIUM",
+    "conclusion": {
+      "classification": "STRUCTURAL_ANOMALY_PRIMARILY_CLUSTER_CORRELATED",
+      "structuralRisk": 50,
+      "riskClassification": "MEDIUM",
+      "reason": "The previously elevated structural signal is substantially explained by cluster-wide graph and shared-URI relationships. The available data does not establish an independent malicious agent-specific structural signal."
+    },
+    "anomaly": 65,
+    "correlatedRisk": 70
+  },
+  "safety": {
+    "independentValidatorMissingIsFraud": false,
+    "validatorActivityIsMaliciousness": false,
+    "lowToHighResponseIsManipulationProof": false,
+    "sharedUriIsFraud": false,
+    "highStructuralRiskIsFraud": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  },
+  "finalConclusion": "No independent validator evidence for Agent 845265 was established. This is an evidence gap, not proof of fraud or maliciousness."
+}

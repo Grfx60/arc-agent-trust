@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "4.4.0",
+  "engine": "STRUCTURAL_REVIEW_ENGINE",
+  "generatedAt": "2026-08-27T09:28:05.371Z",
+  "targetAgent": "845265",
+  "source": "agent-structural-v43-5.json",
+  "sourceValidation": {
+    "status": "PASSED",
+    "passed": 13,
+    "total": 13
+  },
+  "component": {
+    "id": 29,
+    "nodes": 120,
+    "edges": 6742,
+    "agents": 102,
+    "owners": 15,
+    "uris": 3,
+    "density": 0.9442577030812325
+  },
+  "target": {
+    "agentDegree": 95,
+    "bridgeStatus": "HIGH",
+    "directOwnerLinks": 1,
+    "directURILinks": 1,
+    "directAgentLinks": 93
+  },
+  "metadataStructure": {
+    "ownerAgentCount": 1,
+    "uriAgentCount": 94,
+    "uriOwnerCount": 14,
+    "crossOwnerURI": true,
+    "sharedURIRecords": []
+  },
+  "historicalRisk": {
+    "anomalyScore": 65,
+    "correlatedRisk": 70,
+    "previousStructuralRisk": 50
+  },
+  "signals": [
+    {
+      "id": "S01",
+      "type": "HIGH_AGENT_DEGREE",
+      "scope": "AGENT_SPECIFIC",
+      "value": 95,
+      "interpretation": "Agent has unusually high direct graph connectivity."
+    },
+    {
+      "id": "S02",
+      "type": "LARGE_COMPONENT",
+      "scope": "CLUSTER_WIDE",
+      "value": 102,
+      "interpretation": "Agent belongs to a large connected component."
+    },
+    {
+      "id": "S03",
+      "type": "HIGH_COMPONENT_DENSITY",
+      "scope": "CLUSTER_WIDE",
+      "value": 0.9442577030812325,
+      "interpretation": "Component has high internal connectivity."
+    },
+    {
+      "id": "S04",
+      "type": "LARGE_SHARED_URI",
+      "scope": "CLUSTER_WIDE",
+      "value": 94,
+      "interpretation": "Many agents use the same metadata URI."
+    },
+    {
+      "id": "S05",
+      "type": "CROSS_OWNER_SHARED_URI",
+      "scope": "CLUSTER_WIDE",
+      "value": 14,
+      "interpretation": "The shared URI is associated with multiple owners."
+    }
+  ],
+  "correlationGroups": [
+    {
+      "id": "CG01",
+      "type": "SHARED_URI_CORRELATION",
+      "signals": [
+        "S04",
+        "S05"
+      ],
+      "explanation": "Large URI reuse and cross-owner reuse describe the same underlying metadata relationship."
+    },
+    {
+      "id": "CG02",
+      "type": "GRAPH_COMPONENT_CORRELATION",
+      "signals": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "explanation": "Agent degree, component size and component density are related graph-structure observations."
+    }
+  ],
+  "scope": {
+    "agentSpecific": [
+      "S01"
+    ],
+    "clusterWide": [
+      "S02",
+      "S03",
+      "S04",
+      "S05"
+    ]
+  },
+  "conclusion": {
+    "classification": "STRUCTURAL_ANOMALY_PRIMARILY_CLUSTER_CORRELATED",
+    "structuralRisk": 50,
+    "riskClassification": "MEDIUM",
+    "reason": "The previously elevated structural signal is substantially explained by cluster-wide graph and shared-URI relationships. The available data does not establish an independent malicious agent-specific structural signal."
+  },
+  "v35_005": {
+    "task": "STRUCTURAL_REVIEW",
+    "previousStatus": "OPEN",
+    "currentStatus": "RESOLVED_WITH_CONTEXT",
+    "resolution": true,
+    "reason": "The previously elevated structural signal is substantially explained by cluster-wide graph and shared-URI relationships. The available data does not establish an independent malicious agent-specific structural signal."
+  },
+  "safety": {
+    "sharedURIIsNotFraud": true,
+    "crossOwnerURIIsNotFraud": true,
+    "highDegreeIsNotFraud": true,
+    "highDensityIsNotFraud": true,
+    "clusterMembershipIsNotFraud": true,
+    "structuralRiskIsNotMaliciousnessProof": true,
+    "fraudEstablished": false,
+    "maliciousnessEstablished": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

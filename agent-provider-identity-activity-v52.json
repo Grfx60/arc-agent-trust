@@ -1,0 +1,73 @@
+{
+  "engine": "PROVIDER_IDENTITY_ACTIVITY_FORENSICS",
+  "version": "52.0",
+  "network": "Arc Testnet",
+  "targetAgent": "845265",
+  "provider": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+  "identityRegistry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+  "reputationRegistry": "0x8004BAAbc9C65D8a8B7c0C6D2fE0f6A0A8d5B4C2",
+  "validationRegistry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+  "chainId": 5042002,
+  "latestBlock": "59168695",
+  "providerAccount": {
+    "isContract": true,
+    "codeBytes": 209,
+    "transactionCount": 1,
+    "balance": "20000000000000000000"
+  },
+  "targetIdentity": {
+    "owner": "0xBB30e40F0887b060e9339f6541E29AfA5A3A9dBb",
+    "wallet": "0xBB30e40F0887b060e9339f6541E29AfA5A3A9dBb",
+    "providerEqualsOwner": false,
+    "providerEqualsWallet": false
+  },
+  "reputation": {
+    "clients": [],
+    "targetSummary": null,
+    "targetFeedbackHashes": []
+  },
+  "validation": {
+    "requestHashes": [
+      "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+      "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b"
+    ],
+    "records": [
+      {
+        "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+        "validatorAddress": "0xE18F822B5071553D62Cf119CE57Da6C1636F2524",
+        "agentId": "845265",
+        "response": 1,
+        "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+        "tag": "identity",
+        "lastUpdate": "1783329698"
+      },
+      {
+        "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+        "validatorAddress": "0xE18F822B5071553D62Cf119CE57Da6C1636F2524",
+        "agentId": "845265",
+        "response": 100,
+        "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+        "tag": "identity",
+        "lastUpdate": "1787067640"
+      }
+    ],
+    "uniqueValidatedAgents": [
+      "845265"
+    ],
+    "targetValidation": true,
+    "targetValidationRatio": 1
+  },
+  "classification": "VALIDATOR_ACTIVITY_ESTABLISHED",
+  "v35_002": {
+    "status": "OPEN",
+    "nextAction": "REVIEW_ROLE_RELATIONSHIP"
+  },
+  "safety": {
+    "dualRoleIsNotFraud": true,
+    "targetFocusIsNotMaliciousness": true,
+    "feedbackIsNotTrustProof": true,
+    "validationIsNotTrustProof": true,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

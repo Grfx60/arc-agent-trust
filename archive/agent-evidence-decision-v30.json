@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "3.0",
+  "engine": "EVIDENCE_DECISION",
+  "generatedAt": "2026-08-26T20:18:52.766Z",
+  "agent": 845265,
+  "positiveEvidence": [
+    "ON_CHAIN_IDENTITY_PRESENT",
+    "REPUTATION_EVIDENCE_PRESENT",
+    "VALIDATION_EVIDENCE_PRESENT",
+    "GRAPH_STRUCTURE_AVAILABLE",
+    "MULTI_LAYER_ANALYSIS_AVAILABLE"
+  ],
+  "riskFlags": [
+    {
+      "code": "HIGH_STRUCTURAL_ANOMALY",
+      "severity": "HIGH",
+      "weight": 20
+    },
+    {
+      "code": "LOW_EVIDENCE_INDEPENDENCE",
+      "severity": "HIGH",
+      "weight": 25
+    },
+    {
+      "code": "PROVIDER_VALIDATOR_OVERLAP",
+      "severity": "HIGH",
+      "weight": 20
+    },
+    {
+      "code": "SINGLE_VALIDATOR",
+      "severity": "HIGH",
+      "weight": 15
+    },
+    {
+      "code": "LOW_METADATA_INDEPENDENCE",
+      "severity": "HIGH",
+      "weight": 15
+    },
+    {
+      "code": "HIGH_CORRELATED_RISK",
+      "severity": "HIGH",
+      "weight": 25
+    }
+  ],
+  "decision": {
+    "result": "REVIEW",
+    "reason": "Material structural risk or evidence independence limitations remain.",
+    "reasons": [
+      "High structural anomaly detected.",
+      "Evidence independence is LOW.",
+      "Reputation provider and validator overlap.",
+      "Only one validator provides validation evidence.",
+      "Metadata evidence is strongly correlated.",
+      "Correlated risk is HIGH.",
+      "No direct malicious evidence is established."
+    ],
+    "confidence": "HIGH"
+  },
+  "assessment": {
+    "agent": 845265,
+    "identity": "PRESENT",
+    "reputation": "PRESENT",
+    "validation": "PRESENT",
+    "evidenceCoverage": 100,
+    "anomaly": 65,
+    "anomalyClassification": "HIGH_ANOMALY",
+    "independence": 34,
+    "independenceClassification": "LOW",
+    "correlatedRisk": 70,
+    "riskClassification": "HIGH",
+    "decision": "REVIEW",
+    "decisionConfidence": "HIGH",
+    "directMaliciousEvidence": false,
+    "confirmedFraud": false,
+    "confirmedIdentityForgery": false,
+    "confirmedValidationManipulation": false
+  },
+  "safeguards": {
+    "highRiskDoesNotAutomaticallyBlock": true,
+    "noDirectMaliciousEvidenceDetected": true,
+    "notTrustScore": true,
+    "notProbabilityOfTruth": true,
+    "notMaliciousProof": true
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "4.3.5",
+  "engine": "STRUCTURAL_RISK_ENGINE",
+  "generatedAt": "2026-08-27T09:25:07.496Z",
+  "targetAgent": "845265",
+  "component": {
+    "id": 29,
+    "nodes": 120,
+    "edges": 6742,
+    "agents": 102,
+    "owners": 15,
+    "uris": 3,
+    "density": 0.9442577030812325
+  },
+  "target": {
+    "agentDegree": 95,
+    "bridgeStatus": "HIGH",
+    "directOwnerLinks": 1,
+    "directURILinks": 1,
+    "directAgentLinks": 93
+  },
+  "ownerURI": {
+    "ownerAgentCount": 1,
+    "uriAgentCount": 94,
+    "uriOwnerCount": 14,
+    "crossOwnerURI": false,
+    "crossOwnerURIs": []
+  },
+  "behavior": {
+    "ownerDeviation": 0.15,
+    "uriDeviation": 2.76,
+    "behavior": "HIGH_CROSS_OWNER_URI"
+  },
+  "historicalRisk": {
+    "anomalyScore": 65,
+    "anomalyClassification": "HIGH_ANOMALY",
+    "correlatedRisk": 70,
+    "riskClassification": "HIGH",
+    "structuralRiskV32": null,
+    "v32Classification": "LOW"
+  },
+  "signals": [
+    {
+      "id": "S01",
+      "type": "HIGH_AGENT_DEGREE",
+      "scope": "AGENT_SPECIFIC",
+      "severity": "MEDIUM",
+      "value": 95
+    },
+    {
+      "id": "S02",
+      "type": "LARGE_COMPONENT",
+      "scope": "CLUSTER_WIDE",
+      "severity": "LOW",
+      "value": 102
+    },
+    {
+      "id": "S03",
+      "type": "HIGH_COMPONENT_DENSITY",
+      "scope": "CLUSTER_WIDE",
+      "severity": "MEDIUM",
+      "value": 0.9442577030812325
+    },
+    {
+      "id": "S04",
+      "type": "LARGE_SHARED_URI",
+      "scope": "CLUSTER_WIDE",
+      "severity": "HIGH",
+      "value": 94
+    },
+    {
+      "id": "S06",
+      "type": "HIGH_URI_DEVIATION",
+      "scope": "AGENT_SPECIFIC_CANDIDATE",
+      "severity": "MEDIUM",
+      "value": 2.76
+    }
+  ],
+  "correlationGroups": [
+    {
+      "id": "CG02",
+      "type": "GRAPH_COMPONENT_CORRELATION",
+      "signals": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "independentSignalCount": 1
+    }
+  ],
+  "validation": {
+    "checks": {
+      "component": true,
+      "nodeCount": true,
+      "edgeCount": true,
+      "agentCount": true,
+      "ownerCount": true,
+      "uriCount": true,
+      "density": true,
+      "knownAgentDegree": true,
+      "ownerAgentCount": true,
+      "uriAgentCount": true,
+      "uriOwnerCount": true,
+      "anomaly": true,
+      "correlatedRisk": true
+    },
+    "passed": 13,
+    "total": 13,
+    "status": "PASSED"
+  },
+  "reassessment": {
+    "structuralRisk": 50,
+    "classification": "MEDIUM",
+    "agentSpecificSignals": 1,
+    "clusterWideSignals": 3,
+    "correlationGroups": 1
+  },
+  "v35_005": {
+    "task": "STRUCTURAL_REVIEW",
+    "status": "CANDIDATE_FOR_RESOLUTION",
+    "target": "< 60"
+  },
+  "safety": {
+    "sharedURIIsNotFraud": true,
+    "crossOwnerURIIsNotFraud": true,
+    "highDegreeIsNotFraud": true,
+    "highDensityIsNotFraud": true,
+    "maliciousnessEstablished": false,
+    "fraudEstablished": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

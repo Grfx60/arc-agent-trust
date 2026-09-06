@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.4",
+  "network": "Arc Testnet",
+  "registry": "0x8004B663056A597Dffe9eCcC1965A193B7388713",
+  "generatedAt": "2026-08-25T19:17:58.961Z",
+  "currentBlock": "58818725",
+  "testAgent": 845265,
+  "tests": {
+    "ownerOf": {
+      "status": "NOT_SUPPORTED",
+      "error": "The contract function \"ownerOf\" reverted."
+    },
+    "tokenURI": {
+      "status": "NOT_SUPPORTED",
+      "error": "The contract function \"tokenURI\" reverted."
+    },
+    "totalSupply": {
+      "status": "NOT_SUPPORTED",
+      "error": "The contract function \"totalSupply\" reverted."
+    },
+    "balanceOf": {
+      "status": "SKIPPED"
+    }
+  },
+  "discoveryMethod": "REGISTRY_READ_NOT_AVAILABLE"
+}

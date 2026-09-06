@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>ARC Agent Trust</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #070a11;
+      --panel: #101622;
+      --panel-2: #0c121d;
+      --border: #253047;
+      --text: #f5f7fb;
+      --muted: #8d98aa;
+      --soft: #b7c0cf;
+      --green: #70d7a0;
+      --yellow: #f3c76b;
+      --red: #ff7474;
+      --blue: #82aaff;
+    }
+
+    body {
+      margin: 0;
+
+      background:
+        radial-gradient(
+          circle at 50% -20%,
+          #182337 0,
+          #0b101a 42%,
+          #070a11 78%
+        );
+
+      color: var(--text);
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+      padding: 30px 0 60px;
+    }
+
+    /* HEADER */
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+
+      border-radius: 13px;
+
+      background: white;
+      color: #080b12;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .network {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      padding: 8px 13px;
+
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* SEARCH */
+
+    .search {
+      background: rgba(16, 22, 34, .94);
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      padding: 20px;
+
+      margin-bottom: 18px;
+    }
+
+    .search-title {
+      font-size: 13px;
+      color: var(--soft);
+
+      margin-bottom: 9px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+
+      height: 46px;
+
+      padding: 0 15px;
+
+      border-radius: 11px;
+
+      border: 1px solid #2b3750;
+
+      background: #090e17;
+
+      color: white;
+
+      outline: none;
+
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: #60708d;
+    }
+
+    button {
+      height: 46px;
+
+      padding: 0 23px;
+
+      border: 0;
+
+      border-radius: 11px;
+
+      background: white;
+      color: #080b12;
+
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    button:disabled {
+      opacity: .55;
+      cursor: wait;
+    }
+
+    .message {
+      display: none;
+
+      background: #151c29;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      padding: 14px;
+
+      color: var(--soft);
+
+      font-size: 13px;
+
+      margin-bottom: 18px;
+    }
+
+    /* MAIN RESULT */
+
+    .dashboard {
+      display: none;
+    }
+
+    .overview {
+      display: grid;
+
+      grid-template-columns:
+        1.55fr
+        1fr
+        1fr
+        1fr;
+
+      gap: 13px;
+
+      margin-bottom: 13px;
+    }
+
+    .card {
+      background: rgba(16, 22, 34, .95);
+
+      border: 1px solid var(--border);
+
+      border-radius: 17px;
+
+      padding: 21px;
+    }
+
+    .decision-card {
+      min-height: 170px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+
+      margin-bottom: 10px;
+    }
+
+    .agent-number {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 7px;
+    }
+
+    .decision {
+      font-size: 34px;
+
+      font-weight: 900;
+
+      letter-spacing: -1px;
+    }
+
+    .decision.review {
+      color: var(--yellow);
+    }
+
+    .decision.trust {
+      color: var(--green);
+    }
+
+    .decision.high-risk {
+      color: var(--red);
+    }
+
+    .score {
+      font-size: 31px;
+
+      font-weight: 900;
+
+      letter-spacing: -1px;
+
+      margin-top: 7px;
+    }
+
+    .score-caption {
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin-top: 4px;
+    }
+
+    /* TRUST HERO */
+
+    .trust-visual {
+      display: flex;
+
+      align-items: center;
+
+      gap: 22px;
+
+      margin-bottom: 13px;
+    }
+
+    .trust-circle {
+      width: 138px;
+      height: 138px;
+
+      flex-shrink: 0;
+
+      border-radius: 50%;
+
+      background:
+        conic-gradient(
+          var(--yellow)
+          var(--trust-percent),
+          #20293a 0
+        );
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .trust-circle::before {
+      content: "";
+
+      position: absolute;
+
+      width: 108px;
+      height: 108px;
+
+      border-radius: 50%;
+
+      background: var(--panel);
+    }
+
+    .trust-number {
+      position: relative;
+
+      text-align: center;
+    }
+
+    .trust-number strong {
+      display: block;
+
+      font-size: 27px;
+    }
+
+    .trust-number span {
+      color: var(--muted);
+
+      font-size: 10px;
+    }
+
+    .trust-description {
+      color: var(--soft);
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      max-width: 500px;
+    }
+
+    /* GRID */
+
+    .grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 13px;
+
+      margin-bottom: 13px;
+    }
+
+    .section-title {
+      font-size: 15px;
+
+      margin: 0 0 18px;
+
+      font-weight: 800;
+    }
+
+    /* METRICS */
+
+    .metric {
+      margin-bottom: 17px;
+    }
+
+    .metric:last-child {
+      margin-bottom: 0;
+    }
+
+    .metric-head {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-bottom: 7px;
+
+      font-size: 12px;
+    }
+
+    .metric-name {
+      color: var(--soft);
+    }
+
+    .metric-value {
+      font-weight: 800;
+    }
+
+    .bar {
+      height: 7px;
+
+      background: #20293a;
+
+      border-radius: 999px;
+
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+
+      width: 0;
+
+      background: #dfe6ef;
+
+      border-radius: 999px;
+
+      transition:
+        width .5s ease;
+    }
+
+    /* VALIDATION */
+
+    .rows {
+      display: grid;
+      gap: 9px;
+    }
+
+    .row {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding: 12px 13px;
+
+      background: var(--panel-2);
+
+      border: 1px solid #202b3f;
+
+      border-radius: 11px;
+    }
+
+    .row-label {
+      color: var(--soft);
+
+      font-size: 12px;
+    }
+
+    .row-value {
+      font-size: 12px;
+
+      font-weight: 800;
+
+      text-align: right;
+    }
+
+    /* SAFETY */
+
+    .safe {
+      color: var(--green);
+    }
+
+    .warning {
+      color: var(--yellow);
+    }
+
+    .danger {
+      color: var(--red);
+    }
+
+    /* WHY */
+
+    .reasons {
+      display: grid;
+      gap: 9px;
+    }
+
+    .reason {
+      padding: 13px 14px;
+
+      background: var(--panel-2);
+
+      border-left:
+        3px solid #65738b;
+
+      border-radius: 8px;
+
+      color: var(--soft);
+
+      font-size: 12px;
+
+      line-height: 1.55;
+    }
+
+    /* COVERAGE */
+
+    .coverage {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .coverage-text {
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.6;
+    }
+
+    .coverage-number {
+      font-size: 28px;
+
+      font-weight: 900;
+
+      white-space: nowrap;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+
+      color: #5e687a;
+
+      font-size: 10px;
+
+      margin-top: 30px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (
+      max-width: 900px
+    ) {
+
+      .overview {
+        grid-template-columns:
+          1fr
+          1fr;
+      }
+
+      .decision-card {
+        grid-column: span 2;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+    @media (
+      max-width: 560px
+    ) {
+
+      .container {
+        width: 94%;
+        padding-top: 20px;
+      }
+
+      .network {
+        display: none;
+      }
+
+      .search-row {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      .overview {
+        grid-template-columns: 1fr;
+      }
+
+      .decision-card {
+        grid-column: auto;
+      }
+
+      .trust-visual {
+        flex-direction: column;
+        text-align: center;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header>
+
+    <div class="brand">
+
+      <div class="logo">
+        AT
+      </div>
+
+      <div>
+        <div class="brand-title">
+          ARC Agent Trust
+        </div>
+
+        <div class="brand-subtitle">
+          Evidence-based agent trust analysis
+        </div>
+      </div>
+
+    </div>
+
+    <div class="network">
+      ARC TESTNET · LOCAL ENGINE
+    </div>
+
+  </header>
+
+
+  <!-- SEARCH -->
+
+  <section class="search">
+
+    <div class="search-title">
+      Analyze an Agent
+    </div>
+
+    <div class="search-row">
+
+      <input
+        id="agentInput"
+        value="845265"
+        placeholder="Enter Agent ID"
+        autocomplete="off"
+      >
+
+      <button
+        id="analyzeButton"
+        onclick="analyze()"
+      >
+        Analyze
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <div
+    id="message"
+    class="message"
+  ></div>
+
+
+  <main
+    id="dashboard"
+    class="dashboard"
+  >
+
+
+    <!-- OVERVIEW -->
+
+    <section class="overview">
+
+      <div class="card decision-card">
+
+        <div class="eyebrow">
+          Decision
+        </div>
+
+        <div
+          id="decision"
+          class="decision"
+        >
+          —
+        </div>
+
+        <div
+          id="agentNumber"
+          class="agent-number"
+        >
+          Agent —
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="eyebrow">
+          Trust Score
+        </div>
+
+        <div
+          id="trustScore"
+          class="score"
+        >
+          —
+        </div>
+
+        <div class="score-caption">
+          Evidence-derived trust
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="eyebrow">
+          Risk Score
+        </div>
+
+        <div
+          id="riskScore"
+          class="score"
+        >
+          —
+        </div>
+
+        <div
+          id="riskLevel"
+          class="score-caption"
+        >
+          —
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="eyebrow">
+          Confidence
+        </div>
+
+        <div
+          id="confidence"
+          class="score"
+        >
+          —
+        </div>
+
+        <div
+          id="confidenceLevel"
+          class="score-caption"
+        >
+          —
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TRUST EXPLANATION -->
+
+    <section class="card trust-visual">
+
+      <div
+        id="trustCircle"
+        class="trust-circle"
+        style="--trust-percent: 0%;"
+      >
+
+        <div class="trust-number">
+
+          <strong
+            id="circleScore"
+          >
+            —
+          </strong>
+
+          <span>
+            TRUST
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="eyebrow">
+          Trust interpretation
+        </div>
+
+        <div
+          id="trustDescription"
+          class="trust-description"
+        >
+          Analyze an agent to see
+          the evidence-based
+          trust assessment.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EVIDENCE + RISK -->
+
+    <section class="grid">
+
+
+      <div class="card">
+
+        <h2 class="section-title">
+          Evidence Quality
+        </h2>
+
+
+        <div class="metric">
+
+          <div class="metric-head">
+
+            <span class="metric-name">
+              Quality
+            </span>
+
+            <span
+              id="qualityValue"
+              class="metric-value"
+            >
+              —
+            </span>
+
+          </div>
+
+          <div class="bar">
+            <div
+              id="qualityBar"
+              class="bar-fill"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-head">
+
+            <span class="metric-name">
+              Independence
+            </span>
+
+            <span
+              id="independenceValue"
+              class="metric-value"
+            >
+              —
+            </span>
+
+          </div>
+
+          <div class="bar">
+            <div
+              id="independenceBar"
+              class="bar-fill"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-head">
+
+            <span class="metric-name">
+              Evidence Coverage
+            </span>
+
+            <span
+              id="coverageValue"
+              class="metric-value"
+            >
+              —
+            </span>
+
+          </div>
+
+          <div class="bar">
+            <div
+              id="coverageBar"
+              class="bar-fill"
+            ></div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <h2 class="section-title">
+          Risk Signals
+        </h2>
+
+
+        <div class="metric">
+
+          <div class="metric-head">
+
+            <span class="metric-name">
+              Structural Risk
+            </span>
+
+            <span
+              id="structuralValue"
+              class="metric-value"
+            >
+              —
+            </span>
+
+          </div>
+
+          <div class="bar">
+            <div
+              id="structuralBar"
+              class="bar-fill"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-head">
+
+            <span class="metric-name">
+              Historical Anomaly
+            </span>
+
+            <span
+              id="anomalyValue"
+              class="metric-value"
+            >
+              —
+            </span>
+
+          </div>
+
+          <div class="bar">
+            <div
+              id="anomalyBar"
+              class="bar-fill"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-head">
+
+            <span class="metric-name">
+              Correlated Risk
+            </span>
+
+            <span
+              id="correlatedValue"
+              class="metric-value"
+            >
+              —
+            </span>
+
+          </div>
+
+          <div class="bar">
+            <div
+              id="correlatedBar"
+              class="bar-fill"
+            ></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VALIDATION + SAFETY -->
+
+    <section class="grid">
+
+
+      <div class="card">
+
+        <h2 class="section-title">
+          Validation
+        </h2>
+
+        <div class="rows">
+
+          <div class="row">
+
+            <span class="row-label">
+              Target validations
+            </span>
+
+            <strong
+              id="targetValidations"
+              class="row-value"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="row">
+
+            <span class="row-label">
+              Independent validators
+            </span>
+
+            <strong
+              id="independentValidators"
+              class="row-value"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="row">
+
+            <span class="row-label">
+              Validator history
+            </span>
+
+            <strong
+              id="validatorActivity"
+              class="row-value"
+            >
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="row">
+
+            <span class="row-label">
+              Response change
+            </span>
+
+            <strong
+              id="responseTransition"
+              class="row-value"
+            >
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <h2 class="section-title">
+          Safety
+        </h2>
+
+        <div class="rows">
+
+          <div class="row">
+
+            <span class="row-label">
+              Fraud
+            </span>
+
+            <strong id="fraud">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="row">
+
+            <span class="row-label">
+              Maliciousness
+            </span>
+
+            <strong id="maliciousness">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="row">
+
+            <span class="row-label">
+              Manipulation
+            </span>
+
+            <strong id="manipulation">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="row">
+
+            <span class="row-label">
+              Automatic ALLOW
+            </span>
+
+            <strong id="automaticAllow">
+              —
+            </strong>
+
+          </div>
+
+
+          <div class="row">
+
+            <span class="row-label">
+              Automatic BLOCK
+            </span>
+
+            <strong id="automaticBlock">
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WHY -->
+
+    <section class="card">
+
+      <h2 class="section-title">
+        Why this decision?
+      </h2>
+
+      <div
+        id="reasons"
+        class="reasons"
+      ></div>
+
+    </section>
+
+
+    <!-- COVERAGE -->
+
+    <section class="card">
+
+      <div class="coverage">
+
+        <div>
+
+          <div class="eyebrow">
+            Evidence coverage
+          </div>
+
+          <div
+            id="coverageText"
+            class="coverage-text"
+          >
+            —
+          </div>
+
+        </div>
+
+        <div
+          id="coverageNumber"
+          class="coverage-number"
+        >
+          —
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <footer>
+    ARC Agent Trust · Evidence-based analysis · v63
+  </footer>
+
+</div>
+
+
+<script>
+
+function setText(
+  id,
+  value
+) {
+
+  const element =
+    document.getElementById(id);
+
+  if (element) {
+    element.textContent =
+      value ?? "—";
+  }
+
+}
+
+
+function setBar(
+  id,
+  value
+) {
+
+  const element =
+    document.getElementById(id);
+
+  if (!element) return;
+
+  const number =
+    Number(value) || 0;
+
+  element.style.width =
+    `${Math.max(
+      0,
+      Math.min(
+        100,
+        number
+      )
+    )}%`;
+
+}
+
+
+function showMessage(
+  text
+) {
+
+  const element =
+    document.getElementById(
+      "message"
+    );
+
+  element.textContent =
+    text;
+
+  element.style.display =
+    "block";
+
+}
+
+
+function hideMessage() {
+
+  document.getElementById(
+    "message"
+  ).style.display =
+    "none";
+
+}
+
+
+function decisionClass(
+  decision
+) {
+
+  return String(
+    decision || ""
+  )
+    .toLowerCase()
+    .replace(
+      /_/g,
+      "-"
+    );
+
+}
+
+
+function safetyText(
+  value
+) {
+
+  return value === true
+    ? "ESTABLISHED"
+    : "NOT ESTABLISHED";
+
+}
+
+
+function safetyClass(
+  value
+) {
+
+  return value === true
+    ? "danger"
+    : "safe";
+
+}
+
+
+function setSafety(
+  id,
+  value
+) {
+
+  const element =
+    document.getElementById(id);
+
+  element.textContent =
+    safetyText(value);
+
+  element.className =
+    safetyClass(value);
+
+}
+
+
+function getTrustDescription(
+  data
+) {
+
+  if (
+    data.decision ===
+    "HIGH_RISK"
+  ) {
+
+    return (
+      "The available evidence contains " +
+      "signals that require a high-risk " +
+      "assessment. Review the safety " +
+      "findings before interacting with " +
+      "this agent."
+    );
+
+  }
+
+  if (
+    data.decision ===
+    "TRUST"
+  ) {
+
+    return (
+      "The available evidence provides " +
+      "stronger independent support for " +
+      "trust. This score is evidence-derived " +
+      "and is not a guarantee of safety."
+    );
+
+  }
+
+  return (
+    "The available evidence is not sufficient " +
+    "to establish strong independent trust. " +
+    "REVIEW does not mean fraud or maliciousness."
+  );
+
+}
+
+
+function render(
+  data
+) {
+
+  document.getElementById(
+    "dashboard"
+  ).style.display =
+    "block";
+
+
+  /*
+  OVERVIEW
+  */
+
+  setText(
+    "agentNumber",
+    `Agent ${data.agent}`
+  );
+
+
+  const decision =
+    document.getElementById(
+      "decision"
+    );
+
+  decision.textContent =
+    data.decision || "—";
+
+  decision.className =
+    `decision ${decisionClass(
+      data.decision
+    )}`;
+
+
+  setText(
+    "trustScore",
+    `${data.trustScore}/100`
+  );
+
+  setText(
+    "riskScore",
+    `${data.riskScore}/100`
+  );
+
+  setText(
+    "riskLevel",
+    data.riskLevel
+  );
+
+  setText(
+    "confidence",
+    `${data.confidence}/100`
+  );
+
+  setText(
+    "confidenceLevel",
+    data.confidenceLevel
+  );
+
+
+  /*
+  TRUST CIRCLE
+  */
+
+  const trust =
+    Number(
+      data.trustScore
+    ) || 0;
+
+  const circle =
+    document.getElementById(
+      "trustCircle"
+    );
+
+  circle.style
+    .setProperty(
+      "--trust-percent",
+      `${trust}%`
+    );
+
+  setText(
+    "circleScore",
+    trust
+  );
+
+  setText(
+    "trustDescription",
+    getTrustDescription(data)
+  );
+
+
+  /*
+  EVIDENCE
+  */
+
+  const evidence =
+    data.evidence || {};
+
+  setText(
+    "qualityValue",
+    `${evidence.quality ?? 0}/100`
+  );
+
+  setText(
+    "independenceValue",
+    `${evidence.independence ?? 0}/100`
+  );
+
+  setText(
+    "coverageValue",
+    `${evidence.completeness ?? 0}%`
+  );
+
+
+  setBar(
+    "qualityBar",
+    evidence.quality
+  );
+
+  setBar(
+    "independenceBar",
+    evidence.independence
+  );
+
+  setBar(
+    "coverageBar",
+    evidence.completeness
+  );
+
+
+  /*
+  RISK
+  */
+
+  const risks =
+    data.riskSignals || {};
+
+  setText(
+    "structuralValue",
+    `${risks.structural ?? 0}/100`
+  );
+
+  setText(
+    "anomalyValue",
+    `${risks.historicalAnomaly ?? 0}/100`
+  );
+
+  setText(
+    "correlatedValue",
+    `${risks.correlated ?? 0}/100`
+  );
+
+
+  setBar(
+    "structuralBar",
+    risks.structural
+  );
+
+  setBar(
+    "anomalyBar",
+    risks.historicalAnomaly
+  );
+
+  setBar(
+    "correlatedBar",
+    risks.correlated
+  );
+
+
+  /*
+  VALIDATION
+  */
+
+  const validation =
+    data.validation || {};
+
+  setText(
+    "targetValidations",
+    validation.targetRecords
+  );
+
+  setText(
+    "independentValidators",
+    validation.independentTargetValidators
+  );
+
+  setText(
+    "validatorActivity",
+    validation.validatorActivity
+  );
+
+  setText(
+    "responseTransition",
+    validation.responseTransition
+  );
+
+
+  /*
+  SAFETY
+  */
+
+  const safety =
+    data.safety || {};
+
+  setSafety(
+    "fraud",
+    safety.fraudEstablished
+  );
+
+  setSafety(
+    "maliciousness",
+    safety.maliciousnessEstablished
+  );
+
+  setSafety(
+    "manipulation",
+    safety.manipulationEstablished
+  );
+
+  setSafety(
+    "automaticAllow",
+    safety.automaticAllow
+  );
+
+  setSafety(
+    "automaticBlock",
+    safety.automaticBlock
+  );
+
+
+  /*
+  REASONS
+  */
+
+  const reasons =
+    document.getElementById(
+      "reasons"
+    );
+
+  reasons.innerHTML = "";
+
+  const list =
+    Array.isArray(
+      data.reasons
+    )
+      ? data.reasons
+      : [];
+
+
+  if (
+    list.length === 0
+  ) {
+
+    const item =
+      document.createElement(
+        "div"
+      );
+
+    item.className =
+      "reason";
+
+    item.textContent =
+      "No additional explanation available.";
+
+    reasons.appendChild(
+      item
+    );
+
+  } else {
+
+    for (
+      const reason of list
+    ) {
+
+      const item =
+        document.createElement(
+          "div"
+        );
+
+      item.className =
+        "reason";
+
+      item.textContent =
+        reason;
+
+      reasons.appendChild(
+        item
+      );
+
+    }
+
+  }
+
+
+  /*
+  COVERAGE
+  */
+
+  const available =
+    evidence.available ?? 0;
+
+  const expected =
+    evidence.expected ?? 0;
+
+  const completeness =
+    evidence.completeness ?? 0;
+
+  setText(
+    "coverageNumber",
+    `${completeness}%`
+  );
+
+  setText(
+    "coverageText",
+    `${available} of ${expected} evidence sources analyzed.`
+  );
+
+}
+
+
+async function analyze() {
+
+  const input =
+    document.getElementById(
+      "agentInput"
+    );
+
+  const button =
+    document.getElementById(
+      "analyzeButton"
+    );
+
+  const agentId =
+    input.value.trim();
+
+
+  if (
+    !agentId ||
+    !/^\d+$/.test(agentId)
+  ) {
+
+    showMessage(
+      "Please enter a valid Agent ID."
+    );
+
+    return;
+
+  }
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "Analyzing...";
+
+  hideMessage();
+
+
+  try {
+
+    const response =
+      await fetch(
+        `/api/agent?id=${encodeURIComponent(
+          agentId
+        )}`
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if (
+      !response.ok
+    ) {
+
+      throw new Error(
+        data.error ||
+        "Agent report not found."
+      );
+
+    }
+
+
+    render(data);
+
+
+  } catch (error) {
+
+    document.getElementById(
+      "dashboard"
+    ).style.display =
+      "none";
+
+    showMessage(
+      error.message
+    );
+
+  } finally {
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "Analyze";
+
+  }
+
+}
+
+
+/*
+ENTER KEY
+*/
+
+document
+  .getElementById(
+    "agentInput"
+  )
+  .addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        analyze();
+
+      }
+
+    }
+  );
+
+
+/*
+AUTO LOAD 845265
+*/
+
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    analyze();
+
+  }
+);
+
+</script>
+
+</body>
+</html>

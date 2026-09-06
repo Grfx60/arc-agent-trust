@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "2.0",
+  "network": "Arc Testnet",
+  "agentId": "845265",
+  "generatedAt": "2026-08-24T19:10:41.862Z",
+  "nodes": [
+    {
+      "id": "agent:845265",
+      "type": "AGENT",
+      "label": "Agent 845265"
+    },
+    {
+      "id": "actor:0x10149142ba352e37d2225b12f47fe306a8cd5250",
+      "type": "ACTOR",
+      "label": "0x10149142bA352e37D2225b12F47FE306a8cD5250"
+    },
+    {
+      "id": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "type": "ACTOR",
+      "label": "0xE18F822B5071553D62Cf119CE57Da6C1636F2524"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "agent:845265",
+      "to": "actor:0x10149142ba352e37d2225b12f47fe306a8cd5250",
+      "type": "REPUTATION",
+      "evidence": [
+        {
+          "type": "FEEDBACK",
+          "index": 1,
+          "value": 95,
+          "rawValue": "95",
+          "decimals": 0,
+          "tag1": "welcome",
+          "tag2": "",
+          "revoked": false
+        }
+      ]
+    },
+    {
+      "from": "agent:845265",
+      "to": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "type": "REPUTATION",
+      "evidence": [
+        {
+          "type": "FEEDBACK",
+          "index": 1,
+          "value": 30,
+          "rawValue": "30",
+          "decimals": 0,
+          "tag1": "mode-a-daily-decision",
+          "tag2": "",
+          "revoked": false
+        },
+        {
+          "type": "FEEDBACK",
+          "index": 2,
+          "value": 12,
+          "rawValue": "12",
+          "decimals": 0,
+          "tag1": "mode-a-daily-decision",
+          "tag2": "",
+          "revoked": false
+        }
+      ]
+    },
+    {
+      "from": "agent:845265",
+      "to": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "type": "VALIDATED_BY",
+      "evidence": [
+        {
+          "type": "VALIDATION",
+          "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+          "response": 1,
+          "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+          "tag": "identity",
+          "lastUpdate": "1783329698"
+        },
+        {
+          "type": "VALIDATION",
+          "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+          "response": 100,
+          "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+          "tag": "identity",
+          "lastUpdate": "1787067640"
+        }
+      ]
+    },
+    {
+      "from": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "to": "agent:845265",
+      "type": "OVERLAP",
+      "evidence": [
+        {
+          "type": "ROLE_OVERLAP",
+          "reputationProvider": true,
+          "validator": true
+        }
+      ]
+    }
+  ],
+  "reputationHistory": [
+    {
+      "provider": "actor:0x10149142ba352e37d2225b12f47fe306a8cd5250",
+      "index": 1,
+      "value": 95,
+      "tag1": "welcome",
+      "tag2": "",
+      "revoked": false
+    },
+    {
+      "provider": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "index": 1,
+      "value": 30,
+      "tag1": "mode-a-daily-decision",
+      "tag2": "",
+      "revoked": false
+    },
+    {
+      "provider": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "index": 2,
+      "value": 12,
+      "tag1": "mode-a-daily-decision",
+      "tag2": "",
+      "revoked": false
+    }
+  ],
+  "validationHistory": [
+    {
+      "validator": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "response": 1,
+      "tag": "identity",
+      "lastUpdate": "1783329698",
+      "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d"
+    },
+    {
+      "validator": "actor:0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "response": 100,
+      "tag": "identity",
+      "lastUpdate": "1787067640",
+      "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b"
+    }
+  ],
+  "actorAnalysis": {
+    "reputationProviders": [
+      "0x10149142ba352e37d2225b12f47fe306a8cd5250",
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ],
+    "validators": [
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ],
+    "overlappingActors": [
+      "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+    ]
+  },
+  "historyAnalysis": {
+    "validationChanged": true,
+    "revokedFeedbackCount": 0,
+    "validationRecordCount": 2,
+    "reputationRecordCount": 3
+  },
+  "assessment": {
+    "graphRisk": "HIGH",
+    "nodeCount": 3,
+    "relationshipCount": 4,
+    "reputationProviderCount": 2,
+    "validatorCount": 1,
+    "overlapCount": 1
+  }
+}

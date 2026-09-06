@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "4.3.3",
+  "engine": "STRUCTURAL_RISK_ENGINE",
+  "generatedAt": "2026-08-27T09:21:42.167Z",
+  "agent": "845265",
+  "recoveredData": {
+    "componentId": null,
+    "componentNodes": null,
+    "componentEdges": null,
+    "componentAgents": null,
+    "componentOwners": null,
+    "componentURIs": null,
+    "density": 0.9442577030812325,
+    "degree": null,
+    "ownerAgentCount": 1,
+    "uriAgentCount": 94,
+    "uriOwnerCount": 14,
+    "crossOwnerURI": false,
+    "ownerDeviation": 0.15,
+    "uriDeviation": 2.76,
+    "behavior": "HIGH_CROSS_OWNER_URI",
+    "anomalyScore": 65,
+    "anomalyClassification": "HIGH_ANOMALY",
+    "baselineOwnerAgents": 1,
+    "baselineURI": 94,
+    "baselineURIOwners": 14,
+    "correlatedRisk": 70,
+    "riskClassification": "HIGH",
+    "structuralRiskV32": null,
+    "v32RiskClassification": "LOW",
+    "metadataSharedAgents": 94,
+    "metadataSharedOwners": 14,
+    "metadataClassification": "LARGE_CROSS_OWNER_SHARED_URI"
+  },
+  "validation": {
+    "checks": {
+      "component": false,
+      "componentNodes": false,
+      "componentEdges": false,
+      "componentAgents": false,
+      "componentOwners": false,
+      "componentURIs": false,
+      "density": true,
+      "ownerAgentCount": true,
+      "uriAgentCount": true,
+      "uriOwnerCount": true,
+      "anomaly": true,
+      "correlatedRisk": true
+    },
+    "passed": 6,
+    "total": 12,
+    "validationPassed": false
+  },
+  "signals": [
+    {
+      "id": "S02",
+      "type": "HIGH_COMPONENT_DENSITY",
+      "scope": "CLUSTER_WIDE",
+      "severity": "MEDIUM",
+      "value": 0.9442577030812325,
+      "independent": false
+    },
+    {
+      "id": "S04",
+      "type": "LARGE_SHARED_URI",
+      "scope": "CLUSTER_WIDE",
+      "severity": "HIGH",
+      "value": 94,
+      "independent": false
+    },
+    {
+      "id": "S06",
+      "type": "HIGH_URI_DEVIATION",
+      "scope": "AGENT_SPECIFIC_CANDIDATE",
+      "severity": "HIGH",
+      "value": 2.76,
+      "independent": false
+    }
+  ],
+  "correlationGroups": [],
+  "scope": {
+    "agentSpecific": [],
+    "clusterWide": [
+      "S02",
+      "S04"
+    ]
+  },
+  "reassessment": {
+    "structuralRisk": 32,
+    "classification": "LOW",
+    "previousAnomaly": 65,
+    "previousCorrelatedRisk": 70,
+    "previousV32StructuralRisk": null
+  },
+  "v35_005": {
+    "task": "STRUCTURAL_REVIEW",
+    "status": "OPEN",
+    "target": "< 60"
+  },
+  "safety": {
+    "sharedURIIsNotFraud": true,
+    "crossOwnerURIIsNotFraud": true,
+    "highDegreeIsNotFraud": true,
+    "highDensityIsNotFraud": true,
+    "clusterMembershipIsNotFraud": true,
+    "maliciousnessEstablished": false,
+    "fraudEstablished": false,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}

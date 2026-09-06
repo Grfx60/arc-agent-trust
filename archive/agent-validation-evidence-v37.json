@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "3.7",
+  "engine": "VALIDATION_EVIDENCE",
+  "generatedAt": "2026-08-26T20:28:58.660Z",
+  "network": "Arc Testnet",
+  "identityRegistry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+  "validationRegistry": "0x8004Cb1BF31DAf7788923b405b754f57acEB4272",
+  "agent": 845265,
+  "discovery": {
+    "requestCount": 2,
+    "validationRecords": 2,
+    "uniqueValidators": 1,
+    "respondingValidators": 1
+  },
+  "validators": [
+    "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+  ],
+  "respondingValidators": [
+    "0xe18f822b5071553d62cf119ce57da6c1636f2524"
+  ],
+  "validations": [
+    {
+      "requestHash": "0x8f7693a3402b9cf92283d5e692be983e228271924d1bc411c2f624669dfdec7d",
+      "validatorAddress": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "agentId": "845265",
+      "response": 1,
+      "responseHash": "0x3c4ee27132daa88e650eedc90350b2fa63e305c6df7c1dc259ff1e38f7c7c1bc",
+      "tag": "identity",
+      "lastUpdate": "1783329698",
+      "status": "RESPONDED"
+    },
+    {
+      "requestHash": "0x5ac85dca5d1bb6c45800f0f78593fc6397b52a1cb96e820b99eb7d3af776561b",
+      "validatorAddress": "0xe18f822b5071553d62cf119ce57da6c1636f2524",
+      "agentId": "845265",
+      "response": 100,
+      "responseHash": "0xc34e1b65b8bfddbf39b41041ebb1c0e56adda4ddc128d04a85f5bb5f5b8e9ba5",
+      "tag": "identity",
+      "lastUpdate": "1787067640",
+      "status": "RESPONDED"
+    }
+  ],
+  "independence": {
+    "status": "NOT_ESTABLISHED",
+    "providerValidatorOverlap": 1
+  },
+  "v35": {
+    "task": "V35-001",
+    "status": "OPEN"
+  },
+  "safety": {
+    "validatorPresenceIsNotIndependence": true,
+    "validatorIdentityRequiresVerification": true,
+    "sharedValidatorDoesNotProveFraud": true,
+    "automaticAllow": false,
+    "automaticBlock": false
+  }
+}
