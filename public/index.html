@@ -1381,6 +1381,7 @@ function renderResult(data) {
     const risk =
         getNumber(
             data.riskScore,
+            data.trust?.riskScore,
             data.risk?.score,
             data.risk,
             100
@@ -1843,6 +1844,17 @@ STATUS NORMALIZER
 function normalizeStatus(
     value
 ) {
+
+    if (
+        value &&
+        typeof value === "object"
+    ) {
+
+        return Object.keys(value).length > 0
+            ? "✓ CONFIRMED"
+            : "? UNKNOWN";
+
+    }
 
     if (
         value === "CONFIRMED" ||
