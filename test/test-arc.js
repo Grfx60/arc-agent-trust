@@ -29,4 +29,5 @@ async function main() {
 
 main().catch((error) => {
   console.error("❌ Hata:", error);
+  process.exitCode = 1;
 });

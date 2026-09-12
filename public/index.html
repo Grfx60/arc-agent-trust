@@ -1365,6 +1365,7 @@ function renderResult(data) {
 
     const decision =
         data.decision ||
+        data.trust?.decision ||
         "REVIEW";
 
 
@@ -1389,6 +1390,7 @@ function renderResult(data) {
     const confidence =
         getNumber(
             data.confidence,
+            data.trust?.confidence,
             0
         );
 
@@ -1397,12 +1399,14 @@ function renderResult(data) {
         getNumber(
             data.evidenceCoverage,
             data.coverage,
+            data.trust?.evidenceCoverage,
             0
         );
 
 
     const activity =
         data.activityRecords ??
+        data.metrics?.activityRecords ??
         data.activity ??
         data.activityCount ??
         "—";
@@ -1410,6 +1414,7 @@ function renderResult(data) {
 
     const logs =
         data.logRecords ??
+        data.metrics?.logRecords ??
         data.logs ??
         data.logCount ??
         "—";

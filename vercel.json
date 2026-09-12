@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/live-agent.js": {
+      "maxDuration": 60,
+      "includeFiles": "agent-trust-v66.js"
+    }
+  }
+}

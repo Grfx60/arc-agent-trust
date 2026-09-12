@@ -4,15 +4,15 @@
   "description": "Blockchain-based Agent Trust Assessment System for Arc Testnet",
   "main": "src/servers/live-api.js",
   "scripts": {
-    "start": "node src/servers/dashboard.js & node src/servers/live-api.js",
+    "start": "node src/servers/start.js",
     "start:dashboard": "node src/servers/dashboard.js",
     "start:api": "node src/servers/live-api.js",
-    "start:both": "concurrently \"npm run start:dashboard\" \"npm run start:api\"",
-    "test": "node test/utils.js",
+    "start:both": "node src/servers/start.js",
+    "test": "node test/utils.js && node test/test-risk-engine-v6.js && node test/test-vercel-api.js",
     "test:arc": "node test/test-arc.js",
     "test:risk": "node test/test-risk-engine-v6.js",
     "analyze": "node src/engines/trust-engine.js",
-    "lint": "eslint src/ --fix || true",
+    "lint": "node --check agent-trust-v66.js && node --check api/health.js && node --check api/live-agent.js && node --check src/config.js && node --check src/logger.js && node --check src/servers/dashboard.js && node --check src/servers/live-api.js && node --check src/servers/start.js",
     "clean": "rm -rf .cache/ logs/ && mkdir -p logs"
   },
   "keywords": ["blockchain", "agent", "trust", "arc-testnet"],
@@ -25,9 +25,5 @@
   "dependencies": {
     "viem": "^2.55.19",
     "dotenv": "^16.3.1"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.0"
   }
 }
-

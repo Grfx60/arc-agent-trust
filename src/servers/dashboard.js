@@ -1,13 +1,15 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const config = require("../config");
 
-const PORT = 3000;
-const LIVE_API_PORT = 3100;
+const PORT = config.servers.dashboard.port;
+const HOST = config.servers.dashboard.host;
+const LIVE_API_PORT = config.servers.liveApi.port;
+const LIVE_API_HOST = process.env.LIVE_API_PROXY_HOST || "127.0.0.1";
 
-const ROOT = process.cwd();
-const PUBLIC_DIR = path.join(ROOT, "public");
-const REPORT_DIR = path.join(ROOT, "reports");
+const PUBLIC_DIR = config.servers.dashboard.publicDir;
+const REPORT_DIR = config.evidence.reportDir;
 
 function send(res, status, content, type) {
     res.writeHead(status, {
@@ -60,7 +62,7 @@ function loadReport(agentId) {
 function liveAnalysis(req, res, agentId) {
 
     const options = {
-        hostname: "localhost",
+        hostname: LIVE_API_HOST,
         port: LIVE_API_PORT,
         path:
             `/api/live-agent?id=${encodeURIComponent(agentId)}`,
@@ -247,6 +249,32 @@ const server =
 
             }
 
+            if (url.pathname === "/api/agents") {
+                try {
+                    const agents = fs.existsSync(REPORT_DIR)
+                        ? fs.readdirSync(REPORT_DIR)
+                            .map(file => file.match(/^agent-(?:live-)?(\d+)-.*\.json$/)?.[1])
+                            .filter(Boolean)
+                            .filter((id, index, values) => values.indexOf(id) === index)
+                            .sort((a, b) => Number(a) - Number(b))
+                        : [];
+
+                    return send(
+                        res,
+                        200,
+                        JSON.stringify({ agents, count: agents.length }),
+                        "application/json; charset=utf-8"
+                    );
+                } catch {
+                    return send(
+                        res,
+                        500,
+                        JSON.stringify({ error: "Could not list local reports." }),
+                        "application/json; charset=utf-8"
+                    );
+                }
+            }
+
             /*
             ==========================================
             HEALTH
@@ -411,6 +439,7 @@ const server =
 
 server.listen(
     PORT,
+    HOST,
     () => {
 
         console.log("");

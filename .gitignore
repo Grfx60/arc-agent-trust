@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-package-lock.json
 
 # Environment
 .env
@@ -39,3 +38,6 @@ build/
 # Test coverage
 coverage/
 .nyc_output/
+
+# Generated test reports
+test-summary-*.json

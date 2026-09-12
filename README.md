@@ -240,6 +240,36 @@ npm run start:api
 # Available at http://localhost:3100
 ```
 
+### Free Vercel deployment
+
+This project can be deployed as a static dashboard plus Vercel Node.js
+functions. The dashboard calls the same-origin `/api/live-agent` function, so
+no second server or public port is needed.
+
+1. Push the repository to GitHub and import it in Vercel.
+2. Select **Other** as the framework preset and leave the build command empty.
+3. Deploy. The dashboard is served from `public/`; `/api/health` and
+   `/api/live-agent?id=<agentId>` are deployed as serverless functions.
+
+The included `vercel.json` limits a live analysis to 60 seconds, which is
+within the Vercel Hobby function limit. Serverless files are ephemeral, so
+reports are returned to the browser but are not retained between requests. Set
+`SAVE_REPORTS=true` only when using a persistent runtime such as Docker.
+
+### Docker deployment
+
+The repository includes a production Dockerfile. It exposes the dashboard on
+port `3000`; the live API remains available internally on port `3100` and is
+proxied by the dashboard.
+
+```bash
+docker build -t arc-agent-trust .
+docker run --rm -p 3000:3000 --env-file .env arc-agent-trust
+```
+
+For platforms that provide a single `PORT` environment variable, set
+`DASHBOARD_PORT=$PORT` and keep `LIVE_API_PORT=3100`.
+
 ### Analyze an Agent
 
 **Via API**

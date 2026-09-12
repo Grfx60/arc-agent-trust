@@ -6,35 +6,43 @@
 
 require('dotenv').config();
 
+const path = require('path');
+const projectRoot = path.resolve(__dirname, '..');
+
+function port(value, fallback) {
+  const parsed = Number.parseInt(value, 10);
+  return Number.isInteger(parsed) && parsed > 0 && parsed < 65536 ? parsed : fallback;
+}
+
 module.exports = {
   // Server Configuration
   servers: {
     dashboard: {
-      port: parseInt(process.env.DASHBOARD_PORT || '3000'),
-      host: process.env.DASHBOARD_HOST || 'localhost',
-      publicDir: process.env.PUBLIC_DIR || './public'
+      port: port(process.env.DASHBOARD_PORT || process.env.PORT, 3000),
+      host: process.env.DASHBOARD_HOST || '0.0.0.0',
+      publicDir: path.resolve(projectRoot, process.env.PUBLIC_DIR || 'public')
     },
     liveApi: {
-      port: parseInt(process.env.LIVE_API_PORT || '3100'),
-      host: process.env.LIVE_API_HOST || 'localhost'
+      port: port(process.env.LIVE_API_PORT || process.env.PORT, 3100),
+      host: process.env.LIVE_API_HOST || '0.0.0.0'
     }
   },
 
   // Blockchain Configuration
   blockchain: {
     network: process.env.BLOCKCHAIN_NETWORK || 'Arc Testnet',
-    rpcUrl: process.env.ARC_RPC_URL || 'https://testnet.arcdev.io/rpc',
+    rpcUrl: process.env.ARC_RPC_URL || 'https://rpc.testnet.arc.network',
     contracts: {
-      identityRegistry: process.env.IDENTITY_REGISTRY || '0x8004be9A59F5Bd7B2F87Be6A8CdE1aF6d6F5cA3a',
-      validatorRegistry: process.env.VALIDATOR_REGISTRY || '0xE18F822B5c965D84a65f6b3aaCc8DfF5dEe6Ff8f'
+      identityRegistry: process.env.IDENTITY_REGISTRY || '0x8004A818BFB912233c491871b3d84c89A494BD9e',
+      validatorRegistry: process.env.VALIDATOR_REGISTRY || '0x8004Cb1BF31DAf7788923b405b754f57acEB4272'
     }
   },
 
   // Evidence Configuration
   evidence: {
-    storageDir: process.env.EVIDENCE_DIR || './evidence',
-    reportDir: process.env.REPORT_DIR || './reports',
-    cacheDir: process.env.CACHE_DIR || './.cache'
+    storageDir: path.resolve(projectRoot, process.env.EVIDENCE_DIR || 'evidence'),
+    reportDir: path.resolve(projectRoot, process.env.REPORT_DIR || 'reports'),
+    cacheDir: path.resolve(projectRoot, process.env.CACHE_DIR || '.cache')
   },
 
   // Trust Engine Configuration
@@ -56,8 +64,8 @@ module.exports = {
   logging: {
     level: process.env.LOG_LEVEL || 'info',
     format: process.env.LOG_FORMAT || 'json',
-    file: process.env.LOG_FILE || './logs/app.log',
-    logsDir: './logs'
+    file: path.resolve(projectRoot, process.env.LOG_FILE || 'logs/app.log'),
+    logsDir: path.resolve(projectRoot, 'logs')
   },
 
   // Feature Flags

@@ -1,31 +1,21 @@
 const fs = require("fs");
 const path = require("path");
+require("dotenv").config();
 
-const AGENT_ID = process.argv[2];
+let AGENT_ID;
 
-const ARC_API = "https://api-testnet.arc-scan.org";
-const RPC_URL = "https://rpc.testnet.arc.network";
+const ARC_API = process.env.ARC_SCAN_API || "https://api-testnet.arc-scan.org";
+const RPC_URL = process.env.ARC_RPC_URL || "https://rpc.testnet.arc.network";
 
 const IDENTITY_REGISTRY =
-  "0x8004A818BFB912233c491871b3d84c89A494BD9e";
+  process.env.IDENTITY_REGISTRY || "0x8004A818BFB912233c491871b3d84c89A494BD9e";
 
 const VALIDATION_REGISTRY =
-  "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
+  process.env.VALIDATOR_REGISTRY || "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
 
 const REPORT_DIR =
-  path.join(process.cwd(), "reports");
-
-if (!AGENT_ID || !/^\d+$/.test(AGENT_ID)) {
-  console.error("");
-  console.error("Usage:");
-  console.error("node agent-trust-v66.js <AGENT_ID>");
-  console.error("");
-  process.exit(1);
-}
-
-if (!fs.existsSync(REPORT_DIR)) {
-  fs.mkdirSync(REPORT_DIR, { recursive: true });
-}
+  process.env.REPORT_DIR ||
+  path.join(process.env.VERCEL ? "/tmp" : process.cwd(), "reports");
 
 
 /* =========================================================
@@ -900,7 +890,17 @@ function getDecision({
    MAIN
 ========================================================= */
 
-async function main() {
+async function analyzeAgent(agentId) {
+
+  if (!agentId || !/^\d+$/.test(String(agentId))) {
+    throw new Error("Agent ID must contain numbers only.");
+  }
+
+  AGENT_ID = String(agentId);
+
+  if (!fs.existsSync(REPORT_DIR)) {
+    fs.mkdirSync(REPORT_DIR, { recursive: true });
+  }
 
   console.log("");
   console.log(
@@ -1185,14 +1185,16 @@ async function main() {
       `agent-live-${AGENT_ID}-v66.json`
     );
 
-  fs.writeFileSync(
-    output,
-    JSON.stringify(
-      report,
-      null,
-      2
-    )
-  );
+  if (!process.env.VERCEL || process.env.SAVE_REPORTS === "true") {
+    fs.writeFileSync(
+      output,
+      JSON.stringify(
+        report,
+        null,
+        2
+      )
+    );
+  }
 
 
   /*
@@ -1353,13 +1355,12 @@ async function main() {
 
   console.log("");
 
-  console.log(
-    "Created:"
-  );
-
-  console.log(
-    `  ${output}`
-  );
+  if (!process.env.VERCEL || process.env.SAVE_REPORTS === "true") {
+    console.log("Created:");
+    console.log(`  ${output}`);
+  } else {
+    console.log("Report returned to the serverless caller.");
+  }
 
   console.log("");
 
@@ -1369,12 +1370,15 @@ async function main() {
 
   console.log("");
 
+  return report;
+
 }
 
 
-main()
-  .catch(
-    error => {
+if (require.main === module) {
+  analyzeAgent(process.argv[2])
+    .catch(
+      error => {
 
       console.error("");
       console.error(
@@ -1387,7 +1391,10 @@ main()
 
       console.error("");
 
-      process.exit(1);
+        process.exit(1);
 
-    }
-  );
+      }
+    );
+}
+
+module.exports = { analyzeAgent };
