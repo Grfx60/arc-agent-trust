@@ -1,8 +1,22 @@
 const fs = require("fs");
 const path = require("path");
+const dns = require("dns").promises;
+const net = require("net");
+const { calculateTrust } = require("./src/trust-scoring");
 require("dotenv").config();
 
-let AGENT_ID;
+const configuredTimeout = Number.parseInt(process.env.UPSTREAM_TIMEOUT_MS || "8000", 10);
+const REQUEST_TIMEOUT_MS = Number.isFinite(configuredTimeout) ? Math.min(60000, Math.max(500, configuredTimeout)) : 8000;
+const configuredMaxBytes = Number.parseInt(process.env.MAX_UPSTREAM_BYTES || String(2 * 1024 * 1024), 10);
+const MAX_UPSTREAM_BYTES = Number.isFinite(configuredMaxBytes) ? Math.min(10 * 1024 * 1024, Math.max(1024, configuredMaxBytes)) : 2 * 1024 * 1024;
+const MAX_AGENT_ID = (1n << 256n) - 1n;
+function boundedThreshold(value, fallback) {
+  const number = Number.parseFloat(value);
+  return Number.isFinite(number) ? Math.min(100, Math.max(0, number)) : fallback;
+}
+const TRUST_THRESHOLD = boundedThreshold(process.env.TRUST_SCORE_THRESHOLD, 80);
+const TRUST_CONFIDENCE_THRESHOLD = boundedThreshold(process.env.TRUST_CONFIDENCE_THRESHOLD, 70);
+const HIGH_RISK_TRUST_MAX = boundedThreshold(process.env.HIGH_RISK_TRUST_MAX, 55);
 
 const ARC_API = process.env.ARC_SCAN_API || "https://api-testnet.arc-scan.org";
 const RPC_URL = process.env.ARC_RPC_URL || "https://rpc.testnet.arc.network";
@@ -23,14 +37,32 @@ const REPORT_DIR =
 ========================================================= */
 
 async function getJson(url) {
-
-  const response = await fetch(url, {
+  const target = new URL(url);
+  if (target.protocol !== "https:") throw new Error("Only HTTPS upstream URLs are allowed");
+  if (target.username || target.password) throw new Error("Credentials in upstream URLs are forbidden");
+  const hostname = target.hostname.toLowerCase();
+  if (["localhost", "localhost.", "metadata.google.internal"].includes(hostname) || hostname.endsWith(".local")) {
+    throw new Error("Private upstream host is forbidden");
+  }
+  if (net.isIP(hostname)) {
+    if (isPrivateAddress(hostname)) throw new Error("Private upstream address is forbidden");
+  } else {
+    const addresses = await dns.lookup(hostname, { all: true, verbatim: true });
+    if (!addresses.length || addresses.some(({ address }) => isPrivateAddress(address))) {
+      throw new Error("Upstream host resolves to a private address");
+    }
+  }
+  const response = await fetch(target, {
     headers: {
       "User-Agent": "ARC-Agent-Trust/1.0"
-    }
+    },
+    redirect: "manual",
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
   });
-
-  const text = await response.text();
+  if (response.status >= 300 && response.status < 400) throw new Error("Upstream redirects are not followed");
+  const declaredLength = Number(response.headers.get("content-length") || 0);
+  if (declaredLength > MAX_UPSTREAM_BYTES) throw new Error("Upstream response exceeds size limit");
+  const text = await readLimitedBody(response);
 
   let data;
 
@@ -49,6 +81,38 @@ async function getJson(url) {
   }
 
   return data;
+}
+
+function isPrivateAddress(address) {
+  const version = net.isIP(address);
+  if (version === 4) {
+    const p = address.split(".").map(Number);
+    return p[0] === 0 || p[0] === 10 || p[0] === 127 || p[0] >= 224 ||
+      (p[0] === 169 && p[1] === 254) || (p[0] === 172 && p[1] >= 16 && p[1] <= 31) ||
+      (p[0] === 192 && p[1] === 168) || (p[0] === 100 && p[1] >= 64 && p[1] <= 127);
+  }
+  if (version === 6) {
+    const normalized = address.toLowerCase();
+    return normalized === "::" || normalized === "::1" || normalized.startsWith("fc") ||
+      normalized.startsWith("fd") || normalized.startsWith("fe8") || normalized.startsWith("fe9") ||
+      normalized.startsWith("fea") || normalized.startsWith("feb") || normalized.startsWith("::ffff:127.") ||
+      normalized.startsWith("::ffff:10.") || normalized.startsWith("::ffff:192.168.");
+  }
+  return true;
+}
+
+async function readLimitedBody(response) {
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of response.body) {
+    size += chunk.length;
+    if (size > MAX_UPSTREAM_BYTES) {
+      await response.body.cancel().catch(() => {});
+      throw new Error("Upstream response exceeds size limit");
+    }
+    chunks.push(Buffer.from(chunk));
+  }
+  return Buffer.concat(chunks, size).toString("utf8");
 }
 
 
@@ -70,11 +134,13 @@ async function rpc(method, params) {
         id: 1,
         method,
         params
-      })
+      }),
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
     }
   );
 
-  const data = await response.json();
+  if (!response.ok) throw new Error(`RPC HTTP ${response.status}`);
+  const data = JSON.parse(await readLimitedBody(response));
 
   if (data.error) {
     throw new Error(
@@ -182,14 +248,14 @@ function decodeString(result) {
    IDENTITY
 ========================================================= */
 
-async function readIdentity() {
+async function readIdentity(agentId) {
 
   console.log(
     "Reading Identity Registry..."
   );
 
   const tokenId =
-    padUint256(AGENT_ID);
+    padUint256(agentId);
 
   const ownerRaw =
     await ethCall(
@@ -231,6 +297,8 @@ async function resolveMetadata(agentURI) {
   );
 
   try {
+
+    if (agentURI.length > MAX_UPSTREAM_BYTES) return null;
 
     if (
       agentURI.startsWith(
@@ -312,7 +380,7 @@ async function resolveMetadata(agentURI) {
    ARCSCAN
 ========================================================= */
 
-async function getAgentData() {
+async function getAgentData(agentId) {
 
   console.log(
     "Reading Arcscan Agent API..."
@@ -321,7 +389,7 @@ async function getAgentData() {
   try {
 
     return await getJson(
-      `${ARC_API}/v1/agents/${AGENT_ID}`
+      `${ARC_API}/v1/agents/${agentId}`
     );
 
   } catch (error) {
@@ -726,120 +794,6 @@ function buildEvidence({
    UNKNOWN reduces confidence, not trust.
 ========================================================= */
 
-function calculateTrust(evidence) {
-
-  let positiveWeight = 0;
-  let negativeWeight = 0;
-  let knownWeight = 0;
-  let totalWeight = 0;
-
-  for (
-    const item
-    of evidence
-  ) {
-
-    totalWeight +=
-      item.weight;
-
-    if (
-      item.status === "POSITIVE"
-    ) {
-
-      positiveWeight +=
-        item.weight;
-
-      knownWeight +=
-        item.weight;
-
-    }
-
-    if (
-      item.status === "NEGATIVE"
-    ) {
-
-      negativeWeight +=
-        item.weight;
-
-      knownWeight +=
-        item.weight;
-
-    }
-
-  }
-
-  /*
-  No adverse evidence means
-  positive evidence is measured
-  against known evidence only.
-  */
-
-  let score = 0;
-
-  if (knownWeight > 0) {
-
-    score =
-      Math.round(
-        (
-          positiveWeight /
-          knownWeight
-        ) * 100
-      );
-
-  }
-
-
-  /*
-  Confidence depends on how much
-  of the evidence surface we know.
-  */
-
-  const coverage =
-    totalWeight === 0
-      ? 0
-      : (
-          knownWeight /
-          totalWeight
-        ) * 100;
-
-
-  const confidence =
-    Math.round(
-      Math.min(
-        100,
-        coverage
-      )
-    );
-
-
-  return {
-
-    trustScore:
-      score,
-
-    riskScore:
-      Math.max(
-        0,
-        100 - score
-      ),
-
-    confidence,
-
-    knownWeight,
-
-    unknownWeight:
-      totalWeight -
-      knownWeight,
-
-    coverage:
-      Math.round(
-        coverage * 100
-      ) / 100
-
-  };
-
-}
-
-
 /* =========================================================
    DECISION
 ========================================================= */
@@ -857,7 +811,7 @@ function getDecision({
 
   if (
     negativeSignals > 0 &&
-    trustScore < 55
+    trustScore < HIGH_RISK_TRUST_MAX
   ) {
 
     return "HIGH_RISK";
@@ -871,8 +825,8 @@ function getDecision({
   */
 
   if (
-    trustScore >= 80 &&
-    confidence >= 70 &&
+    trustScore >= TRUST_THRESHOLD &&
+    confidence >= TRUST_CONFIDENCE_THRESHOLD &&
     negativeSignals === 0
   ) {
 
@@ -892,11 +846,11 @@ function getDecision({
 
 async function analyzeAgent(agentId) {
 
-  if (!agentId || !/^\d+$/.test(String(agentId))) {
-    throw new Error("Agent ID must contain numbers only.");
+  if (!agentId || !/^\d{1,78}$/.test(String(agentId)) || BigInt(agentId) > MAX_AGENT_ID) {
+    throw new Error("Agent ID must be an unsigned 256-bit integer.");
   }
 
-  AGENT_ID = String(agentId);
+  const currentAgentId = String(BigInt(agentId));
 
   if (!fs.existsSync(REPORT_DIR)) {
     fs.mkdirSync(REPORT_DIR, { recursive: true });
@@ -915,7 +869,7 @@ async function analyzeAgent(agentId) {
   console.log("");
 
   console.log(
-    `Agent: ${AGENT_ID}`
+    `Agent: ${currentAgentId}`
   );
 
   console.log(
@@ -929,7 +883,7 @@ async function analyzeAgent(agentId) {
   */
 
   const identity =
-    await readIdentity();
+    await readIdentity(currentAgentId);
 
   console.log("");
 
@@ -951,53 +905,16 @@ async function analyzeAgent(agentId) {
   METADATA
   */
 
-  const metadata =
-    await resolveMetadata(
-      identity.agentURI
-    );
-
-  /*
-  LIVE INDEXER
-  */
-
-  const agentData =
-    await getAgentData();
-
-  /*
-  OWNER
-  */
-
-  const ownerData =
-    await getOwnerData(
-      identity.owner
-    );
-
-  /*
-  ACTIVITY
-  */
-
-  const activity =
-    await getOwnerActivity(
-      identity.owner
-    );
-
-  /*
-  FACTS
-  */
-
-  const facts =
-    await getOwnerFacts(
-      identity.owner
-    );
-
-  /*
-  LOGS
-  */
-
-  const logs =
-    await getOwnerLogs(
-      identity.owner
-    );
+  const [metadata, agentData] = await Promise.all([
+    resolveMetadata(identity.agentURI),
+    getAgentData(currentAgentId)
+  ]);
+  const [ownerData, activity, facts, logs] = await Promise.all([
+    getOwnerData(identity.owner),
+    getOwnerActivity(identity.owner),
+    getOwnerFacts(identity.owner),
+    getOwnerLogs(identity.owner)
+  ]);
 
   /*
   EVIDENCE
@@ -1071,10 +988,18 @@ async function analyzeAgent(agentId) {
 
   const report = {
 
+    schemaVersion: "1.1",
     version: "v66",
+    policy: {
+      id: process.env.TRUST_POLICY_ID || "arc-default-v1",
+      trustScoreThreshold: TRUST_THRESHOLD,
+      confidenceThreshold: TRUST_CONFIDENCE_THRESHOLD,
+      highRiskTrustMax: HIGH_RISK_TRUST_MAX,
+      scoringAlgorithm: "known-weight-ratio-v1"
+    },
 
     agentId:
-      AGENT_ID,
+      currentAgentId,
 
     network:
       "Arc Testnet",
@@ -1152,7 +1077,13 @@ async function analyzeAgent(agentId) {
         scoring.knownWeight,
 
       unknownWeight:
-        scoring.unknownWeight
+        scoring.unknownWeight,
+
+      breakdown:
+        scoring.breakdown,
+
+      totals:
+        scoring.totals
 
     },
 
@@ -1182,7 +1113,7 @@ async function analyzeAgent(agentId) {
   const output =
     path.join(
       REPORT_DIR,
-      `agent-live-${AGENT_ID}-v66.json`
+      `agent-live-${currentAgentId}-v66.json`
     );
 
   if (!process.env.VERCEL || process.env.SAVE_REPORTS === "true") {
@@ -1214,7 +1145,7 @@ async function analyzeAgent(agentId) {
   console.log("");
 
   console.log(
-    `Agent: ${AGENT_ID}`
+    `Agent: ${currentAgentId}`
   );
 
   console.log(

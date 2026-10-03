@@ -1,559 +1,120 @@
-# 🔐 Arc Agent Trust — Blockchain Agent Assessment System
+﻿# Arc Agent Trust
 
-**Version:** 2.0.0  
-**Network:** Arc Testnet  
-**Status:** Production Ready  
+Arc Testnet için ajan kimliği ve on-chain kanıtları inceleyen bir araştırma ve karar destek uygulaması. Sonuçlar otomatik güvenlik garantisi veya dolandırıcılık kanıtı değildir; `UNKNOWN` kanıtlar güven puanını düşürmez, güven düzeyini düşürür ve kararın `REVIEW` olmasına yol açar.
 
----
+## Gereksinimler
 
-## 📋 Table of Contents
+- Node.js 18 veya üzeri
+- npm
+- Arc Testnet RPC ve ArcScan erişimi
 
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Architecture](#architecture)
-4. [Installation](#installation)
-5. [Configuration](#configuration)
-6. [Usage](#usage)
-7. [API Reference](#api-reference)
-8. [Project Structure](#project-structure)
-9. [Development](#development)
-10. [Troubleshooting](#troubleshooting)
+## Yerel kurulum
 
----
-
-## 🎯 Overview
-
-Arc Agent Trust is a comprehensive **blockchain-based agent authentication and risk management system** designed for the Arc Testnet. It provides multi-layered trust assessment for on-chain agents by analyzing:
-
-- **Identity Evidence** — Owner information, metadata URIs
-- **Reputation Data** — Client feedback scores, revocation history
-- **Validation Records** — On-chain validator confirmations
-- **Graph Analysis** — Relationship mapping and structural risk
-- **Anomaly Detection** — Historical behavior pattern analysis
-
-**Primary Use Case:** Assess whether an agent on Arc Testnet is trustworthy, risky, or requires review before allowing its operations.
-
----
-
-## ✨ Features
-
-### Core Capabilities
-
-✅ **Multi-Factor Trust Scoring**
-- Normalized 0-100 risk scale
-- Dynamic thresholds based on data quality
-- Sigmoid-based smooth decision curves
-
-✅ **Comprehensive Evidence Analysis**
-- Identity verification
-- Reputation scoring with feedback quality metrics
-- Validation history and response consistency
-- Independence verification
-
-✅ **Advanced Risk Assessment**
-- Actor overlap detection (same entity as provider + validator)
-- Structural graph analysis
-- Anomaly detection
-- Correlation-based risk factors
-
-✅ **Real-Time Analysis**
-- Live API for on-demand agent analysis
-- Concurrent request handling
-- Subprocess-based processing for reliability
-
-✅ **Blockchain Integration**
-- Viem integration for Arc Testnet RPC
-- Smart contract queries (Identity Registry, Validator Registry)
-- On-chain evidence collection
-
-✅ **Web Dashboard**
-- Beautiful dark-themed UI
-- Real-time trust score visualization
-- Report history and comparison
-- JSON export capability
-
-### Architecture Features
-
-✅ **Modular Design**
-- Separate engines for different analysis types
-- Pluggable analyzers and collectors
-- Centralized configuration management
-
-✅ **Comprehensive Logging**
-- Structured JSON logging
-- Log level control
-- File and console output
-
-✅ **Production Ready**
-- Error handling and recovery
-- Environment-based configuration
-- dotenv support
-- Organized folder structure
-
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────┐
-│         Arc Agent Trust — System Architecture        │
-├─────────────────────────────────────────────────────┤
-│                                                      │
-│  1. DATA COLLECTION LAYER                           │
-│     ├─ Blockchain RPC (Arc Testnet)                │
-│     ├─ Evidence Collector                          │
-│     ├─ Validator Analyzer                          │
-│     └─ Reviewer Discovery                          │
-│                                                      │
-│  2. ANALYSIS ENGINES                               │
-│     ├─ Trust Engine (v67)                          │
-│     ├─ Risk Engine                                 │
-│     └─ Graph Engine (Relationship Analysis)        │
-│                                                      │
-│  3. EVIDENCE PROCESSORS                            │
-│     ├─ Evidence Analyzer                           │
-│     ├─ Validator Analyzer                          │
-│     └─ Reviewer Analyzer                           │
-│                                                      │
-│  4. API LAYER                                      │
-│     ├─ Live API Server (Port 3100)                │
-│     ├─ Dashboard Server (Port 3000)               │
-│     └─ JSON Report Generation                     │
-│                                                      │
-│  5. OUTPUT LAYER                                   │
-│     ├─ Web Dashboard                              │
-│     ├─ JSON Reports                               │
-│     └─ Console Output                             │
-│                                                      │
-└─────────────────────────────────────────────────────┘
-```
-
----
-
-## 🚀 Installation
-
-### Prerequisites
-
-- **Node.js** 18+ (test with `node --version`)
-- **npm** 9+ (test with `npm --version`)
-- **Arc Testnet RPC Access** (default: https://testnet.arcdev.io/rpc)
-
-### Steps
-
-1. **Clone Repository**
-   ```bash
-   git clone https://github.com/your-org/arc-agent-trust.git
-   cd arc-agent-trust
-   ```
-
-2. **Install Dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure Environment**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. **Create Required Directories**
-   ```bash
-   mkdir -p logs reports evidence .cache
-   ```
-
-5. **Verify Installation**
-   ```bash
-   npm test
-   ```
-
----
-
-## ⚙️ Configuration
-
-### Environment Variables
-
-Configuration is managed via `.env` file. See `.env.example` for all options.
-
-**Key Configuration Groups:**
-
-#### Server Configuration
-```
-DASHBOARD_PORT=3000          # Web dashboard port
-LIVE_API_PORT=3100           # Analysis API port
-DASHBOARD_HOST=0.0.0.0       # Listen address
-```
-
-#### Blockchain Configuration
-```
-ARC_RPC_URL=<your-rpc-url>   # Arc Testnet RPC endpoint
-IDENTITY_REGISTRY=<address>  # Smart contract address
-VALIDATOR_REGISTRY=<address> # Smart contract address
-```
-
-#### Trust Engine Thresholds
-```
-RISK_ALLOW=20                # Risk score to allow
-RISK_REVIEW=50               # Risk score to review
-RISK_BLOCK=75                # Risk score to block
-
-CONF_HIGH=75                 # Confidence threshold
-CONF_MEDIUM=50
-CONF_LOW=25
-```
-
-#### Logging Configuration
-```
-LOG_LEVEL=info               # debug|info|warn|error|fatal
-LOG_FORMAT=json              # json|text
-LOG_FILE=./logs/app.log      # Log file path
-```
-
-#### Feature Flags
-```
-ENABLE_CACHE=true            # Enable response caching
-ENABLE_GRAPH=true            # Enable graph analysis
-ENABLE_VALIDATOR=true        # Enable validator analysis
-DEBUG=false                  # Debug mode
-```
-
----
-
-## 📖 Usage
-
-### Start Services
-
-**Start All Services**
-```bash
+```sh
+npm ci
+cp .env.example .env
 npm start
 ```
 
-**Start Dashboard Only**
-```bash
-npm run start:dashboard
-# Access at http://localhost:3000
+Gösterge paneli `http://localhost:3000`, analiz API’si `http://localhost:3100` adresindedir. Windows PowerShell’de `cp` yerine `Copy-Item .env.example .env` kullanabilirsiniz. `.env` içindeki RPC, registry ve port ayarlarını dağıtımınıza göre düzenleyin.
+
+Tek bir ajanı analiz etmek için:
+
+```sh
+curl "http://localhost:3100/api/live-agent?id=845265"
 ```
 
-**Start API Only**
-```bash
-npm run start:api
-# Available at http://localhost:3100
-```
+## Özellikler
 
-### Free Vercel deployment
+- Canlı Identity Registry, ArcScan ve sahip hesabı verisi toplama
+- Kanıt ağırlıkları, bilinen kanıt kapsamı ve güven/risk açıklama dökümü
+- Tekrarlanan istekleri birleştirme, kısa süreli cache, istek sınırlama
+- Rapor geçmişi ve ajan karşılaştırması
+- İlişki grafiği özeti ve aşamalı registry ajan kataloğu
+- Yerel dashboard/API, Docker ve Vercel dağıtım yolları
 
-This project can be deployed as a static dashboard plus Vercel Node.js
-functions. The dashboard calls the same-origin `/api/live-agent` function, so
-no second server or public port is needed.
+## API
 
-1. Push the repository to GitHub and import it in Vercel.
-2. Select **Other** as the framework preset and leave the build command empty.
-3. Deploy. The dashboard is served from `public/`; `/api/health` and
-   `/api/live-agent?id=<agentId>` are deployed as serverless functions.
+| Yol | Açıklama |
+| --- | --- |
+| `GET /api/live-agent?id=<id>` | Canlı ajan değerlendirmesi |
+| `GET /api/history?id=<id>` | Yerel rapor geçmişi |
+| `GET /api/compare?ids=<id1>,<id2>` | En çok 10 ajanın son rapor özeti |
+| `GET /api/graph?id=<id>` | İlişki grafiği veya rapordan türetilen sınırlı görünüm |
+| `GET /api/network-agents?page=1&limit=50` | Kayıtlı katalog sayfası |
+| `GET /api/network-agents?refresh=1` | Registry taramasında bir sonraki blok parçasını işle |
+| `GET /health` | Yerel servis sağlık durumu |
 
-The included `vercel.json` limits a live analysis to 60 seconds, which is
-within the Vercel Hobby function limit. Serverless files are ephemeral, so
-reports are returned to the browser but are not retained between requests. Set
-`SAVE_REPORTS=true` only when using a persistent runtime such as Docker.
+Vercel dağıtımında aynı işlevler `/api/...` yollarındadır; sağlık yolu `/api/health` olur. `DATABASE_URL` Vercel’in Production, Preview ve Development ortamlarına eklenmelidir. Rapor geçmişi PostgreSQL’de kalıcıdır; ağ kataloğu checkpoint’i `/tmp` altında kalır ve instance değişince sıfırlanabilir.
 
-### Docker deployment
+## Puanlama ve kararlar
 
-The repository includes a production Dockerfile. It exposes the dashboard on
-port `3000`; the live API remains available internally on port `3100` and is
-proxied by the dashboard.
+Puanlayıcı, yalnızca `POSITIVE` ve `NEGATIVE` ağırlıklı kanıtları puana katar. `riskScore`, bilinen ağırlıklar içindeki negatif paydır; hiç bilinen kanıt yoksa risk puanı `0`, güven puanı `0` ve kapsama `0` olur. Bu durum düşük risk anlamına gelmez; karar `REVIEW` kalır.
 
-```bash
+Varsayılan politika `arc-default-v1`:
+
+- Negatif sinyal varsa ve güven puanı 55’in altındaysa `HIGH_RISK`
+- Güven puanı en az 80, güven düzeyi en az 70 ve negatif sinyal yoksa `TRUST`
+- Diğer tüm durumlarda `REVIEW`
+
+Eşikler `.env` ile değiştirilebilir. Eşiklerin karar kalitesini temsil ettiği iddiası için etiketli geçmiş veriyle ayrıca kalibrasyon yapılmalıdır. Raporlar şema sürümü, politika kimliği ve algoritma adını taşır.
+
+## Yapılandırma
+
+Önemli `.env` değişkenleri `.env.example` içindedir. Dış kaynak isteklerinde `UPSTREAM_TIMEOUT_MS` ve `MAX_UPSTREAM_BYTES` zaman/yanıt sınırı uygular. Metadata erişiminde yalnızca HTTPS kullanılır; özel/yerel IP hedefleri ve HTTP yönlendirmeleri reddedilir. CORS varsayılan olarak kapalıdır; gerekiyorsa `CORS_ORIGIN` değerini tek bir dashboard kökenine ayarlayın.
+
+`MAX_CONCURRENT_ANALYSES`, `ANALYSIS_CACHE_TTL_MS`, `ARC_CHAIN_ID`, `TRUST_POLICY_ID`, `TRUST_SCORE_THRESHOLD`, `TRUST_CONFIDENCE_THRESHOLD` ve `HIGH_RISK_TRUST_MAX` değerleri dağıtım davranışını belirler. Eşikler değiştiğinde politika kimliğini de güncelleyin.
+
+### PostgreSQL rapor geçmişi
+
+Önerilen ücretsiz sağlayıcı [Neon Free](https://neon.com/pricing). Neon’un 2026-10-02 tarihli duyurusuna göre ücretsiz plan proje başına 1 GB depolama ve ayda 100 CU-saat içeriyor; compute 5 dakika boşta kaldığında scale-to-zero oluyor. Ücretsiz kullanım limitleri/planı değişebilir ve ilk bağlantıdan sonra kısa uyanma gecikmesi görülebilir. [Neon plan duyurusu](https://neon.com/blog/neon-free-plan-1-gb-per-project), [bağlantı havuzu belgesi](https://neon.com/docs/connect/connection-pooling).
+
+Neon Console’da proje oluşturduktan sonra **Pooled connection** seçeneğiyle alınan bağlantı metnini yerel `.env` dosyasındaki `DATABASE_URL` değerine koyun. Bu URL veritabanı parolası içerir; sohbete, repoya veya loglara koymayın. Vercel kullanıyorsanız aynı değeri Vercel’in Project Settings → Environment Variables alanında Production/Preview ortamlarına gizli değişken olarak ekleyin. `DATABASE_SSL=require` ve küçük `DATABASE_POOL_MAX` ayarları Neon Free için örnektir.
+
+`pg` havuzu ilk ihtiyaçta açılır; `agent_reports` tablosu ve indeksi idempotent biçimde oluşturulur. Veritabanı kullanıcısına ilk kurulum için tablo oluşturma izni verin. `DATABASE_SSL=require` varsayılandır; yerel PostgreSQL’de bilinçli olarak TLS kullanmıyorsanız `DATABASE_SSL=disable` seçin. Vercel’de her işlev instance’ının havuzu varsayılan olarak iki bağlantıyla sınırlandırılır.
+
+`DATABASE_URL` yokken geliştirme için rapor geçmişi `reports/` dosyalarından okunur. Kalıcı üretim geçmişi için URL’yi dashboard ve API servislerinin ikisine de ekleyin. Yeni analizler PostgreSQL’e yazılır; geçmiş, arşiv ve karşılaştırma uçları PostgreSQL’i esas alır.
+
+İlk etkinleştirmede mevcut JSON raporlarını bir defa içeri almak için bağlantı değişkenini ayarladıktan sonra `npm run db:import-reports` çalıştırın. Komut `reports/agent-live-*.json` ve `agent-trust-*.json` dosyalarını yinelenebilir biçimde ekler/günceller; kaynak dosyaları silmez. Canlı analiz ve history/arşiv/compare uçları DB’de yazıp okur. `/api/graph`, yerel grafik yoksa DB’deki son rapordan sınırlı ilişki grafiği türetir. Sağlık yanıtında `reportStore: postgresql` ve `status: ok` görünce bağlantı doğrulanmıştır.
+
+## Dağıtım
+
+### Docker
+
+```sh
 docker build -t arc-agent-trust .
 docker run --rm -p 3000:3000 --env-file .env arc-agent-trust
 ```
 
-For platforms that provide a single `PORT` environment variable, set
-`DASHBOARD_PORT=$PORT` and keep `LIVE_API_PORT=3100`.
+Container içindeki katalog checkpoint’i kalıcı değildir; PostgreSQL etkinse rapor geçmişi kalıcıdır. PostgreSQL kullanılmıyorsa raporlar için volume bağlayın.
 
-### Analyze an Agent
+### Vercel
 
-**Via API**
-```bash
-curl "http://localhost:3100/api/live-agent?id=845265"
+Repo’yu Vercel’e bağlayın ve framework preset’ini `Other` seçin. Derleme komutu gerekmez. `vercel.json`, canlı analiz ve katalog fonksiyonları için 60 saniyelik üst sınır tanımlar. `DATABASE_URL` değerini Vercel’in kullandığınız ortamlarına ekleyin; uygulama tablo ve indeksi kendisi oluşturur.
+
+## Geliştirme ve kontroller
+
+```sh
+npm test
+npm run lint
 ```
 
-**Returns:**
-```json
-{
-  "agentId": "845265",
-  "decision": "REVIEW",
-  "risk": 17.1,
-  "confidence": 61.0,
-  "independence": 55.0,
-  "evidence": {
-    "identity": true,
-    "feedbacks": 3,
-    "validators": 1
-  }
-}
+Testler puanlama, geçmiş/grafik/katalog yardımcıları, eşzamanlı analiz kimliği izolasyonu, Vercel uçları ve risk matrisi senaryolarını kapsar. `npm run test:arc` gerçek Arc Testnet ağına erişim kontrolüdür.
+
+### Karar eşiği kalibrasyonu
+
+`calibration/labels.template.csv` dosyasını `calibration/labels.csv` olarak kopyalayıp her ajan için bağımsız incelemeyle doğrulanmış `TRUST`, `REVIEW` veya `HIGH_RISK` etiketini ekleyin. Sistemin kendi kararı gerçek etiket değildir. İlgili ajan için güncel `agent-live-<id>-v66.json` raporu `reports/` altında bulunmalı.
+
+```sh
+cp calibration/labels.template.csv calibration/labels.csv
+npm run calibrate
+# İsteğe bağlı: node scripts/calibrate.js <labels.csv> <sonuc.json>
 ```
 
-**CLI Analysis**
-```bash
-AGENT_ID=845265 npm run analyze
-```
+PowerShell’de ilk komut için `Copy-Item calibration/labels.template.csv calibration/labels.csv` kullanın.
 
-### Run Tests
+Araç ajan kimliğinin SHA-256 karmasına göre sabit %80/%20 train/holdout ayrımı yapar, eşikleri yalnızca train verisinde arar ve holdout makro-F1, sınıf precision/recall, karar kapsamı ve karışıklık matrisini raporlar. Her sınıfta train ve holdout için en az beş örnek yoksa eşik önermez. Sonuç `calibration/calibration-result.json` dosyasına yazılır. Etiket CSV’sini ve sonucu repoya eklemeyin.
 
-```bash
-npm test              # Run quick test matrix
-npm run test:risk     # Test risk engine with 12 scenarios
-npm run test:arc      # Test Arc Testnet connectivity
-```
+## Güvenlik sınırları
 
----
-
-## 🔌 API Reference
-
-### Live Analysis Endpoint
-
-**Endpoint:** `GET /api/live-agent`
-
-**Parameters:**
-- `id` (required): Agent ID (numeric)
-
-**Response:**
-```json
-{
-  "schemaVersion": "1.0",
-  "timestamp": "2026-08-29T12:30:45Z",
-  "agentId": "845265",
-  "assessment": {
-    "decision": "ALLOW|REVIEW|BLOCK",
-    "confidence": {
-      "evidence": 61.0,
-      "independence": 55.0
-    },
-    "risk": {
-      "observed": 17.1,
-      "uncertainty": 13.0
-    }
-  },
-  "evidence": {
-    "identity": {...},
-    "reputation": {...},
-    "validation": {...},
-    "independence": {...}
-  },
-  "signals": {
-    "positive": 4,
-    "risk": 1,
-    "uncertainty": 3
-  }
-}
-```
-
-### Local Report Endpoint
-
-**Endpoint:** `GET /api/agent`
-
-**Parameters:**
-- `id` (required): Agent ID
-
-**Returns:** Cached report from `/reports` directory
-
-### Health Check
-
-**Endpoint:** `GET /health`
-
-**Returns:**
-```json
-{
-  "status": "ok",
-  "dashboard": "v68",
-  "network": "Arc Testnet"
-}
-```
-
----
-
-## 📁 Project Structure
-
-```
-arc-agent-trust/
-├── src/                          # Source code
-│   ├── servers/
-│   │   ├── dashboard.js         # Web dashboard server
-│   │   └── live-api.js          # Live analysis API
-│   ├── engines/
-│   │   ├── trust-engine.js      # Main trust computation
-│   │   ├── risk-engine.js       # Risk scoring algorithm
-│   │   └── graph-engine.js      # Graph analysis
-│   ├── analyzers/
-│   │   ├── evidence.js          # Evidence processor
-│   │   ├── validator.js         # Validator analyzer
-│   │   └── reviewer.js          # Reviewer credibility
-│   ├── collectors/
-│   │   └── evidence.js          # Blockchain data collector
-│   ├── utils/
-│   │   └── blockchain-check.js  # Blockchain utilities
-│   ├── config.js                # Centralized configuration
-│   └── logger.js                # Logging system
-│
-├── test/                         # Test suite
-│   ├── test-arc.js              # Arc testnet tests
-│   ├── test-risk-engine-v6.js   # Risk engine tests
-│   └── utils.js                 # Test utilities
-│
-├── public/                       # Web dashboard assets
-│   ├── index.html               # Dashboard UI
-│   └── logo.png                 # Logo
-│
-├── evidence/                     # Evidence data storage
-├── reports/                      # Generated reports
-├── logs/                         # Application logs
-├── archive/                      # Historical versions
-│
-├── package.json                 # npm configuration
-├── .env.example                 # Environment template
-├── .gitignore                   # Git ignore rules
-└── README.md                    # This file
-```
-
----
-
-## 🔨 Development
-
-### Adding New Analyzers
-
-Create a new analyzer in `src/analyzers/your-analyzer.js`:
-
-```javascript
-const logger = require('../logger')('your-analyzer');
-
-class YourAnalyzer {
-  analyze(evidence) {
-    logger.info('Analyzing evidence', { agentId: evidence.agentId });
-    
-    // Your analysis logic
-    return {
-      score: 0,
-      findings: []
-    };
-  }
-}
-
-module.exports = YourAnalyzer;
-```
-
-### Adding New Engines
-
-Create a new engine in `src/engines/your-engine.js`:
-
-```javascript
-const logger = require('../logger')('your-engine');
-const config = require('../config');
-
-class YourEngine {
-  compute(evidence) {
-    logger.info('Computing with your engine');
-    
-    // Your computation logic
-    return {
-      risk: 0,
-      confidence: 0
-    };
-  }
-}
-
-module.exports = YourEngine;
-```
-
-### Running with Debug Mode
-
-```bash
-DEBUG=true LOG_LEVEL=debug npm start
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Connection Issues
-
-**Error:** `Cannot connect to Arc Testnet RPC`
-- Check `ARC_RPC_URL` in `.env`
-- Verify network connectivity
-- Test: `curl https://testnet.arcdev.io/rpc`
-
-**Error:** `EADDRINUSE: address already in use :::3000`
-- Port 3000 is already in use
-- Change `DASHBOARD_PORT` in `.env`
-- Or kill existing process: `lsof -ti:3000 | xargs kill -9`
-
-### Analysis Issues
-
-**Error:** `Evidence file not found`
-- Ensure `agent-<ID>-evidence.json` exists in root or `evidence/` directory
-- Check file permissions
-
-**Error:** `Risk score calculation failed`
-- Check evidence file format (must be valid JSON)
-- Review logs: `tail -f logs/app.log`
-- Run tests: `npm test`
-
-### Performance Issues
-
-**Dashboard is slow**
-- Check `ENABLE_CACHE=true` in `.env`
-- Restart services
-- Check system resources
-
-**API timeouts**
-- Increase subprocess timeout
-- Check Arc Testnet RPC performance
-- Review logs for bottlenecks
-
----
-
-## 📊 Decision Logic
-
-### Risk Assessment
-
-| Risk Score | Status | Action |
-|-----------|--------|--------|
-| 0-15 | ✅ Very Low | Likely ALLOW |
-| 16-40 | ⚠️ Low-Medium | Likely REVIEW |
-| 41-60 | ⚠️ Medium-High | Likely REVIEW |
-| 61-75 | 🔴 High | Likely BLOCK |
-| 76-100 | 🔴🔴 Critical | BLOCK |
-
-### Confidence Levels
-
-- **High (75-100):** Sufficient evidence for confident decision
-- **Medium (50-74):** Moderate evidence, some gaps
-- **Low (0-49):** Insufficient evidence, requires review
-
-### Final Decisions
-
-- **🟢 ALLOW:** Risk < 15, Confidence > 70, No critical red flags
-- **🟡 REVIEW:** Material uncertainty or moderate risk
-- **🔴 BLOCK:** Critical evidence missing or high risk detected
-
----
-
-## 📄 License
-
-MIT License - See LICENSE file for details
-
----
-
-## 🤝 Support
-
-For issues, questions, or contributions:
-
-1. Check existing issues on GitHub
-2. Review logs: `logs/app.log`
-3. Run tests: `npm test`
-4. Enable debug mode: `DEBUG=true npm start`
-
----
-
-**Last Updated:** 2026-08-29  
-**Maintained By:** Arc Trust Team  
-**Status:** ✅ Production Ready
+API varsayılan olarak kimlik doğrulaması istemeyen, herkese açık bir okuma/analiz API’sidir. Üretimde halka açılacaksa reverse proxy/WAF üzerinde erişim ve hız sınırı uygulayın; uygulama içi hız limiti süreç belleğindedir ve çoklu instance arasında paylaşılmaz. Bu sistem testnet araştırması içindir; kararları insan denetimi olmadan kritik varlık yetkilendirmesinde kullanmayın.

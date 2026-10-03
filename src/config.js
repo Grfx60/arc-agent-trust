@@ -70,7 +70,7 @@ module.exports = {
 
   // Feature Flags
   features: {
-    enableCache: process.env.ENABLE_CACHE === 'true',
+    enableCache: process.env.ENABLE_CACHE !== 'false',
     enableLogging: process.env.ENABLE_LOGGING !== 'false',
     enableGraphAnalysis: process.env.ENABLE_GRAPH !== 'false',
     enableValidatorAnalysis: process.env.ENABLE_VALIDATOR !== 'false',

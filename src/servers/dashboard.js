@@ -2,6 +2,18 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const config = require("../config");
+const reportRepository = require('../report-repository');
+const {
+    deriveReportGraph,
+    loadGraph,
+    loadReportDerivedGraph,
+    summarizeGraph
+} = require("../graph-data");
+const {
+    listCatalog,
+    loadState,
+    scanNextChunk
+} = require("../network-catalog");
 
 const PORT = config.servers.dashboard.port;
 const HOST = config.servers.dashboard.host;
@@ -10,6 +22,8 @@ const LIVE_API_HOST = process.env.LIVE_API_PROXY_HOST || "127.0.0.1";
 
 const PUBLIC_DIR = config.servers.dashboard.publicDir;
 const REPORT_DIR = config.evidence.reportDir;
+const GRAPH_DIR = path.resolve(__dirname, "../..");
+const { isValidAgentId, normalizeAgentId } = require('../agent-id');
 
 function send(res, status, content, type) {
     res.writeHead(status, {
@@ -133,9 +147,14 @@ function liveAnalysis(req, res, agentId) {
 ==================================================
 */
 
-const server =
-    http.createServer(
-        (req, res) => {
+const server = http.createServer((req, res) => {
+    handleRequest(req, res).catch(error => {
+        if (res.headersSent) return res.destroy();
+        send(res, 503, JSON.stringify({ error: 'Service temporarily unavailable.', code: 'SERVICE_UNAVAILABLE' }), 'application/json; charset=utf-8');
+    });
+});
+
+async function handleRequest(req, res) {
 
             const url =
                 new URL(
@@ -160,8 +179,7 @@ const server =
                     );
 
                 if (
-                    !agentId ||
-                    !/^\d+$/.test(agentId)
+                    !isValidAgentId(agentId)
                 ) {
 
                     return send(
@@ -176,10 +194,12 @@ const server =
 
                 }
 
+                const normalizedAgentId = normalizeAgentId(agentId);
+
                 return liveAnalysis(
                     req,
                     res,
-                    agentId
+                    normalizedAgentId
                 );
 
             }
@@ -201,8 +221,7 @@ const server =
                     );
 
                 if (
-                    !agentId ||
-                    !/^\d+$/.test(agentId)
+                    !isValidAgentId(agentId)
                 ) {
 
                     return send(
@@ -217,9 +236,11 @@ const server =
 
                 }
 
+                const normalizedAgentId = normalizeAgentId(agentId);
+
                 const report =
                     loadReport(
-                        agentId
+                        normalizedAgentId
                     );
 
                 if (!report) {
@@ -251,13 +272,10 @@ const server =
 
             if (url.pathname === "/api/agents") {
                 try {
-                    const agents = fs.existsSync(REPORT_DIR)
-                        ? fs.readdirSync(REPORT_DIR)
-                            .map(file => file.match(/^agent-(?:live-)?(\d+)-.*\.json$/)?.[1])
-                            .filter(Boolean)
-                            .filter((id, index, values) => values.indexOf(id) === index)
-                            .sort((a, b) => Number(a) - Number(b))
-                        : [];
+                    const agents = await reportRepository.listArchivedAgents(
+                        REPORT_DIR,
+                        url.searchParams.get("q") || ""
+                    );
 
                     return send(
                         res,
@@ -275,6 +293,137 @@ const server =
                 }
             }
 
+            if (url.pathname === "/api/archive") {
+                const query = url.searchParams.get("q") || "";
+                return send(
+                    res,
+                    200,
+                    JSON.stringify({
+                        agents: await reportRepository.listArchivedAgents(REPORT_DIR, query),
+                        query
+                    }),
+                    "application/json; charset=utf-8"
+                );
+            }
+
+            if (url.pathname === "/api/network-agents") {
+                try {
+                    let state = loadState(config.evidence.cacheDir);
+                    if (url.searchParams.get("refresh") === "1") {
+                        state = await scanNextChunk(config.evidence.cacheDir);
+                    }
+                    return send(
+                        res,
+                        200,
+                        JSON.stringify({
+                            source: "ARC_IDENTITY_REGISTRY",
+                            registry: config.blockchain.contracts.identityRegistry,
+                            ...listCatalog(
+                                state,
+                                url.searchParams.get("page"),
+                                url.searchParams.get("limit")
+                            )
+                        }),
+                        "application/json; charset=utf-8"
+                    );
+                } catch (error) {
+                    return send(
+                        res,
+                        502,
+                        JSON.stringify({
+                            error: "Network agent catalog unavailable.",
+                            details: error.message
+                        }),
+                        "application/json; charset=utf-8"
+                    );
+                }
+            }
+
+            if (url.pathname === "/api/history") {
+                const agentId = url.searchParams.get("id");
+
+                if (!isValidAgentId(agentId)) {
+                    return send(
+                        res,
+                        400,
+                        JSON.stringify({ error: "Invalid Agent ID" }),
+                        "application/json; charset=utf-8"
+                    );
+                }
+
+                const normalizedAgentId = normalizeAgentId(agentId);
+
+                return send(
+                    res,
+                    200,
+                    JSON.stringify({
+                        agentId: normalizedAgentId,
+                        reports: await reportRepository.listAgentReports(REPORT_DIR, normalizedAgentId)
+                    }),
+                    "application/json; charset=utf-8"
+                );
+            }
+
+            if (url.pathname === "/api/compare") {
+                const ids = (url.searchParams.get("ids") || "")
+                    .split(",")
+                    .map(value => value.trim())
+                    .filter(Boolean);
+
+                if (ids.length < 2 || ids.length > 10 || ids.some(id => !isValidAgentId(id))) {
+                    return send(
+                        res,
+                        400,
+                        JSON.stringify({ error: "Provide at least two numeric agent IDs." }),
+                        "application/json; charset=utf-8"
+                    );
+                }
+
+                const normalizedIds = ids.map(normalizeAgentId);
+
+                return send(
+                    res,
+                    200,
+                    JSON.stringify(await reportRepository.compareAgents(REPORT_DIR, normalizedIds)),
+                    "application/json; charset=utf-8"
+                );
+            }
+
+            if (url.pathname === "/api/graph") {
+                const agentId = url.searchParams.get("id");
+
+                if (!isValidAgentId(agentId)) {
+                    return send(
+                        res,
+                        400,
+                        JSON.stringify({ error: "Invalid Agent ID" }),
+                        "application/json; charset=utf-8"
+                    );
+                }
+
+                const normalizedAgentId = normalizeAgentId(agentId);
+
+                const graph = loadGraph(GRAPH_DIR, normalizedAgentId)
+                    || loadReportDerivedGraph(REPORT_DIR, normalizedAgentId)
+                    || deriveReportGraph(await reportRepository.latestFullReport(REPORT_DIR, normalizedAgentId), normalizedAgentId);
+                const summary = summarizeGraph(graph);
+                if (!summary) {
+                    return send(
+                        res,
+                        404,
+                        JSON.stringify({ error: "No graph data found for this agent." }),
+                        "application/json; charset=utf-8"
+                    );
+                }
+
+                return send(
+                    res,
+                    200,
+                    JSON.stringify(summary),
+                    "application/json; charset=utf-8"
+                );
+            }
+
             /*
             ==========================================
             HEALTH
@@ -286,16 +435,19 @@ const server =
                 "/health"
             ) {
 
+                const storage = await reportRepository.health();
+
                 return send(
                     res,
-                    200,
+                    storage.status === "ok" ? 200 : 503,
                     JSON.stringify({
-                        status:
-                            "ok",
+                        status: storage.status === "ok" ? "ok" : "degraded",
                         dashboard:
                             "v68",
                         liveApi:
                             "http://localhost:3100",
+                        reportStore:
+                            storage.store,
                         network:
                             "Arc Testnet"
                     }),
@@ -428,8 +580,7 @@ const server =
                     "application/octet-stream"
             );
 
-        }
-    );
+}
 
 /*
 ==================================================

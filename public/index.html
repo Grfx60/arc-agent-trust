@@ -302,10 +302,332 @@
 
             justify-content: center;
 
+            gap: 10px;
+
             margin-top: 16px;
         }
 
-        #browseButton {
+        .history-panel {
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 24px;
+
+            border: 1px solid #17436a;
+
+            border-radius: 16px;
+
+            background: #04111e;
+        }
+
+        .history-panel.visible {
+            display: block;
+        }
+
+        .history-title {
+            margin: 0 0 18px;
+
+            font-size: 20px;
+        }
+
+        .history-list {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .history-item {
+            display: grid;
+
+            grid-template-columns: 1.4fr repeat(3, 1fr);
+
+            gap: 12px;
+
+            align-items: center;
+
+            padding: 13px 15px;
+
+            border: 1px solid #173e61;
+
+            border-radius: 10px;
+
+            background: #061321;
+
+            color: #8eb6db;
+
+            font-size: 12px;
+        }
+
+        .history-item strong {
+            color: #ffffff;
+        }
+
+        .compare-panel,
+        .detail-panel {
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 24px;
+
+            border: 1px solid #17436a;
+
+            border-radius: 16px;
+
+            background: #04111e;
+        }
+
+        .compare-panel.visible,
+        .detail-panel.visible {
+            display: block;
+        }
+
+        .compare-row {
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 14px;
+        }
+
+        #compareInput {
+            flex: 1;
+
+            min-width: 0;
+
+            height: 46px;
+
+            padding: 0 14px;
+
+            border: 1px solid #25557f;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            background: #020b15;
+
+            color: #ffffff;
+
+            font-size: 15px;
+        }
+
+        #compareButton {
+            height: 46px;
+
+            padding: 0 18px;
+
+            border: 1px solid #12649b;
+
+            border-radius: 10px;
+
+            background: #061727;
+
+            color: #16b7ff;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .comparison-grid {
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 10px;
+        }
+
+        .comparison-card,
+        .evidence-detail,
+        .trend-row {
+            padding: 13px 15px;
+
+            border: 1px solid #173e61;
+
+            border-radius: 10px;
+
+            background: #061321;
+        }
+
+        .comparison-card strong,
+        .evidence-detail strong,
+        .trend-row strong {
+            color: #ffffff;
+        }
+
+        .evidence-detail,
+        .trend-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 12px;
+
+            margin-bottom: 8px;
+
+            color: #8eb6db;
+
+            font-size: 12px;
+        }
+
+        .status-positive {
+            color: #39e97e;
+        }
+
+        .status-negative {
+            color: #ff5757;
+        }
+
+        .status-unknown {
+            color: #ffc52e;
+        }
+
+        .graph-summary {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 8px;
+
+            margin-bottom: 14px;
+        }
+
+        .graph-stat {
+            padding: 12px;
+
+            border: 1px solid #173e61;
+
+            border-radius: 9px;
+
+            background: #061321;
+
+            color: #8eb6db;
+
+            font-size: 11px;
+        }
+
+        .graph-stat strong {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #ffffff;
+
+            font-size: 18px;
+        }
+
+        .graph-risk-high {
+            color: #ff5757 !important;
+        }
+
+        .graph-edge {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            padding: 10px 12px;
+
+            border-bottom: 1px solid #173a5b;
+
+            color: #8eb6db;
+
+            font-size: 11px;
+        }
+
+        .decision-summary {
+            margin-top: 18px;
+
+            padding: 18px;
+
+            border-left: 3px solid #18adff;
+
+            border-radius: 0 10px 10px 0;
+
+            background: rgba(8, 35, 57, 0.55);
+        }
+
+        .decision-summary-title {
+            margin-bottom: 10px;
+
+            color: #ffffff;
+
+            font-weight: 800;
+        }
+
+        .decision-summary ul {
+            margin: 0;
+
+            padding-left: 18px;
+
+            color: #8eb6db;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .freshness {
+            margin-top: 10px;
+
+            color: #759bc1;
+
+            font-size: 11px;
+        }
+
+        .source-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 8px;
+        }
+
+        .source-item {
+            padding: 12px;
+
+            border: 1px solid #173e61;
+
+            border-radius: 9px;
+
+            background: #061321;
+
+            color: #8eb6db;
+
+            font-size: 11px;
+        }
+
+        .source-item strong {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #39e97e;
+
+            font-size: 12px;
+        }
+
+        .source-item .source-unknown {
+            color: #ffc52e;
+        }
+
+        @media (max-width: 650px) {
+            .source-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .graph-summary {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        #browseButton,
+        #historyButton {
             padding:
                 12px
                 25px;
@@ -328,8 +650,42 @@
             cursor: pointer;
         }
 
-        #browseButton:hover {
+        #browseButton:hover,
+        #historyButton:hover,
+        #networkButton:hover {
             background: #09233a;
+        }
+
+        #networkButton {
+            padding: 12px 18px;
+
+            border: 1px solid #12649b;
+
+            border-radius: 11px;
+
+            background: #061727;
+
+            color: #16b7ff;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        @media (max-width: 650px) {
+            .history-item {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .compare-row {
+                flex-direction: column;
+            }
+
+            #compareButton {
+                width: 100%;
+            }
         }
 
         /* ==========================================
@@ -472,6 +828,67 @@
             border-bottom:
                 1px solid
                 #163653;
+        }
+
+        .result-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 18px;
+        }
+
+        .result-action {
+            padding: 9px 12px;
+
+            border: 1px solid #25557f;
+
+            border-radius: 9px;
+
+            background: #061727;
+
+            color: #8ed8ff;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .result-action:hover {
+            background: #09233a;
+
+            border-color: #18adff;
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+
+                color: #111111;
+            }
+
+            .search-panel,
+            .history-panel,
+            .compare-panel,
+            .browse-panel,
+            footer,
+            .result-actions {
+                display: none !important;
+            }
+
+            .dashboard,
+            .panel,
+            .score-card {
+                background: #ffffff !important;
+
+                color: #111111 !important;
+
+                border-color: #cccccc !important;
+            }
         }
 
         .live-label {
@@ -848,6 +1265,26 @@
             font-size: 20px;
         }
 
+        #archiveSearch {
+            width: 100%;
+
+            height: 42px;
+
+            margin-bottom: 14px;
+
+            padding: 0 13px;
+
+            border: 1px solid #25557f;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #020b15;
+
+            color: #ffffff;
+        }
+
         .agent-list {
             display: grid;
 
@@ -907,6 +1344,26 @@
             color: #6489ae;
 
             font-size: 11px;
+        }
+
+        .archive-meta {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 8px;
+
+            margin-top: 8px;
+
+            color: #759bc1;
+
+            font-size: 11px;
+        }
+
+        .archive-decision {
+            color: #ffc52e;
+
+            font-weight: 800;
         }
 
         /* ==========================================
@@ -1106,7 +1563,71 @@
                 🔎 Browse Agents
             </button>
 
+            <button
+                id="networkButton"
+                onclick="browseNetworkAgents()"
+            >
+                🌐 Arc Network
+            </button>
+
+            <button
+                id="historyButton"
+                onclick="showHistory()"
+            >
+                🕘 History
+            </button>
+
         </div>
+
+        <div class="compare-row">
+
+            <input
+                id="compareInput"
+                value="845265,887060"
+                placeholder="Agent IDs, comma separated"
+                autocomplete="off"
+            >
+
+            <button
+                id="compareButton"
+                onclick="compareSelectedAgents()"
+            >
+                Compare Agents
+            </button>
+
+        </div>
+
+    </section>
+
+    <section
+        id="historyPanel"
+        class="history-panel"
+    >
+
+        <h3 class="history-title">
+            Analysis History
+        </h3>
+
+        <div
+            id="historyList"
+            class="history-list"
+        ></div>
+
+    </section>
+
+    <section
+        id="comparePanel"
+        class="compare-panel"
+    >
+
+        <h3 class="history-title">
+            Agent Comparison
+        </h3>
+
+        <div
+            id="compareList"
+            class="comparison-grid"
+        ></div>
 
     </section>
 
@@ -1120,13 +1641,28 @@
         class="browse-panel"
     >
 
-        <h3 class="browse-title">
-            Browse Arc Testnet Agents
+        <h3
+            id="archiveTitle"
+            class="browse-title"
+        >
+            Agent Archive
         </h3>
+
+        <input
+            id="archiveSearch"
+            placeholder="Filter by Agent ID"
+            autocomplete="off"
+            oninput="browseAgents(this.value)"
+        >
 
         <div
             id="agentList"
             class="agent-list"
+        ></div>
+
+        <div
+            id="archivePaging"
+            class="archive-meta"
         ></div>
 
     </section>
@@ -1160,6 +1696,9 @@
 CONFIGURATION
 ==================================================
 */
+
+let lastAnalysisData = null;
+let networkArchivePage = 1;
 
 /*
 ==================================================
@@ -1304,7 +1843,7 @@ async function analyzeAgent() {
     } catch (error) {
 
         showError(
-            "Could not connect to the Live Engine on port 3100. Make sure the V67 Live API is running."
+            "Could not connect to the Live Engine on port 3100. Make sure the live API is running."
         );
 
     } finally {
@@ -1350,6 +1889,8 @@ RESULT
 */
 
 function renderResult(data) {
+
+    lastAnalysisData = data;
 
     const message =
         document.getElementById(
@@ -1462,6 +2003,11 @@ function renderResult(data) {
             data.arcscan
         );
 
+    const evidenceItems =
+        Array.isArray(data.evidence)
+            ? data.evidence
+            : [];
+
 
     message.innerHTML = `
 
@@ -1497,6 +2043,42 @@ function renderResult(data) {
                     ${escapeHtml(decision)}
                 </div>
 
+            </div>
+
+            <div class="result-actions">
+                <button class="result-action" onclick="downloadReport('json')">
+                    Download JSON
+                </button>
+                <button class="result-action" onclick="downloadReport('csv')">
+                    Download CSV
+                </button>
+                <button class="result-action" onclick="window.print()">
+                    Print Report
+                </button>
+            </div>
+
+            <div class="decision-summary">
+                <div class="decision-summary-title">
+                    Why this decision?
+                </div>
+                <ul>
+                    ${renderDecisionReasons(decision, confidence, coverage)}
+                </ul>
+                <div class="freshness">
+                    Source: live Arc Testnet analysis · ${escapeHtml(data.analyzedAt || "timestamp unavailable")}
+                </div>
+            </div>
+
+            <div class="panel source-panel">
+                <div class="panel-title">Source Health</div>
+                <div class="source-grid">
+                    ${sourceStatus("Identity Registry", data.identity)}
+                    ${sourceStatus("Metadata", data.metadata)}
+                    ${sourceStatus("ArcScan", data.arcscan)}
+                    ${sourceStatus("Owner Account", data.owner)}
+                    ${sourceStatus("Activity", data.activity)}
+                    ${sourceStatus("Facts", data.facts)}
+                </div>
             </div>
 
 
@@ -1667,6 +2249,57 @@ function renderResult(data) {
             </div>
 
 
+            <!-- EXPLAINABILITY -->
+
+            <div class="section-grid">
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        Evidence Details
+                    </div>
+
+                    <div class="detail-list">
+                        ${renderEvidenceDetails(evidenceItems)}
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-title">
+                        Risk History
+                    </div>
+
+                    <div id="trendList">
+                        <div class="loading">
+                            Loading trend data...
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRAPH INTELLIGENCE -->
+
+            <div class="panel graph-panel">
+
+                <div class="panel-title">
+                    Relationship Graph
+                </div>
+
+                <div id="graphContent">
+                    <div class="loading">
+                        Loading graph intelligence...
+                    </div>
+                </div>
+
+            </div>
+
+
             <!-- SAFETY -->
 
             <div class="panel safety">
@@ -1743,6 +2376,9 @@ function renderResult(data) {
         </section>
 
     `;
+
+    loadHistoryTrend(agentId);
+    loadGraphData(agentId);
 
 }
 
@@ -1976,13 +2612,301 @@ function getNumber(
 }
 
 
+function csvCell(
+    value
+) {
+    return `"${String(value ?? "").replace(/"/g, '""')}"`;
+}
+
+
+function renderDecisionReasons(
+    decision,
+    confidence,
+    coverage
+) {
+    const reasons = [];
+
+    if (decision === "TRUST") {
+        reasons.push("No verified adverse evidence was found.");
+    } else if (decision === "HIGH_RISK") {
+        reasons.push("Verified adverse evidence requires caution before use.");
+    } else {
+        reasons.push("The available evidence does not meet the strong-trust threshold.");
+    }
+
+    if (confidence < 70) {
+        reasons.push(`Evidence confidence is ${confidence}/100.`);
+    }
+
+    if (coverage < 80) {
+        reasons.push(`Evidence coverage is ${coverage}%, so some sources remain unknown.`);
+    }
+
+    if (reasons.length === 1 && decision === "TRUST") {
+        reasons.push("Identity and supporting evidence are currently available.");
+    }
+
+    return reasons
+        .map(reason => `<li>${escapeHtml(reason)}</li>`)
+        .join("");
+}
+
+
+function sourceStatus(
+    label,
+    value
+) {
+    const available = value !== null && value !== undefined;
+    const status = available ? "AVAILABLE" : "UNKNOWN";
+    const className = available ? "" : "source-unknown";
+
+    return `
+        <div class="source-item">
+            <span>${escapeHtml(label)}</span>
+            <strong class="${className}">${status}</strong>
+        </div>
+    `;
+}
+
+
+function reportToCsv(
+    data
+) {
+    const trust = data.trust || {};
+    const rows = [
+        ["Field", "Value"],
+        ["Agent ID", data.agentId || data.agent || ""],
+        ["Analyzed At", data.analyzedAt || ""],
+        ["Decision", trust.decision || data.decision || ""],
+        ["Trust Score", trust.score ?? data.trustScore ?? ""],
+        ["Risk Score", trust.riskScore ?? data.riskScore ?? ""],
+        ["Confidence", trust.confidence ?? data.confidence ?? ""],
+        ["Evidence Coverage", trust.evidenceCoverage ?? data.evidenceCoverage ?? ""],
+        [],
+        ["Signal", "Status", "Weight"]
+    ];
+
+    for (const item of Array.isArray(data.evidence) ? data.evidence : []) {
+        rows.push([
+            item.signal || "",
+            item.status || "UNKNOWN",
+            item.weight ?? ""
+        ]);
+    }
+
+    return rows
+        .map(row => row.map(csvCell).join(","))
+        .join("\n");
+}
+
+
+function downloadReport(
+    format
+) {
+    if (!lastAnalysisData) {
+        showError("Analyze an agent before downloading a report.");
+        return;
+    }
+
+    const agentId = lastAnalysisData.agentId || lastAnalysisData.agent || "agent";
+    const isCsv = format === "csv";
+    const content = isCsv
+        ? reportToCsv(lastAnalysisData)
+        : JSON.stringify(lastAnalysisData, null, 2);
+    const blob = new Blob([content], {
+        type: isCsv ? "text/csv;charset=utf-8" : "application/json;charset=utf-8"
+    });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `arc-agent-trust-${agentId}.${isCsv ? "csv" : "json"}`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(link.href);
+}
+
+
+function renderEvidenceDetails(
+    evidenceItems
+) {
+    if (evidenceItems.length === 0) {
+        return "<div class=\"error\">No evidence details available.</div>";
+    }
+
+    return evidenceItems
+        .map(item => {
+            const status = String(item?.status || "UNKNOWN");
+            const statusClass = status === "POSITIVE"
+                ? "status-positive"
+                : status === "NEGATIVE"
+                    ? "status-negative"
+                    : "status-unknown";
+
+            return `
+                <div class="evidence-detail">
+                    <span>${escapeHtml(item?.signal || "Unknown signal")}</span>
+                    <strong class="${statusClass}">
+                        ${escapeHtml(status)} · ${escapeHtml(String(item?.weight ?? 0))}
+                    </strong>
+                </div>
+            `;
+        })
+        .join("");
+}
+
+
+async function loadHistoryTrend(
+    agentId
+) {
+    const trendList = document.getElementById("trendList");
+    if (!trendList) return;
+
+    try {
+        const response = await fetch(
+            `/api/history?id=${encodeURIComponent(agentId)}`,
+            { cache: "no-store" }
+        );
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Could not load trend data.");
+        }
+
+        const reports = Array.isArray(data.reports) ? data.reports.slice(0, 6) : [];
+        if (reports.length === 0) {
+            trendList.innerHTML = "<div class=\"error\">No trend data available.</div>";
+            return;
+        }
+
+        trendList.innerHTML = reports.map(report => `
+            <div class="trend-row">
+                <span>${escapeHtml(new Date(report.analyzedAt).toLocaleDateString())}</span>
+                <span>${escapeHtml(report.decision || "UNKNOWN")}</span>
+                <strong>Risk ${escapeHtml(String(report.riskScore ?? "—"))}</strong>
+            </div>
+        `).join("");
+    } catch (error) {
+        trendList.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+    }
+}
+
+
+async function loadGraphData(
+    agentId
+) {
+    const graphContent = document.getElementById("graphContent");
+    if (!graphContent) return;
+
+    try {
+        const response = await fetch(
+            `/api/graph?id=${encodeURIComponent(agentId)}`,
+            { cache: "no-store" }
+        );
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "No graph data available.");
+        }
+
+        const riskClass = data.graphRisk === "HIGH"
+            ? "graph-risk-high"
+            : "";
+        const edges = Array.isArray(data.edges) ? data.edges.slice(0, 8) : [];
+
+        graphContent.innerHTML = `
+            <div class="graph-summary">
+                <div class="graph-stat">Nodes<strong>${escapeHtml(String(data.nodeCount))}</strong></div>
+                <div class="graph-stat">Edges<strong>${escapeHtml(String(data.edgeCount))}</strong></div>
+                <div class="graph-stat">Providers<strong>${escapeHtml(String(data.reputationProviderCount))}</strong></div>
+                <div class="graph-stat">Graph risk<strong class="${riskClass}">${escapeHtml(data.graphRisk)}</strong></div>
+            </div>
+            <div class="freshness">
+                Source: ${escapeHtml(data.source || "UNKNOWN")} · ${escapeHtml(data.generatedAt || "timestamp unavailable")}
+            </div>
+            ${data.overlapCount > 0 ? `
+                <div class="error">
+                    ${escapeHtml(String(data.overlapCount))} actor overlap(s) detected between reputation and validation.
+                </div>
+            ` : ""}
+            <div>
+                ${edges.length === 0
+                    ? "<div class=\"error\">No graph relationships available.</div>"
+                    : edges.map(edge => `
+                        <div class="graph-edge">
+                            <span>${escapeHtml(edge.type || "RELATIONSHIP")}</span>
+                            <strong>${escapeHtml(String(edge.from || ""))} → ${escapeHtml(String(edge.to || ""))}</strong>
+                        </div>
+                    `).join("")}
+            </div>
+        `;
+    } catch (error) {
+        graphContent.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+    }
+}
+
+
+async function compareSelectedAgents() {
+    const input = document.getElementById("compareInput");
+    const panel = document.getElementById("comparePanel");
+    const list = document.getElementById("compareList");
+    const ids = input.value
+        .split(",")
+        .map(value => value.trim())
+        .filter(Boolean);
+
+    if (ids.length < 2 || ids.some(id => !/^\d+$/.test(id))) {
+        showError("Enter at least two numeric Agent IDs separated by commas.");
+        return;
+    }
+
+    panel.classList.add("visible");
+    list.innerHTML = "<div class=\"loading\">Comparing agents...</div>";
+
+    try {
+        const response = await fetch(
+            `/api/compare?ids=${encodeURIComponent(ids.join(","))}`,
+            { cache: "no-store" }
+        );
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Could not compare agents.");
+        }
+
+        list.innerHTML = data.agents.map(agent => {
+            const latest = agent.latest;
+            if (!latest) {
+                return `
+                    <div class="comparison-card">
+                        <strong>Agent #${escapeHtml(agent.agentId)}</strong>
+                        <p>No saved report</p>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="comparison-card">
+                    <strong>Agent #${escapeHtml(agent.agentId)}</strong>
+                    ${statusRow("Decision", latest.decision)}
+                    ${statusRow("Trust", latest.trustScore ?? "—")}
+                    ${statusRow("Risk", latest.riskScore ?? "—")}
+                    ${statusRow("Confidence", latest.confidence ?? "—")}
+                </div>
+            `;
+        }).join("");
+    } catch (error) {
+        list.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+    }
+}
+
+
 /*
 ==================================================
 BROWSE AGENTS
 ==================================================
 */
 
-async function browseAgents() {
+async function browseAgents(query = null) {
 
     const panel =
         document.getElementById(
@@ -1996,6 +2920,7 @@ async function browseAgents() {
 
 
     if (
+        query === null &&
         panel.classList.contains(
             "visible"
         )
@@ -2014,6 +2939,10 @@ async function browseAgents() {
         "visible"
     );
 
+    const searchQuery = query === null
+        ? ""
+        : String(query).trim();
+
 
     list.innerHTML = `
 
@@ -2021,7 +2950,7 @@ async function browseAgents() {
 
             <div class="spinner"></div>
 
-            Loading Arc Testnet agents...
+            Loading archived agents...
 
         </div>
 
@@ -2032,7 +2961,7 @@ async function browseAgents() {
 
         const response =
             await fetch(
-                "/api/agents",
+                `/api/agents?q=${encodeURIComponent(searchQuery)}`,
                 {
                     cache: "no-store"
                 }
@@ -2120,16 +3049,11 @@ async function browseAgents() {
                             </div>
 
 
-                            <div class="agent-owner">
-
-                                ${
-                                    agent.owner
-                                    ? escapeHtml(
-                                        agent.owner
-                                    )
-                                    : "Owner unavailable"
-                                }
-
+                            <div class="archive-meta">
+                                <span>${escapeHtml(String(agent.reportCount || 0))} report(s)</span>
+                                <span class="archive-decision">
+                                    ${escapeHtml(agent.latest?.decision || "UNKNOWN")}
+                                </span>
                             </div>
 
                         </div>
@@ -2161,6 +3085,114 @@ async function browseAgents() {
 
     }
 
+}
+
+
+async function browseNetworkAgents(page = 1) {
+    const panel = document.getElementById("browsePanel");
+    const list = document.getElementById("agentList");
+    const title = document.getElementById("archiveTitle");
+    const paging = document.getElementById("archivePaging");
+    const search = document.getElementById("archiveSearch");
+
+    panel.classList.add("visible");
+    networkArchivePage = page;
+    title.textContent = "Arc Network Agent Catalog";
+    search.value = "";
+    list.innerHTML = "<div class=\"loading\">Scanning Arc Identity Registry...</div>";
+
+    try {
+        const response = await fetch(`/api/network-agents?refresh=1&page=${page}&limit=50`, {
+            cache: "no-store"
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Network catalog unavailable.");
+
+        if (data.agents.length === 0) {
+            list.innerHTML = `
+                <div class="error">
+                    No agents found in the scanned range yet. Use Arc Network again to continue scanning.
+                </div>
+            `;
+        } else {
+            list.innerHTML = data.agents.map(agent => `
+                <div class="agent-item" onclick="selectAgent('${escapeHtml(agent.agentId)}')">
+                    <div class="agent-id">#${escapeHtml(agent.agentId)}</div>
+                    <div class="agent-name">On-chain Agent</div>
+                    <div class="agent-owner">${escapeHtml(agent.owner || "Owner unavailable")}</div>
+                    <div class="archive-meta">
+                        <span>Block ${escapeHtml(agent.registeredBlock || agent.lastTransferBlock || "—")}</span>
+                        <span class="archive-decision">ACTIVE</span>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        const totalPages = Math.max(1, Math.ceil(data.total / data.limit));
+        paging.innerHTML = `
+            <span>${data.complete ? "COMPLETE" : "PARTIAL SCAN"} · ${data.total} indexed · next block ${escapeHtml(data.nextBlock)}</span>
+            <span>
+                ${page > 1 ? `<button class="result-action" onclick="browseNetworkAgents(${page - 1})">Previous</button>` : ""}
+                ${page < totalPages ? `<button class="result-action" onclick="browseNetworkAgents(${page + 1})">Next</button>` : ""}
+            </span>
+        `;
+    } catch (error) {
+        list.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+        paging.textContent = "Network scan unavailable";
+    }
+}
+
+
+/*
+==================================================
+ ANALYSIS HISTORY
+==================================================
+*/
+
+async function showHistory() {
+    const agentId = document
+        .getElementById("agentInput")
+        .value
+        .trim();
+
+    const panel = document.getElementById("historyPanel");
+    const list = document.getElementById("historyList");
+
+    if (!/^\d+$/.test(agentId)) {
+        showError("Please enter a valid Agent ID first.");
+        return;
+    }
+
+    panel.classList.add("visible");
+    list.innerHTML = "<div class=\"loading\">Loading analysis history...</div>";
+
+    try {
+        const response = await fetch(
+            `/api/history?id=${encodeURIComponent(agentId)}`,
+            { cache: "no-store" }
+        );
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Could not load history.");
+        }
+
+        if (!data.reports || data.reports.length === 0) {
+            list.innerHTML = "<div class=\"error\">No saved reports for this agent.</div>";
+            return;
+        }
+
+        list.innerHTML = data.reports.map(report => `
+            <div class="history-item">
+                <span>${escapeHtml(new Date(report.analyzedAt).toLocaleString())}</span>
+                <span>Decision <strong>${escapeHtml(report.decision)}</strong></span>
+                <span>Risk <strong>${escapeHtml(String(report.riskScore ?? "—"))}</strong></span>
+                <span>Confidence <strong>${escapeHtml(String(report.confidence ?? "—"))}</strong></span>
+            </div>
+        `).join("");
+    } catch (error) {
+        list.innerHTML = `<div class="error">${escapeHtml(error.message)}</div>`;
+    }
 }
 
 

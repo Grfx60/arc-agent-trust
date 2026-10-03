@@ -52,6 +52,7 @@ function analyzeEvidence(evidence) {
   const repClients = Array.isArray(rep.clients) ? rep.clients : [];
   const repFeeds = repClients.flatMap(
     c => (Array.isArray(c.feedbacks) ? c.feedbacks : [])
+      .map(feedback => ({ ...feedback, client: feedback.client || c.client }))
   );
   const activeFeed = repFeeds.filter(f => f.revoked !== true);
 

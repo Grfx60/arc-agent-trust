@@ -39,5 +39,9 @@ build/
 coverage/
 .nyc_output/
 
+# Private calibration input and derived thresholds
+calibration/labels.csv
+calibration/calibration-result.json
+
 # Generated test reports
 test-summary-*.json

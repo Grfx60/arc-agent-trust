@@ -109,7 +109,10 @@ const identityPresent = Boolean(identity.owner || identity.metadataURI);
 
 const reputation = evidence.reputation || {};
 const reputationClients = Array.isArray(reputation.clients) ? reputation.clients : [];
-const reputationFeedbacks = reputationClients.flatMap(c => Array.isArray(c.feedbacks) ? c.feedbacks : []);
+const reputationFeedbacks = reputationClients.flatMap(c =>
+  (Array.isArray(c.feedbacks) ? c.feedbacks : [])
+    .map(feedback => ({ ...feedback, client: feedback.client || c.client }))
+);
 const activeFeedbacks = reputationFeedbacks.filter(f => f.revoked !== true);
 
 const validation = evidence.validation || {};
