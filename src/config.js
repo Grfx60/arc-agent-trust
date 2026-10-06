@@ -23,8 +23,9 @@ module.exports = {
       publicDir: path.resolve(projectRoot, process.env.PUBLIC_DIR || 'public')
     },
     liveApi: {
-      port: port(process.env.LIVE_API_PORT || process.env.PORT, 3100),
-      host: process.env.LIVE_API_HOST || '0.0.0.0'
+      port: port(process.env.LIVE_API_PORT, 3100),
+      host: process.env.LIVE_API_HOST || '127.0.0.1'
+
     }
   },
 
