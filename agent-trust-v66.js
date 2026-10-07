@@ -18,14 +18,14 @@ const TRUST_THRESHOLD = boundedThreshold(process.env.TRUST_SCORE_THRESHOLD, 80);
 const TRUST_CONFIDENCE_THRESHOLD = boundedThreshold(process.env.TRUST_CONFIDENCE_THRESHOLD, 70);
 const HIGH_RISK_TRUST_MAX = boundedThreshold(process.env.HIGH_RISK_TRUST_MAX, 55);
 
-const ARC_API = process.env.ARC_SCAN_API || "https://api-testnet.arc-scan.org";
-const RPC_URL = process.env.ARC_RPC_URL || "https://rpc.testnet.arc.network";
+const _cfg = require('./src/config');
+const ARC_API          = _cfg.blockchain.arcScanApi;
+const RPC_URL          = _cfg.blockchain.rpcUrl;
+const IDENTITY_REGISTRY   = _cfg.blockchain.contracts.identityRegistry;
+const VALIDATION_REGISTRY = _cfg.blockchain.contracts.validatorRegistry;
+const _NETWORK_NAME    = _cfg.blockchain.network;
+const _CHAIN_ID        = _cfg.blockchain.chainId;
 
-const IDENTITY_REGISTRY =
-  process.env.IDENTITY_REGISTRY || "0x8004A818BFB912233c491871b3d84c89A494BD9e";
-
-const VALIDATION_REGISTRY =
-  process.env.VALIDATOR_REGISTRY || "0x8004Cb1BF31DAf7788923b405b754f57acEB4272";
 
 const REPORT_DIR =
   process.env.REPORT_DIR ||
@@ -1001,11 +1001,12 @@ async function analyzeAgent(agentId) {
     agentId:
       currentAgentId,
 
-    network:
-      "Arc Testnet",
+        network:
+      _NETWORK_NAME,
 
     chainId:
-      5042002,
+      _CHAIN_ID,
+
 
     analyzedAt:
       new Date().toISOString(),

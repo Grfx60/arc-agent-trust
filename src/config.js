@@ -18,26 +18,51 @@ module.exports = {
   // Server Configuration
   servers: {
     dashboard: {
-      port: port(process.env.DASHBOARD_PORT || process.env.PORT, 3000),
+      // Render'da PORT=10000 gelir, DASHBOARD_PORT öncelikli, sonra PORT, sonra 5173
+      port: port(process.env.DASHBOARD_PORT || process.env.PORT, 5173),
       host: process.env.DASHBOARD_HOST || '0.0.0.0',
       publicDir: path.resolve(projectRoot, process.env.PUBLIC_DIR || 'public')
     },
     liveApi: {
+      // Live API her zaman iç ağda sabit port — Render'ın PORT'undan etkilenmemeli
       port: port(process.env.LIVE_API_PORT, 3100),
       host: process.env.LIVE_API_HOST || '127.0.0.1'
-
     }
   },
 
   // Blockchain Configuration
-  blockchain: {
-    network: process.env.BLOCKCHAIN_NETWORK || 'Arc Testnet',
-    rpcUrl: process.env.ARC_RPC_URL || 'https://rpc.testnet.arc.network',
-    contracts: {
-      identityRegistry: process.env.IDENTITY_REGISTRY || '0x8004A818BFB912233c491871b3d84c89A494BD9e',
-      validatorRegistry: process.env.VALIDATOR_REGISTRY || '0x8004Cb1BF31DAf7788923b405b754f57acEB4272'
-    }
-  },
+  // NETWORK=mainnet ile mainnet'e geçilir, varsayılan testnet
+  blockchain: (() => {
+    const isMainnet = (process.env.NETWORK || process.env.BLOCKCHAIN_NETWORK || '').toLowerCase().includes('mainnet');
+    return {
+      network:    isMainnet ? 'Arc Mainnet' : 'Arc Testnet',
+      chainId:    isMainnet ? 5042 : 5042002,
+      isMainnet,
+      rpcUrl: process.env.ARC_RPC_URL || (
+        isMainnet ? 'https://rpc.mainnet.arc.io' : 'https://rpc.testnet.arc.io'
+      ),
+      arcScanApi: process.env.ARC_SCAN_API || (
+        isMainnet ? 'https://api.arc-scan.org' : 'https://api-testnet.arc-scan.org'
+      ),
+      contracts: {
+        identityRegistry: process.env.IDENTITY_REGISTRY || (
+          isMainnet
+            ? '0x8004A169FB4a3325136EB29fA0ceB6D2e539a432'
+            : '0x8004A818BFB912233c491871b3d84c89A494BD9e'
+        ),
+        validatorRegistry: process.env.VALIDATOR_REGISTRY || (
+          isMainnet
+            ? '0x8004Cc8439f36fd5F9F049D9fF86523Df6dAAB58'
+            : '0x8004Cb1BF31DAf7788923b405b754f57acEB4272'
+        ),
+        reputationRegistry: process.env.REPUTATION_REGISTRY || (
+          isMainnet
+            ? '0x8004BAa17C55a88189AE136b182e5fdA19dE9b63'
+            : '0x8004B663056A597Dffe9eCcC1965A193B7388713'
+        )
+      }
+    };
+  })(),
 
   // Evidence Configuration
   evidence: {
@@ -71,7 +96,7 @@ module.exports = {
 
   // Feature Flags
   features: {
-    enableCache: process.env.ENABLE_CACHE !== 'false',
+    enableCache: process.env.ENABLE_CACHE === 'true',
     enableLogging: process.env.ENABLE_LOGGING !== 'false',
     enableGraphAnalysis: process.env.ENABLE_GRAPH !== 'false',
     enableValidatorAnalysis: process.env.ENABLE_VALIDATOR !== 'false',
