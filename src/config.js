@@ -31,18 +31,22 @@ module.exports = {
   },
 
   // Blockchain Configuration
-  // NETWORK=mainnet ile mainnet'e geçilir, varsayılan testnet
+  // NETWORK=mainnet veya NETWORK=testnet ile seçilir, varsayılan testnet
   blockchain: (() => {
     const isMainnet = (process.env.NETWORK || process.env.BLOCKCHAIN_NETWORK || '').toLowerCase().includes('mainnet');
     return {
-      network:    isMainnet ? 'Arc Mainnet' : 'Arc Testnet',
-      chainId:    isMainnet ? 5042 : 5042002,
+      network:  isMainnet ? 'Arc Mainnet' : 'Arc Testnet',
+      chainId:  isMainnet ? 5042 : 5042002,
       isMainnet,
       rpcUrl: process.env.ARC_RPC_URL || (
-        isMainnet ? 'https://rpc.mainnet.arc.io' : 'https://rpc.testnet.arc.io'
+        isMainnet
+          ? 'https://rpc.mainnet.arc.io'
+          : 'https://rpc.testnet.arc.io'
       ),
       arcScanApi: process.env.ARC_SCAN_API || (
-        isMainnet ? 'https://api.arc-scan.org' : 'https://api-testnet.arc-scan.org'
+        isMainnet
+          ? 'https://api.arc-scan.org'
+          : 'https://api-testnet.arc-scan.org'
       ),
       contracts: {
         identityRegistry: process.env.IDENTITY_REGISTRY || (

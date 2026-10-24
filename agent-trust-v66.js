@@ -1,23 +1,31 @@
 const fs = require("fs");
 const path = require("path");
-const dns = require("dns").promises;
-const net = require("net");
-const { calculateTrust } = require("./src/trust-scoring");
 require("dotenv").config();
 
-const configuredTimeout = Number.parseInt(process.env.UPSTREAM_TIMEOUT_MS || "8000", 10);
-const REQUEST_TIMEOUT_MS = Number.isFinite(configuredTimeout) ? Math.min(60000, Math.max(500, configuredTimeout)) : 8000;
-const configuredMaxBytes = Number.parseInt(process.env.MAX_UPSTREAM_BYTES || String(2 * 1024 * 1024), 10);
-const MAX_UPSTREAM_BYTES = Number.isFinite(configuredMaxBytes) ? Math.min(10 * 1024 * 1024, Math.max(1024, configuredMaxBytes)) : 2 * 1024 * 1024;
-const MAX_AGENT_ID = (1n << 256n) - 1n;
-function boundedThreshold(value, fallback) {
-  const number = Number.parseFloat(value);
-  return Number.isFinite(number) ? Math.min(100, Math.max(0, number)) : fallback;
-}
-const TRUST_THRESHOLD = boundedThreshold(process.env.TRUST_SCORE_THRESHOLD, 80);
-const TRUST_CONFIDENCE_THRESHOLD = boundedThreshold(process.env.TRUST_CONFIDENCE_THRESHOLD, 70);
-const HIGH_RISK_TRUST_MAX = boundedThreshold(process.env.HIGH_RISK_TRUST_MAX, 55);
+// Validator ağırlık motoru (graceful — DB yoksa atlar)
+let applyValidatorWeights, extractValidators;
+try {
+  const vw = require('./src/engines/validator-weight');
+  applyValidatorWeights = vw.applyValidatorWeights;
+  extractValidators     = vw.extractValidators;
+} catch { /* opsiyonel bağımlılık */ }
 
+// DB kalıcı kayıt (graceful)
+let saveAnalysis;
+try { saveAnalysis = require('./src/db').saveAnalysis; } catch { /* opsiyonel */ }
+
+// NEGATIVE sinyal motorları
+const { checkBlacklist, getSeverity } = require('./src/engines/blacklist-engine');
+const { checkSybil }                  = require('./src/engines/sybil-engine');
+const { checkTemporal }               = require('./src/engines/temporal-engine');
+
+// On-chain direkt okuyucu — ArcScan'a bağımlı olmayan RPC okuma
+const { readReputationOnChain, readValidationOnChain, scanAgentEvents } = require('./src/engines/onchain-reader');
+
+// NOT: AGENT_ID artık global değil — analyzeAgent() içinde lokal olarak yönetiliyor.
+// Eş zamanlı birden fazla analiz güvenle çalışabilir.
+
+// Tüm ağ değerleri merkezi config'den — mainnet/testnet otomatik seçilir
 const _cfg = require('./src/config');
 const ARC_API          = _cfg.blockchain.arcScanApi;
 const RPC_URL          = _cfg.blockchain.rpcUrl;
@@ -25,7 +33,6 @@ const IDENTITY_REGISTRY   = _cfg.blockchain.contracts.identityRegistry;
 const VALIDATION_REGISTRY = _cfg.blockchain.contracts.validatorRegistry;
 const _NETWORK_NAME    = _cfg.blockchain.network;
 const _CHAIN_ID        = _cfg.blockchain.chainId;
-
 
 const REPORT_DIR =
   process.env.REPORT_DIR ||
@@ -37,32 +44,14 @@ const REPORT_DIR =
 ========================================================= */
 
 async function getJson(url) {
-  const target = new URL(url);
-  if (target.protocol !== "https:") throw new Error("Only HTTPS upstream URLs are allowed");
-  if (target.username || target.password) throw new Error("Credentials in upstream URLs are forbidden");
-  const hostname = target.hostname.toLowerCase();
-  if (["localhost", "localhost.", "metadata.google.internal"].includes(hostname) || hostname.endsWith(".local")) {
-    throw new Error("Private upstream host is forbidden");
-  }
-  if (net.isIP(hostname)) {
-    if (isPrivateAddress(hostname)) throw new Error("Private upstream address is forbidden");
-  } else {
-    const addresses = await dns.lookup(hostname, { all: true, verbatim: true });
-    if (!addresses.length || addresses.some(({ address }) => isPrivateAddress(address))) {
-      throw new Error("Upstream host resolves to a private address");
-    }
-  }
-  const response = await fetch(target, {
+
+  const response = await fetch(url, {
     headers: {
       "User-Agent": "ARC-Agent-Trust/1.0"
-    },
-    redirect: "manual",
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
+    }
   });
-  if (response.status >= 300 && response.status < 400) throw new Error("Upstream redirects are not followed");
-  const declaredLength = Number(response.headers.get("content-length") || 0);
-  if (declaredLength > MAX_UPSTREAM_BYTES) throw new Error("Upstream response exceeds size limit");
-  const text = await readLimitedBody(response);
+
+  const text = await response.text();
 
   let data;
 
@@ -81,38 +70,6 @@ async function getJson(url) {
   }
 
   return data;
-}
-
-function isPrivateAddress(address) {
-  const version = net.isIP(address);
-  if (version === 4) {
-    const p = address.split(".").map(Number);
-    return p[0] === 0 || p[0] === 10 || p[0] === 127 || p[0] >= 224 ||
-      (p[0] === 169 && p[1] === 254) || (p[0] === 172 && p[1] >= 16 && p[1] <= 31) ||
-      (p[0] === 192 && p[1] === 168) || (p[0] === 100 && p[1] >= 64 && p[1] <= 127);
-  }
-  if (version === 6) {
-    const normalized = address.toLowerCase();
-    return normalized === "::" || normalized === "::1" || normalized.startsWith("fc") ||
-      normalized.startsWith("fd") || normalized.startsWith("fe8") || normalized.startsWith("fe9") ||
-      normalized.startsWith("fea") || normalized.startsWith("feb") || normalized.startsWith("::ffff:127.") ||
-      normalized.startsWith("::ffff:10.") || normalized.startsWith("::ffff:192.168.");
-  }
-  return true;
-}
-
-async function readLimitedBody(response) {
-  const chunks = [];
-  let size = 0;
-  for await (const chunk of response.body) {
-    size += chunk.length;
-    if (size > MAX_UPSTREAM_BYTES) {
-      await response.body.cancel().catch(() => {});
-      throw new Error("Upstream response exceeds size limit");
-    }
-    chunks.push(Buffer.from(chunk));
-  }
-  return Buffer.concat(chunks, size).toString("utf8");
 }
 
 
@@ -134,13 +91,11 @@ async function rpc(method, params) {
         id: 1,
         method,
         params
-      }),
-      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
+      })
     }
   );
 
-  if (!response.ok) throw new Error(`RPC HTTP ${response.status}`);
-  const data = JSON.parse(await readLimitedBody(response));
+  const data = await response.json();
 
   if (data.error) {
     throw new Error(
@@ -297,8 +252,6 @@ async function resolveMetadata(agentURI) {
   );
 
   try {
-
-    if (agentURI.length > MAX_UPSTREAM_BYTES) return null;
 
     if (
       agentURI.startsWith(
@@ -494,6 +447,25 @@ async function getOwnerLogs(owner) {
 
     return await getJson(
       `${ARC_API}/v1/address/${owner}/logs?limit=100`
+    );
+
+  } catch {
+
+    return null;
+
+  }
+
+}
+
+
+async function getValidationData(agentId) {
+
+  console.log("Reading validation data...");
+
+  try {
+
+    return await getJson(
+      `${ARC_API}/v1/agents/${agentId}/validations`
     );
 
   } catch {
@@ -794,6 +766,120 @@ function buildEvidence({
    UNKNOWN reduces confidence, not trust.
 ========================================================= */
 
+function calculateTrust(evidence) {
+
+  let positiveWeight = 0;
+  let negativeWeight = 0;
+  let knownWeight = 0;
+  let totalWeight = 0;
+
+  for (
+    const item
+    of evidence
+  ) {
+
+    totalWeight +=
+      item.weight;
+
+    if (
+      item.status === "POSITIVE"
+    ) {
+
+      positiveWeight +=
+        item.weight;
+
+      knownWeight +=
+        item.weight;
+
+    }
+
+    if (
+      item.status === "NEGATIVE"
+    ) {
+
+      negativeWeight +=
+        item.weight;
+
+      knownWeight +=
+        item.weight;
+
+    }
+
+  }
+
+  /*
+  No adverse evidence means
+  positive evidence is measured
+  against known evidence only.
+  */
+
+  let score = 0;
+
+  if (knownWeight > 0) {
+
+    score =
+      Math.round(
+        (
+          positiveWeight /
+          knownWeight
+        ) * 100
+      );
+
+  }
+
+
+  /*
+  Confidence depends on how much
+  of the evidence surface we know.
+  */
+
+  const coverage =
+    totalWeight === 0
+      ? 0
+      : (
+          knownWeight /
+          totalWeight
+        ) * 100;
+
+
+  const confidence =
+    Math.round(
+      Math.min(
+        100,
+        coverage
+      )
+    );
+
+
+  return {
+
+    trustScore:
+      score,
+
+    riskScore:
+      Math.max(
+        0,
+        100 - score
+      ),
+
+    confidence,
+
+    knownWeight,
+
+    unknownWeight:
+      totalWeight -
+      knownWeight,
+
+    coverage:
+      Math.round(
+        coverage * 100
+      ) / 100
+
+  };
+
+}
+
+
 /* =========================================================
    DECISION
 ========================================================= */
@@ -801,42 +887,60 @@ function buildEvidence({
 function getDecision({
   trustScore,
   confidence,
-  negativeSignals
+  negativeSignals,
+  blacklistSeverity,
+  criticalNegatives
 }) {
 
   /*
-  Verified adverse evidence
-  has priority.
+  Kara liste — anında HIGH_RISK
   */
-
-  if (
-    negativeSignals > 0 &&
-    trustScore < HIGH_RISK_TRUST_MAX
-  ) {
-
-    return "HIGH_RISK";
-
+  if (blacklistSeverity === 'CRITICAL' || blacklistSeverity === 'HIGH') {
+    return 'HIGH_RISK';
   }
-
 
   /*
-  Strong trust requires
-  both score AND confidence.
+  3+ kritik NEGATIVE sinyal — HIGH_RISK
   */
-
-  if (
-    trustScore >= TRUST_THRESHOLD &&
-    confidence >= TRUST_CONFIDENCE_THRESHOLD &&
-    negativeSignals === 0
-  ) {
-
-    return "TRUST";
-
+  if (criticalNegatives >= 3) {
+    return 'HIGH_RISK';
   }
 
+  /*
+  Verified adverse evidence + düşük trust
+  */
+  if (negativeSignals > 0 && trustScore < 50) {
+    return 'HIGH_RISK';
+  }
 
-  return "REVIEW";
+  /*
+  Orta şiddette olumsuz kanıt — REVIEW
+  */
+  if (negativeSignals > 0 && trustScore < 70) {
+    return 'REVIEW';
+  }
 
+  /*
+  Gri listede veya orta şiddet kara liste — REVIEW
+  */
+  if (blacklistSeverity === 'MODERATE') {
+    return 'REVIEW';
+  }
+
+  /*
+  Strong trust requires score, confidence, zero negatives.
+  Confidence eşiği 50 — ArcScan API unavailable olsa bile ulaşılabilir.
+  */
+  if (
+    trustScore >= 80 &&
+    confidence >= 50 &&
+    negativeSignals === 0 &&
+    blacklistSeverity === 'NONE'
+  ) {
+    return 'TRUST';
+  }
+
+  return 'REVIEW';
 }
 
 
@@ -846,11 +950,13 @@ function getDecision({
 
 async function analyzeAgent(agentId) {
 
-  if (!agentId || !/^\d{1,78}$/.test(String(agentId)) || BigInt(agentId) > MAX_AGENT_ID) {
-    throw new Error("Agent ID must be an unsigned 256-bit integer.");
+  if (!agentId || !/^\d+$/.test(String(agentId))) {
+    throw new Error("Agent ID must contain numbers only.");
   }
 
-  const currentAgentId = String(BigInt(agentId));
+  // Tüm state lokal — eş zamanlı analizler birbirini etkilemez
+  const localId = String(agentId);
+  const startTime = Date.now();
 
   if (!fs.existsSync(REPORT_DIR)) {
     fs.mkdirSync(REPORT_DIR, { recursive: true });
@@ -869,7 +975,7 @@ async function analyzeAgent(agentId) {
   console.log("");
 
   console.log(
-    `Agent: ${currentAgentId}`
+    `Agent: ${localId}`
   );
 
   console.log(
@@ -883,7 +989,7 @@ async function analyzeAgent(agentId) {
   */
 
   const identity =
-    await readIdentity(currentAgentId);
+    await readIdentity(localId);
 
   console.log("");
 
@@ -905,22 +1011,93 @@ async function analyzeAgent(agentId) {
   METADATA
   */
 
-  const [metadata, agentData] = await Promise.all([
-    resolveMetadata(identity.agentURI),
-    getAgentData(currentAgentId)
+  const metadata =
+    await resolveMetadata(
+      identity.agentURI
+    );
+
+  /*
+  LIVE INDEXER
+  */
+
+  const agentData =
+    await getAgentData(localId);
+
+  // API durum takibi — raporda şeffaf gösterim
+  const apiStatus = {
+    rpc:        identity.owner !== null ? 'ok' : 'error',
+    arcscan:    agentData ? 'ok' : 'unavailable',
+    validation: 'pending'
+  };
+
+  /*
+  OWNER
+  */
+
+  const ownerData =
+    await getOwnerData(
+      identity.owner
+    );
+
+  /*
+  ACTIVITY
+  */
+
+  const activity =
+    await getOwnerActivity(
+      identity.owner
+    );
+
+  /*
+  FACTS
+  */
+
+  const facts =
+    await getOwnerFacts(
+      identity.owner
+    );
+
+  /*
+  LOGS
+  */
+
+  const logs =
+    await getOwnerLogs(
+      identity.owner
+    );
+
+  /*
+  VALIDATION
+  */
+
+  const validationData =
+    await getValidationData(localId);
+
+  apiStatus.validation = validationData ? 'ok' : 'unavailable';
+
+  /*
+  ON-CHAIN DIREKT OKUMA (ArcScan'a bağımlı değil)
+  */
+
+  console.log("Reading Reputation Registry (on-chain)...");
+  const [onChainRep, onChainVal, onChainEvents] = await Promise.allSettled([
+    readReputationOnChain(localId),
+    readValidationOnChain(localId),
+    scanAgentEvents(localId),
   ]);
-  const [ownerData, activity, facts, logs] = await Promise.all([
-    getOwnerData(identity.owner),
-    getOwnerActivity(identity.owner),
-    getOwnerFacts(identity.owner),
-    getOwnerLogs(identity.owner)
-  ]);
+
+  const repData = onChainRep.status  === 'fulfilled' ? onChainRep.value  : null;
+  const valData = onChainVal.status  === 'fulfilled' ? onChainVal.value  : null;
+  const evtData = onChainEvents.status === 'fulfilled' ? onChainEvents.value : null;
+
+  apiStatus.reputationRegistry = repData && !repData.error ? 'ok' : 'unavailable';
+  apiStatus.validationRegistry = valData && !valData.error ? 'ok' : 'unavailable';
 
   /*
   EVIDENCE
   */
 
-  const evidence =
+  let evidence =
     buildEvidence({
       identity,
       metadata,
@@ -930,6 +1107,85 @@ async function analyzeAgent(agentId) {
       facts,
       logs
     });
+
+  /*
+  ── ON-CHAIN REPUTATION & VALIDATION SİNYALLERİ ──
+  */
+
+  // Reputation Registry
+  if (repData && !repData.error) {
+    if (repData.feedbackCount > 0) {
+      if (repData.averageScore !== null && repData.averageScore > 0) {
+        evidence.push({ category: 'reputation', signal: 'POSITIVE_REPUTATION_SCORE', status: 'POSITIVE', weight: 20, detail: `${repData.feedbackCount} feedback, avg=${repData.averageScore}` });
+      } else if (repData.averageScore !== null && repData.averageScore < 0) {
+        evidence.push({ category: 'reputation', signal: 'NEGATIVE_REPUTATION_SCORE', status: 'NEGATIVE', weight: 25, severity: 'HIGH', detail: `Avg score: ${repData.averageScore}` });
+      } else {
+        evidence.push({ category: 'reputation', signal: 'FEEDBACK_EXISTS_NO_SCORE', status: 'UNKNOWN', weight: 10, detail: `${repData.feedbackCount} feedbacks` });
+      }
+    } else {
+      evidence.push({ category: 'reputation', signal: 'NO_REPUTATION_FEEDBACK', status: 'UNKNOWN', weight: 10 });
+    }
+  }
+
+  // Validation Registry
+  if (valData && !valData.error) {
+    if (valData.validationCount > 0) {
+      evidence.push({ category: 'validation', signal: 'ONCHAIN_VALIDATIONS_FOUND', status: 'POSITIVE', weight: 15, detail: `${valData.validationCount} validations` });
+    } else {
+      evidence.push({ category: 'validation', signal: 'NO_ONCHAIN_VALIDATIONS', status: 'UNKNOWN', weight: 15 });
+    }
+  }
+
+  // Event sinyalleri
+  if (evtData && !evtData.error) {
+    if (evtData.registered) {
+      evidence.push({ category: 'identity', signal: 'REGISTRATION_EVENT_FOUND', status: 'POSITIVE', weight: 10, detail: `Block ${evtData.registered.blockNumber}` });
+    }
+    if (evtData.feedbacks.length > 0) {
+      evidence.push({ category: 'reputation', signal: 'RECENT_FEEDBACK_EVENTS', status: 'POSITIVE', weight: 10, detail: `${evtData.feedbacks.length} recent events` });
+    }
+    if (evtData.validations.length > 0) {
+      evidence.push({ category: 'validation', signal: 'RECENT_VALIDATION_EVENTS', status: 'POSITIVE', weight: 10, detail: `${evtData.validations.length} recent events` });
+    }
+  }
+
+  /*
+  ── NEGATIVE SİNYAL MOTORLARI ──
+  */
+
+  // 1. Kara liste kontrolü
+  console.log("Running blacklist check...");
+  const blacklistSignals = checkBlacklist(localId, identity.owner, agentData);
+  evidence = evidence.concat(blacklistSignals);
+
+  // 2. Sybil tespiti
+  console.log("Running Sybil detection...");
+  const sybilSignals = await checkSybil(localId, identity.owner, ownerData);
+  evidence = evidence.concat(sybilSignals);
+
+  // 3. Temporal analiz
+  console.log("Running temporal analysis...");
+  const temporalSignals = checkTemporal(activity, ownerData);
+  evidence = evidence.concat(temporalSignals);
+
+  // Kara liste şiddeti
+  const blacklistSeverity = getSeverity(blacklistSignals);
+
+  /*
+  VALIDATOR AĞIRLIK MOTORU
+  */
+
+  let validatorInfo = { trustFactor: 1.0, validatorSummary: [] };
+
+  if (applyValidatorWeights && extractValidators) {
+    const validators = extractValidators(validationData);
+    if (validators.length > 0) {
+      const result = await applyValidatorWeights(evidence, validators);
+      evidence           = result.adjustedEvidence;
+      validatorInfo      = { trustFactor: result.trustFactor, validatorSummary: result.validatorSummary };
+      console.log(`Validator weight applied: ${validators.length} validators, factor=${result.trustFactor}`);
+    }
+  }
 
   /*
   SCORE
@@ -947,15 +1203,20 @@ async function analyzeAgent(agentId) {
         "NEGATIVE"
     ).length;
 
+  const criticalNegatives =
+    evidence.filter(
+      item =>
+        item.status === "NEGATIVE" &&
+        (item.severity === "CRITICAL" || item.severity === "HIGH")
+    ).length;
+
   const decision =
     getDecision({
-      trustScore:
-        scoring.trustScore,
-
-      confidence:
-        scoring.confidence,
-
-      negativeSignals
+      trustScore:       scoring.trustScore,
+      confidence:       scoring.confidence,
+      negativeSignals,
+      blacklistSeverity,
+      criticalNegatives
     });
 
   /*
@@ -986,30 +1247,25 @@ async function analyzeAgent(agentId) {
   REPORT
   */
 
+  const analysisDurationMs = Date.now() - startTime;
+
   const report = {
 
-    schemaVersion: "1.1",
     version: "v66",
-    policy: {
-      id: process.env.TRUST_POLICY_ID || "arc-default-v1",
-      trustScoreThreshold: TRUST_THRESHOLD,
-      confidenceThreshold: TRUST_CONFIDENCE_THRESHOLD,
-      highRiskTrustMax: HIGH_RISK_TRUST_MAX,
-      scoringAlgorithm: "known-weight-ratio-v1"
-    },
 
     agentId:
-      currentAgentId,
+      localId,
 
-        network:
+    network:
       _NETWORK_NAME,
 
     chainId:
       _CHAIN_ID,
 
-
     analyzedAt:
       new Date().toISOString(),
+
+    analysisDurationMs,
 
     registries: {
 
@@ -1058,6 +1314,16 @@ async function analyzeAgent(agentId) {
 
     },
 
+    validationData,
+
+    onChain: {
+      reputation: repData,
+      validation: valData,
+      events:     evtData,
+    },
+
+    validators: validatorInfo,
+
     trust: {
 
       score:
@@ -1078,28 +1344,36 @@ async function analyzeAgent(agentId) {
         scoring.knownWeight,
 
       unknownWeight:
-        scoring.unknownWeight,
-
-      breakdown:
-        scoring.breakdown,
-
-      totals:
-        scoring.totals
+        scoring.unknownWeight
 
     },
 
     safety: {
 
-      fraud:
-        "NOT_ESTABLISHED",
+      fraud: blacklistSeverity !== 'NONE'
+        ? blacklistSeverity === 'CRITICAL' ? 'HIGH_RISK' : 'POSSIBLE'
+        : 'NOT_ESTABLISHED',
 
-      maliciousness:
-        "NOT_ESTABLISHED",
+      maliciousness: criticalNegatives >= 2
+        ? 'POSSIBLE'
+        : 'NOT_ESTABLISHED',
 
-      manipulation:
-        "NOT_ESTABLISHED"
+      manipulation: evidence.some(e => e.signal === 'BURST_PATTERN_DETECTED')
+        ? 'POSSIBLE'
+        : 'NOT_ESTABLISHED',
+
+      sybil: evidence.some(e => e.signal === 'SYBIL_PATTERN_DETECTED')
+        ? 'DETECTED'
+        : evidence.some(e => e.signal === 'SYBIL_SUSPICIOUS_CLUSTER')
+          ? 'SUSPECTED'
+          : 'NOT_ESTABLISHED',
+
+      blacklistSeverity,
+      criticalNegativeCount: criticalNegatives
 
     },
+
+    apiStatus,
 
     status:
       "LIVE_ANALYSIS_COMPLETE"
@@ -1108,13 +1382,21 @@ async function analyzeAgent(agentId) {
 
 
   /*
-  SAVE
+  SAVE TO DB
+  */
+
+  if (saveAnalysis) {
+    try { saveAnalysis(report); } catch (e) { console.warn('DB save failed:', e.message); }
+  }
+
+  /*
+  SAVE TO FILE
   */
 
   const output =
     path.join(
       REPORT_DIR,
-      `agent-live-${currentAgentId}-v66.json`
+      `agent-live-${localId}-v66.json`
     );
 
   if (!process.env.VERCEL || process.env.SAVE_REPORTS === "true") {
@@ -1146,7 +1428,7 @@ async function analyzeAgent(agentId) {
   console.log("");
 
   console.log(
-    `Agent: ${currentAgentId}`
+    `Agent: ${localId}`
   );
 
   console.log(
